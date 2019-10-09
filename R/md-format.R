@@ -135,9 +135,9 @@ md_task <- function(x, checks = NULL, cat = FALSE) {
   }
   list <- paste(boxes, x)
   if (cat) {
-    cat(quote, sep = "\n")
+    cat(list, sep = "\n")
   } else {
-    return(quote)
+    return(list)
   }
 }
 

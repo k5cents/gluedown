@@ -134,7 +134,11 @@ md_task <- function(x, checks = NULL, cat = FALSE) {
     boxes[checks] <- "* [x]"
   }
   list <- paste(boxes, x)
-
+  if (cat) {
+    cat(quote, sep = "\n")
+  } else {
+    return(quote)
+  }
 }
 
 #' @title Markdown Block Quotes

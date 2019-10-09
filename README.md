@@ -37,7 +37,7 @@ library(gluedown)
 library(dplyr)
 library(rvest)
 states <- sample(state.name, 3)
-chores <- c("Wake up", "Eat Breakfast", "Brush Teeth")
+chores <- c("Wake up", "Eat breakfast", "Brush teeth")
 preamble <- html_text(html_nodes(read_html("https://plaintext.us/constitution"), "p"))[[1]]
 ```
 
@@ -45,9 +45,9 @@ preamble <- html_text(html_nodes(read_html("https://plaintext.us/constitution"),
 md_bullet(states, cat = TRUE)
 ```
 
-  - Wyoming
-  - Maine
-  - Iowa
+  - South Carolina
+  - Georgia
+  - Idaho
 
 <!-- end list -->
 
@@ -55,9 +55,9 @@ md_bullet(states, cat = TRUE)
 md_list(states, cat = TRUE)
 ```
 
-1.  Wyoming
-2.  Maine
-3.  Iowa
+1.  South Carolina
+2.  Georgia
+3.  Idaho
 
 <!-- end list -->
 
@@ -66,8 +66,8 @@ md_task(chores, check = c(1, 3), cat = TRUE)
 ```
 
   - [x] Wake up
-  - [ ] Eat Breakfast
-  - [x] Brush Teeth
+  - [ ] Eat breakfast
+  - [x] Brush teeth
 
 <!-- end list -->
 

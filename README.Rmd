@@ -43,7 +43,7 @@ library(gluedown)
 library(dplyr)
 library(rvest)
 states <- sample(state.name, 3)
-chores <- c("Wake up", "Eat Breakfast", "Brush Teeth")
+chores <- c("Wake up", "Eat breakfast", "Brush teeth")
 preamble <- html_text(html_nodes(read_html("https://plaintext.us/constitution"), "p"))[[1]]
 ```
 

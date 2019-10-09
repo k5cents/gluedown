@@ -15,3 +15,5 @@ Description: This package is used to wrap R character vectors in markdown
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/kiernann/gluedown
+BugReports: https://github.com/kiernann/gluedown/issues

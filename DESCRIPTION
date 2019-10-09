@@ -8,12 +8,15 @@ Authors@R:
            email = "kiernann@protonmail.com")
 Description: This package is used to wrap R character vectors in markdown 
     formatting. Markdown is a plain text standard used to style text in a 
-    readable format. Markdown is u  sed on websites like Reddit and GitHub to 
+    readable format. Markdown is used on websites like Reddit and GitHub to 
     style plain text. Markdown is also a popular choice for R uses and is 
-    implimented in the RMarkdown standard. This package uses the GitHub Falvored
+    implemented in the RMarkdown standard. This package uses the GitHub Flavored
     Markdown (GFM) version of the Commonmark standard.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/kiernann/gluedown
 BugReports: https://github.com/kiernann/gluedown/issues
+Imports: 
+    glue (>= 1.3.1),
+    stringr (>= 1.4.0)

@@ -121,17 +121,17 @@ md_list <- function(x, seq = TRUE, pad = TRUE, cat = FALSE) {
 
 #' @title Markdown Task List
 #' @param x The vector of task list items.
-#' @param checks A vector of list elements which should be checked off.
+#' @param check A vector of list elements which should be checked off.
 #' @param cat logical; Should the list be concatenated and printed, with each
 #'   bullet element separated by a new line? Defaults to `FALSE`.
 #' @return A character vector with elements preceded check box brackets.
 #' @examples
-#' md_task(c("Wake up", "Eat Breakfast", "Brush Teeth"), checks = 1:2)
+#' md_task(c("Wake up", "Eat Breakfast", "Brush Teeth"), check = 1:2)
 #' @export
-md_task <- function(x, checks = NULL, cat = FALSE) {
+md_task <- function(x, check = NULL, cat = FALSE) {
   boxes <- rep("* [ ]", length(x))
-  if (!is.null(checks)) {
-    boxes[checks] <- "* [x]"
+  if (!is.null(check)) {
+    boxes[check] <- "* [x]"
   }
   list <- paste(boxes, x)
   if (cat) {

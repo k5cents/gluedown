@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# gluedown
+# gluedown <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
 
@@ -45,9 +45,9 @@ preamble <- html_text(html_nodes(read_html("https://plaintext.us/constitution"),
 md_bullet(states, cat = TRUE)
 ```
 
-  - South Carolina
-  - Georgia
+  - Alaska
   - Idaho
+  - North Carolina
 
 <!-- end list -->
 
@@ -55,9 +55,9 @@ md_bullet(states, cat = TRUE)
 md_list(states, cat = TRUE)
 ```
 
-1.  South Carolina
-2.  Georgia
-3.  Idaho
+1.  Alaska
+2.  Idaho
+3.  North Carolina
 
 <!-- end list -->
 

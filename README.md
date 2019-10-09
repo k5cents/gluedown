@@ -23,29 +23,31 @@ You can install the development version from
 devtools::install_github("kiernann/gluedown")
 ```
 
-## Example
+## Usage
 
-By default, many `gluedown` functions simply create character strings
-from character strings. These new vectors can then also be concatenated
-and printed; this is useful in combination with the `results='asis'`
-RMarkdown chunk option.
+By default, many `gluedown` functions simply take a character vector and
+return that same vector with each element wrapped in the corresponding
+markdown syntax. With the `cat` argument, these wrapped vectors can by
+easily concatenated, separated with a newline, and printed; this is
+useful in combination with the `results='asis'` RMarkdown chunk option
+to directly print markdown blocks.
 
 ``` r
 library(gluedown)
+library(dplyr)
 library(rvest)
 states <- sample(state.name, 3)
 chores <- c("Wake up", "Eat Breakfast", "Brush Teeth")
-url <- "https://plaintext.us/constitution"
-preamble <- html_text(html_nodes(read_html(url), "p"))[[1]]
+preamble <- html_text(html_nodes(read_html("https://plaintext.us/constitution"), "p"))[[1]]
 ```
 
 ``` r
 md_bullet(states, cat = TRUE)
 ```
 
-  - California
   - Wyoming
-  - Oklahoma
+  - Maine
+  - Iowa
 
 <!-- end list -->
 
@@ -53,14 +55,14 @@ md_bullet(states, cat = TRUE)
 md_list(states, cat = TRUE)
 ```
 
-1.  California
-2.  Wyoming
-3.  Oklahoma
+1.  Wyoming
+2.  Maine
+3.  Iowa
 
 <!-- end list -->
 
 ``` r
-md_task(chores, cat = TRUE, checks = c(1, 3))
+md_task(chores, check = c(1, 3), cat = TRUE)
 ```
 
   - [x] Wake up
@@ -79,11 +81,12 @@ md_quote(preamble, cat = TRUE)
 > of Liberty to ourselves and our Posterity, do ordain and establish
 > this Constitution for the United States of America.
 
-The functions are also semi-useful when used inline in Rmarkdown
-documents. They can be used to **bold**, *italicize*, ~~strike
-through~~, etc.
+``` r
+md_table(band_members)
+```
 
-## To Do
-
-  - Implement the table functionality from `knitr::kable()`
-  - Improve the vectorization of `md_fence()`
+| name | band    |
+| :--- | :------ |
+| Mick | Stones  |
+| John | Beatles |
+| Paul | Beatles |

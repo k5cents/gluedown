@@ -37,12 +37,23 @@ By default, many `gluedown` functions simply create character strings from
 character strings. These new vectors can then also be concatenated and printed;
 this is useful in combination with the `results='asis'` RMarkdown chunk option.
 
-```{r example, results='asis'}
+```{r prepare, warning=FALSE, message=FALSE}
 library(gluedown)
-x <- sample(state.name, 3)
-md_bullet(x, cat = TRUE)
-md_list(x, cat = TRUE)
-md_task(x, cat = TRUE, checks = 1:2)
+library(rvest)
+states <- sample(state.name, 3)
+chores <- c("Wake up", "Eat Breakfast", "Brush Teeth")
+url <- "https://plaintext.us/constitution"
+preamble <- html_text(html_nodes(read_html(url), "p"))[[1]]
+```
+
+```{r example_lists, results='asis'}
+md_bullet(states, cat = TRUE)
+md_list(states, cat = TRUE)
+md_task(chores, cat = TRUE, checks = c(1, 3))
+```
+
+```{r example_quote, results='asis'}
+md_quote(preamble, cat = TRUE)
 ```
 
 The functions are also semi-useful when used inline in Rmarkdown documents.

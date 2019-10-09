@@ -32,33 +32,52 @@ RMarkdown chunk option.
 
 ``` r
 library(gluedown)
-x <- sample(state.name, 3)
-md_bullet(x, cat = TRUE)
+library(rvest)
+states <- sample(state.name, 3)
+chores <- c("Wake up", "Eat Breakfast", "Brush Teeth")
+url <- "https://plaintext.us/constitution"
+preamble <- html_text(html_nodes(read_html(url), "p"))[[1]]
 ```
 
-  - Missouri
-  - Louisiana
-  - Oregon
+``` r
+md_bullet(states, cat = TRUE)
+```
+
+  - California
+  - Wyoming
+  - Oklahoma
 
 <!-- end list -->
 
 ``` r
-md_list(x, cat = TRUE)
+md_list(states, cat = TRUE)
 ```
 
-1.  Missouri
-2.  Louisiana
-3.  Oregon
+1.  California
+2.  Wyoming
+3.  Oklahoma
 
 <!-- end list -->
 
 ``` r
-md_task(x, cat = TRUE, checks = 1:2)
+md_task(chores, cat = TRUE, checks = c(1, 3))
 ```
 
-  - [x] Missouri
-  - [x] Louisiana
-  - [ ] Oregon
+  - [x] Wake up
+  - [ ] Eat Breakfast
+  - [x] Brush Teeth
+
+<!-- end list -->
+
+``` r
+md_quote(preamble, cat = TRUE)
+```
+
+> We the People of the United States, in Order to form a more perfect
+> Union, establish Justice, insure domestic Tranquility, provide for the
+> common defence, promote the general Welfare, and secure the Blessings
+> of Liberty to ourselves and our Posterity, do ordain and establish
+> this Constitution for the United States of America.
 
 The functions are also semi-useful when used inline in Rmarkdown
 documents. They can be used to **bold**, *italicize*, ~~strike

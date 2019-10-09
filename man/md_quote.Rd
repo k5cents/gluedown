@@ -4,10 +4,13 @@
 \alias{md_quote}
 \title{Markdown Block Quotes}
 \usage{
-md_quote(x)
+md_quote(x, cat = TRUE)
 }
 \arguments{
 \item{x}{The character vector of quotes.}
+
+\item{cat}{logical; Should the list be concatenated and printed, with each
+bullet element separated by a new line? Defaults to `TRUE`.}
 }
 \value{
 A character vector with elements preceded by an greater-than symbol.

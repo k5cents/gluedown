@@ -134,22 +134,25 @@ md_task <- function(x, checks = NULL, cat = FALSE) {
     boxes[checks] <- "* [x]"
   }
   list <- paste(boxes, x)
-  if (cat) {
-    cat(list, sep = "\n")
-  } else {
-    return(list)
-  }
+
 }
 
 #' @title Markdown Block Quotes
 #' @param x The character vector of quotes.
+#' @param cat logical; Should the list be concatenated and printed, with each
+#'   bullet element separated by a new line? Defaults to `TRUE`.
 #' @return A character vector with elements preceded by an greater-than symbol.
 #' @examples
 #' md_quote(gluedown:::preamble)
 #' @export
-md_quote <- function(x) {
+md_quote <- function(x, cat = TRUE) {
   # todo: str_wrap?
-  paste(">", x)
+  quote <- paste(">", x)
+  if (cat) {
+    cat(quote, sep = "\n")
+  } else {
+    return(quote)
+  }
 }
 
 #' @title Markdown Horizontal Rule
@@ -225,8 +228,7 @@ md_issue <- function(repo, num) {
 #'   this allows many markdown engines to adjust the syntax highlighing.
 #'   Defaults to "R".
 #' @param cat logical; Should the list be concatenated and printed, with each
-#'   bullet element separated by a new line? Defaults to `TRUE` for only
-#'   [md_fence()].
+#'   bullet element separated by a new line? Defaults to `TRUE`.
 #' @return A character vector wrapped on either side by code fences.
 #' @examples
 #' md_fence(gluedown:::plot)

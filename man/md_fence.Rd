@@ -15,8 +15,7 @@ this allows many markdown engines to adjust the syntax highlighing.
 Defaults to "R".}
 
 \item{cat}{logical; Should the list be concatenated and printed, with each
-bullet element separated by a new line? Defaults to `TRUE` for only
-[md_fence()].}
+bullet element separated by a new line? Defaults to `TRUE`.}
 }
 \value{
 A character vector wrapped on either side by code fences.

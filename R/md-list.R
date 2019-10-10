@@ -67,7 +67,8 @@ md_list <- function(x, seq = TRUE, pad = TRUE, punct = c(".", ")"), cat = FALSE)
 }
 
 #' @title Markdown Task List
-#' @description
+#' @description Create a markdown task list from a vector of tasks. Define which task items should
+#'   be checked off. Task lists are a GitHub specific markdown feature.
 #' @details From the [GFM spec](https://github.github.com/gfm/#task-list-item): A task
 #'   [list item](https://github.github.com/gfm/#list-items) is a list item where the first block in
 #'   it is a paragraph which begins with a

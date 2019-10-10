@@ -14,7 +14,7 @@
 #' @param ... Arguments passed to [knitr::kable()]
 #' @return A character vector of markdown table source code.
 #' @examples
-#' md_table(ggplot2::presidential)
+#' md_table(mtcars)
 #' @importFrom knitr kable
 #' @export
 md_table <- function(df, ...) {

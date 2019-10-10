@@ -18,7 +18,8 @@ bullet element separated by a new line? Defaults to \code{FALSE}.}
 A character vector check box brackets prepended to each element.
 }
 \description{
-Markdown Task List
+Create a markdown task list from a vector of tasks. Define which task items should
+be checked off. Task lists are a GitHub specific markdown feature.
 }
 \details{
 From the \href{https://github.github.com/gfm/#task-list-item}{GFM spec}: A task

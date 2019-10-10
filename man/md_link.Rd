@@ -2,20 +2,28 @@
 % Please edit documentation in R/md-reference.R
 \name{md_link}
 \alias{md_link}
-\title{Markdown Hyperlink}
+\title{Markdown Inline Like}
 \usage{
-md_link(text, url)
+md_link(text, url, title = NULL)
 }
 \arguments{
 \item{text}{The chracter vector to be displayed as hyperlinked text.}
 
 \item{url}{The URL to lead to.}
+
+\item{title}{The title of the link.}
 }
 \value{
 A character vector of collapsed display text and associated URLs.
 }
 \description{
-Markdown Hyperlink
+Form an inline hyperlink to an another website.
+}
+\details{
+From the \href{https://github.github.com/gfm/#inline-link}{GFM spec}: An inline link
+consists of a \href{https://github.github.com/gfm/#link-text}{link text} followed immediately by a
+left parenthesis \code{(}... an optional link destination, an optional link title separated from
+the link destination by whitespace, optional whitespace, and a right parenthesis \code{)}.
 }
 \examples{
 md_link("tidyverse", "https://www.tidyverse.org/")

@@ -30,5 +30,5 @@ cells whose only content are hyphens (\code{-}), and optionally, a leading or tr
 or both, to indicate left, right, or center alignment respectively.
 }
 \examples{
-md_table(ggplot2::presidential)
+md_table(mtcars)
 }

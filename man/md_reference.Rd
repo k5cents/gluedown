@@ -4,12 +4,14 @@
 \alias{md_reference}
 \title{Markdown Link Reference Definition}
 \usage{
-md_reference(label, url, title)
+md_reference(label, url, title = NULL)
 }
 \arguments{
+\item{label}{The chracter vector to be displayed as hyperlinked text.}
+
 \item{url}{The URL to lead to.}
 
-\item{text}{The chracter vector to be displayed as hyperlinked text.}
+\item{title}{The title of the link.}
 }
 \value{
 A character vector of collapsed display text and associated URLs.
@@ -32,5 +34,6 @@ separated from the link destination by whitespace. No further
 on the line.
 }
 \examples{
+md_reference("tv", "https://www.tidyverse.org/")
 md_reference("tv", "https://www.tidyverse.org/", "tidyverse")
 }

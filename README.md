@@ -12,6 +12,16 @@ status](https://www.r-pkg.org/badges/version/gluedown)](https://CRAN.R-project.o
 <!-- badges: end -->
 
 The `gluedown` package helps wrap character vectors in markdown syntax.
+Markdown is a lightweight technique for formatting text. Markdown is
+prevalent in R coding; this package helps transition from raw R vectors
+and formatted Markdown.
+
+The package used [GitHub Flavored
+Markdown](https://github.github.com/gfm/) (GFM), which is a
+site-specific version of the [CommonMark
+specification](https://spec.commonmark.org/), an unambiguous
+implimentation of the John Gruber’s [original Markdown
+syntax](https://daringfireball.net/projects/markdown/).
 
 ## Installation
 
@@ -29,7 +39,7 @@ By default, many `gluedown` functions simply take a character vector and
 return that same vector with each element wrapped in the corresponding
 markdown syntax. With the `cat` argument, these wrapped vectors can by
 easily concatenated, separated with a newline, and printed; this is
-useful in combination with the `results='asis'` RMarkdown chunk option
+useful in combination with the `results='asis'` R Markdown chunk option
 to directly print markdown blocks.
 
 ``` r
@@ -42,22 +52,12 @@ preamble <- html_text(html_nodes(read_html("https://plaintext.us/constitution"),
 ```
 
 ``` r
-md_bullet(states, cat = TRUE)
-```
-
-  - Alaska
-  - Idaho
-  - North Carolina
-
-<!-- end list -->
-
-``` r
 md_list(states, cat = TRUE)
 ```
 
-1.  Alaska
-2.  Idaho
-3.  North Carolina
+1.  Montana
+2.  Delaware
+3.  New Mexico
 
 <!-- end list -->
 

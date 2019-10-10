@@ -20,7 +20,17 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/gluedown)](https://CRAN.R-project.org/package=gluedown)
 <!-- badges: end -->
 
-The `gluedown` package helps wrap character vectors in markdown syntax.
+The `gluedown` package helps wrap character vectors in markdown syntax. Markdown is a lightweight
+technique for formatting text. Markdown is prevalent in R coding; this package helps transition
+from raw R vectors and formatted Markdown.
+
+The package used [GitHub Flavored Markdown][gfm] (GFM), which is a site-specific version of the
+[CommonMark specification][cm], an unambiguous implimentation of the John Gruber's 
+[original Markdown syntax][df].
+
+[gfm]: https://github.github.com/gfm/
+[cm]: https://spec.commonmark.org/
+[df]: https://daringfireball.net/projects/markdown/
 
 ## Installation
 
@@ -36,7 +46,7 @@ devtools::install_github("kiernann/gluedown")
 By default, many `gluedown` functions simply take a character vector and return that same vector
 with each element wrapped in the corresponding markdown syntax. With the `cat` argument, these
 wrapped vectors can by easily concatenated, separated with a newline, and printed; this is useful
-in combination with the `results='asis'` RMarkdown chunk option to directly print markdown blocks.
+in combination with the `results='asis'` R Markdown chunk option to directly print markdown blocks.
 
 ```{r prepare, warning=FALSE, message=FALSE}
 library(gluedown)
@@ -47,16 +57,18 @@ chores <- c("Wake up", "Eat breakfast", "Brush teeth")
 preamble <- html_text(html_nodes(read_html("https://plaintext.us/constitution"), "p"))[[1]]
 ```
 
-```{r example_lists, results='asis'}
-md_bullet(states, cat = TRUE)
+```{r ex_list, results='asis'}
 md_list(states, cat = TRUE)
+```
+
+```{r ex_task, results='asis'}
 md_task(chores, check = c(1, 3), cat = TRUE)
 ```
 
-```{r example_quote, results='asis'}
+```{r ex_quote, results='asis'}
 md_quote(preamble, cat = TRUE)
 ```
 
-```{r example_table}
+```{r ex_table, results='asis'}
 md_table(band_members)
-```
+  ```

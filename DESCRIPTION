@@ -1,6 +1,6 @@
 Package: gluedown
 Title: Wrap Vectors in Markdown Formatting
-Version: 0.0.0.9000
+Version: 0.0.0.9002
 Authors@R: 
     person(given = "Kiernan",
            family = "Nicholls",
@@ -23,3 +23,4 @@ Imports:
     stringr (>= 1.4.0),
     knitr (>= 1.25)
 RoxygenNote: 6.1.1
+Roxygen: list(markdown = TRUE)

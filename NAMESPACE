@@ -2,6 +2,7 @@
 
 export(md_bold)
 export(md_bullet)
+export(md_define)
 export(md_fence)
 export(md_heading)
 export(md_image)

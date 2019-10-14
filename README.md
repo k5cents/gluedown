@@ -11,10 +11,11 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 status](https://www.r-pkg.org/badges/version/gluedown)](https://CRAN.R-project.org/package=gluedown)
 <!-- badges: end -->
 
-The `gluedown` package helps wrap character vectors in markdown syntax.
-Markdown is a lightweight technique for formatting text. Markdown is
-prevalent in R coding; this package helps transition from raw R vectors
-and formatted Markdown.
+The `gluedown` package uses
+[`glue()`](https://github.com/tidyverse/glue) to wrap character vectors
+in markdown syntax. Markdown is a lightweight, plain-text markup
+language prevalent in the R community. This package helps transition
+from raw R vectors and formatted markdown text.
 
 The package used [GitHub Flavored
 Markdown](https://github.github.com/gfm/) (GFM), which is a
@@ -36,11 +37,14 @@ devtools::install_github("kiernann/gluedown")
 ## Usage
 
 By default, many `gluedown` functions simply take a character vector and
-return that same vector with each element wrapped in the corresponding
-markdown syntax. With the `cat` argument, these wrapped vectors can by
-easily concatenated, separated with a newline, and printed; this is
-useful in combination with the `results='asis'` R Markdown chunk option
-to directly print markdown blocks.
+return that same vector with each element wrapped in the appropriate
+markdown syntax.
+
+With the `cat` argument, these wrapped vectors can by easily
+concatenated, separated with a newline, and printed; this is useful in
+combination with the `results='asis'` [R
+Markdown](https://github.com/rstudio/rmarkdown) chunk option to directly
+print markdown blocks. This output can also be used inline.
 
 ``` r
 library(gluedown)
@@ -48,15 +52,15 @@ library(dplyr)
 library(rvest)
 states <- sample(state.name, 3)
 chores <- c("Wake up", "Eat breakfast", "Brush teeth")
-preamble <- html_text(html_nodes(read_html("https://plaintext.us/constitution"), "p"))[[1]]
+preamble <- html_text(html_node(read_html("https://w.wiki/A58"), "blockquote"))
 ```
 
 ``` r
 md_list(states, cat = TRUE)
 ```
 
-1.  Montana
-2.  Delaware
+1.  Tennessee
+2.  West Virginia
 3.  New Mexico
 
 <!-- end list -->
@@ -77,9 +81,9 @@ md_quote(preamble, cat = TRUE)
 
 > We the People of the United States, in Order to form a more perfect
 > Union, establish Justice, insure domestic Tranquility, provide for the
-> common defence, promote the general Welfare, and secure the Blessings
-> of Liberty to ourselves and our Posterity, do ordain and establish
-> this Constitution for the United States of America.
+> common defence,\[note 1\] promote the general Welfare, and secure the
+> Blessings of Liberty to ourselves and our Posterity, do ordain and
+> establish this Constitution for the United States of America.
 
 ``` r
 md_table(band_members)

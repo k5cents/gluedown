@@ -20,14 +20,15 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/gluedown)](https://CRAN.R-project.org/package=gluedown)
 <!-- badges: end -->
 
-The `gluedown` package helps wrap character vectors in markdown syntax. Markdown is a lightweight
-technique for formatting text. Markdown is prevalent in R coding; this package helps transition
-from raw R vectors and formatted Markdown.
+The `gluedown` package uses [`glue()`][glue] to wrap character vectors in markdown syntax. Markdown
+is a lightweight, plain-text markup language prevalent in the R community. This package helps
+transition from raw R vectors and formatted markdown text.
 
 The package used [GitHub Flavored Markdown][gfm] (GFM), which is a site-specific version of the
 [CommonMark specification][cm], an unambiguous implimentation of the John Gruber's 
 [original Markdown syntax][df].
 
+[glue]: https://github.com/tidyverse/glue
 [gfm]: https://github.github.com/gfm/
 [cm]: https://spec.commonmark.org/
 [df]: https://daringfireball.net/projects/markdown/
@@ -36,7 +37,7 @@ The package used [GitHub Flavored Markdown][gfm] (GFM), which is a site-specific
 
 You can install the development version from [GitHub](https://github.com/) with:
 
-``` r
+```r
 # install.packages("devtools")
 devtools::install_github("kiernann/gluedown")
 ```
@@ -44,9 +45,13 @@ devtools::install_github("kiernann/gluedown")
 ## Usage
 
 By default, many `gluedown` functions simply take a character vector and return that same vector
-with each element wrapped in the corresponding markdown syntax. With the `cat` argument, these
-wrapped vectors can by easily concatenated, separated with a newline, and printed; this is useful
-in combination with the `results='asis'` R Markdown chunk option to directly print markdown blocks.
+with each element wrapped in the appropriate markdown syntax. 
+
+With the `cat` argument, these wrapped vectors can by easily concatenated, separated with a
+newline, and printed; this is useful in combination with the `results='asis'` [R Markdown][rmd]
+chunk option to directly print markdown blocks. This output can also be used inline.
+
+[rmd]: https://github.com/rstudio/rmarkdown
 
 ```{r prepare, warning=FALSE, message=FALSE}
 library(gluedown)
@@ -54,7 +59,7 @@ library(dplyr)
 library(rvest)
 states <- sample(state.name, 3)
 chores <- c("Wake up", "Eat breakfast", "Brush teeth")
-preamble <- html_text(html_nodes(read_html("https://plaintext.us/constitution"), "p"))[[1]]
+preamble <- html_text(html_node(read_html("https://w.wiki/A58"), "blockquote"))
 ```
 
 ```{r ex_list, results='asis'}
@@ -71,4 +76,4 @@ md_quote(preamble, cat = TRUE)
 
 ```{r ex_table, results='asis'}
 md_table(band_members)
-  ```
+```

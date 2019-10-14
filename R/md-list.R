@@ -16,7 +16,8 @@ md_bullet <- function(x, cat = FALSE) {
     cat(list, sep = "\n")
   } else {
     return(list)
-  }}
+  }
+}
 
 #' @title Markdown Numered List
 #' @description Form a single-level ordered list from a vector.

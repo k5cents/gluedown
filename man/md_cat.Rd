@@ -10,7 +10,7 @@ md_cat(x)
 \item{x}{The markdown text to concatenate and separate with newlines.}
 }
 \value{
-A character vector with elements wrapped in a single dollar sign.
+A single character vector formatted for printing.
 }
 \description{
 Output Separated Markdown

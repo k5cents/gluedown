@@ -35,6 +35,6 @@ list marker is a sequence of 1–9 arabic digits (\code{0-9}), followed by eithe
 a \code{)} character.
 }
 \examples{
-md_list(state.name)
-md_list(state.name, cat = TRUE)
+md_list(state.name[1:5])
+md_list(state.name[1:5], cat = TRUE)
 }

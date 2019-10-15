@@ -23,6 +23,6 @@ From the \href{https://github.github.com/gfm/#bullet-list-marker}{GFM spec}: A b
 marker is a \code{-}, \code{+}, or \code{*} character.
 }
 \examples{
-md_bullet(state.name)
-md_bullet(state.name, cat = TRUE)
+md_bullet(state.name[1:5])
+md_bullet(state.name[1:5], cat = TRUE)
 }

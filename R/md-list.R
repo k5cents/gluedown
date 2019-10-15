@@ -7,16 +7,12 @@
 #'   bullet element separated by a new line? Defaults to `FALSE`.
 #' @return A character vector with elements preceded by an asterisk symbol.
 #' @examples
-#' md_bullet(state.name)
-#' md_bullet(state.name, cat = TRUE)
+#' md_bullet(state.name[1:5])
+#' md_bullet(state.name[1:5], cat = TRUE)
 #' @export
 md_bullet <- function(x, cat = FALSE) {
   list <- paste("*", x)
-  if (cat) {
-    cat(list, sep = "\n")
-  } else {
-    return(list)
-  }
+  if_cat(list, cat)
 }
 
 #' @title Markdown Numered List
@@ -36,8 +32,8 @@ md_bullet <- function(x, cat = FALSE) {
 #'   bullet element separated by a new line? Defaults to `FALSE`.
 #' @return A character vector with elements preceded by a number.
 #' @examples
-#' md_list(state.name)
-#' md_list(state.name, cat = TRUE)
+#' md_list(state.name[1:5])
+#' md_list(state.name[1:5], cat = TRUE)
 #' @importFrom stringr str_pad
 #' @export
 md_list <- function(x, seq = TRUE, pad = TRUE, punct = c(".", ")"), cat = FALSE) {
@@ -60,11 +56,7 @@ md_list <- function(x, seq = TRUE, pad = TRUE, punct = c(".", ")"), cat = FALSE)
   }
   markers <- paste0(nums, punct)
   list <- paste(markers, x)
-  if (cat) {
-    cat(list, sep = "\n")
-  } else {
-    return(list)
-  }
+  if_cat(list, cat)
 }
 
 #' @title Markdown Task List
@@ -94,9 +86,5 @@ md_task <- function(x, check = NULL, cat = FALSE) {
     boxes[check] <- "* [x]"
   }
   list <- paste(boxes, x)
-  if (cat) {
-    cat(list, sep = "\n")
-  } else {
-    return(list)
-  }
+  if_cat(list, cat)
 }

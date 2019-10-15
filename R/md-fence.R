@@ -8,8 +8,7 @@
 #'   of all subsequent lines, until a closing code fence… The content of a code fence is treated as
 #'   literal text, not parsed as inlines. The first word of the info string is typically used to
 #'   specify the language of the code sample
-#' @param x Either (1) a path of _one_ existing file to be read as a character
-#'   vector or (2) a character vector of lines to be wrapped in fences.
+#' @param x A character vector of lines (with spaces for indentation) to be wrapped in fences.
 #' @param lang The language of the code within the fence. Aside from clarity,
 #'   this allows many markdown engines to adjust the syntax highlighing.
 #'   Defaults to "R".
@@ -20,16 +19,6 @@
 #' md_fence(c("library(ggplot2)", "ggplot(data = mpg) +", "  geom_point((x = displ, y = hwy))"))
 #' @export
 md_fence <- function(x, lang = "r", cat = TRUE) {
-  # todo: use lists?
-  if (length(x) == 1) {
-    if (file.exists(x)) {
-      x <- readLines(x)
-    }
-  }
   fence <- c(paste0("```", lang), x, "```")
-  if (cat) {
-    cat(fence, sep = "\n")
-  } else {
-    return(fence)
-  }
+  if_cat(fence, cat)
 }

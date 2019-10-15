@@ -9,13 +9,15 @@
 #' @param level The number of header hash characters. The heading level is equal
 #'   to the number of # characters in the opening sequence. In rendered markdown
 #'   higher levels are typically displayed larger.
+#' @param cat logical; Should the list be concatenated and printed, with each
+#'   bullet element separated by a new line? Defaults to `FALSE`.
 #' @return A character vector with elements preceded by hash symbols.
 #' @importFrom glue glue_collapse
 #' @examples
 #' md_heading("Overview")
 #' md_heading(c("Installation", "Development version"), level = 1:2)
 #' @export
-md_heading <- function(x, level = 1) {
+md_heading <- function(x, level = 1, cat = FALSE) {
   if (max(level) > 6) {
     stop("More than 6 #'s is not a valid markdown heading.")
   }
@@ -23,5 +25,6 @@ md_heading <- function(x, level = 1) {
   for (i in seq_along(hashes)) {
     hashes[i] <- glue::glue_collapse(rep("#", level[i]))
   }
-  paste(hashes, x)
+  heading <- paste(hashes, x)
+  if_cat(heading, cat)
 }

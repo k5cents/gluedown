@@ -7,8 +7,7 @@
 md_fence(x, lang = "r", cat = TRUE)
 }
 \arguments{
-\item{x}{Either (1) a path of \emph{one} existing file to be read as a character
-vector or (2) a character vector of lines to be wrapped in fences.}
+\item{x}{A character vector of lines (with spaces for indentation) to be wrapped in fences.}
 
 \item{lang}{The language of the code within the fence. Aside from clarity,
 this allows many markdown engines to adjust the syntax highlighing.

@@ -15,10 +15,6 @@
 #' md_define("Democracy", "Government by the people")
 #' @export
 md_define <- function(term, def, cat = TRUE) {
-  entry <- paste(term, paste(":", def), sep = "\n")
-  if (cat) {
-    cat(entry, sep = "\n")
-  } else {
-    return(entry)
-  }
+  entry <- c(term, paste(":", def))
+  if_cat(entry, cat)
 }

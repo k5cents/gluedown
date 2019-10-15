@@ -58,9 +58,32 @@ chores <- c("Wake up", "Eat breakfast", "Brush teeth")
 md_task(chores, check = c(1, 3), cat = TRUE)
 ```
 
-  - [x] Wake up
-  - [ ] Eat breakfast
-  - [x] Brush teeth
+  - \[x\] Wake up
+  - \[ \] Eat breakfast
+  - \[x\] Brush teeth
+
+Some features aren’t technically supported by GFM, but can be forced by
+pandoc. With `md_define()`, definition lists are simply rendered as
+unordered lists.
+
+``` r
+md_define("Democracy", "Government by the people", cat = TRUE)
+```
+
+  - Democracy  
+    Government by the people
+
+The `md_fence()` function makes code blocks, which is kind of
+superfluous in R Markdown, but can still be useful with
+`base::deparse()` or `readr::read_lines()`.
+
+``` r
+deparse(md_bold) %>% md_fence(cat = TRUE)
+function (x) 
+{
+    glue::glue("**{x}**")
+}
+```
 
 All functions are designed to fit within the tidyverse ecosystem by
 working with
@@ -80,7 +103,7 @@ read_html("https://w.wiki/A58") %>%
 > of Liberty to ourselves and our Posterity, do ordain and establish
 > this Constitution for the United States of America.
 
-The `md_table()` wraps around the fantastic
+The `md_table()` function wraps around the fantastic
 [`knitr::kable()`](https://github.com/yihui/knitr/blob/master/R/table.R)
 function to create simple markdown tables.
 
@@ -126,13 +149,3 @@ md_bullet(inline, cat = TRUE)
   - [Colorado](https://colorado.gov)
   - *Connecticut*
   - ~~Delaware~~
-
-<!-- end list -->
-
-``` r
-deparse(md_bold) %>% md_fence(cat = TRUE)
-function (x) 
-{
-    glue::glue("**{x}**")
-}
-```

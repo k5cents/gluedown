@@ -65,6 +65,20 @@ chores <- c("Wake up", "Eat breakfast", "Brush teeth")
 md_task(chores, check = c(1, 3), cat = TRUE)
 ```
 
+Some features aren't technically supported by GFM, but can be forced by pandoc. With `md_define()`,
+definition lists are simply rendered as unordered lists.
+
+```{r ex_define, results='asis'}
+md_define("Democracy", "Government by the people", cat = TRUE)
+```
+
+The `md_fence()` function makes code blocks, which is kind of superfluous in R Markdown, but can
+still be useful with `base::deparse()` or `readr::read_lines()`.
+
+```{r ex_fence, results='asis'}
+deparse(md_bold) %>% md_fence(cat = TRUE)
+```
+
 All functions are designed to fit within the tidyverse ecosystem by working with [pipes][pipe].
 
 [pipe]: https://magrittr.tidyverse.org/reference/pipe.html
@@ -77,8 +91,8 @@ read_html("https://w.wiki/A58") %>%
   md_quote(cat = TRUE)
 ```
 
-The `md_table()` wraps around the fantastic [`knitr::kable()`][kable] function to create simple
-markdown tables.
+The `md_table()` function wraps around the fantastic [`knitr::kable()`][kable] function to create
+simple markdown tables.
 
 [kable]: https://github.com/yihui/knitr/blob/master/R/table.R
 
@@ -105,8 +119,3 @@ inline <- c(
 
 md_bullet(inline, cat = TRUE)
 ```
-
-```{r ex_fence, results='asis'}
-deparse(md_bold) %>% md_fence(cat = TRUE)
-```
-

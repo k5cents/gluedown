@@ -2,11 +2,11 @@
 
 export(md_bold)
 export(md_bullet)
+export(md_code)
 export(md_define)
 export(md_fence)
 export(md_heading)
 export(md_image)
-export(md_inline)
 export(md_issue)
 export(md_italic)
 export(md_link)

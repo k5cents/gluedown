@@ -23,14 +23,14 @@ md_italic <- function(x) {
 }
 
 #' @title Markdown Inline Code
-#' @param x The text to be formatted as inline code.
+#' @param x The text to be formatted as fixed-width inline code.
 #' @return A character vector with elements wrapped in backtick symbols.
 #' @examples
-#' md_inline("ex_var")
-#' md_inline(state.name)
+#' md_code("ex_var")
+#' md_code(state.name)
 #' @importFrom glue glue
 #' @export
-md_inline <- function(x) {
+md_code <- function(x) {
   glue::glue("`{x}`")
 }
 

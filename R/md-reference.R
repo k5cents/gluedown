@@ -21,7 +21,6 @@
 #' md_reference("tv", "https://www.tidyverse.org/", "tidyverse")
 #' @export
 md_reference <- function(label, url, title = NULL) {
-
   if (!is.null(title)) {
     glue::glue("[{label}]: {url} \"{title}\"")
   } else {

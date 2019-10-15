@@ -4,7 +4,7 @@
 \alias{md_define}
 \title{Markdown Definition}
 \usage{
-md_define(term, def, cat = TRUE)
+md_define(term, def, cat = FALSE)
 }
 \arguments{
 \item{term}{The chracter vector of terms to define.}
@@ -12,7 +12,7 @@ md_define(term, def, cat = TRUE)
 \item{def}{The character vector of definitions to be used for each term.}
 
 \item{cat}{logical; Should the list be concatenated and printed, with each
-definition entry separated by a new line? Defaults to \code{TRUE}.}
+definition entry separated by a new line? Defaults to \code{FALSE}.}
 }
 \value{
 A character vector with elements preceded by an asterisk symbol.

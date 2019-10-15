@@ -9,12 +9,12 @@
 #' @param term The chracter vector of terms to define.
 #' @param def The character vector of definitions to be used for each term.
 #' @param cat logical; Should the list be concatenated and printed, with each
-#'   definition entry separated by a new line? Defaults to `TRUE`.
+#'   definition entry separated by a new line? Defaults to `FALSE`.
 #' @return A character vector with elements preceded by an asterisk symbol.
 #' @examples
 #' md_define("Democracy", "Government by the people")
 #' @export
-md_define <- function(term, def, cat = TRUE) {
-  entry <- c(term, paste(":", def))
+md_define <- function(term, def, cat = FALSE) {
+  entry <- c(term, paste(":", def, sep = "    "))
   if_cat(entry, cat)
 }

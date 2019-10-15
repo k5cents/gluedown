@@ -15,6 +15,3 @@ A single character vector formatted for printing.
 \description{
 Output Separated Markdown
 }
-\examples{
-md_cat(md_list(c("one", "two")))
-}

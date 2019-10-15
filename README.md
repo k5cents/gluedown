@@ -44,16 +44,14 @@ library(tidyverse)
 library(rvest)
 ```
 
-The package used [GitHub Flavored
-Markdown](https://github.github.com/gfm/) (GFM), which is a
-site-specific version of the [CommonMark
-specification](https://spec.commonmark.org/), an unambiguous
-implimentation of the John Gruber’s [original Markdown
-syntax](https://daringfireball.net/projects/markdown/).
-
-[GitHub task
+The package uses [GitHub Flavored
+Markdown](https://github.github.com/gfm/) (GFM), a is a site-specific
+version of the [CommonMark specification](https://spec.commonmark.org/),
+an unambiguous implimentation of the John Gruber’s [original Markdown
+syntax](https://daringfireball.net/projects/markdown/). With this spec,
+features like [GitHub task
 lists](https://help.github.com/en/articles/about-task-lists) are
-supported, with the ability to adjust checks.
+supported.
 
 ``` r
 chores <- c("Wake up", "Eat breakfast", "Brush teeth")
@@ -98,8 +96,8 @@ md_table(band_members)
 
 Creating numbered and bullet lists from vectors was the initial
 inspiration for the package. Here, we also see how *inline* functions
-(e.g., `md_bold`) can be used within *block* functions (e.g.,
-`md_bullet()`).
+can be used within *block* functions (see the GFM spec for a detailed
+explation of blocks vs lines).
 
 ``` r
 md_list(state.name[1:3], cat = TRUE)

@@ -51,11 +51,9 @@ library(tidyverse)
 library(rvest)
 ```
 
-The package used [GitHub Flavored Markdown][gfm] (GFM), which is a site-specific version of the
-[CommonMark specification][cm], an unambiguous implimentation of the John Gruber's 
-[original Markdown syntax][df].
-
-[GitHub task lists][task] are supported, with the ability to adjust checks.
+The package uses [GitHub Flavored Markdown][gfm] (GFM), a is a site-specific version of the
+[CommonMark specification][cm], an unambiguous implimentation of the John Gruber's [original
+Markdown syntax][df]. With this spec, features like [GitHub task lists][task] are supported.
 
 [task]: https://help.github.com/en/articles/about-task-lists
 [gfm]: https://github.github.com/gfm/
@@ -89,8 +87,8 @@ md_table(band_members)
 ```
 
 Creating numbered and bullet lists from vectors was the initial inspiration for the package.
-Here, we also see how _inline_ functions (e.g., `md_bold`) can be used within _block_ functions
-(e.g., `md_bullet()`).
+Here, we also see how _inline_ functions can be used within _block_ functions (see the GFM spec
+for a detailed explation of blocks vs lines).
 
 ```{r ex_list, results='asis'}
 md_list(state.name[1:3], cat = TRUE)

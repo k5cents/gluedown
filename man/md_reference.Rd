@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-reference.R
 \name{md_reference}
 \alias{md_reference}
-\title{Markdown Link Reference Definition}
+\title{Markdown Link Reference}
 \usage{
 md_reference(label, url, title = NULL)
 }

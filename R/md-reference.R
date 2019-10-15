@@ -1,4 +1,4 @@
-#' @title Markdown Link Reference Definition
+#' @title Markdown Link Reference
 #' @description Form the definition needed to reference a link destination elsewhere in a body of
 #'   text.
 #' @details From the [GFM spec](https://github.github.com/gfm/#link-reference-definition): A

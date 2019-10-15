@@ -21,17 +21,9 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The `gluedown` package uses [`glue()`][glue] to wrap character vectors in markdown syntax. Markdown
-is a lightweight, plain-text markup language prevalent in the R community. This package helps
-transition from raw R vectors and formatted markdown text.
-
-The package used [GitHub Flavored Markdown][gfm] (GFM), which is a site-specific version of the
-[CommonMark specification][cm], an unambiguous implimentation of the John Gruber's 
-[original Markdown syntax][df].
+is a lightweight, plain-text markup language prevalent in the R community.
 
 [glue]: https://github.com/tidyverse/glue
-[gfm]: https://github.github.com/gfm/
-[cm]: https://spec.commonmark.org/
-[df]: https://daringfireball.net/projects/markdown/
 
 ## Installation
 
@@ -47,33 +39,76 @@ devtools::install_github("kiernann/gluedown")
 By default, many `gluedown` functions simply take a character vector and return that same vector
 with each element wrapped in the appropriate markdown syntax. 
 
-With the `cat` argument, these wrapped vectors can by easily concatenated, separated with a
+With the `cat` argument, these wrapped vectors can be easily concatenated, separated with a
 newline, and printed; this is useful in combination with the `results='asis'` [R Markdown][rmd]
-chunk option to directly print markdown blocks. This output can also be used inline.
+chunk option to directly print markdown blocks.
 
 [rmd]: https://github.com/rstudio/rmarkdown
 
 ```{r prepare, warning=FALSE, message=FALSE}
 library(gluedown)
-library(dplyr)
+library(tidyverse)
 library(rvest)
-states <- sample(state.name, 3)
-chores <- c("Wake up", "Eat breakfast", "Brush teeth")
-preamble <- html_text(html_node(read_html("https://w.wiki/A58"), "blockquote"))
 ```
 
-```{r ex_list, results='asis'}
-md_list(states, cat = TRUE)
-```
+The package used [GitHub Flavored Markdown][gfm] (GFM), which is a site-specific version of the
+[CommonMark specification][cm], an unambiguous implimentation of the John Gruber's 
+[original Markdown syntax][df].
+
+[GitHub task lists][task] are supported, with the ability to adjust checks.
+
+[task]: https://help.github.com/en/articles/about-task-lists
+[gfm]: https://github.github.com/gfm/
+[cm]: https://spec.commonmark.org/
+[df]: https://daringfireball.net/projects/markdown/
 
 ```{r ex_task, results='asis'}
+chores <- c("Wake up", "Eat breakfast", "Brush teeth")
 md_task(chores, check = c(1, 3), cat = TRUE)
 ```
 
+All functions are designed to fit within the tidyverse ecosystem by working with [pipes][pipe].
+
+[pipe]: https://magrittr.tidyverse.org/reference/pipe.html
+
 ```{r ex_quote, results='asis'}
-md_quote(preamble, cat = TRUE)
+read_html("https://w.wiki/A58") %>% 
+  html_node("blockquote") %>% 
+  html_text(trim = TRUE) %>% 
+  str_remove("\\[(.*)\\]") %>% 
+  md_quote(cat = TRUE)
 ```
+
+The `md_table()` wraps around the fantastic [`knitr::kable()`][kable] function to create simple
+markdown tables.
+
+[kable]: https://github.com/yihui/knitr/blob/master/R/table.R
 
 ```{r ex_table, results='asis'}
 md_table(band_members)
 ```
+
+Creating numbered and bullet lists from vectors was the initial inspiration for the package.
+Here, we also see how _inline_ functions (e.g., `md_bold`) can be used within _block_ functions
+(e.g., `md_bullet()`).
+
+```{r ex_list, results='asis'}
+md_list(state.name[1:3], cat = TRUE)
+```
+
+```{r ex_others, results='asis'}
+inline <- c(
+  md_bold(state.name[4]),
+  md_code(state.name[5]),
+  md_link(state.name[6], "https://colorado.gov"),
+  md_italic(state.name[7]),
+  md_strike(state.name[8])
+)
+
+md_bullet(inline, cat = TRUE)
+```
+
+```{r ex_fence, results='asis'}
+deparse(md_bold) %>% md_fence(cat = TRUE)
+```
+

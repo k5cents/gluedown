@@ -45,9 +45,9 @@ md_reference <- function(label, url, title = NULL) {
 #' @export
 md_link <- function(text, url, title = NULL) {
   if (!is.null(title)) {
-    glue::glue("[{text}]({url} \"{title}\"")
+    glue::glue("[{text}]({url}) \"{title}\"")
   } else {
-    glue::glue("[{text}]({url}")
+    glue::glue("[{text}]({url})")
   }
 }
 

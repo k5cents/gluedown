@@ -11,7 +11,7 @@
 #'   prepended backslashes.
 #' @examples
 #' md_bold(md_escape("Use an * symbol in globs!"))
-#' @importFrom string str_replace_all
+#' @importFrom stringr str_replace_all
 #' @export
 md_escape <- function(x) {
   stringr::str_replace_all(

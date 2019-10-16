@@ -16,8 +16,8 @@ this allows many markdown engines to adjust the syntax highlighting.
 Defaults to "r". This option is not used with indented blocks.}
 
 \item{type}{The type of code block to be created. Defaults to tipple
-backticks (\code{```}) code fences, but you can also use 4-spaces (useful
-for legacy support on Reddit).}
+backticks code fences, but you can also use 4-spaces (useful for legacy
+support on Reddit).}
 
 \item{cat}{logical; Should the list be concatenated and printed, with each
 bullet element separated by a new line? Defaults to \code{TRUE}.}

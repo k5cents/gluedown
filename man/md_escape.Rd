@@ -15,7 +15,7 @@ prepended backslashes.
 }
 \description{
 When trying to format text containing markdown syntax
-characters, it's neccesary to "escape" those characters so that they are
+characters, it's necessary to "escape" those characters so that they are
 ignored by formatting.
 }
 \details{

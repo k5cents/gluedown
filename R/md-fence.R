@@ -10,7 +10,7 @@
 #'   specify the language of the code sample
 #' @param x A character vector of lines (with spaces for indentation) to be wrapped in fences.
 #' @param lang The language of the code within the fence. Aside from clarity,
-#'   this allows many markdown engines to adjust the syntax highlighing.
+#'   this allows many markdown engines to adjust the syntax highlighting.
 #'   Defaults to "R".
 #' @param cat logical; Should the list be concatenated and printed, with each
 #'   bullet element separated by a new line? Defaults to `TRUE`.

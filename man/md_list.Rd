@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-list.R
 \name{md_list}
 \alias{md_list}
-\title{Markdown Numered List}
+\title{Markdown Numbered List}
 \usage{
 md_list(x, seq = TRUE, pad = TRUE, punct = c(".", ")"),
   cat = FALSE)
@@ -18,7 +18,7 @@ engines will automatically render repeated ones as a sequential list.}
 with zeroes on the left to match the width of the greatest number? Defaults
 to \code{TRUE}.}
 
-\item{punct}{The puctuation mark following each number; either \code{.} or \code{)}.}
+\item{punct}{The punctuation mark following each number; either \code{.} or \code{)}.}
 
 \item{cat}{logical; Should the list be concatenated and printed, with each
 bullet element separated by a new line? Defaults to \code{FALSE}.}
@@ -30,9 +30,9 @@ A character vector with elements preceded by a number.
 Form a single-level ordered list from a vector.
 }
 \details{
-From the \href{https://github.github.com/gfm/#ordered-list-marker}{GFM spec}: An ordered
-list marker is a sequence of 1–9 arabic digits (\code{0-9}), followed by either a \code{.} character or
-a \code{)} character.
+From the \href{https://github.github.com/gfm/#ordered-list-marker}{GFM spec}:
+An ordered list marker is a sequence of 1–9 arabic digits (\code{0-9}), followed
+by either a \code{.} character or a \code{)} character.
 }
 \examples{
 md_list(state.name[1:5])

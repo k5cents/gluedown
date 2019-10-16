@@ -1,7 +1,7 @@
 #' @title Markdown Bullet List
 #' @description Form a single-level unordered list from a vector.
-#' @details From the [GFM spec](https://github.github.com/gfm/#bullet-list-marker): A bullet list
-#'   marker is a `-`, `+`, or `*` character.
+#' @details From the [GFM spec](https://github.github.com/gfm/#bullet-list-marker):
+#'   A bullet list marker is a `-`, `+`, or `*` character.
 #' @param x The vector of bullet point list items.
 #' @param cat logical; Should the list be concatenated and printed, with each
 #'   bullet element separated by a new line? Defaults to `FALSE`.
@@ -15,11 +15,11 @@ md_bullet <- function(x, cat = FALSE) {
   if_cat(list, cat)
 }
 
-#' @title Markdown Numered List
+#' @title Markdown Numbered List
 #' @description Form a single-level ordered list from a vector.
-#' @details From the [GFM spec](https://github.github.com/gfm/#ordered-list-marker): An ordered
-#'   list marker is a sequence of 1–9 arabic digits (`0-9`), followed by either a `.` character or
-#'   a `)` character.
+#' @details From the [GFM spec](https://github.github.com/gfm/#ordered-list-marker):
+#'   An ordered list marker is a sequence of 1–9 arabic digits (`0-9`), followed
+#'   by either a `.` character or a `)` character.
 #' @param x The vector of numbered list items.
 #' @param seq logical; Should sequential numbers be used? Defaults to `TRUE`. If
 #'   `FALSE`, each element will be preceded by the number one; many markdown
@@ -27,7 +27,7 @@ md_bullet <- function(x, cat = FALSE) {
 #' @param pad logical; If sequential numbers are used, should they be padded
 #'   with zeroes on the left to match the width of the greatest number? Defaults
 #'   to `TRUE`.
-#' @param punct The puctuation mark following each number; either `.` or `)`.
+#' @param punct The punctuation mark following each number; either `.` or `)`.
 #' @param cat logical; Should the list be concatenated and printed, with each
 #'   bullet element separated by a new line? Defaults to `FALSE`.
 #' @return A character vector with elements preceded by a number.
@@ -60,18 +60,20 @@ md_list <- function(x, seq = TRUE, pad = TRUE, punct = c(".", ")"), cat = FALSE)
 }
 
 #' @title Markdown Task List
-#' @description Create a markdown task list from a vector of tasks. Define which task items should
-#'   be checked off. Task lists are a GitHub specific markdown feature.
-#' @details From the [GFM spec](https://github.github.com/gfm/#task-list-item): A task
-#'   [list item](https://github.github.com/gfm/#list-items) is a list item where the first block in
-#'   it is a paragraph which begins with a
-#'   [task list item marker](https://github.github.com/gfm/#task-list-item-marker) and at least one
-#'   whitespace character before any other content… A task list item marker consists of an optional
-#'   number of spaces, a left bracket (`[`), either a whitespace character or the letter `x` in
-#'   either lowercase or uppercase, and then a right bracket (`]`)… When rendered, the task list
-#'   item marker is replaced with a semantic checkbox element… If the character between the
-#'   brackets is a whitespace character, the checkbox is unchecked. Otherwise, the checkbox is
-#'   checked.
+#' @description Create a markdown task list from a vector of tasks. Define which
+#'   task items should be checked off. Task lists are a GitHub specific markdown
+#'   feature.
+#' @details From the [GFM spec](https://github.github.com/gfm/#task-list-item):
+#'   A task [list item](https://github.github.com/gfm/#list-items) is a list
+#'   item where the first block in it is a paragraph which begins with a
+#'   [task list item marker](https://github.github.com/gfm/#task-list-item-marker)
+#'   and at least one whitespace character before any other content… A task list
+#'   item marker consists of an optional number of spaces, a left bracket (`[`),
+#'   either a whitespace character or the letter `x` in either lowercase or
+#'   uppercase, and then a right bracket (`]`)… When rendered, the task list
+#'   item marker is replaced with a semantic checkbox element… If the character
+#'   between the brackets is a whitespace character, the checkbox is unchecked.
+#'   Otherwise, the checkbox is checked.
 #' @param x The vector of task list items.
 #' @param check A vector of list elements which should be checked off.
 #' @param cat logical; Should the list be concatenated and printed, with each

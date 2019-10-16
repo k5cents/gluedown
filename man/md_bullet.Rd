@@ -19,8 +19,8 @@ A character vector with elements preceded by an asterisk symbol.
 Form a single-level unordered list from a vector.
 }
 \details{
-From the \href{https://github.github.com/gfm/#bullet-list-marker}{GFM spec}: A bullet list
-marker is a \code{-}, \code{+}, or \code{*} character.
+From the \href{https://github.github.com/gfm/#bullet-list-marker}{GFM spec}:
+A bullet list marker is a \code{-}, \code{+}, or \code{*} character.
 }
 \examples{
 md_bullet(state.name[1:5])

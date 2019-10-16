@@ -7,7 +7,7 @@
 md_define(term, def, cat = FALSE)
 }
 \arguments{
-\item{term}{The chracter vector of terms to define.}
+\item{term}{The character vector of terms to define.}
 
 \item{def}{The character vector of definitions to be used for each term.}
 
@@ -21,7 +21,7 @@ A character vector with elements preceded by an asterisk symbol.
 Form a single-level unordered list from a vector.
 }
 \details{
-Defintions are not supported in GFM, but \emph{are} supported by the
+Definitions are not supported in GFM, but \emph{are} supported by the
 \href{https://pandoc.org/MANUAL.html#pandocs-markdown}{pandoc engine} used by R
 Markdown. Per that specification: Each term must fit on one line, which
 may optionally be followed by a blank line, and must be followed by one or

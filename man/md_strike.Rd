@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-emphasize.R
 \name{md_strike}
 \alias{md_strike}
-\title{Markdown Strikethough Emphasis}
+\title{Markdown Strikethrough Emphasis}
 \usage{
 md_strike(x)
 }
@@ -13,7 +13,7 @@ md_strike(x)
 A character vector with elements wrapped in two tilde symbols.
 }
 \description{
-Markdown Strikethough Emphasis
+Markdown Strikethrough Emphasis
 }
 \examples{
 md_strike("Example")

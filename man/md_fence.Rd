@@ -10,7 +10,7 @@ md_fence(x, lang = "r", cat = TRUE)
 \item{x}{A character vector of lines (with spaces for indentation) to be wrapped in fences.}
 
 \item{lang}{The language of the code within the fence. Aside from clarity,
-this allows many markdown engines to adjust the syntax highlighing.
+this allows many markdown engines to adjust the syntax highlighting.
 Defaults to "R".}
 
 \item{cat}{logical; Should the list be concatenated and printed, with each

@@ -2,12 +2,12 @@
 % Please edit documentation in R/md-emphasize.R
 \name{emphasize_at}
 \alias{emphasize_at}
-\title{Markdown Selective Emphasize}
+\title{Selective Markdown Emphasize}
 \usage{
 emphasize_at(x, f, n)
 }
 \arguments{
-\item{x}{A vectror of sentence character strings.}
+\item{x}{A vector of sentence character strings.}
 
 \item{f}{An emphasizing function (e.g., \code{\link[=md_bold]{md_bold()}}).}
 
@@ -17,7 +17,7 @@ emphasize_at(x, f, n)
 A character vector with elements wrapped in two tilde symbols.
 }
 \description{
-Markdown Selective Emphasize
+Selective Markdown Emphasize
 }
 \examples{
 emphasize_at(x = "Live free or die", f = md_bold, n = 4)

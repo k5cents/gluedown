@@ -18,22 +18,24 @@ bullet element separated by a new line? Defaults to \code{FALSE}.}
 A character vector check box brackets prepended to each element.
 }
 \description{
-Create a markdown task list from a vector of tasks. Define which task items should
-be checked off. Task lists are a GitHub specific markdown feature.
+Create a markdown task list from a vector of tasks. Define which
+task items should be checked off. Task lists are a GitHub specific markdown
+feature.
 }
 \details{
-From the \href{https://github.github.com/gfm/#task-list-item}{GFM spec}: A task
-\href{https://github.github.com/gfm/#list-items}{list item} is a list item where the first block in
-it is a paragraph which begins with a
-\href{https://github.github.com/gfm/#task-list-item-marker}{task list item marker} and at least one
-whitespace character before any other content… A task list item marker consists of an optional
-number of spaces, a left bracket (\code{[}), either a whitespace character or the letter \code{x} in
-either lowercase or uppercase, and then a right bracket (\code{]})… When rendered, the task list
-item marker is replaced with a semantic checkbox element… If the character between the
-brackets is a whitespace character, the checkbox is unchecked. Otherwise, the checkbox is
-checked.
+From the \href{https://github.github.com/gfm/#task-list-item}{GFM spec}:
+A task \href{https://github.github.com/gfm/#list-items}{list item} is a list
+item where the first block in it is a paragraph which begins with a
+\href{https://github.github.com/gfm/#task-list-item-marker}{task list item marker}
+and at least one whitespace character before any other content… A task list
+item marker consists of an optional number of spaces, a left bracket (\code{[}),
+either a whitespace character or the letter \code{x} in either lowercase or
+uppercase, and then a right bracket (\code{]})… When rendered, the task list
+item marker is replaced with a semantic checkbox element… If the character
+between the brackets is a whitespace character, the checkbox is unchecked.
+Otherwise, the checkbox is checked.
 
-[\code{), either a whitespace character or the letter }x\code{ in either lowercase or uppercase, and then a right bracket (}]: R:%60),%20either%20a%20whitespace%20character%20or%20the%20letter%20%60x%60%20in%0A%20%20either%20lowercase%20or%20uppercase,%20and%20then%20a%20right%20bracket%20(%60
+[\code{), either a whitespace character or the letter }x\code{ in either lowercase or uppercase, and then a right bracket (}]: R:%60),%0A%20%20either%20a%20whitespace%20character%20or%20the%20letter%20%60x%60%20in%20either%20lowercase%20or%0A%20%20uppercase,%20and%20then%20a%20right%20bracket%20(%60
 }
 \examples{
 md_task(c("Wake up", "Eat Breakfast", "Brush Teeth"), check = 1:2)

@@ -14,10 +14,10 @@
 #' @return A character vector with elements preceded by hash symbols.
 #' @importFrom glue glue_collapse
 #' @examples
-#' md_heading("Overview")
-#' md_heading(c("Installation", "Development version"), level = 1:2)
+#' md_head("Overview")
+#' md_head(c("Installation", "Development version"), level = 1:2)
 #' @export
-md_heading <- function(x, level = 1, cat = FALSE) {
+md_head <- function(x, level = 1, cat = FALSE) {
   if (max(level) > 6) {
     stop("More than 6 #'s is not a valid markdown heading.")
   }

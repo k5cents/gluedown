@@ -1,9 +1,10 @@
 #' @title Markdown ATX Headings
 #' @description Form a vector of markdown headings.
-#' @details From the [GFM spec](https://github.github.com/gfm/#atx-heading): An ATX heading
-#'   consists of a string of characters, parsed as inline content, between an opening sequence of
-#'   1–6 unescaped `#` characters… The opening sequence of `#` characters must be followed by a
-#'   space or by the end of line… The heading level is equal to the number of `#` characters in the
+#' @details From the [GFM spec](https://github.github.com/gfm/#atx-heading): An
+#'   ATX heading consists of a string of characters, parsed as inline content,
+#'   between an opening sequence of 1–6 unescaped `#` characters… The opening
+#'   sequence of `#` characters must be followed by a space or by the end of
+#'   line… The heading level is equal to the number of `#` characters in the
 #'   opening sequence.
 #' @param x The text of the headings.
 #' @param level The number of header hash characters. The heading level is equal

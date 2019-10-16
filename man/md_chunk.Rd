@@ -4,7 +4,7 @@
 \alias{md_chunk}
 \title{Markdown Code Block}
 \usage{
-md_chunk(x, lang = "r", type = c("ticks", "tilde", "space"),
+md_chunk(x, lang = "r", type = c("ticks", "tilde", "indent"),
   cat = TRUE)
 }
 \arguments{
@@ -13,7 +13,7 @@ be wrapped in fences.}
 
 \item{lang}{The language of the code within the fence. Aside from clarity,
 this allows many markdown engines to adjust the syntax highlighting.
-Defaults to "R".}
+Defaults to "r". This option is not used with indented blocks.}
 
 \item{type}{The type of code block to be created. Defaults to tipple
 backticks (\code{```}) code fences, but you can also use 4-spaces (useful
@@ -41,5 +41,5 @@ the info string is typically used to specify the language of the code
 sample
 }
 \examples{
-md_chunk(c("library(ggplot2)", "ggplot(data = mpg) +", "  geom_point((x = displ, y = hwy))"))
+md_chunk(c("library(ggplot2)", "ggplot(mpg) +", "  geom_point((displ, hwy))"))
 }

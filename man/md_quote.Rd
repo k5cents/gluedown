@@ -13,15 +13,17 @@ md_quote(x, cat = TRUE)
 bullet element separated by a new line? Defaults to \code{TRUE}.}
 }
 \value{
-A character vector with a greater-than symbol (\code{>}) prepended to each element.
+A character vector with a greater-than symbol (\code{>}) prepended to each
+element.
 }
 \description{
 Form block quotes from a vector of character strings.
 }
 \details{
-From the \href{https://github.github.com/gfm/#block-quote-marker}{GFM spec}: A block quote
-marker consists of 0-3 spaces of initial indent, plus (a) the character \code{>} together with a
-following space, or (b) a single character \code{>} not followed by a space.
+From the \href{https://github.github.com/gfm/#block-quote-marker}{GFM spec}:
+A block quote marker consists of 0-3 spaces of initial indent, plus (a) the
+character \code{>} together with a following space, or (b) a single character
+\code{>} not followed by a space.
 }
 \examples{
 md_quote("Ask not what your country can do for you, but what you can do for your country.")

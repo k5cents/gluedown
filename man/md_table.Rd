@@ -18,16 +18,19 @@ A character vector of markdown table source code.
 Wraps around the \code{\link[knitr:kable]{knitr::kable()}} function.
 }
 \details{
-From the \href{https://github.github.com/gfm/#table}{GFM spec}: A table is an arrangement of
-data with rows and columns, consisting of a single header row, a
-\href{https://github.github.com/gfm/#delimiter-row}{delimiter row} separating the
-header from the data, and zero or more data rows... Each row consists of cells containing
-arbitrary text, in which \href{https://github.github.com/gfm/#inline}{inlines} are parsed,
-separated by pipes (\code{|}). A leading and trailing pipe is also recommended for clarity of
-reading, and if there’s otherwise parsing ambiguity. Spaces between pipes and cell content are
-trimmed. Block-level elements cannot be inserted in a table. The delimiter row consists of
-cells whose only content are hyphens (\code{-}), and optionally, a leading or trailing colon (\code{:}),
-or both, to indicate left, right, or center alignment respectively.
+From the \href{https://github.github.com/gfm/#table}{GFM spec}:
+A table is an arrangement of data with rows and columns, consisting of a
+single header row, a
+\href{https://github.github.com/gfm/#delimiter-row}{delimiter row} separating
+the header from the data, and zero or more data rows... Each row consists
+of cells containing arbitrary text, in which
+\href{https://github.github.com/gfm/#inline}{inlines} are parsed, separated by
+pipes (\code{|}). A leading and trailing pipe is also recommended for clarity of
+reading, and if there’s otherwise parsing ambiguity. Spaces between pipes
+and cell content are trimmed. Block-level elements cannot be inserted in a
+table. The delimiter row consists of cells whose only content are hyphens
+(\code{-}), and optionally, a leading or trailing colon (\code{:}), or both, to
+indicate left, right, or center alignment respectively.
 }
 \examples{
 md_table(mtcars)

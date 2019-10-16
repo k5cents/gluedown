@@ -7,7 +7,7 @@
 md_reference(label, url, title = NULL)
 }
 \arguments{
-\item{label}{The character vector to be displayed as hyperlinked text.}
+\item{label}{The chracter vector to be displayed as hyperlinked text.}
 
 \item{url}{The URL to lead to.}
 
@@ -21,10 +21,10 @@ Form the definition needed to reference a link destination
 elsewhere in a body of text.
 }
 \details{
-From the \href{https://github.github.com/gfm/#link-reference-definition}{GFM spec}: A
-link reference definition consists of a
-\href{https://github.github.com/gfm/#link-label}{link label},
-indented up to three spaces, followed by a colon (\code{:}), optional
+From the \href{https://github.github.com/gfm/#link-reference-definition}{GFM spec}:
+A link reference definition consists of a
+\href{https://github.github.com/gfm/#link-label}{link label}, indented up to
+three spaces, followed by a colon (\code{:}), optional
 \href{https://github.github.com/gfm/#whitespace}{whitespace} (including up to
 one \href{https://github.github.com/gfm/#line-ending}{line ending}), a
 \href{https://github.github.com/gfm/#link-destination}{link destination},
@@ -32,8 +32,8 @@ optional whitespace (including up to one line ending), and an optional
 \href{https://github.github.com/gfm/#link-title}{link title}, which if it is
 present must be separated from the link destination by whitespace. No
 further
-\href{https://github.github.com/gfm/#non-whitespace-character}{non-whitespace characters} may
-occur on the line.
+\href{https://github.github.com/gfm/#non-whitespace-character}{non-whitespace characters}
+may occur on the line.
 }
 \examples{
 md_reference("tv", "https://www.tidyverse.org/")

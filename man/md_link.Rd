@@ -7,7 +7,7 @@
 md_link(text, url, title = NULL)
 }
 \arguments{
-\item{text}{The character vector to be displayed as hyperlinked text.}
+\item{text}{The chracter vector to be displayed as hyperlinked text.}
 
 \item{url}{The URL to lead to.}
 
@@ -20,13 +20,13 @@ A character vector of collapsed display text and associated URLs.
 Form an inline hyperlink to an another website.
 }
 \details{
-From the \href{https://github.github.com/gfm/#inline-link}{GFM spec}: An
-inline link consists of a
-\href{https://github.github.com/gfm/#link-text}{link text} followed immediately
-by a left parenthesis \code{(}... an optional link destination, an optional link
-title separated from the link destination by whitespace, optional
-whitespace, and a right parenthesis \code{)}.
+From the \href{https://github.github.com/gfm/#inline-link}{GFM spec}:
+An inline link consists of a \href{https://github.github.com/gfm/#link-text}{link text}
+followed immediately by a left parenthesis \code{(}... an optional link
+destination, an optional link title separated from the link destination by
+whitespace, optional whitespace, and a right parenthesis \code{)}.
 }
 \examples{
 md_link("tidyverse", "https://www.tidyverse.org/")
+md_link(c("R Project", "CRAN"), c("https://www.r-project.org/", "https://cran.r-project.org/"))
 }

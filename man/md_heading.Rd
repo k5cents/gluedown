@@ -23,10 +23,11 @@ A character vector with elements preceded by hash symbols.
 Form a vector of markdown headings.
 }
 \details{
-From the \href{https://github.github.com/gfm/#atx-heading}{GFM spec}: An ATX heading
-consists of a string of characters, parsed as inline content, between an opening sequence of
-1–6 unescaped \code{#} characters… The opening sequence of \code{#} characters must be followed by a
-space or by the end of line… The heading level is equal to the number of \code{#} characters in the
+From the \href{https://github.github.com/gfm/#atx-heading}{GFM spec}: An
+ATX heading consists of a string of characters, parsed as inline content,
+between an opening sequence of 1–6 unescaped \code{#} characters… The opening
+sequence of \code{#} characters must be followed by a space or by the end of
+line… The heading level is equal to the number of \code{#} characters in the
 opening sequence.
 }
 \examples{

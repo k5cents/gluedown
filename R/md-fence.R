@@ -22,7 +22,7 @@
 #'   bullet element separated by a new line? Defaults to `TRUE`.
 #' @return A character vector wrapped on either side by code fences.
 #' @examples
-#' md_chunk(c("library(ggplot2)", "ggplot(data = mpg) +", "  geom_point((x = displ, y = hwy))"))
+#' md_chunk(c("library(ggplot2)", "ggplot(mpg) +", "  geom_point((displ, hwy))"))
 #' @export
 md_chunk <- function(x, lang = "r", type = c("ticks", "tilde", "indent"), cat = TRUE) {
   type <- match.arg(type)

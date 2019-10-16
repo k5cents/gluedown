@@ -46,9 +46,9 @@ library(rvest)
 
 ### Lists
 
-Creating numbered and bullet lists from vectors was the initial
-inspiration for the package. Here, we also see how *inline* functions
-can be used within *block* functions.
+Printing vectors as markdown lists was the initial inspiration for the
+package. Here, we also see how *inline* functions can be used within
+*block* functions.
 
 ``` r
 md_list(state.name[1:3], cat = TRUE)
@@ -64,7 +64,7 @@ md_list(state.name[1:3], cat = TRUE)
 inlines <- c(
   md_bold(state.name[4]),
   md_code(state.name[5]),
-  md_link(state.name[6], "https://colorado.gov"),
+  md_link(state.name[6], "https://Colorado.gov"),
   md_italic(state.name[7]),
   md_strike(state.name[8])
 )
@@ -74,29 +74,29 @@ md_bullet(inlines, cat = TRUE)
 
   - **Arkansas**
   - `California`
-  - [Colorado](https://colorado.gov)
+  - [Colorado](https://Colorado.gov)
   - *Connecticut*
   - ~~Delaware~~
 
 ### Extensions
 
 The package primarily uses [GitHub Flavored
-Markdown](https://github.github.com/gfm/) (GFM), a a site-specific
-version of the [CommonMark specification](https://spec.commonmark.org/),
-an unambiguous implimentation of the John Gruber’s [original
+Markdown](https://github.github.com/gfm/) (GFM), a site-specific version
+of the [CommonMark specification](https://spec.commonmark.org/), an
+unambiguous implementation of John Gruber’s [original
 Markdown](https://daringfireball.net/projects/markdown/). With this
-spec, features like some useful extensions [GitHub task
+spec, some useful extensions like [task
 lists](https://help.github.com/en/articles/about-task-lists) are
 supported.
 
 ``` r
-chores <- c("Wake up", "Eat breakfast", "Brush teeth")
-md_task(chores, check = c(1, 3), cat = TRUE)
+legislation <- c("Houses passes", "Senate concurs", "President signs")
+md_task(legislation, check = 1:2, cat = TRUE)
 ```
 
-  - \[x\] Wake up
-  - \[ \] Eat breakfast
-  - \[x\] Brush teeth
+  - \[x\] Houses passes
+  - \[x\] Senate concurs
+  - \[ \] President signs
 
 Some features aren’t technically supported by GFM, but can be [forced by
 pandoc](https://pandoc.org/MANUAL.html#definition-lists). With
@@ -104,7 +104,7 @@ pandoc](https://pandoc.org/MANUAL.html#definition-lists). With
 lists on GitHub.
 
 ``` r
-md_define("Democracy", "Government by the people", cat = TRUE)
+md_define("Democracy", def = "Government by the people", cat = TRUE)
 ```
 
   - Democracy  

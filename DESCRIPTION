@@ -21,6 +21,7 @@ Depends: R (>= 2.10)
 Imports: 
     glue (>= 1.3.1),
     stringr (>= 1.4.0),
-    knitr (>= 1.25)
+    knitr (>= 1.25),
+    purrr (>= 0.3.2)
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)

@@ -15,8 +15,8 @@
 #' @return A character vector of markdown table source code.
 #' @examples
 #' md_table(mtcars)
-#' @importFrom knitr kable
 #' @importFrom stringr str_c
+#' @importFrom purrr as_vector
 #' @export
 md_table <- function(df, ...) {
   if (requireNamespace("knitr", quietly = TRUE)) {
@@ -30,7 +30,7 @@ md_table <- function(df, ...) {
     sep <- stringr::str_c(rep(":----", ncol(df)) , collapse = "|")
     rows <- rep(NA, nrow(df))
     for (i in 1:nrow(df)) {
-      rows[i] <- stringr::str_c(as_vector(df[i, ]) , collapse = "|")
+      rows[i] <- stringr::str_c(purrr::as_vector(df[i, ]) , collapse = "|")
     }
     cat(cols, sep, rows, sep = "\n")
   }

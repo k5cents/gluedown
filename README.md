@@ -44,12 +44,48 @@ library(tidyverse)
 library(rvest)
 ```
 
-The package uses [GitHub Flavored
-Markdown](https://github.github.com/gfm/) (GFM), a is a site-specific
+### Lists
+
+Creating numbered and bullet lists from vectors was the initial
+inspiration for the package. Here, we also see how *inline* functions
+can be used within *block* functions.
+
+``` r
+md_list(state.name[1:3], cat = TRUE)
+```
+
+1.  Alabama
+2.  Alaska
+3.  Arizona
+
+<!-- end list -->
+
+``` r
+inlines <- c(
+  md_bold(state.name[4]),
+  md_code(state.name[5]),
+  md_link(state.name[6], "https://colorado.gov"),
+  md_italic(state.name[7]),
+  md_strike(state.name[8])
+)
+
+md_bullet(inlines, cat = TRUE)
+```
+
+  - **Arkansas**
+  - `California`
+  - [Colorado](https://colorado.gov)
+  - *Connecticut*
+  - ~~Delaware~~
+
+### Extensions
+
+The package primarily uses [GitHub Flavored
+Markdown](https://github.github.com/gfm/) (GFM), a a site-specific
 version of the [CommonMark specification](https://spec.commonmark.org/),
-an unambiguous implimentation of the John Gruber’s [original Markdown
-syntax](https://daringfireball.net/projects/markdown/). With this spec,
-features like [GitHub task
+an unambiguous implimentation of the John Gruber’s [original
+Markdown](https://daringfireball.net/projects/markdown/). With this
+spec, features like some useful extensions [GitHub task
 lists](https://help.github.com/en/articles/about-task-lists) are
 supported.
 
@@ -62,9 +98,10 @@ md_task(chores, check = c(1, 3), cat = TRUE)
   - \[ \] Eat breakfast
   - \[x\] Brush teeth
 
-Some features aren’t technically supported by GFM, but can be forced by
-pandoc. With `md_define()`, definition lists are simply rendered as
-unordered lists.
+Some features aren’t technically supported by GFM, but can be [forced by
+pandoc](https://pandoc.org/MANUAL.html#definition-lists). With
+`md_define()`, definition lists are simply rendered as funky bullet
+lists on GitHub.
 
 ``` r
 md_define("Democracy", "Government by the people", cat = TRUE)
@@ -73,17 +110,7 @@ md_define("Democracy", "Government by the people", cat = TRUE)
   - Democracy  
     Government by the people
 
-The `md_fence()` function makes code blocks, which is kind of
-superfluous in R Markdown, but can still be useful with
-`base::deparse()` or `readr::read_lines()`.
-
-``` r
-deparse(md_bold) %>% md_fence(cat = TRUE)
-function (x) 
-{
-    glue::glue("**{x}**")
-}
-```
+### Pipes
 
 All functions are designed to fit within the tidyverse ecosystem by
 working with
@@ -102,50 +129,3 @@ read_html("https://w.wiki/A58") %>%
 > common defence, promote the general Welfare, and secure the Blessings
 > of Liberty to ourselves and our Posterity, do ordain and establish
 > this Constitution for the United States of America.
-
-The `md_table()` function wraps around the fantastic
-[`knitr::kable()`](https://github.com/yihui/knitr/blob/master/R/table.R)
-function to create simple markdown tables.
-
-``` r
-md_table(band_members)
-```
-
-| name | band    |
-| :--- | :------ |
-| Mick | Stones  |
-| John | Beatles |
-| Paul | Beatles |
-
-Creating numbered and bullet lists from vectors was the initial
-inspiration for the package. Here, we also see how *inline* functions
-can be used within *block* functions (see the GFM spec for a detailed
-explation of blocks vs lines).
-
-``` r
-md_list(state.name[1:3], cat = TRUE)
-```
-
-1.  Alabama
-2.  Alaska
-3.  Arizona
-
-<!-- end list -->
-
-``` r
-inline <- c(
-  md_bold(state.name[4]),
-  md_code(state.name[5]),
-  md_link(state.name[6], "https://colorado.gov"),
-  md_italic(state.name[7]),
-  md_strike(state.name[8])
-)
-
-md_bullet(inline, cat = TRUE)
-```
-
-  - **Arkansas**
-  - `California`
-  - [Colorado](https://colorado.gov)
-  - *Connecticut*
-  - ~~Delaware~~

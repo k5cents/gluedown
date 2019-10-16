@@ -15,23 +15,12 @@
 #' @return A character vector of markdown table source code.
 #' @examples
 #' md_table(mtcars)
-#' @importFrom stringr str_c
-#' @importFrom purrr as_vector
+#' @importFrom knitr kable
 #' @export
 md_table <- function(df, ...) {
-  if (requireNamespace("knitr", quietly = TRUE)) {
-    knitr::kable(
-      x = df,
-      format = "markdown",
-      ...
-    )
-  } else {
-    cols <- stringr::str_c(names(df), collapse = "|")
-    sep <- stringr::str_c(rep(":----", ncol(df)) , collapse = "|")
-    rows <- rep(NA, nrow(df))
-    for (i in 1:nrow(df)) {
-      rows[i] <- stringr::str_c(purrr::as_vector(df[i, ]) , collapse = "|")
-    }
-    cat(cols, sep, rows, sep = "\n")
-  }
+  knitr::kable(
+    x = df,
+    format = "markdown",
+    ...
+  )
 }

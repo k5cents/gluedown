@@ -1,6 +1,6 @@
 Package: gluedown
 Title: Wrap Vectors in Markdown Formatting
-Version: 0.0.0.9008
+Version: 0.0.0.9009
 Authors@R: 
     person(given = "Kiernan",
            family = "Nicholls",
@@ -9,9 +9,9 @@ Authors@R:
 Description: This package is used to wrap R character vectors in markdown 
     formatting. Markdown is a plain text standard used to style text in a 
     readable format. Markdown is used on websites like Reddit and GitHub to 
-    style plain text. Markdown is also a popular choice for R uses and is 
-    implemented in the RMarkdown standard. This package uses the GitHub Flavored
-    Markdown (GFM) version of the Commonmark standard.
+    style plain text. Markdown is also a popular choice for R users and is 
+    implemented in the R Markdown standard. This package primarily uses the 
+    GitHub Flavored Markdown (GFM) version of the Commonmark standard.
 License: CC BY 4.0
 Encoding: UTF-8
 LazyData: true

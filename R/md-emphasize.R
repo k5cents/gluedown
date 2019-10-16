@@ -52,11 +52,11 @@ md_strike <- function(x) {
 #' @param n The numeric _position_ of the word in each sentence to emphasize.
 #' @return A character vector with elements wrapped in two tilde symbols.
 #' @examples
-#' md_emphasize(x = "Live free or die", f = md_bold, n = 4)
+#' emphasize_at(x = "Live free or die", f = md_bold, n = 4)
 #' @importFrom stringr str_c str_split
 #' @importFrom purrr map_at
 #' @export
-md_emphasize <- function(x, f, n) {
+emphasize_at <- function(x, f, n) {
   # hacky solution
   emphasize_at <- function(.x, .at, .f) {
     stringr::str_c(purrr::map_at(.x, .at, .f), collapse = " ")

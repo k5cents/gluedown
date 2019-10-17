@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 The `gluedown` helps transition from R vectors to markdown text. The functions
 use [`glue()`][glue] to wrap character vectors in markdown syntax. This allows
-users to directly print R vectors as markdown text for improved clarity and
+users to directly print R vectors as formatted text for improved clarity and
 readability.
 
 The [_Printing Markdown_ vignette][vig] explains all the `gluedown` use cases in
@@ -90,16 +90,31 @@ read_html("https://w.wiki/A58") %>%
 
 [pipe]: https://magrittr.tidyverse.org/reference/pipe.html
 
+## Extensions
+
+The package primarily uses [GitHub Flavored Markdown][gfm] (GFM). With this
+flavor, some useful extensions like [task lists][task] are supported on GitHub.
+Be mindful of how these these results look in your rendered format.
+
+```{r task_list, results='asis'}
+legislation <- c("Houses passes", "Senate concurs", "President signs")
+md_task(legislation, check = 1:2, cat = TRUE)
+```
+
+[task]: https://help.github.com/en/articles/about-task-lists
+[gfm]: https://github.github.com/gfm/
 ## Inline
 
 You can also use `gluedown` to format R [inline code results][inline]. First,
 use R to calculate a result.
 
 ```{r ex_inline}
-rand <- sample(state.name, 1)
-# `r md_bold(rand)`
+name <- sample(state.name, 1)
+abb <- state.abb[match(name, state.name)]
+# `r md_bold(name)`
+# `r md_code(abb)`
 ```
 
 Then, you can easily print that result in the middle of regular text with
-markdown formatting. In this case, our randomly selected state is... 
-`r md_bold(rand)`!
+markdown formatting. In this case, our randomly selected state is 
+`r md_bold(name)`, which has the abbreviation `r md_code(abb)`.

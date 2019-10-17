@@ -1,6 +1,6 @@
 Package: gluedown
 Title: Wrap Vectors in Markdown Formatting
-Version: 0.0.0.9011
+Version: 0.0.0.9012
 Authors@R: 
     person(given = "Kiernan",
            family = "Nicholls",
@@ -28,4 +28,5 @@ Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
 Suggests: 
     rmarkdown,
-    rvest
+    rvest,
+    dplyr

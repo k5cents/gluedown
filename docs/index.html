@@ -96,8 +96,8 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The <code>gluedown</code> helps transition from R vectors to markdown text. The functions use <a href="https://github.com/tidyverse/glue"><code>glue()</code></a> to wrap character vectors in markdown syntax. This allows users to directly print R vectors as markdown text for improved clarity and readability.</p>
-<p>The <a href="vignettes/printing-markdown.Rmd"><em>Printing Markdown</em> vignette</a> explains all the <code>gluedown</code> use cases in more detail.</p>
+<p>The <code>gluedown</code> helps transition from R vectors to markdown text. The functions use <a href="https://github.com/tidyverse/glue"><code>glue()</code></a> to wrap character vectors in markdown syntax. This allows users to directly print R vectors as formatted text for improved clarity and readability.</p>
+<p>The <a href="https://kiernann.com/gluedown/articles/printing-markdown.html"><em>Printing Markdown</em> vignette</a> explains all the <code>gluedown</code> use cases in more detail.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -148,13 +148,27 @@
 </blockquote>
 </div>
 </div>
+<div id="extensions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#extensions" class="anchor"></a>Extensions</h2>
+<p>The package primarily uses <a href="https://github.github.com/gfm/">GitHub Flavored Markdown</a> (GFM). With this flavor, some useful extensions like <a href="https://help.github.com/en/articles/about-task-lists">task lists</a> are supported on GitHub. Be mindful of how these these results look in your rendered format.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">legislation &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Houses passes"</span>, <span class="st">"Senate concurs"</span>, <span class="st">"President signs"</span>)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="reference/md_task.html">md_task</a></span>(legislation, <span class="dt">check =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">cat =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<ul>
+<li>[x] Houses passes</li>
+<li>[x] Senate concurs</li>
+<li>[ ] President signs</li>
+</ul>
+</div>
 <div id="inline" class="section level2">
 <h2 class="hasAnchor">
 <a href="#inline" class="anchor"></a>Inline</h2>
 <p>You can also use <code>gluedown</code> to format R <a href="https://rmarkdown.rstudio.com/lesson-4.html">inline code results</a>. First, use R to calculate a result.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">rand &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(state.name, <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co"># `r md_bold(rand)`</span></a></code></pre></div>
-<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>Iowa</strong>!</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">name &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(state.name, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">abb &lt;-<span class="st"> </span>state.abb[<span class="kw"><a href="https://rdrr.io/r/base/match.html">match</a></span>(name, state.name)]</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># `r md_bold(name)`</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># `r md_code(abb)`</span></a></code></pre></div>
+<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is <strong>Vermont</strong>, which has the abbreviation <code>VT</code>.</p>
 </div>
 </div>
   </div>

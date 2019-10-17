@@ -20,11 +20,21 @@ knitr::opts_chunk$set(
 library(gluedown)
 library(stringr)
 library(rvest)
+library(dplyr)
 ```
+
+In literate programming, the typical paradigm of source code is reversed;
+instead of walls of code with the occasional comment, the user writes human
+readable text (like this paragraph) with source code interspersed. In the R
+language, this is primarily done with the [`rmarkdown`][rmd] package, which
+takes a plaint text markdown file containing code "chunks" and executes that
+code when converting to some other format.
 
 Markdown is a lightweight plain-text language used to format text. Let's look at
 the original description of markdown from John Gruber's website, the creator of
-the markdown standard.
+the markdown standard. Using the `rvest` package, we can programatically scrape
+Gruber's blog, extract HTML paragraph tags, and convert those tags to character
+vectors.
 
 ```{r markdown_desc}
 markdown_blog <- 
@@ -33,7 +43,7 @@ markdown_blog <-
   html_text()
 ```
 
-Right off the bat, Gruber explains _what_ exactly markdown is.
+Gruber first explains _what_ exactly his markdown language is.
 
 ```{r quote_what, results='asis'}
 md_quote(markdown_blog[4])
@@ -46,35 +56,74 @@ format, and some inspiration for it's syntax.
 md_quote(markdown_blog[6])
 ```
 
-This entire vignette was written in markdown and converted to HTML using pandoc.
-However, as you may have noticed, I haven't exactly been conforming to Gruber's
-original desire for markdown to be readable as is. I didn't copy the text from
-his blog and past it as text into this vignette. This is where the `gluedown`
-package comes in.
+This entire vignette was written in markdown and converted to HTML using 
+[pandoc][pandoc]. However, as you may have noticed, I haven't exactly been
+conforming to this original desire for markdown to be readable as is. I didn't
+copy the text from his blog and past it as text into this vignette. This is
+where the `gluedown` package comes in.
+
+[pandoc]: https://pandoc.org/
 
 The `gluedown` package helps ease the transition between the incredibly powerful
 vector support in R and the readability of markdown. Since this vignette was
-written using R Markdown, which combined R code and text to create full markdown
-files which can then be converted to pandoc to HTML, PDF, or any other number of
-formats.
+written in _R_ Markdown, I am able to use the power of packages like `rvest`
+to collect, process, or analyze some kind of data and then transition that 
+result to the human readable markdown format. The `.Rmd` file containing source
+code is a programming environment, the `.md` file created by `rmarkdown` is
+a human-readable plain text version of that code _and_ findings, and the `.html`
+format of this vignette created by `pandoc` is the final presentation format.
 
-Using the `rvest` package, I was able to programatically scrape Gruber's blog,
-extract HTML paragraph tags, and convert those tags to character vectors. Then,
-using `md_quote()`, those vectors were printed directly as block markdown block
-quotes, which were then converted _back_ to beautiful HTML block quotes in the
-final version of this vignette. The rest of this vignette will explain all the
-ways `gluedown` can convert R vectors to formatted markdown text.
+In the rest of this vigette, I will demonstrate some of the various use cases
+for `gluedown`. We will see how easy it is to transition between R vectors
+and readable results in markdown/HTML.
 
-### Lists
+```{r}
+headings <- str_to_title(c("vector lists", "pipes", "extensions", "inline"))
+```
+
+`r md_heading(headings[1], 2)`
 
 Printing vectors as markdown lists was the initial inspiration for the package.
-Here, we also see how _inline_ functions can be used within _block_ functions.
+In R, atomic vectors the fundamental object type that composes more complex
+objects like lists and dataframes. The `state.name` vector built into base R
+is a character vector of all 50 state names.
 
-```{r ex_list, results='asis'}
+```{r state.name}
+mode(state.name)
+length(state.name)
+sample(state.name, 3)
+```
+
+If we as a user want to use those state names as _text_ in our markdown document
+we can use the `cat()` function and tell `rmarkdown` to print the results of
+that function "as is" (rather than as code output).
+
+```{r print_states, results='asis'}
+cat(state.name[1:3])
+```
+
+That output obviously isn't very appealing. Using `md_list()`, we can instead
+print those same states as a numbered list.
+
+```{r numbered_list, results='asis'}
 md_list(state.name[1:3], cat = TRUE)
 ```
 
-```{r ex_others, results='asis'}
+This numbered list is a markdown container _block_. As described in the GitHub
+Flavored Markdown specification:
+
+> We can think of a document as a sequence of blocks—structural elements like
+paragraphs, block quotations, lists, headings, rules, and code blocks. Some
+blocks (like block quotes and list items) contain other blocks; others (like
+headings and paragraphs) contain inline content—text, links, emphasized text,
+images, code spans, and so on.
+
+We can nest `md_*()` functions to create inline content within a code block.
+Let's use some inline functions to create a new vector names `inline` with
+five states each formatted in another sytax. We'll take a look at what that
+vector _really_ looks like with a simple `print()`.
+
+```{r inline_vector}
 inlines <- c(
   md_bold(state.name[4]),
   md_code(state.name[5]),
@@ -83,31 +132,70 @@ inlines <- c(
   md_strike(state.name[8])
 )
 
+mode(inlines)
+length(inlines)
+print(inlines)
+```
+
+Using `md_bullet()` we will print that vector as a bullet point list and each
+element will be rendered with the appropriate markdown syntax.
+
+```{r bullet_list, results='asis'}
 md_bullet(inlines, cat = TRUE)
 ```
 
-### Pipes
+These functions demonstrate how `gluedown` can be used to transition between
+R vectors, simple formatted markdown text, and beautifully formatted HTML text.
 
-All functions are designed to fit within the tidyverse ecosystem by working with
-[pipes][pipe].
+`r md_heading(headings[2], 2)`
 
-```{r ex_quote, results='asis'}
-read_html("https://w.wiki/A58") %>% 
-  html_node("blockquote") %>% 
-  html_text(trim = TRUE) %>% 
-  str_remove("\\[(.*)\\]") %>% 
-  md_quote(cat = TRUE)
+The package has been designed to fit well in a traditional R workflow so users
+can seemlessly create content with their code and display that content with
+`gluedown`. In that spirit, all functions are designed to fit within the
+tidyverse ecosystem by working with [pipes][pipe]. Pipes allow users to pass
+the results of one function into the begining of the next. By ending this
+"pipeline" with `md_quote()`, chain together five coding steps.
+
+1. Read the HTML text of a Wikipedia page
+1. Extract the first `<blockquote>` tag
+1. Convert that tag to a character vector
+1. Remove Wikipedia's bracketed note
+1. Print that vector as a markdown block quote
+
+```{r blockquote, results='asis'}
+read_html("https://w.wiki/A58") %>% # 1
+  html_node("blockquote") %>% # 2
+  html_text(trim = TRUE) %>% # 3
+  str_remove("\\[(.*)\\]") %>% # 4
+  md_quote(cat = TRUE) # 5
 ```
 
 [pipe]: https://magrittr.tidyverse.org/reference/pipe.html
 
-### Extensions
+This same process can also be used with `md_table()` to display data frames
+as markdown tables. This function wraps around the more powerful 
+`knitr::kable()` function, which allows data frames to be printed in a number
+of alternative formats. Printing data frames is a very typical use case for
+documenting the process of data science. With small summary tables like the one
+below, a markdown table is much more readable than the plain text tibble or
+data frame printed by default.
+
+```{r table}
+starwars %>%
+  group_by(species) %>%
+  summarise(n = n(), mass = mean(mass, na.rm = TRUE)) %>%
+  filter(n > 1, mass > 50) %>% 
+  arrange(desc(mass)) %>% 
+  md_table(digits = 1)
+```
+
+`r md_heading(headings[3], 2)`
 
 The package primarily uses [GitHub Flavored Markdown][gfm] (GFM), a
 site-specific version of the [CommonMark specification][cm], an unambiguous
 improvement on John Gruber's [original Markdown][df]. With this flavor, some
 useful extensions like [task lists][task] are supported on GitHub. Elsewhere,
-there may not work as well (or at all).
+like this HTML vignette, a task list will just render as a bullet list.
 
 ```{r ex_task, results='asis'}
 legislation <- c("Houses passes", "Senate concurs", "President signs")
@@ -115,8 +203,9 @@ md_task(legislation, check = 1:2, cat = TRUE)
 ```
 
 Some features aren't technically supported by GFM, but can be 
-[forced by pandoc][pandoc]. With `md_define()`, definition lists are simply
-rendered as funky bullet lists on GitHub.
+[forced by pandoc][pandoc]. For example, the output of `md_define()` will be 
+rendered as bullet lists on GitHub but appear as formatted definition lists in
+HTML formats like this.
 
 ```{r ex_define, results='asis'}
 md_define("Democracy", def = "Government by the people", cat = TRUE)
@@ -128,7 +217,7 @@ md_define("Democracy", def = "Government by the people", cat = TRUE)
 [df]: https://daringfireball.net/projects/markdown/
 [pandoc]: https://pandoc.org/MANUAL.html#definition-lists
 
-## Inline
+`r md_heading(headings[4], 2)`
 
 You can also use `gluedown` to format R [inline code results][inline]. First,
 use R to calculate a result.
@@ -136,8 +225,20 @@ use R to calculate a result.
 ```{r ex_inline}
 rand <- sample(state.name, 1)
 # `r md_bold(rand)`
+var <- sample(names(starwars), 1)
+# `r md_code(var)`
 ```
 
 Then, you can easily print that result in the middle of regular text with
 markdown formatting. In this case, our randomly selected state is... 
-`r md_bold(rand)`!
+`r md_bold(rand)` and the `r md_code(var)` variable was randomly selected from
+the `dplyr::starwars` dataframe. Calculating results and using those
+calculations in the body of a text document increases reproducability. 
+
+In a [meta-study of psychology journals][pmc], researchers found that "around
+15% of the articles contained at least one statistical conclusion that proved,
+upon recalculation, to be incorrect." These errors can be mitigated by using
+inline printing of results like we did above. With the `gluedown` package,
+programmers can **emphasize** those results without worry.
+
+[pmc]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3174372/

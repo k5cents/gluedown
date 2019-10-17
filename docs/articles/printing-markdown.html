@@ -98,13 +98,15 @@
     
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(gluedown)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(stringr)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(rvest)</a></code></pre></div>
-<p>Markdown is a lightweight plain-text language used to format text. Let’s look at the original description of markdown from John Gruber’s website, the creator of the markdown standard.</p>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(rvest)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</a></code></pre></div>
+<p>In literate programming, the typical paradigm of source code is reversed; instead of walls of code with the occasional comment, the user writes human readable text (like this paragraph) with source code interspersed. In the R language, this is primarily done with the [<code>rmarkdown</code>][rmd] package, which takes a plaint text markdown file containing code “chunks” and executes that code when converting to some other format.</p>
+<p>Markdown is a lightweight plain-text language used to format text. Let’s look at the original description of markdown from John Gruber’s website, the creator of the markdown standard. Using the <code>rvest</code> package, we can programatically scrape Gruber’s blog, extract HTML paragraph tags, and convert those tags to character vectors.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">markdown_blog &lt;-<span class="st"> </span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw">read_html</span>(<span class="st">"https://daringfireball.net/projects/markdown/"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/rvest/man/html_nodes.html">html_nodes</a></span>(<span class="st">"p"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/rvest/man/html_text.html">html_text</a></span>()</a></code></pre></div>
-<p>Right off the bat, Gruber explains <em>what</em> exactly markdown is.</p>
+<p>Gruber first explains <em>what</em> exactly his markdown language is.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="../reference/md_quote.html">md_quote</a></span>(markdown_blog[<span class="dv">4</span>])</a></code></pre></div>
 <blockquote>
 <p>Markdown is a text-to-HTML conversion tool for web writers. Markdown allows you to write using an easy-to-read, easy-to-write plain text format, then convert it to structurally valid XHTML (or HTML).</p>
@@ -114,28 +116,53 @@
 <blockquote>
 <p>The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions. While Markdown’s syntax has been influenced by several existing text-to-HTML filters, the single biggest source of inspiration for Markdown’s syntax is the format of plain text email.</p>
 </blockquote>
-<p>This entire vignette was written in markdown and converted to HTML using pandoc. However, as you may have noticed, I haven’t exactly been conforming to Gruber’s original desire for markdown to be readable as is. I didn’t copy the text from his blog and past it as text into this vignette. This is where the <code>gluedown</code> package comes in.</p>
-<p>The <code>gluedown</code> package helps ease the transition between the incredibly powerful vector support in R and the readability of markdown. Since this vignette was written using R Markdown, which combined R code and text to create full markdown files which can then be converted to pandoc to HTML, PDF, or any other number of formats.</p>
-<p>Using the <code>rvest</code> package, I was able to programatically scrape Gruber’s blog, extract HTML paragraph tags, and convert those tags to character vectors. Then, using <code><a href="../reference/md_quote.html">md_quote()</a></code>, those vectors were printed directly as block markdown block quotes, which were then converted <em>back</em> to beautiful HTML block quotes in the final version of this vignette. The rest of this vignette will explain all the ways <code>gluedown</code> can convert R vectors to formatted markdown text.</p>
-<div id="lists" class="section level3">
-<h3 class="hasAnchor">
-<a href="#lists" class="anchor"></a>Lists</h3>
-<p>Printing vectors as markdown lists was the initial inspiration for the package. Here, we also see how <em>inline</em> functions can be used within <em>block</em> functions.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="../reference/md_list.html">md_list</a></span>(state.name[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dt">cat =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>This entire vignette was written in markdown and converted to HTML using <a href="https://pandoc.org/MANUAL.html#definition-lists">pandoc</a>. However, as you may have noticed, I haven’t exactly been conforming to this original desire for markdown to be readable as is. I didn’t copy the text from his blog and past it as text into this vignette. This is where the <code>gluedown</code> package comes in.</p>
+<p>The <code>gluedown</code> package helps ease the transition between the incredibly powerful vector support in R and the readability of markdown. Since this vignette was written in <em>R</em> Markdown, I am able to use the power of packages like <code>rvest</code> to collect, process, or analyze some kind of data and then transition that result to the human readable markdown format. The <code>.Rmd</code> file containing source code is a programming environment, the <code>.md</code> file created by <code>rmarkdown</code> is a human-readable plain text version of that code <em>and</em> findings, and the <code>.html</code> format of this vignette created by <code>pandoc</code> is the final presentation format.</p>
+<p>In the rest of this vigette, I will demonstrate some of the various use cases for <code>gluedown</code>. We will see how easy it is to transition between R vectors and readable results in markdown/HTML.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">headings &lt;-<span class="st"> </span><span class="kw"><a href="https://stringr.tidyverse.org/reference/case.html">str_to_title</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"vector lists"</span>, <span class="st">"pipes"</span>, <span class="st">"extensions"</span>, <span class="st">"inline"</span>))</a></code></pre></div>
+<div id="vector-lists" class="section level2">
+<h2 class="hasAnchor">
+<a href="#vector-lists" class="anchor"></a>Vector Lists</h2>
+<p>Printing vectors as markdown lists was the initial inspiration for the package. In R, atomic vectors the fundamental object type that composes more complex objects like lists and dataframes. The <code>state.name</code> vector built into base R is a character vector of all 50 state names.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/mode.html">mode</a></span>(state.name)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; [1] "character"</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/length.html">length</a></span>(state.name)</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; [1] 50</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(state.name, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; [1] "Maine"     "Tennessee" "Wisconsin"</span></a></code></pre></div>
+<p>If we as a user want to use those state names as <em>text</em> in our markdown document we can use the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> function and tell <code>rmarkdown</code> to print the results of that function “as is” (rather than as code output).</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(state.name[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])</a></code></pre></div>
+<p>Alabama Alaska Arizona</p>
+<p>That output obviously isn’t very appealing. Using <code><a href="../reference/md_list.html">md_list()</a></code>, we can instead print those same states as a numbered list.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="../reference/md_list.html">md_list</a></span>(state.name[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dt">cat =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Alabama</li>
 <li>Alaska</li>
 <li>Arizona</li>
 </ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">inlines &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="kw"><a href="../reference/md_bold.html">md_bold</a></span>(state.name[<span class="dv">4</span>]),</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="kw"><a href="../reference/md_code.html">md_code</a></span>(state.name[<span class="dv">5</span>]),</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="kw"><a href="../reference/md_link.html">md_link</a></span>(state.name[<span class="dv">6</span>], <span class="st">"https://Colorado.gov"</span>),</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">  <span class="kw"><a href="../reference/md_italic.html">md_italic</a></span>(state.name[<span class="dv">7</span>]),</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">  <span class="kw"><a href="../reference/md_strike.html">md_strike</a></span>(state.name[<span class="dv">8</span>])</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">)</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="kw"><a href="../reference/md_bullet.html">md_bullet</a></span>(inlines, <span class="dt">cat =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>This numbered list is a markdown container <em>block</em>. As described in the GitHub Flavored Markdown specification:</p>
+<blockquote>
+<p>We can think of a document as a sequence of blocks—structural elements like paragraphs, block quotations, lists, headings, rules, and code blocks. Some blocks (like block quotes and list items) contain other blocks; others (like headings and paragraphs) contain inline content—text, links, emphasized text, images, code spans, and so on.</p>
+</blockquote>
+<p>We can nest <code>md_*()</code> functions to create inline content within a code block. Let’s use some inline functions to create a new vector names <code>inline</code> with five states each formatted in another sytax. We’ll take a look at what that vector <em>really</em> looks like with a simple <code><a href="https://rdrr.io/r/base/print.html">print()</a></code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">inlines &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="kw"><a href="../reference/md_bold.html">md_bold</a></span>(state.name[<span class="dv">4</span>]),</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="kw"><a href="../reference/md_code.html">md_code</a></span>(state.name[<span class="dv">5</span>]),</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="kw"><a href="../reference/md_link.html">md_link</a></span>(state.name[<span class="dv">6</span>], <span class="st">"https://Colorado.gov"</span>),</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="kw"><a href="../reference/md_italic.html">md_italic</a></span>(state.name[<span class="dv">7</span>]),</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">  <span class="kw"><a href="../reference/md_strike.html">md_strike</a></span>(state.name[<span class="dv">8</span>])</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">)</a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="kw"><a href="https://rdrr.io/r/base/mode.html">mode</a></span>(inlines)</a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="co">#&gt; [1] "character"</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="kw"><a href="https://rdrr.io/r/base/length.html">length</a></span>(inlines)</a>
+<a class="sourceLine" id="cb9-12" data-line-number="12"><span class="co">#&gt; [1] 5</span></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(inlines)</a>
+<a class="sourceLine" id="cb9-14" data-line-number="14"><span class="co">#&gt; [1] "**Arkansas**"                     "`California`"                    </span></a>
+<a class="sourceLine" id="cb9-15" data-line-number="15"><span class="co">#&gt; [3] "[Colorado](https://Colorado.gov)" "_Connecticut_"                   </span></a>
+<a class="sourceLine" id="cb9-16" data-line-number="16"><span class="co">#&gt; [5] "~~Delaware~~"</span></a></code></pre></div>
+<p>Using <code><a href="../reference/md_bullet.html">md_bullet()</a></code> we will print that vector as a bullet point list and each element will be rendered with the appropriate markdown syntax.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="../reference/md_bullet.html">md_bullet</a></span>(inlines, <span class="dt">cat =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <ul>
 <li><strong>Arkansas</strong></li>
 <li><code>California</code></li>
@@ -143,33 +170,97 @@
 <li><em>Connecticut</em></li>
 <li><del>Delaware</del></li>
 </ul>
+<p>These functions demonstrate how <code>gluedown</code> can be used to transition between R vectors, simple formatted markdown text, and beautifully formatted HTML text.</p>
 </div>
-<div id="pipes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#pipes" class="anchor"></a>Pipes</h3>
-<p>All functions are designed to fit within the tidyverse ecosystem by working with <a href="https://magrittr.tidyverse.org/reference/pipe.html">pipes</a>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">read_html</span>(<span class="st">"https://w.wiki/A58"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/rvest/man/html_nodes.html">html_node</a></span>(<span class="st">"blockquote"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/rvest/man/html_text.html">html_text</a></span>(<span class="dt">trim =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">[(.*)</span><span class="ch">\\</span><span class="st">]"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/md_quote.html">md_quote</a></span>(<span class="dt">cat =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div id="pipes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#pipes" class="anchor"></a>Pipes</h2>
+<p>The package has been designed to fit well in a traditional R workflow so users can seemlessly create content with their code and display that content with <code>gluedown</code>. In that spirit, all functions are designed to fit within the tidyverse ecosystem by working with <a href="https://magrittr.tidyverse.org/reference/pipe.html">pipes</a>. Pipes allow users to pass the results of one function into the begining of the next. By ending this “pipeline” with <code><a href="../reference/md_quote.html">md_quote()</a></code>, chain together five coding steps.</p>
+<ol style="list-style-type: decimal">
+<li>Read the HTML text of a Wikipedia page</li>
+<li>Extract the first <code>&lt;blockquote&gt;</code> tag</li>
+<li>Convert that tag to a character vector</li>
+<li>Remove Wikipedia’s bracketed note</li>
+<li>Print that vector as a markdown block quote</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">read_html</span>(<span class="st">"https://w.wiki/A58"</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># 1</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/rvest/man/html_nodes.html">html_node</a></span>(<span class="st">"blockquote"</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># 2</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/rvest/man/html_text.html">html_text</a></span>(<span class="dt">trim =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># 3</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">[(.*)</span><span class="ch">\\</span><span class="st">]"</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># 4</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/md_quote.html">md_quote</a></span>(<span class="dt">cat =</span> <span class="ot">TRUE</span>) <span class="co"># 5</span></a></code></pre></div>
 <blockquote>
 <p>We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.</p>
 </blockquote>
+<p>This same process can also be used with <code><a href="../reference/md_table.html">md_table()</a></code> to display data frames as markdown tables. This function wraps around the more powerful <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable()</a></code> function, which allows data frames to be printed in a number of alternative formats. Printing data frames is a very typical use case for documenting the process of data science. With small summary tables like the one below, a markdown table is much more readable than the plain text tibble or data frame printed by default.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">starwars <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(species) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(<span class="dt">n =</span> <span class="kw"><a href="https://dplyr.tidyverse.org/reference/n.html">n</a></span>(), <span class="dt">mass =</span> <span class="kw"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(mass, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, mass <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span>(mass)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../reference/md_table.html">md_table</a></span>(<span class="dt">digits =</span> <span class="dv">1</span>)</a></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="left">species</th>
+<th align="right">n</th>
+<th align="right">mass</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Wookiee</td>
+<td align="right">2</td>
+<td align="right">124.0</td>
+</tr>
+<tr class="even">
+<td align="left">Kaminoan</td>
+<td align="right">2</td>
+<td align="right">88.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Human</td>
+<td align="right">35</td>
+<td align="right">82.8</td>
+</tr>
+<tr class="even">
+<td align="left">Zabrak</td>
+<td align="right">2</td>
+<td align="right">80.0</td>
+</tr>
+<tr class="odd">
+<td align="left">Gungan</td>
+<td align="right">3</td>
+<td align="right">74.0</td>
+</tr>
+<tr class="even">
+<td align="left">Droid</td>
+<td align="right">5</td>
+<td align="right">69.8</td>
+</tr>
+<tr class="odd">
+<td align="left">Twi’lek</td>
+<td align="right">2</td>
+<td align="right">55.0</td>
+</tr>
+<tr class="even">
+<td align="left">Mirialan</td>
+<td align="right">2</td>
+<td align="right">53.1</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="extensions" class="section level3">
-<h3 class="hasAnchor">
-<a href="#extensions" class="anchor"></a>Extensions</h3>
-<p>The package primarily uses <a href="https://github.github.com/gfm/">GitHub Flavored Markdown</a> (GFM), a site-specific version of the <a href="https://spec.commonmark.org/">CommonMark specification</a>, an unambiguous improvement on John Gruber’s <a href="https://daringfireball.net/projects/markdown/">original Markdown</a>. With this flavor, some useful extensions like <a href="https://help.github.com/en/articles/about-task-lists">task lists</a> are supported on GitHub. Elsewhere, there may not work as well (or at all).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">legislation &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Houses passes"</span>, <span class="st">"Senate concurs"</span>, <span class="st">"President signs"</span>)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw"><a href="../reference/md_task.html">md_task</a></span>(legislation, <span class="dt">check =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">cat =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div id="extensions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#extensions" class="anchor"></a>Extensions</h2>
+<p>The package primarily uses <a href="https://github.github.com/gfm/">GitHub Flavored Markdown</a> (GFM), a site-specific version of the <a href="https://spec.commonmark.org/">CommonMark specification</a>, an unambiguous improvement on John Gruber’s <a href="https://daringfireball.net/projects/markdown/">original Markdown</a>. With this flavor, some useful extensions like <a href="https://help.github.com/en/articles/about-task-lists">task lists</a> are supported on GitHub. Elsewhere, like this HTML vignette, a task list will just render as a bullet list.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">legislation &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Houses passes"</span>, <span class="st">"Senate concurs"</span>, <span class="st">"President signs"</span>)</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw"><a href="../reference/md_task.html">md_task</a></span>(legislation, <span class="dt">check =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">cat =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <ul>
 <li>[x] Houses passes</li>
 <li>[x] Senate concurs</li>
 <li>[ ] President signs</li>
 </ul>
-<p>Some features aren’t technically supported by GFM, but can be <a href="https://pandoc.org/MANUAL.html#definition-lists">forced by pandoc</a>. With <code><a href="../reference/md_define.html">md_define()</a></code>, definition lists are simply rendered as funky bullet lists on GitHub.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="../reference/md_define.html">md_define</a></span>(<span class="st">"Democracy"</span>, <span class="dt">def =</span> <span class="st">"Government by the people"</span>, <span class="dt">cat =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<p>Some features aren’t technically supported by GFM, but can be <a href="https://pandoc.org/MANUAL.html#definition-lists">forced by pandoc</a>. For example, the output of <code><a href="../reference/md_define.html">md_define()</a></code> will be rendered as bullet lists on GitHub but appear as formatted definition lists in HTML formats like this.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw"><a href="../reference/md_define.html">md_define</a></span>(<span class="st">"Democracy"</span>, <span class="dt">def =</span> <span class="st">"Government by the people"</span>, <span class="dt">cat =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <dl>
 <dt>Democracy</dt>
 <dd>Government by the people
@@ -180,9 +271,12 @@
 <h2 class="hasAnchor">
 <a href="#inline" class="anchor"></a>Inline</h2>
 <p>You can also use <code>gluedown</code> to format R <a href="#inline">inline code results</a>. First, use R to calculate a result.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">rand &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(state.name, <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="co"># `r md_bold(rand)`</span></a></code></pre></div>
-<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>Nevada</strong>!</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">rand &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(state.name, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="co"># `r md_bold(rand)`</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">var &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(starwars), <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co"># `r md_code(var)`</span></a></code></pre></div>
+<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>Kentucky</strong> and the <code>starships</code> variable was randomly selected from the <code><a href="https://dplyr.tidyverse.org/reference/starwars.html">dplyr::starwars</a></code> dataframe. Calculating results and using those calculations in the body of a text document increases reproducability.</p>
+<p>In a <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3174372/">meta-study of psychology journals</a>, researchers found that “around 15% of the articles contained at least one statistical conclusion that proved, upon recalculation, to be incorrect.” These errors can be mitigated by using inline printing of results like we did above. With the <code>gluedown</code> package, programmers can <strong>emphasize</strong> those results without worry.</p>
 </div>
   </div>
 
@@ -191,7 +285,10 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#inline">Inline</a></li>
+<li><a href="#vector-lists">Vector Lists</a></li>
+      <li><a href="#pipes">Pipes</a></li>
+      <li><a href="#extensions">Extensions</a></li>
+      <li><a href="#inline">Inline</a></li>
       </ul>
 </div>
       </div>

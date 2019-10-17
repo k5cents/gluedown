@@ -16,7 +16,7 @@ status](https://travis-ci.org/kiernann/gluedown.svg?branch=master)](https://trav
 The `gluedown` helps transition from R vectors to markdown text. The
 functions use [`glue()`](https://github.com/tidyverse/glue) to wrap
 character vectors in markdown syntax. This allows users to directly
-print R vectors as markdown text for improved clarity and readability.
+print R vectors as formatted text for improved clarity and readability.
 
 The [*Printing Markdown*
 vignette](https://kiernann.com/gluedown/articles/printing-markdown.html)
@@ -91,6 +91,24 @@ read_html("https://w.wiki/A58") %>%
 > of Liberty to ourselves and our Posterity, do ordain and establish
 > this Constitution for the United States of America.
 
+## Extensions
+
+The package primarily uses [GitHub Flavored
+Markdown](https://github.github.com/gfm/) (GFM). With this flavor, some
+useful extensions like [task
+lists](https://help.github.com/en/articles/about-task-lists) are
+supported on GitHub. Be mindful of how these these results look in your
+rendered format.
+
+``` r
+legislation <- c("Houses passes", "Senate concurs", "President signs")
+md_task(legislation, check = 1:2, cat = TRUE)
+```
+
+  - \[x\] Houses passes
+  - \[x\] Senate concurs
+  - \[ \] President signs
+
 ## Inline
 
 You can also use `gluedown` to format R [inline code
@@ -98,10 +116,12 @@ results](https://rmarkdown.rstudio.com/lesson-4.html). First, use R to
 calculate a result.
 
 ``` r
-rand <- sample(state.name, 1)
-# `r md_bold(rand)`
+name <- sample(state.name, 1)
+abb <- state.abb[match(name, state.name)]
+# `r md_bold(name)`
+# `r md_code(abb)`
 ```
 
 Then, you can easily print that result in the middle of regular text
-with markdown formatting. In this case, our randomly selected state is…
-**Michigan**\!
+with markdown formatting. In this case, our randomly selected state is
+**Vermont**, which has the abbreviation `VT`.

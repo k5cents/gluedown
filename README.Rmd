@@ -26,10 +26,11 @@ use [`glue()`][glue] to wrap character vectors in markdown syntax. This allows
 users to directly print R vectors as markdown text for improved clarity and
 readability.
 
-The [_Printing Markdown_ vignette](vignettes/printing-markdown.Rmd) explains all
-the `gluedown` use cases in more detail.
+The [_Printing Markdown_ vignette][vig] explains all the `gluedown` use cases in
+more detail.
 
 [glue]: https://github.com/tidyverse/glue
+[vig]: https://kiernann.com/gluedown/articles/printing-markdown.html
 
 ## Installation
 

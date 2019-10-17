@@ -18,7 +18,8 @@ functions use [`glue()`](https://github.com/tidyverse/glue) to wrap
 character vectors in markdown syntax. This allows users to directly
 print R vectors as markdown text for improved clarity and readability.
 
-The [*Printing Markdown* vignette](vignettes/printing-markdown.Rmd)
+The [*Printing Markdown*
+vignette](https://kiernann.com/gluedown/articles/printing-markdown.html)
 explains all the `gluedown` use cases in more detail.
 
 ## Installation
@@ -103,4 +104,4 @@ rand <- sample(state.name, 1)
 
 Then, you can easily print that result in the middle of regular text
 with markdown formatting. In this case, our randomly selected state is…
-**Iowa**\!
+**Michigan**\!

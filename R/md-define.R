@@ -13,8 +13,11 @@
 #' @return A character vector with elements preceded by an asterisk symbol.
 #' @examples
 #' md_define("Democracy", "Government by the people")
+#' @importFrom glue glue
 #' @export
 md_define <- function(term, def, cat = FALSE) {
-  entry <- c(term, paste(":", def, sep = "    "))
+  entry <- c(term, glue::glue(":    {def}"))
   if_cat(entry, cat)
 }
+
+

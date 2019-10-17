@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Selective Markdown Emphasize — emphasize_at • gluedown</title>
+<title>Markdown Code Block — md_chunk • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -39,9 +39,10 @@
 
 
 
-<meta property="og:title" content="Selective Markdown Emphasize — emphasize_at" />
+<meta property="og:title" content="Markdown Code Block — md_chunk" />
 
-<meta property="og:description" content="Selective Markdown Emphasize" />
+<meta property="og:description" content="Wrap a character vector (possibly lines of a file) in code
+fences to be rendered as a code block." />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -112,43 +113,71 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Selective Markdown Emphasize</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-emphasize.R'><code>R/md-emphasize.R</code></a></small>
-    <div class="hidden name"><code>emphasize_at.Rd</code></div>
+    <h1>Markdown Code Block</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-fence.R'><code>R/md-fence.R</code></a></small>
+    <div class="hidden name"><code>md_chunk.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Selective Markdown Emphasize</p>
+    <p>Wrap a character vector (possibly lines of a file) in code
+fences to be rendered as a code block.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>emphasize_at</span>(<span class='no'>x</span>, <span class='no'>f</span>, <span class='no'>n</span>)</pre>
+    <pre class="usage"><span class='fu'>md_chunk</span>(<span class='no'>x</span>, <span class='kw'>lang</span> <span class='kw'>=</span> <span class='st'>"r"</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ticks"</span>, <span class='st'>"tilde"</span>, <span class='st'>"indent"</span>),
+  <span class='kw'>cat</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A vector of sentence character strings.</p></td>
+      <td><p>A character vector of lines (with leading spaces for indentation) to
+be wrapped in fences.</p></td>
     </tr>
     <tr>
-      <th>f</th>
-      <td><p>An emphasizing function (e.g., <code><a href='md_bold.html'>md_bold()</a></code>).</p></td>
+      <th>lang</th>
+      <td><p>The language of the code within the fence. Aside from clarity,
+this allows many markdown engines to adjust the syntax highlighting.
+Defaults to "r". This option is not used with indented blocks.</p></td>
     </tr>
     <tr>
-      <th>n</th>
-      <td><p>The numeric <em>position</em> of the word in each sentence to emphasize.</p></td>
+      <th>type</th>
+      <td><p>The type of code block to be created. Defaults to tipple
+backticks code fences, but you can also use 4-spaces (useful for legacy
+support on Reddit).</p></td>
+    </tr>
+    <tr>
+      <th>cat</th>
+      <td><p>logical; Should the list be concatenated and printed, with each
+bullet element separated by a new line? Defaults to <code>TRUE</code>.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character vector with elements wrapped in two tilde symbols.</p>
+    <p>A character vector wrapped on either side by code fences.</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>From the <a href='https://github.github.com/gfm/#code-fence'>GFM spec</a>: A
+code fence is a sequence of at least three consecutive backtick characters…
+A fenced code block begins with a code fence, indented no more than three
+spaces… The line with the opening code fence may optionally contain some
+text following the code fence… The content of the code block consists of
+all subsequent lines, until a closing code fence… The content of a code
+fence is treated as literal text, not parsed as inlines. The first word of
+the info string is typically used to specify the language of the code
+sample</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>emphasize_at</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Live free or die"</span>, <span class='kw'>f</span> <span class='kw'>=</span> <span class='no'>md_bold</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "Live free or **die**"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>md_chunk</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"library(ggplot2)"</span>, <span class='st'>"ggplot(mpg) +"</span>, <span class='st'>"  geom_point((displ, hwy))"</span>))</div><div class='output co'>#&gt; ```r
+#&gt; library(ggplot2)
+#&gt; ggplot(mpg) +
+#&gt;   geom_point((displ, hwy))
+#&gt; ```</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -156,6 +185,8 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

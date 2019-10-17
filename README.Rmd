@@ -21,9 +21,11 @@ knitr::opts_chunk$set(
 [![Travis build status](https://travis-ci.org/kiernann/gluedown.svg?branch=master)](https://travis-ci.org/kiernann/gluedown)
 <!-- badges: end -->
 
-The `gluedown` package uses [`glue()`][glue] to wrap character vectors in
-markdown syntax. Markdown is a lightweight, plain-text markup language prevalent
-in the R community.
+The `gluedown` helps transition from R vectors to markdown text. The functions
+use [`glue()`][glue] to wrap character vectors in markdown syntax. This allows
+users to directly print R vectors as markdown text for improved clarity and
+readability. Markdown is a lightweight, plain-text markup language prevalent in
+the R community.
 
 [glue]: https://github.com/tidyverse/glue
 
@@ -47,6 +49,7 @@ separated with a newline, and printed; this is useful in combination with the
 blocks.
 
 [rmd]: https://github.com/rstudio/rmarkdown
+[inline]: https://rmarkdown.rstudio.com/lesson-4.html
 
 ```{r prepare, warning=FALSE, message=FALSE}
 library(gluedown)
@@ -75,12 +78,28 @@ inlines <- c(
 md_bullet(inlines, cat = TRUE)
 ```
 
+### Pipes
+
+All functions are designed to fit within the tidyverse ecosystem by working with
+[pipes][pipe].
+
+```{r ex_quote, results='asis'}
+read_html("https://w.wiki/A58") %>% 
+  html_node("blockquote") %>% 
+  html_text(trim = TRUE) %>% 
+  str_remove("\\[(.*)\\]") %>% 
+  md_quote(cat = TRUE)
+```
+
+[pipe]: https://magrittr.tidyverse.org/reference/pipe.html
+
 ### Extensions
 
 The package primarily uses [GitHub Flavored Markdown][gfm] (GFM), a
 site-specific version of the [CommonMark specification][cm], an unambiguous
-implementation of John Gruber's [original Markdown][df]. With this spec, some
-useful extensions like [task lists][task] are supported.
+improvement on John Gruber's [original Markdown][df]. With this flavor, some
+useful extensions like [task lists][task] are supported on GitHub. Elsewhere,
+there may not work as well (or at all).
 
 ```{r ex_task, results='asis'}
 legislation <- c("Houses passes", "Senate concurs", "President signs")
@@ -101,17 +120,16 @@ md_define("Democracy", def = "Government by the people", cat = TRUE)
 [df]: https://daringfireball.net/projects/markdown/
 [pandoc]: https://pandoc.org/MANUAL.html#definition-lists
 
-### Pipes
+## Inline
 
-All functions are designed to fit within the tidyverse ecosystem by working with
-[pipes][pipe].
+You can also use `gluedown` to format R [inline code results][inline]. First,
+use R to calculate a result.
 
-```{r ex_quote, results='asis'}
-read_html("https://w.wiki/A58") %>% 
-  html_node("blockquote") %>% 
-  html_text(trim = TRUE) %>% 
-  str_remove("\\[(.*)\\]") %>% 
-  md_quote(cat = TRUE)
+```{r ex_inline}
+rand <- sample(state.name, 1)
+# `r md_bold(rand)`
 ```
 
-[pipe]: https://magrittr.tidyverse.org/reference/pipe.html
+Then, you can easily print that result in the middle of regular text with
+markdown formatting. In this case, our randomly selected state is... 
+`r md_bold(rand)`!

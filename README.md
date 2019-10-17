@@ -13,10 +13,12 @@ status](https://www.r-pkg.org/badges/version/gluedown)](https://CRAN.R-project.o
 status](https://travis-ci.org/kiernann/gluedown.svg?branch=master)](https://travis-ci.org/kiernann/gluedown)
 <!-- badges: end -->
 
-The `gluedown` package uses
-[`glue()`](https://github.com/tidyverse/glue) to wrap character vectors
-in markdown syntax. Markdown is a lightweight, plain-text markup
-language prevalent in the R community.
+The `gluedown` helps transition from R vectors to markdown text. The
+functions use [`glue()`](https://github.com/tidyverse/glue) to wrap
+character vectors in markdown syntax. This allows users to directly
+print R vectors as markdown text for improved clarity and readability.
+Markdown is a lightweight, plain-text markup language prevalent in the R
+community.
 
 ## Installation
 
@@ -80,16 +82,36 @@ md_bullet(inlines, cat = TRUE)
   - *Connecticut*
   - ~~Delaware~~
 
+### Pipes
+
+All functions are designed to fit within the tidyverse ecosystem by
+working with
+[pipes](https://magrittr.tidyverse.org/reference/pipe.html).
+
+``` r
+read_html("https://w.wiki/A58") %>% 
+  html_node("blockquote") %>% 
+  html_text(trim = TRUE) %>% 
+  str_remove("\\[(.*)\\]") %>% 
+  md_quote(cat = TRUE)
+```
+
+> We the People of the United States, in Order to form a more perfect
+> Union, establish Justice, insure domestic Tranquility, provide for the
+> common defence, promote the general Welfare, and secure the Blessings
+> of Liberty to ourselves and our Posterity, do ordain and establish
+> this Constitution for the United States of America.
+
 ### Extensions
 
 The package primarily uses [GitHub Flavored
 Markdown](https://github.github.com/gfm/) (GFM), a site-specific version
 of the [CommonMark specification](https://spec.commonmark.org/), an
-unambiguous implementation of John Gruber’s [original
+unambiguous improvement on John Gruber’s [original
 Markdown](https://daringfireball.net/projects/markdown/). With this
-spec, some useful extensions like [task
+flavor, some useful extensions like [task
 lists](https://help.github.com/en/articles/about-task-lists) are
-supported.
+supported on GitHub. Elsewhere, there may not work as well (or at all).
 
 ``` r
 legislation <- c("Houses passes", "Senate concurs", "President signs")
@@ -112,22 +134,17 @@ md_define("Democracy", def = "Government by the people", cat = TRUE)
   - Democracy  
     Government by the people
 
-### Pipes
+## Inline
 
-All functions are designed to fit within the tidyverse ecosystem by
-working with
-[pipes](https://magrittr.tidyverse.org/reference/pipe.html).
+You can also use `gluedown` to format R [inline code
+results](https://rmarkdown.rstudio.com/lesson-4.html). First, use R to
+calculate a result.
 
 ``` r
-read_html("https://w.wiki/A58") %>% 
-  html_node("blockquote") %>% 
-  html_text(trim = TRUE) %>% 
-  str_remove("\\[(.*)\\]") %>% 
-  md_quote(cat = TRUE)
+rand <- sample(state.name, 1)
+# `r md_bold(rand)`
 ```
 
-> We the People of the United States, in Order to form a more perfect
-> Union, establish Justice, insure domestic Tranquility, provide for the
-> common defence, promote the general Welfare, and secure the Blessings
-> of Liberty to ourselves and our Posterity, do ordain and establish
-> this Constitution for the United States of America.
+Then, you can easily print that result in the middle of regular text
+with markdown formatting. In this case, our randomly selected state is…
+**Wyoming**\!

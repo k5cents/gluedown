@@ -203,7 +203,7 @@ md_task(legislation, check = 1:2, cat = TRUE)
 ```
 
 Some features aren't technically supported by GFM, but can be 
-[forced by pandoc][pandoc]. For example, the output of `md_define()` will be 
+[forced by pandoc][force]. For example, the output of `md_define()` will be 
 rendered as bullet lists on GitHub but appear as formatted definition lists in
 HTML formats like this.
 
@@ -215,7 +215,7 @@ md_define("Democracy", def = "Government by the people", cat = TRUE)
 [gfm]: https://github.github.com/gfm/
 [cm]: https://spec.commonmark.org/
 [df]: https://daringfireball.net/projects/markdown/
-[pandoc]: https://pandoc.org/MANUAL.html#definition-lists
+[force]: https://pandoc.org/MANUAL.html#definition-lists
 
 `r md_heading(headings[4], 2)`
 

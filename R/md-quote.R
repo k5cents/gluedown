@@ -16,7 +16,7 @@ md_quote <- function(x, cat = TRUE) {
   # todo: str_wrap?
   quote <- paste(">", x)
   if (cat) {
-    cat(quote, sep = "\n")
+    cat(quote, sep = "\n", fill = 1)
   } else {
     return(quote)
   }

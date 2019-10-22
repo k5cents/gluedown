@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9011</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9013</span>
       </span>
     </div>
 
@@ -116,7 +116,7 @@
 <blockquote>
 <p>The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible. The idea is that a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions. While Markdown’s syntax has been influenced by several existing text-to-HTML filters, the single biggest source of inspiration for Markdown’s syntax is the format of plain text email.</p>
 </blockquote>
-<p>This entire vignette was written in markdown and converted to HTML using <a href="https://pandoc.org/MANUAL.html#definition-lists">pandoc</a>. However, as you may have noticed, I haven’t exactly been conforming to this original desire for markdown to be readable as is. I didn’t copy the text from his blog and past it as text into this vignette. This is where the <code>gluedown</code> package comes in.</p>
+<p>This entire vignette was written in markdown and converted to HTML using <a href="https://pandoc.org/">pandoc</a>. However, as you may have noticed, I haven’t exactly been conforming to this original desire for markdown to be readable as is. I didn’t copy the text from his blog and past it as text into this vignette. This is where the <code>gluedown</code> package comes in.</p>
 <p>The <code>gluedown</code> package helps ease the transition between the incredibly powerful vector support in R and the readability of markdown. Since this vignette was written in <em>R</em> Markdown, I am able to use the power of packages like <code>rvest</code> to collect, process, or analyze some kind of data and then transition that result to the human readable markdown format. The <code>.Rmd</code> file containing source code is a programming environment, the <code>.md</code> file created by <code>rmarkdown</code> is a human-readable plain text version of that code <em>and</em> findings, and the <code>.html</code> format of this vignette created by <code>pandoc</code> is the final presentation format.</p>
 <p>In the rest of this vigette, I will demonstrate some of the various use cases for <code>gluedown</code>. We will see how easy it is to transition between R vectors and readable results in markdown/HTML.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">headings &lt;-<span class="st"> </span><span class="kw"><a href="https://stringr.tidyverse.org/reference/case.html">str_to_title</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"vector lists"</span>, <span class="st">"pipes"</span>, <span class="st">"extensions"</span>, <span class="st">"inline"</span>))</a></code></pre></div>
@@ -129,7 +129,7 @@
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/length.html">length</a></span>(state.name)</a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; [1] 50</span></a>
 <a class="sourceLine" id="cb6-5" data-line-number="5"><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(state.name, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; [1] "Maine"     "Tennessee" "Wisconsin"</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; [1] "Nebraska"  "Delaware"  "Tennessee"</span></a></code></pre></div>
 <p>If we as a user want to use those state names as <em>text</em> in our markdown document we can use the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> function and tell <code>rmarkdown</code> to print the results of that function “as is” (rather than as code output).</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(state.name[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])</a></code></pre></div>
 <p>Alabama Alaska Arizona</p>
@@ -275,7 +275,7 @@
 <a class="sourceLine" id="cb15-2" data-line-number="2"><span class="co"># `r md_bold(rand)`</span></a>
 <a class="sourceLine" id="cb15-3" data-line-number="3">var &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(starwars), <span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co"># `r md_code(var)`</span></a></code></pre></div>
-<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>Kentucky</strong> and the <code>starships</code> variable was randomly selected from the <code><a href="https://dplyr.tidyverse.org/reference/starwars.html">dplyr::starwars</a></code> dataframe. Calculating results and using those calculations in the body of a text document increases reproducability.</p>
+<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>Missouri</strong> and the <code>hair_color</code> variable was randomly selected from the <code><a href="https://dplyr.tidyverse.org/reference/starwars.html">dplyr::starwars</a></code> dataframe. Calculating results and using those calculations in the body of a text document increases reproducability.</p>
 <p>In a <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3174372/">meta-study of psychology journals</a>, researchers found that “around 15% of the articles contained at least one statistical conclusion that proved, upon recalculation, to be incorrect.” These errors can be mitigated by using inline printing of results like we did above. With the <code>gluedown</code> package, programmers can <strong>emphasize</strong> those results without worry.</p>
 </div>
   </div>

@@ -37,5 +37,9 @@ md_chunk <- function(x, lang = "r", type = c("ticks", "tilde", "indent"), cat = 
       }
     }
   }
-  if_cat(block, cat)
+  if (cat) {
+    cat(block, sep = "\n")
+  } else {
+    return(block)
+  }
 }

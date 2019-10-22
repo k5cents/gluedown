@@ -16,8 +16,12 @@
 #' @importFrom glue glue
 #' @export
 md_define <- function(term, def, cat = FALSE) {
-  entry <- c(term, glue::glue(":    {def}"))
-  if_cat(entry, cat)
+  definition <- c(term, glue::glue(":    {def}"))
+  if (cat) {
+    cat(definition, sep = "\n")
+  } else {
+    return(definition)
+  }
 }
 
 

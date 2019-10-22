@@ -27,5 +27,9 @@ md_heading <- function(x, level = 1, cat = FALSE) {
     hashes[i] <- glue::glue_collapse(rep("#", level[i]))
   }
   heading <- paste(hashes, x)
-  if_cat(heading, cat)
+  if (cat) {
+    cat(heading, sep = "\n")
+  } else {
+    return(heading)
+  }
 }

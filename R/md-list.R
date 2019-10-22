@@ -12,7 +12,11 @@
 #' @export
 md_bullet <- function(x, cat = FALSE) {
   list <- paste("*", x)
-  if_cat(list, cat)
+  if (cat) {
+    cat(list, sep = "\n")
+  } else {
+    return(list)
+  }
 }
 
 #' @title Markdown Numbered List
@@ -56,7 +60,11 @@ md_list <- function(x, seq = TRUE, pad = TRUE, punct = c(".", ")"), cat = FALSE)
   }
   markers <- paste0(nums, punct)
   list <- paste(markers, x)
-  if_cat(list, cat)
+  if (cat) {
+    cat(list, sep = "\n")
+  } else {
+    return(list)
+  }
 }
 
 #' @title Markdown Task List
@@ -88,5 +96,9 @@ md_task <- function(x, check = NULL, cat = FALSE) {
     boxes[check] <- "* [x]"
   }
   list <- paste(boxes, x)
-  if_cat(list, cat)
+  if (cat) {
+    cat(list, sep = "\n")
+  } else {
+    return(list)
+  }
 }

@@ -7,7 +7,7 @@
 md_reference(label, url, title = NULL)
 }
 \arguments{
-\item{label}{The chracter vector to be displayed as hyperlinked text.}
+\item{label}{The character vector to be displayed as hyperlinked text.}
 
 \item{url}{The URL to lead to.}
 

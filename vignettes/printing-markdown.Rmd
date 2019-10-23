@@ -1,8 +1,8 @@
 ---
-title: "Priting Markdown"
+title: "Printing Markdown"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Priting Markdown}
+  %\VignetteIndexEntry{Printing Markdown}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
@@ -32,7 +32,7 @@ code when converting to some other format.
 
 Markdown is a lightweight plain-text language used to format text. Let's look at
 the original description of markdown from John Gruber's website, the creator of
-the markdown standard. Using the `rvest` package, we can programatically scrape
+the markdown standard. Using the `rvest` package, we can programmatically scrape
 Gruber's blog, extract HTML paragraph tags, and convert those tags to character
 vectors.
 
@@ -73,7 +73,7 @@ code is a programming environment, the `.md` file created by `rmarkdown` is
 a human-readable plain text version of that code _and_ findings, and the `.html`
 format of this vignette created by `pandoc` is the final presentation format.
 
-In the rest of this vigette, I will demonstrate some of the various use cases
+In the rest of this vignette, I will demonstrate some of the various use cases
 for `gluedown`. We will see how easy it is to transition between R vectors
 and readable results in markdown/HTML.
 
@@ -120,7 +120,7 @@ images, code spans, and so on.
 
 We can nest `md_*()` functions to create inline content within a code block.
 Let's use some inline functions to create a new vector names `inline` with
-five states each formatted in another sytax. We'll take a look at what that
+five states each formatted in another syntax. We'll take a look at what that
 vector _really_ looks like with a simple `print()`.
 
 ```{r inline_vector}
@@ -150,10 +150,10 @@ R vectors, simple formatted markdown text, and beautifully formatted HTML text.
 `r md_heading(headings[2], 2)`
 
 The package has been designed to fit well in a traditional R workflow so users
-can seemlessly create content with their code and display that content with
+can seamlessly create content with their code and display that content with
 `gluedown`. In that spirit, all functions are designed to fit within the
 tidyverse ecosystem by working with [pipes][pipe]. Pipes allow users to pass
-the results of one function into the begining of the next. By ending this
+the results of one function into the beginning of the next. By ending this
 "pipeline" with `md_quote()`, chain together five coding steps.
 
 1. Read the HTML text of a Wikipedia page

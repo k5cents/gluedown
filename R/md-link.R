@@ -14,7 +14,7 @@
 #'   further
 #'   [non-whitespace characters](https://github.github.com/gfm/#non-whitespace-character)
 #'   may occur on the line.
-#' @param label The chracter vector to be displayed as hyperlinked text.
+#' @param label The character vector to be displayed as hyperlinked text.
 #' @param url The URL to lead to.
 #' @param title The title of the link.
 #' @return A character vector of collapsed display text and associated URLs.
@@ -37,7 +37,7 @@ md_reference <- function(label, url, title = NULL) {
 #'   followed immediately by a left parenthesis `(`... an optional link
 #'   destination, an optional link title separated from the link destination by
 #'   whitespace, optional whitespace, and a right parenthesis `)`.
-#' @param text The chracter vector to be displayed as hyperlinked text.
+#' @param text The character vector to be displayed as hyperlinked text.
 #' @param url The URL to lead to.
 #' @param title The title of the link.
 #' @return A character vector of collapsed display text and associated URLs.

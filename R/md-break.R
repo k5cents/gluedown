@@ -23,7 +23,7 @@ md_break <- function(char = c("*", "-", "_"), n = 3, cat = TRUE) {
   char <- match.arg(char)
   rule <- glue::glue_collapse(rep(char, n))
   if (cat) {
-    cat(rule, sep = "\n")
+    cat("\n", rule, sep = "\n")
   } else {
     return(rule)
   }

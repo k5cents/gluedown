@@ -12,7 +12,7 @@ Description: This package is used to wrap R character vectors in markdown
     style plain text. Markdown is also a popular choice for R users and is 
     implemented in the R Markdown standard. This package primarily uses the 
     GitHub Flavored Markdown (GFM) version of the Commonmark standard.
-License: CC BY 4.0
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/kiernann/gluedown

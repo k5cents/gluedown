@@ -4,12 +4,15 @@
 \alias{md_break}
 \title{Markdown Thematic Break}
 \usage{
-md_break(char = c("*", "-", "_"), n = 3)
+md_break(char = c("*", "-", "_"), n = 3, cat = TRUE)
 }
 \arguments{
 \item{char}{The character used. Either an asterisk, hyphen, or underscore.}
 
 \item{n}{The number of times to repeat each character.}
+
+\item{cat}{logical; Should the list be concatenated and printed, with each
+definition entry separated by a new line? Defaults to \code{TRUE}.}
 }
 \value{
 A character vector of a repeated horizontal rule character.

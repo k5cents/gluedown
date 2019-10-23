@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/gluedown)](https://CRAN.R-project.org/package=gluedown)
 [![Travis build
@@ -25,7 +25,7 @@ explains all the `gluedown` use cases in more detail.
 ## Installation
 
 You can install the development version from
-[GitHub](https://github.com/) with:
+[GitHub](https://github.com/).
 
 ``` r
 # install.packages("devtools")
@@ -124,4 +124,4 @@ abb <- state.abb[match(name, state.name)]
 
 Then, you can easily print that result in the middle of regular text
 with markdown formatting. In this case, our randomly selected state is
-**Vermont**, which has the abbreviation `VT`.
+**New Jersey**, which has the abbreviation `NJ`.

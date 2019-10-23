@@ -3,7 +3,7 @@ library(gluedown)
 library(knitr)
 library(rvest)
 
-test_that("multiplication works", {
+test_that("md_define makes a list convertable to an HTML definition", {
   input <- "test.md"
   term <-"term"
   def <- "definition"

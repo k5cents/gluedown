@@ -1,6 +1,6 @@
 Package: gluedown
 Title: Wrap Vectors in Markdown Formatting
-Version: 0.0.0.9017
+Version: 0.1.0
 Authors@R: 
     person(given = "Kiernan",
            family = "Nicholls",

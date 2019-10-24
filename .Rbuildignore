@@ -7,3 +7,5 @@
 ^docs$
 ^pkgdown$
 ^\.travis\.yml$
+^codecov\.yml$
+^\.covrignore$

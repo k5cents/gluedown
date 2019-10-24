@@ -1,35 +1,38 @@
 Package: gluedown
 Title: Wrap Vectors in Markdown Formatting
 Version: 0.1.0
+Date: 2019-10-24
 Authors@R: 
     person(given = "Kiernan",
            family = "Nicholls",
            role = c("aut", "cre"),
            email = "kiernann@protonmail.com")
-Description: Ease the transition between R vectors and markdown text. With 
-    gluedown and rmarkdown, users can create traditional vectors in R and print 
-    those vectors directly to the document. Markdown is a lightweight language 
-    used to write documents that are publishable as-is without additional 
-    formatting. Markdown text is still easily convertible to HTML and many other
-    formats. This package primarily uses GitHub Flavored Markdown (GFM), an 
-    offshoot of the unambiguous CommonMark standard.
+Description: Ease the transition between R vectors and markdown
+    text. With gluedown and rmarkdown, users can (1) create traditional
+    vectors in R (2) glue those strings together with the markdown syntax,
+    and (3) print those formatted vectors directly to the document. This
+    package primarily uses GitHub Flavored Markdown (GFM), an offshoot of
+    the unambiguous CommonMark specification.
 License: GPL-3
-Encoding: UTF-8
-LazyData: true
 URL: https://github.com/kiernann/gluedown
 BugReports: https://github.com/kiernann/gluedown/issues
-Depends: R (>= 2.10)
+Depends: 
+    R (>= 3.2)
 Imports: 
     glue (>= 1.3.1),
-    stringr (>= 1.4.0),
+    knitr (>= 1.25),
     purrr (>= 0.3.2),
-    knitr (>= 1.25)
-RoxygenNote: 6.1.1
-Roxygen: list(markdown = TRUE)
-VignetteBuilder: knitr
+    stringr (>= 1.4.0)
 Suggests: 
+    dplyr (>= 0.8.3),
+    markdown (>= 1.1),
     rmarkdown (>= 1.16),
     rvest (>= 0.3.2),
-    dplyr (>= 0.8.3),
     testthat (>= 2.1.0),
-    markdown (>= 1.1)
+    covr
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1

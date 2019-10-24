@@ -1,7 +1,9 @@
 ## Test environments
-* ubuntu 19.04 (local), R 3.6.1
-* ubuntu 16.04 (on travis-ci), R 3.6.1
-* win-builder (devel and release)
+
+* local: linux-gnu-3.6.1
+* travis: 3.1, 3.2, 3.3, oldrel, release, devel
+* r-hub: windows-x86_64-devel, ubuntu-gcc-release, fedora-clang-devel
+* win-builder: windows-x86_64-devel
 
 ## R CMD check results
 

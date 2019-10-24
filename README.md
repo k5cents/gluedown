@@ -11,6 +11,8 @@ maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www
 status](https://www.r-pkg.org/badges/version/gluedown)](https://CRAN.R-project.org/package=gluedown)
 [![Travis build
 status](https://travis-ci.org/kiernann/gluedown.svg?branch=master)](https://travis-ci.org/kiernann/gluedown)
+[![Codecov test
+coverage](https://codecov.io/gh/kiernann/gluedown/branch/master/graph/badge.svg)](https://codecov.io/gh/kiernann/gluedown?branch=master)
 <!-- badges: end -->
 
 The `gluedown` package helps transition from R’s powerful vectors to
@@ -120,4 +122,4 @@ abb <- state.abb[match(name, state.name)]
 
 Then you can easily print that result in the middle of regular text with
 markdown formatting. In this case, our randomly selected state is
-**Oregon**, which has the abbreviation `OR`.
+**Nevada**, which has the abbreviation `NV`.

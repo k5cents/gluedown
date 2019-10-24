@@ -122,4 +122,10 @@ abb <- state.abb[match(name, state.name)]
 
 Then you can easily print that result in the middle of regular text with
 markdown formatting. In this case, our randomly selected state is
-**Nevada**, which has the abbreviation `NV`.
+**Hawaii**, which has the abbreviation `HI`.
+
+## Contribute
+
+Please note that the ‘gluedown’ project is released with a [Contributor
+Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this
+project, you agree to abide by its terms.

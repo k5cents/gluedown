@@ -17,12 +17,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Wrap Vectors in Markdown Formatting">
-<meta property="og:description" content="This package is used to wrap R character vectors in markdown 
-    formatting. Markdown is a plain text standard used to style text in a 
-    readable format. Markdown is used on websites like Reddit and GitHub to 
-    style plain text. Markdown is also a popular choice for R users and is 
-    implemented in the R Markdown standard. This package primarily uses the 
-    GitHub Flavored Markdown (GFM) version of the Commonmark standard.">
+<meta property="og:description" content="Ease the transition between R vectors and markdown text. With 
+    gluedown and rmarkdown, users can create traditional vectors in R and print 
+    those vectors directly to the document. Markdown is a lightweight language 
+    used to write documents that are publishable as-is without additional 
+    formatting. Markdown text is still easily convertible to HTML and many other
+    formats. This package primarily uses GitHub Flavored Markdown (GFM), an 
+    offshoot of the unambiguous CommonMark standard.">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -96,20 +97,18 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The <code>gluedown</code> helps transition from R vectors to markdown text. The functions use <a href="https://github.com/tidyverse/glue"><code>glue()</code></a> to wrap character vectors in markdown syntax. This allows users to directly print R vectors as formatted text for improved clarity and readability.</p>
-<p>The <a href="https://kiernann.com/gluedown/articles/printing-markdown.html"><em>Printing Markdown</em> vignette</a> explains all the <code>gluedown</code> use cases in more detail.</p>
+<p>The <code>gluedown</code> package helps transition from R’s powerful vectors to formatted markdown text. The functions use <a href="https://github.com/tidyverse/glue"><code>glue()</code></a> to wrap character vectors in valid markdown syntax. In combination with the <a href="https://github.com/rstudio/rmarkdown"><code>rmarkdown</code></a> package, this allows users to directly print R vectors as formatted text for improved clarity and readability.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the development version from <a href="https://github.com/">GitHub</a>.</p>
+<p>You can install the development version from <a href="https://github.com/">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"kiernann/gluedown"</span>)</a></code></pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<p>By default, many <code>gluedown</code> functions simply wrap in the appropriate markdown syntax.</p>
-<p>With the <code>cat</code> argument, wrapped vectors can be concatenated, separated with a newline, and printed; this is useful in combination with the <code>results='asis'</code> <a href="https://github.com/rstudio/rmarkdown">R Markdown</a> chunk option to directly print markdown text.</p>
+<p>With the <code>cat</code> argument, wrapped vectors can be concatenated, separated with a newline, and printed; this is useful in combination with the <code>results='asis'</code> chunk option to directly print text in an <code>.Rmd</code> document.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(gluedown)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tidyverse)</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(rvest)</a></code></pre></div>
@@ -151,7 +150,7 @@
 <div id="extensions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#extensions" class="anchor"></a>Extensions</h2>
-<p>The package primarily uses <a href="https://github.github.com/gfm/">GitHub Flavored Markdown</a> (GFM). With this flavor, some useful extensions like <a href="https://help.github.com/en/articles/about-task-lists">task lists</a> are supported on GitHub. Be mindful of how these these results look in your rendered format.</p>
+<p>The package primarily uses <a href="https://github.github.com/gfm/">GitHub Flavored Markdown</a> (GFM). With this flavor, some useful extensions like <a href="https://help.github.com/en/articles/about-task-lists">task lists</a> are supported on GitHub. Be mindful of how these results look in your venue render.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">legislation &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Houses passes"</span>, <span class="st">"Senate concurs"</span>, <span class="st">"President signs"</span>)</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="reference/md_task.html">md_task</a></span>(legislation, <span class="dt">check =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">cat =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <ul>
@@ -168,7 +167,7 @@
 <a class="sourceLine" id="cb6-2" data-line-number="2">abb &lt;-<span class="st"> </span>state.abb[<span class="kw"><a href="https://rdrr.io/r/base/match.html">match</a></span>(name, state.name)]</a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># `r md_bold(name)`</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># `r md_code(abb)`</span></a></code></pre></div>
-<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is <strong>New Jersey</strong>, which has the abbreviation <code>NJ</code>.</p>
+<p>Then you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is <strong>Oregon</strong>, which has the abbreviation <code>OR</code>.</p>
 </div>
 </div>
   </div>

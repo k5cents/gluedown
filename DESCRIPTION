@@ -10,7 +10,7 @@ Description: Ease the transition between R vectors and markdown text. With
     gluedown and rmarkdown, users can create traditional vectors in R and print 
     those vectors directly to the document. Markdown is a lightweight language 
     used to write documents that are publishable as-is without additional 
-    formatting. Markdown text is still easily convertable to HTML and many other
+    formatting. Markdown text is still easily convertible to HTML and many other
     formats. This package primarily uses GitHub Flavored Markdown (GFM), an 
     offshoot of the unambiguous CommonMark standard.
 License: GPL-3

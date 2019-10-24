@@ -21,20 +21,18 @@ knitr::opts_chunk$set(
 [![Travis build status](https://travis-ci.org/kiernann/gluedown.svg?branch=master)](https://travis-ci.org/kiernann/gluedown)
 <!-- badges: end -->
 
-The `gluedown` helps transition from R vectors to markdown text. The functions
-use [`glue()`][glue] to wrap character vectors in markdown syntax. This allows
-users to directly print R vectors as formatted text for improved clarity and
-readability.
-
-The [_Printing Markdown_ vignette][vig] explains all the `gluedown` use cases in
-more detail.
+The `gluedown` package helps transition from R's powerful vectors to formatted
+markdown text. The functions use [`glue()`][glue] to wrap character vectors in
+valid markdown syntax. In combination with the [`rmarkdown`][rmd] package, this
+allows users to directly print R vectors as formatted text for improved clarity
+and readability.
 
 [glue]: https://github.com/tidyverse/glue
-[vig]: https://kiernann.com/gluedown/articles/printing-markdown.html
+[rmd]: https://github.com/rstudio/rmarkdown
 
 ## Installation
 
-You can install the development version from [GitHub](https://github.com/).
+You can install the development version from [GitHub](https://github.com/) with:
 
 ```r
 # install.packages("devtools")
@@ -43,12 +41,9 @@ devtools::install_github("kiernann/gluedown")
 
 ## Usage
 
-By default, many `gluedown` functions simply wrap in the appropriate markdown
-syntax.
-
 With the `cat` argument, wrapped vectors can be concatenated, separated with a
-newline, and printed; this is useful in combination with the `results='asis'` 
-[R Markdown][rmd] chunk option to directly print markdown text.
+newline, and printed; this is useful in combination with the `results='asis'`
+chunk option to directly print text in an `.Rmd` document.
 
 [rmd]: https://github.com/rstudio/rmarkdown
 [inline]: https://rmarkdown.rstudio.com/lesson-4.html
@@ -94,7 +89,7 @@ read_html("https://w.wiki/A58") %>%
 
 The package primarily uses [GitHub Flavored Markdown][gfm] (GFM). With this
 flavor, some useful extensions like [task lists][task] are supported on GitHub.
-Be mindful of how these these results look in your rendered format.
+Be mindful of how these results look in your venue render.
 
 ```{r task_list, results='asis'}
 legislation <- c("Houses passes", "Senate concurs", "President signs")
@@ -103,6 +98,7 @@ md_task(legislation, check = 1:2, cat = TRUE)
 
 [task]: https://help.github.com/en/articles/about-task-lists
 [gfm]: https://github.github.com/gfm/
+
 ## Inline
 
 You can also use `gluedown` to format R [inline code results][inline]. First,
@@ -115,6 +111,6 @@ abb <- state.abb[match(name, state.name)]
 # `r md_code(abb)`
 ```
 
-Then, you can easily print that result in the middle of regular text with
+Then you can easily print that result in the middle of regular text with
 markdown formatting. In this case, our randomly selected state is 
 `r md_bold(name)`, which has the abbreviation `r md_code(abb)`.

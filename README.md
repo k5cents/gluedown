@@ -13,19 +13,18 @@ status](https://www.r-pkg.org/badges/version/gluedown)](https://CRAN.R-project.o
 status](https://travis-ci.org/kiernann/gluedown.svg?branch=master)](https://travis-ci.org/kiernann/gluedown)
 <!-- badges: end -->
 
-The `gluedown` helps transition from R vectors to markdown text. The
-functions use [`glue()`](https://github.com/tidyverse/glue) to wrap
-character vectors in markdown syntax. This allows users to directly
-print R vectors as formatted text for improved clarity and readability.
-
-The [*Printing Markdown*
-vignette](https://kiernann.com/gluedown/articles/printing-markdown.html)
-explains all the `gluedown` use cases in more detail.
+The `gluedown` package helps transition from R’s powerful vectors to
+formatted markdown text. The functions use
+[`glue()`](https://github.com/tidyverse/glue) to wrap character vectors
+in valid markdown syntax. In combination with the
+[`rmarkdown`](https://github.com/rstudio/rmarkdown) package, this allows
+users to directly print R vectors as formatted text for improved clarity
+and readability.
 
 ## Installation
 
 You can install the development version from
-[GitHub](https://github.com/).
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -34,13 +33,10 @@ devtools::install_github("kiernann/gluedown")
 
 ## Usage
 
-By default, many `gluedown` functions simply wrap in the appropriate
-markdown syntax.
-
 With the `cat` argument, wrapped vectors can be concatenated, separated
 with a newline, and printed; this is useful in combination with the
-`results='asis'` [R Markdown](https://github.com/rstudio/rmarkdown)
-chunk option to directly print markdown text.
+`results='asis'` chunk option to directly print text in an `.Rmd`
+document.
 
 ``` r
 library(gluedown)
@@ -97,8 +93,8 @@ The package primarily uses [GitHub Flavored
 Markdown](https://github.github.com/gfm/) (GFM). With this flavor, some
 useful extensions like [task
 lists](https://help.github.com/en/articles/about-task-lists) are
-supported on GitHub. Be mindful of how these these results look in your
-rendered format.
+supported on GitHub. Be mindful of how these results look in your venue
+render.
 
 ``` r
 legislation <- c("Houses passes", "Senate concurs", "President signs")
@@ -122,6 +118,6 @@ abb <- state.abb[match(name, state.name)]
 # `r md_code(abb)`
 ```
 
-Then, you can easily print that result in the middle of regular text
-with markdown formatting. In this case, our randomly selected state is
-**New Jersey**, which has the abbreviation `NJ`.
+Then you can easily print that result in the middle of regular text with
+markdown formatting. In this case, our randomly selected state is
+**Oregon**, which has the abbreviation `OR`.

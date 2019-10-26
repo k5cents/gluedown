@@ -4,13 +4,12 @@
 \alias{md_bullet}
 \title{Markdown Bullet List}
 \usage{
-md_bullet(x, cat = FALSE)
+md_bullet(x, marker = c("*", "-", "+"))
 }
 \arguments{
 \item{x}{The vector of bullet point list items.}
 
-\item{cat}{logical; Should the list be concatenated and printed, with each
-bullet element separated by a new line? Defaults to \code{FALSE}.}
+\item{marker}{The bullet list marker to use.}
 }
 \value{
 A character vector with elements preceded by an asterisk symbol.

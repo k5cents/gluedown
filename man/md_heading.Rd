@@ -4,7 +4,7 @@
 \alias{md_heading}
 \title{Markdown ATX Headings}
 \usage{
-md_heading(x, level = 1, cat = FALSE)
+md_heading(x, level = 1)
 }
 \arguments{
 \item{x}{The text of the headings.}
@@ -12,9 +12,6 @@ md_heading(x, level = 1, cat = FALSE)
 \item{level}{The number of header hash characters. The heading level is equal
 to the number of # characters in the opening sequence. In rendered markdown
 higher levels are typically displayed larger.}
-
-\item{cat}{logical; Should the list be concatenated and printed, with each
-bullet element separated by a new line? Defaults to \code{FALSE}.}
 }
 \value{
 A character vector with elements preceded by hash symbols.

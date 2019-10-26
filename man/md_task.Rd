@@ -4,15 +4,12 @@
 \alias{md_task}
 \title{Markdown Task List}
 \usage{
-md_task(x, check = NULL, cat = FALSE)
+md_task(x, check = NULL)
 }
 \arguments{
 \item{x}{The vector of task list items.}
 
 \item{check}{A vector of list elements which should be checked off.}
-
-\item{cat}{logical; Should the list be concatenated and printed, with each
-bullet element separated by a new line? Defaults to \code{FALSE}.}
 }
 \value{
 A character vector check box brackets prepended to each element.

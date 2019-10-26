@@ -84,5 +84,5 @@ md_issue <- function(repo, num) {
   if (!grepl("/", repo)) {
     warning("Your repo is not ideally formatted. A forward slash was not detected.")
   }
-  paste(repo, num, sep = "#")
+  glue::glue("{repo}#{num}")
 }

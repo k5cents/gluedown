@@ -5,19 +5,11 @@
 #'   character `>` together with a following space, or (b) a single character
 #'   `>` not followed by a space.
 #' @param x The character vector of quotes.
-#' @param cat logical; Should the list be concatenated and printed, with each
-#'   bullet element separated by a new line? Defaults to `TRUE`.
 #' @return A character vector with a greater-than symbol (`>`) prepended to each
 #'   element.
 #' @examples
 #' md_quote("Ask not what your country can do for you, but what you can do for your country.")
 #' @export
-md_quote <- function(x, cat = TRUE) {
-  # todo: str_wrap?
-  quote <- paste(">", x)
-  if (cat) {
-    cat(quote, sep = "\n", fill = 1)
-  } else {
-    return(quote)
-  }
+md_quote <- function(x) {
+  glue::glue("> {x}")
 }

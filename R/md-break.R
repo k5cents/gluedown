@@ -5,15 +5,13 @@
 #'   number of spaces or tabs, forms a thematic break.
 #' @param char The character used. Either an asterisk, hyphen, or underscore.
 #' @param n The number of times to repeat each character.
-#' @param cat logical; Should the list be concatenated and printed, with each
-#'   definition entry separated by a new line? Defaults to `TRUE`.
 #' @return A character vector of a repeated horizontal rule character.
 #' @examples
 #' md_break()
 #' md_break("_", n = 10)
 #' @importFrom glue glue_collapse
 #' @export
-md_break <- function(char = c("*", "-", "_"), n = 3, cat = TRUE) {
+md_break <- function(char = c("*", "-", "_"), n = 3) {
   if (n < 3) {
     stop("At least 3 characters must be used")
   }
@@ -21,10 +19,5 @@ md_break <- function(char = c("*", "-", "_"), n = 3, cat = TRUE) {
     stop("Refrain from using more than 80 characters")
   }
   char <- match.arg(char)
-  rule <- glue::glue_collapse(rep(char, n))
-  if (cat) {
-    cat("\n", rule, sep = "\n")
-  } else {
-    return(rule)
-  }
+  glue::glue_collapse(rep(char, n))
 }

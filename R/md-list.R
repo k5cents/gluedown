@@ -3,20 +3,15 @@
 #' @details From the [GFM spec](https://github.github.com/gfm/#bullet-list-marker):
 #'   A bullet list marker is a `-`, `+`, or `*` character.
 #' @param x The vector of bullet point list items.
-#' @param cat logical; Should the list be concatenated and printed, with each
-#'   bullet element separated by a new line? Defaults to `FALSE`.
+#' @param marker The bullet list marker to use.
 #' @return A character vector with elements preceded by an asterisk symbol.
 #' @examples
 #' md_bullet(state.name[1:5])
 #' md_bullet(state.name[1:5], cat = TRUE)
 #' @export
-md_bullet <- function(x, cat = FALSE) {
-  list <- paste("*", x)
-  if (cat) {
-    cat(list, sep = "\n")
-  } else {
-    return(list)
-  }
+md_bullet <- function(x, marker = c("*", "-", "+")) {
+  marker <- match.arg(marker)
+  glue::glue("{marker} {x}")
 }
 
 #' @title Markdown Numbered List
@@ -32,15 +27,13 @@ md_bullet <- function(x, cat = FALSE) {
 #'   with zeroes on the left to match the width of the greatest number? Defaults
 #'   to `TRUE`.
 #' @param punct The punctuation mark following each number; either `.` or `)`.
-#' @param cat logical; Should the list be concatenated and printed, with each
-#'   bullet element separated by a new line? Defaults to `FALSE`.
 #' @return A character vector with elements preceded by a number.
 #' @examples
 #' md_list(state.name[1:5])
 #' md_list(state.name[1:5], cat = TRUE)
 #' @importFrom stringr str_pad
 #' @export
-md_list <- function(x, seq = TRUE, pad = TRUE, punct = c(".", ")"), cat = FALSE) {
+md_list <- function(x, seq = TRUE, pad = TRUE, punct = c(".", ")")) {
   punct <- match.arg(punct)
   if (nchar(length(x)) > 9) {
     stop("A maximum of 9 digits can be used as an unordered list marker. Your vector is too long.")
@@ -58,13 +51,7 @@ md_list <- function(x, seq = TRUE, pad = TRUE, punct = c(".", ")"), cat = FALSE)
   } else {
     nums <- 1
   }
-  markers <- paste0(nums, punct)
-  list <- paste(markers, x)
-  if (cat) {
-    cat(list, sep = "\n")
-  } else {
-    return(list)
-  }
+  glue::glue("{nums}{punct} {x}")
 }
 
 #' @title Markdown Task List
@@ -84,21 +71,15 @@ md_list <- function(x, seq = TRUE, pad = TRUE, punct = c(".", ")"), cat = FALSE)
 #'   Otherwise, the checkbox is checked.
 #' @param x The vector of task list items.
 #' @param check A vector of list elements which should be checked off.
-#' @param cat logical; Should the list be concatenated and printed, with each
-#'   bullet element separated by a new line? Defaults to `FALSE`.
 #' @return A character vector check box brackets prepended to each element.
 #' @examples
 #' md_task(c("Wake up", "Eat Breakfast", "Brush Teeth"), check = 1:2)
+#' @importFrom glue glue
 #' @export
-md_task <- function(x, check = NULL, cat = FALSE) {
+md_task <- function(x, check = NULL) {
   boxes <- rep("* [ ]", length(x))
   if (!is.null(check)) {
     boxes[check] <- "* [x]"
   }
-  list <- paste(boxes, x)
-  if (cat) {
-    cat(list, sep = "\n")
-  } else {
-    return(list)
-  }
+  glue::glue("{boxes} {x}")
 }

@@ -4,13 +4,10 @@
 \alias{md_quote}
 \title{Markdown Block Quotes}
 \usage{
-md_quote(x, cat = TRUE)
+md_quote(x)
 }
 \arguments{
 \item{x}{The character vector of quotes.}
-
-\item{cat}{logical; Should the list be concatenated and printed, with each
-bullet element separated by a new line? Defaults to \code{TRUE}.}
 }
 \value{
 A character vector with a greater-than symbol (\code{>}) prepended to each

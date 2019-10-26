@@ -4,8 +4,7 @@
 \alias{md_list}
 \title{Markdown Numbered List}
 \usage{
-md_list(x, seq = TRUE, pad = TRUE, punct = c(".", ")"),
-  cat = FALSE)
+md_list(x, seq = TRUE, pad = TRUE, punct = c(".", ")"))
 }
 \arguments{
 \item{x}{The vector of numbered list items.}
@@ -19,9 +18,6 @@ with zeroes on the left to match the width of the greatest number? Defaults
 to \code{TRUE}.}
 
 \item{punct}{The punctuation mark following each number; either \code{.} or \code{)}.}
-
-\item{cat}{logical; Should the list be concatenated and printed, with each
-bullet element separated by a new line? Defaults to \code{FALSE}.}
 }
 \value{
 A character vector with elements preceded by a number.

@@ -20,5 +20,5 @@ A character vector with elements wrapped in two tilde symbols.
 Selective Markdown Emphasize
 }
 \examples{
-emphasize_at(x = "Live free or die", f = md_bold, n = 4)
+emphasize_at(x = "Live free or die", n = 4, f = md_bold)
 }

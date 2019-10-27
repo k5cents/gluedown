@@ -7,7 +7,7 @@ library(rvest)
 test_that("md_quote makes blocks convertable to HTML blockquotes", {
   quote <- "This is a block quote!"
   node <- quote %>%
-    md_quote(cat = FALSE) %>%
+    md_quote() %>%
     md_convert() %>%
     read_html(encoding = "UTF-8") %>%
     html_node(css = "blockquote") %>%

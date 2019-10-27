@@ -14,7 +14,7 @@
 #' @importFrom glue glue
 #' @export
 md_define <- function(term, def) {
-  glue::glue("{term}\n:    {def}")
+  glue::glue("{term}\n:    {def}\n\n")
 }
 
 

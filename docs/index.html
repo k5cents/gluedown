@@ -17,13 +17,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Wrap Vectors in Markdown Formatting">
-<meta property="og:description" content="Ease the transition between R vectors and markdown text. With 
-    gluedown and rmarkdown, users can create traditional vectors in R and print 
-    those vectors directly to the document. Markdown is a lightweight language 
-    used to write documents that are publishable as-is without additional 
-    formatting. Markdown text is still easily convertible to HTML and many other
-    formats. This package primarily uses GitHub Flavored Markdown (GFM), an 
-    offshoot of the unambiguous CommonMark standard.">
+<meta property="og:description" content="Ease the transition between R vectors and markdown
+    text. With gluedown and rmarkdown, users can (1) create traditional
+    vectors in R (2) glue those strings together with the markdown syntax,
+    and (3) print those formatted vectors directly to the document. This
+    package primarily uses GitHub Flavored Markdown (GFM), an offshoot of
+    the unambiguous CommonMark specification.">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -44,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -108,7 +107,7 @@
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<p>With the <code>cat</code> argument, wrapped vectors can be concatenated, separated with a newline, and printed; this is useful in combination with the <code>results='asis'</code> chunk option to directly print text in an <code>.Rmd</code> document.</p>
+<p>The <code>md_*()</code> functions are most useful in combination with the <code>results='asis'</code> chunk option; this allows users to directly print formatted text from a code chunk to the body of a document.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(gluedown)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tidyverse)</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(rvest)</a></code></pre></div>
@@ -124,7 +123,7 @@
 <a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="kw"><a href="reference/md_strike.html">md_strike</a></span>(state.name[<span class="dv">5</span>])</a>
 <a class="sourceLine" id="cb3-7" data-line-number="7">)</a>
 <a class="sourceLine" id="cb3-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="kw"><a href="reference/md_bullet.html">md_bullet</a></span>(inlines, <span class="dt">cat =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="kw"><a href="reference/md_bullet.html">md_bullet</a></span>(inlines)</a></code></pre></div>
 <ul>
 <li><strong>Alabama</strong></li>
 <li><code>Alaska</code></li>
@@ -138,36 +137,41 @@
 <a href="#pipes" class="anchor"></a>Pipes</h3>
 <p>All functions are designed to fit within the tidyverse ecosystem by working with <a href="https://magrittr.tidyverse.org/reference/pipe.html">pipes</a>.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">read_html</span>(<span class="st">"https://w.wiki/A58"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/rvest/man/html_nodes.html">html_node</a></span>(<span class="st">"blockquote"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/pkg/rvest/man/html_text.html">html_text</a></span>(<span class="dt">trim =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://rvest.tidyverse.org/reference/html_nodes.html">html_node</a></span>(<span class="st">"blockquote"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://rvest.tidyverse.org/reference/html_text.html">html_text</a></span>(<span class="dt">trim =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span><span class="kw">str_remove</span>(<span class="st">"</span><span class="ch">\\</span><span class="st">[(.*)</span><span class="ch">\\</span><span class="st">]"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/md_quote.html">md_quote</a></span>(<span class="dt">cat =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/md_quote.html">md_quote</a></span>()</a></code></pre></div>
 <blockquote>
 <p>We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.</p>
 </blockquote>
 </div>
-</div>
-<div id="extensions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#extensions" class="anchor"></a>Extensions</h2>
+<div id="extensions" class="section level3">
+<h3 class="hasAnchor">
+<a href="#extensions" class="anchor"></a>Extensions</h3>
 <p>The package primarily uses <a href="https://github.github.com/gfm/">GitHub Flavored Markdown</a> (GFM). With this flavor, some useful extensions like <a href="https://help.github.com/en/articles/about-task-lists">task lists</a> are supported on GitHub. Be mindful of how these results look in your venue render.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">legislation &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Houses passes"</span>, <span class="st">"Senate concurs"</span>, <span class="st">"President signs"</span>)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="reference/md_task.html">md_task</a></span>(legislation, <span class="dt">check =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>, <span class="dt">cat =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="reference/md_task.html">md_task</a></span>(legislation, <span class="dt">check =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</a></code></pre></div>
 <ul>
 <li>[x] Houses passes</li>
 <li>[x] Senate concurs</li>
 <li>[ ] President signs</li>
 </ul>
 </div>
-<div id="inline" class="section level2">
-<h2 class="hasAnchor">
-<a href="#inline" class="anchor"></a>Inline</h2>
+<div id="inline" class="section level3">
+<h3 class="hasAnchor">
+<a href="#inline" class="anchor"></a>Inline</h3>
 <p>You can also use <code>gluedown</code> to format R <a href="https://rmarkdown.rstudio.com/lesson-4.html">inline code results</a>. First, use R to calculate a result.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">name &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(state.name, <span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">abb &lt;-<span class="st"> </span>state.abb[<span class="kw"><a href="https://rdrr.io/r/base/match.html">match</a></span>(name, state.name)]</a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># `r md_bold(name)`</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># `r md_code(abb)`</span></a></code></pre></div>
-<p>Then you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is <strong>Oregon</strong>, which has the abbreviation <code>OR</code>.</p>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># `r md_italic(abb)`</span></a></code></pre></div>
+<p>Then you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is <strong>Missouri</strong>, which has the abbreviation <em>MO</em>.</p>
+</div>
+</div>
+<div id="contribute" class="section level2">
+<h2 class="hasAnchor">
+<a href="#contribute" class="anchor"></a>Contribute</h2>
+<p>Please note that the ‘gluedown’ project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
   </div>
@@ -189,6 +193,13 @@
 <li><small><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></small></li>
 </ul>
 </div>
+<div class="community">
+<h2>Community</h2>
+<ul class="list-unstyled">
+<li><a href="CONTRIBUTING.html">Contributing guide</a></li>
+<li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
+</ul>
+</div>
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
@@ -202,6 +213,7 @@
 <li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
 <li><a href="https://CRAN.R-project.org/package=gluedown"><img src="https://www.r-pkg.org/badges/version/gluedown" alt="CRAN status"></a></li>
 <li><a href="https://travis-ci.org/kiernann/gluedown"><img src="https://travis-ci.org/kiernann/gluedown.svg?branch=master" alt="Travis build status"></a></li>
+<li><a href="https://codecov.io/gh/kiernann/gluedown?branch=master"><img src="https://codecov.io/gh/kiernann/gluedown/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
 </div>

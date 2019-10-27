@@ -7,7 +7,7 @@
 #' @return A character vector with elements preceded by an asterisk symbol.
 #' @examples
 #' md_bullet(state.name[1:5])
-#' md_bullet(state.name[1:5], cat = TRUE)
+#' md_bullet(state.name[1:5])
 #' @export
 md_bullet <- function(x, marker = c("*", "-", "+")) {
   marker <- match.arg(marker)
@@ -30,7 +30,7 @@ md_bullet <- function(x, marker = c("*", "-", "+")) {
 #' @return A character vector with elements preceded by a number.
 #' @examples
 #' md_list(state.name[1:5])
-#' md_list(state.name[1:5], cat = TRUE)
+#' md_list(state.name[1:5])
 #' @importFrom stringr str_pad
 #' @export
 md_list <- function(x, seq = TRUE, pad = TRUE, punct = c(".", ")")) {

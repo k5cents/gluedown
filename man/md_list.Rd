@@ -32,5 +32,5 @@ by either a \code{.} character or a \code{)} character.
 }
 \examples{
 md_list(state.name[1:5])
-md_list(state.name[1:5], cat = TRUE)
+md_list(state.name[1:5])
 }

@@ -23,5 +23,5 @@ A bullet list marker is a \code{-}, \code{+}, or \code{*} character.
 }
 \examples{
 md_bullet(state.name[1:5])
-md_bullet(state.name[1:5], cat = TRUE)
+md_bullet(state.name[1:5])
 }

@@ -7,17 +7,14 @@
 #' @param n The number of times to repeat each character.
 #' @return A character vector of a repeated horizontal rule character.
 #' @examples
-#' md_break()
-#' md_break("_", n = 10)
+#' md_break("_")
+#' md_break(n = 10)
 #' @importFrom glue glue_collapse
 #' @export
 md_break <- function(char = c("*", "-", "_"), n = 3) {
-  if (n < 3) {
-    stop("At least 3 characters must be used")
-  }
-  if (n > 80) {
-    stop("Refrain from using more than 80 characters")
-  }
+  if (n < 3)  { stop("At least 3 characters must be used") }
+  if (n > 80) { stop("Refrain from using more than 80 characters") }
   char <- match.arg(char)
-  glue::glue_collapse(rep(char, n))
+  rule <- glue::glue_collapse(rep(char, n))
+  glue::glue("\n{rule}\n")
 }

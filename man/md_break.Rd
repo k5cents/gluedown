@@ -24,6 +24,6 @@ more matching \code{-}, \code{_}, or \code{*} characters, each followed optional
 number of spaces or tabs, forms a thematic break.
 }
 \examples{
-md_break()
-md_break("_", n = 10)
+md_break("_")
+md_break(n = 10)
 }

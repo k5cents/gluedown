@@ -106,7 +106,7 @@ That output obviously isn't very appealing. Using `md_list()`, we can instead
 print those same states as a numbered list.
 
 ```{r numbered_list, results='asis'}
-md_list(state.name[1:3], cat = TRUE)
+md_list(state.name[1:3])
 ```
 
 This numbered list is a markdown container _block_. As described in the GitHub
@@ -141,7 +141,7 @@ Using `md_bullet()` we will print that vector as a bullet point list and each
 element will be rendered with the appropriate markdown syntax.
 
 ```{r bullet_list, results='asis'}
-md_bullet(inlines, cat = TRUE)
+md_bullet(inlines)
 ```
 
 These functions demonstrate how `gluedown` can be used to transition between
@@ -167,7 +167,7 @@ read_html("https://w.wiki/A58") %>% # 1
   html_node("blockquote") %>% # 2
   html_text(trim = TRUE) %>% # 3
   str_remove("\\[(.*)\\]") %>% # 4
-  md_quote(cat = TRUE) # 5
+  md_quote() # 5
 ```
 
 [pipe]: https://magrittr.tidyverse.org/reference/pipe.html
@@ -199,7 +199,7 @@ like this HTML vignette, a task list will just render as a bullet list.
 
 ```{r ex_task, results='asis'}
 legislation <- c("Houses passes", "Senate concurs", "President signs")
-md_task(legislation, check = 1:2, cat = TRUE)
+md_task(legislation, check = 1:2)
 ```
 
 Some features aren't technically supported by GFM, but can be 
@@ -208,7 +208,7 @@ rendered as bullet lists on GitHub but appear as formatted definition lists in
 HTML formats like this.
 
 ```{r ex_define, results='asis'}
-md_define("Democracy", def = "Government by the people", cat = TRUE)
+md_define("Democracy", def = "Government by the people")
 ```
 
 [task]: https://help.github.com/en/articles/about-task-lists

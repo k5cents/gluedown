@@ -8,7 +8,7 @@ test_that("md_bullet makes blocks convertable to HTML unordered list", {
   # create vector
   vector <- state.name[6:10]
   # create list from vector
-  list <- md_bullet(vector, cat = FALSE)
+  list <- md_bullet(vector)
   node <-
     # convery vector to HTML string
     md_convert(list) %>%

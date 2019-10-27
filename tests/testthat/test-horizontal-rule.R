@@ -7,7 +7,7 @@ library(rvest)
 test_that("md_break makes blocks convertable to HTML horizontal rule", {
   node <-
     # create rule
-    md_break(cat = FALSE) %>%
+    md_break() %>%
     # convert to HTML string
     md_convert() %>%
     # read as HTML file

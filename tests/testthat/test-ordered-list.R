@@ -8,7 +8,7 @@ test_that("md_list makes blocks convertable to HTML ordered list", {
   # create vector
   vector <- state.name[1:5]
   # create list from vector
-  list <- md_list(vector, cat = FALSE)
+  list <- md_list(vector)
   node <-
     # convery vector to HTML string
     md_convert(list) %>%

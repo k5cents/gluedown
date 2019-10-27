@@ -9,9 +9,8 @@ test_that("md_define makes a list convertable to an HTML definition", {
   def <- "definition"
   file.create(input)
   sink(input)
-  md_define(term, def, cat = TRUE)
+  md_define(term, def)
   sink()
-  file.show("test.md")
   output <- pandoc(input, "html")
   html <- read_html(output)
   unlink(input)

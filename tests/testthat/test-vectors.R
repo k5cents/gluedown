@@ -4,25 +4,25 @@ test_that("vector inputs return vector outputs", {
     type = "character"
   )
   expect_true(
-    object = is.vector(md_list(state.name))
+    object = length(state.name[1:5]) == 5
   )
 })
 
 test_that("vector inputs return same length outputs", {
   expect_equal(
     object = length(state.name),
-    expected = length(md_list(state.name, cat = FALSE))
+    expected = length(md_list(state.name))
   )
   expect_equal(
     object = length(state.name),
-    expected = length(md_bullet(state.name, cat = FALSE))
+    expected = length(md_bullet(state.name))
   )
   expect_equal(
     object = length(state.name),
-    expected = length(md_quote(state.name, cat = FALSE))
+    expected = length(md_quote(state.name))
   )
   expect_equal(
     object = length(state.name),
-    expected = length(md_task(state.name, cat = FALSE))
+    expected = length(md_task(state.name))
   )
 })

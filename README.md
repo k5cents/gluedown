@@ -60,7 +60,7 @@ inlines <- c(
   md_strike(state.name[5])
 )
 
-md_bullet(inlines, cat = TRUE)
+md_bullet(inlines)
 ```
 
   - **Alabama**
@@ -80,7 +80,7 @@ read_html("https://w.wiki/A58") %>%
   html_node("blockquote") %>% 
   html_text(trim = TRUE) %>% 
   str_remove("\\[(.*)\\]") %>% 
-  md_quote(cat = TRUE)
+  md_quote()
 ```
 
 > We the People of the United States, in Order to form a more perfect
@@ -100,7 +100,7 @@ render.
 
 ``` r
 legislation <- c("Houses passes", "Senate concurs", "President signs")
-md_task(legislation, check = 1:2, cat = TRUE)
+md_task(legislation, check = 1:2)
 ```
 
   - \[x\] Houses passes
@@ -117,12 +117,12 @@ calculate a result.
 name <- sample(state.name, 1)
 abb <- state.abb[match(name, state.name)]
 # `r md_bold(name)`
-# `r md_code(abb)`
+# `r md_italic(abb)`
 ```
 
 Then you can easily print that result in the middle of regular text with
 markdown formatting. In this case, our randomly selected state is
-**Hawaii**, which has the abbreviation `HI`.
+**Oklahoma**, which has the abbreviation *OK*.
 
 ## Contribute
 

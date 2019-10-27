@@ -34,3 +34,7 @@ test_that("md_heading makes a level 6 heading convertable to HTML H6 tag", {
     html_text()
   expect_true(object = all(node == heading))
 })
+
+test_that("md_heading errors out at levels greater than H6", {
+  expect_error(object = md_heading("Level 10", level = 10))
+})

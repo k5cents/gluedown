@@ -42,9 +42,9 @@ devtools::install_github("kiernann/gluedown")
 
 ## Usage
 
-With the `cat` argument, wrapped vectors can be concatenated, separated with a
-newline, and printed; this is useful in combination with the `results='asis'`
-chunk option to directly print text in an `.Rmd` document.
+The `md_*()` functions are most useful in combination with the `results='asis'`
+chunk option; this allows users to directly print formatted text from a code
+chunk to the body of a document.
 
 [rmd]: https://github.com/rstudio/rmarkdown
 [inline]: https://rmarkdown.rstudio.com/lesson-4.html
@@ -86,7 +86,7 @@ read_html("https://w.wiki/A58") %>%
 
 [pipe]: https://magrittr.tidyverse.org/reference/pipe.html
 
-## Extensions
+### Extensions
 
 The package primarily uses [GitHub Flavored Markdown][gfm] (GFM). With this
 flavor, some useful extensions like [task lists][task] are supported on GitHub.
@@ -100,7 +100,7 @@ md_task(legislation, check = 1:2)
 [task]: https://help.github.com/en/articles/about-task-lists
 [gfm]: https://github.github.com/gfm/
 
-## Inline
+### Inline
 
 You can also use `gluedown` to format R [inline code results][inline]. First,
 use R to calculate a result.

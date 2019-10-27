@@ -35,10 +35,9 @@ devtools::install_github("kiernann/gluedown")
 
 ## Usage
 
-With the `cat` argument, wrapped vectors can be concatenated, separated
-with a newline, and printed; this is useful in combination with the
-`results='asis'` chunk option to directly print text in an `.Rmd`
-document.
+The `md_*()` functions are most useful in combination with the
+`results='asis'` chunk option; this allows users to directly print
+formatted text from a code chunk to the body of a document.
 
 ``` r
 library(gluedown)
@@ -89,7 +88,7 @@ read_html("https://w.wiki/A58") %>%
 > of Liberty to ourselves and our Posterity, do ordain and establish
 > this Constitution for the United States of America.
 
-## Extensions
+### Extensions
 
 The package primarily uses [GitHub Flavored
 Markdown](https://github.github.com/gfm/) (GFM). With this flavor, some
@@ -107,7 +106,7 @@ md_task(legislation, check = 1:2)
   - \[x\] Senate concurs
   - \[ \] President signs
 
-## Inline
+### Inline
 
 You can also use `gluedown` to format R [inline code
 results](https://rmarkdown.rstudio.com/lesson-4.html). First, use R to
@@ -122,7 +121,7 @@ abb <- state.abb[match(name, state.name)]
 
 Then you can easily print that result in the middle of regular text with
 markdown formatting. In this case, our randomly selected state is
-**Oklahoma**, which has the abbreviation *OK*.
+**Missouri**, which has the abbreviation *MO*.
 
 ## Contribute
 

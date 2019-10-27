@@ -82,3 +82,11 @@ test_that("md_issue creates a URL that exists", {
   status <- status_code(GET(convert))
   expect_equal(status, 200)
 })
+
+test_that("md_issue returns error without issue number", {
+  expect_error(md_issue("kiernann/gluedown", "one"))
+})
+
+test_that("md_issue returns error without correct repo format", {
+  expect_warning(md_issue("gluedown", 1))
+})

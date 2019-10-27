@@ -17,3 +17,8 @@ test_that("md_break makes blocks convertable to HTML horizontal rule", {
   # expect list items to all be the same
   expect_false(object = is.na(node))
 })
+
+test_that("md_break stops with incorrect number of characters", {
+  expect_error(md_break(n = 2))
+  expect_error(md_break(n = 100))
+})

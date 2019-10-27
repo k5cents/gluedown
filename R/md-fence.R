@@ -10,36 +10,47 @@
 #'   fence is treated as literal text, not parsed as inlines. The first word of
 #'   the info string is typically used to specify the language of the code
 #'   sample
-#' @param x A character vector of lines (with leading spaces for indentation) to
-#'   be wrapped in fences.
+#' @param lines A character vector of lines to
+#'   be wrapped in fences, possibly created by [readr::read_lines()] or some
+#'   equivalent.
 #' @param lang The language of the code within the fence. Aside from clarity,
 #'   this allows many markdown engines to adjust the syntax highlighting.
 #'   Defaults to "r". This option is not used with indented blocks.
 #' @param type The type of code block to be created. Defaults to tipple
 #'   backticks code fences, but you can also use 4-spaces (useful for legacy
 #'   support on Reddit).
-#' @param cat logical; Should the list be concatenated and printed, with each
-#'   bullet element separated by a new line? Defaults to `TRUE`.
+#' @param style logical; If the `styler` package is installed, should
+#'   [styler::style_text()] be called on `lines`?
 #' @return A character vector wrapped on either side by code fences.
 #' @examples
-#' md_chunk(c("library(ggplot2)", "ggplot(mpg) +", "  geom_point((displ, hwy))"))
+#' md_chunk(c("library(ggplot2)", "ggplot(mpg)+", "geom_point(aes(displ, hwy))"))
+#' md_chunk(c("library(dplyr)", "starwars %>%", "filter(species == 'Droid')"), type = "indent")
 #' @export
-md_chunk <- function(x, lang = "r", type = c("ticks", "tilde", "indent"), cat = TRUE) {
-  type <- match.arg(type)
-  if (type == "ticks") {
-    block <- c(paste0("```", lang), x, "```")
-  } else {
-    if (type == "tilde") {
-      block <- c(paste0("~~~", lang), x, "~~~")
-    } else {
-      if (type == "indent") {
-        block <- paste0("    ", x)
-      }
-    }
+md_chunk <- function(lines, lang = "r", type = c("tick", "tilde", "indent"), style = TRUE) {
+  if (style & !requireNamespace("styler", quietly = FALSE)) {
+    stop("To style, the styler package needs to be installed with install.packages('styler')")
   }
-  if (cat) {
-    cat(block, sep = "\n")
+  type <- match.arg(type)
+  fence <- if (type == "tick") {
+    "```"
   } else {
-    return(block)
+    "~~~"
+  }
+  if (type == "tick" | type == "tilde") {
+    string <- paste(lines, collapse = "\n")
+    if (style) {
+      styled <- paste(styler::style_text(string), collapse = "\n")
+      glue("{fence}{lang}\n{styled}\n{fence}")
+    } else {
+      glue("{fence}{lang}\n{string}\n{fence}")
+    }
+  } else {
+    if (style) {
+      string <- paste(lines, collapse = "\n")
+      styled <- styler::style_text(string)
+      glue("    {styled}")
+    } else {
+      glue("    {lines}")
+    }
   }
 }

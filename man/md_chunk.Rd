@@ -4,12 +4,13 @@
 \alias{md_chunk}
 \title{Markdown Code Block}
 \usage{
-md_chunk(x, lang = "r", type = c("ticks", "tilde", "indent"),
-  cat = TRUE)
+md_chunk(lines, lang = "r", type = c("tick", "tilde", "indent"),
+  style = TRUE)
 }
 \arguments{
-\item{x}{A character vector of lines (with leading spaces for indentation) to
-be wrapped in fences.}
+\item{lines}{A character vector of lines to
+be wrapped in fences, possibly created by \code{\link[readr:read_lines]{readr::read_lines()}} or some
+equivalent.}
 
 \item{lang}{The language of the code within the fence. Aside from clarity,
 this allows many markdown engines to adjust the syntax highlighting.
@@ -19,8 +20,8 @@ Defaults to "r". This option is not used with indented blocks.}
 backticks code fences, but you can also use 4-spaces (useful for legacy
 support on Reddit).}
 
-\item{cat}{logical; Should the list be concatenated and printed, with each
-bullet element separated by a new line? Defaults to \code{TRUE}.}
+\item{style}{logical; If the \code{styler} package is installed, should
+\code{\link[styler:style_text]{styler::style_text()}} be called on \code{lines}?}
 }
 \value{
 A character vector wrapped on either side by code fences.
@@ -41,5 +42,6 @@ the info string is typically used to specify the language of the code
 sample
 }
 \examples{
-md_chunk(c("library(ggplot2)", "ggplot(mpg) +", "  geom_point((displ, hwy))"))
+md_chunk(c("library(ggplot2)", "ggplot(mpg)+", "geom_point(aes(displ, hwy))"))
+md_chunk(c("library(dplyr)", "starwars \%>\%", "filter(species == 'Droid')"), type = "indent")
 }

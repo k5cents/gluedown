@@ -10,3 +10,4 @@
 ^codecov\.yml$
 ^\.covrignore$
 ^\.github$
+^data-raw$

@@ -61,21 +61,22 @@ test_that("md_setext makes a level 2 heading convertable to HTML H2 tag", {
   expect_true(object = all(node == heading))
 })
 
-test_that("md_setext makes a level 6 heading convertable to HTML H2 tag", {
-  heading <- "Level 6"
-  node <-
-    md_setext(heading, level = 6) %>%
-    md_convert() %>%
+test_that("md_setext warns at levels greater than H2", {
+  expect_error(object = md_setext("Level 10", level = 10))
+})
+
+test_that("md_setext creates a vector with length equal to x and level", {
+  headings <- c("One", "Two")
+  setext <- md_setext(x = headings, level = 1:2)
+  h1 <- md_convert(setext) %>%
+    read_html() %>%
+    html_node("h1") %>%
+    html_text(trim = TRUE)
+  h2 <- md_convert(setext) %>%
     read_html() %>%
     html_node("h2") %>%
-    html_text()
-  expect_true(object = all(node == heading))
-})
-
-test_that("md_setext warns at levels greater than H2", {
-  expect_warning(object = md_setext("Level 10", level = 10))
-})
-
-test_that("md_setext errors if levels length differs from headings length", {
-  expect_error(md_setext(x = c("One", "Two"), level = 1:3))
+    html_text(trim = TRUE)
+  expect_equal(headings[1], h1)
+  expect_equal(headings[2], h2)
+  expect_length(c(h1, h2), 2)
 })

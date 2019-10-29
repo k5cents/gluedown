@@ -25,3 +25,8 @@ A bullet list marker is a \code{-}, \code{+}, or \code{*} character.
 md_bullet(state.name[1:5])
 md_bullet(state.name[1:5])
 }
+\seealso{
+Other container block functions: \code{\link{md_list}},
+  \code{\link{md_quote}}, \code{\link{md_task}}
+}
+\concept{container block functions}

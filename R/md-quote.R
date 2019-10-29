@@ -7,6 +7,7 @@
 #' @param x The character vector of quotes.
 #' @return A character vector with a greater-than symbol (`>`) prepended to each
 #'   element.
+#' @family container block functions
 #' @examples
 #' md_quote("Ask not what your country can do for you, but what you can do for your country.")
 #' @export

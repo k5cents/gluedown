@@ -5,6 +5,7 @@
 #' @param x The vector of bullet point list items.
 #' @param marker The bullet list marker to use.
 #' @return A character vector with elements preceded by an asterisk symbol.
+#' @family container block functions
 #' @examples
 #' md_bullet(state.name[1:5])
 #' md_bullet(state.name[1:5])
@@ -28,6 +29,7 @@ md_bullet <- function(x, marker = c("*", "-", "+")) {
 #'   to `TRUE`.
 #' @param punct The punctuation mark following each number; either `.` or `)`.
 #' @return A character vector with elements preceded by a number.
+#' @family container block functions
 #' @examples
 #' md_list(state.name[1:5])
 #' md_list(state.name[1:5])
@@ -72,6 +74,7 @@ md_list <- function(x, seq = TRUE, pad = TRUE, punct = c(".", ")")) {
 #' @param x The vector of task list items.
 #' @param check A vector of list elements which should be checked off.
 #' @return A character vector check box brackets prepended to each element.
+#' @family container block functions
 #' @examples
 #' md_task(c("Wake up", "Eat Breakfast", "Brush Teeth"), check = 1:2)
 #' @importFrom glue glue

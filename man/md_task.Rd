@@ -37,3 +37,8 @@ Otherwise, the checkbox is checked.
 \examples{
 md_task(c("Wake up", "Eat Breakfast", "Brush Teeth"), check = 1:2)
 }
+\seealso{
+Other container block functions: \code{\link{md_bullet}},
+  \code{\link{md_list}}, \code{\link{md_quote}}
+}
+\concept{container block functions}

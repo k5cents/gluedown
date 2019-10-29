@@ -34,3 +34,8 @@ by either a \code{.} character or a \code{)} character.
 md_list(state.name[1:5])
 md_list(state.name[1:5])
 }
+\seealso{
+Other container block functions: \code{\link{md_bullet}},
+  \code{\link{md_quote}}, \code{\link{md_task}}
+}
+\concept{container block functions}

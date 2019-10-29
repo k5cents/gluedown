@@ -25,3 +25,8 @@ character \code{>} together with a following space, or (b) a single character
 \examples{
 md_quote("Ask not what your country can do for you, but what you can do for your country.")
 }
+\seealso{
+Other container block functions: \code{\link{md_bullet}},
+  \code{\link{md_list}}, \code{\link{md_task}}
+}
+\concept{container block functions}

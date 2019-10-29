@@ -62,10 +62,11 @@ md_indent <- function(x, n = 4) {
 #' @description Turn a character vector of lines into a single code block with
 #'   lines bookended with a code fence of backticks or tildes. This markdown
 #'   leaf block can be rendered as HTML `<code>` tags inside `<pre>` tags.
-#' @details From the [GFM spec](https://github.github.com/gfm/#code-fence): A
-#'   code fence is a sequence of at least three consecutive backtick characters
-#'   (`` ` ``) or tildes (`~`). (Tildes and backticks cannot be mixed.) A fenced
-#'   code block begins with a code fence, indented no more than three spaces.
+#' @details From the [GFM spec](https://github.github.com/gfm/#code-fence):
+#'   A code fence is a sequence of at least three consecutive backtick
+#'   characters... or tildes (`~`). (Tildes and backticks cannot be mixed.)
+#'   A fenced code block begins with a code fence, indented no more than three
+#'   spaces.
 #'
 #'   The line with the opening code fence may optionally contain some text
 #'   following the code fence; this is trimmed of leading and trailing
@@ -80,14 +81,12 @@ md_indent <- function(x, n = 4) {
 #'   inlines. The first word of the info string is typically used to specify the
 #'   language of the code sample, and rendered in the class attribute of the
 #'   code tag.
-#' @param lines A character vector of lines to be wrapped concatenated into a
-#'   single block, possibly created by [readr::read_lines()] or some equivalent.
-#' @param lang The language of the code within the fence. Aside from clarity,
-#'   this allows many markdown engines to adjust the syntax highlighting.
-#'   Defaults to "r". This option is not used with indented blocks.
-#' @param type The type of code block to be created. Defaults to tipple
-#'   backticks code fences, but you can also use 4-spaces (useful for legacy
-#'   support on Reddit).
+#' @param x A character vector of lines to be wrapped concatenated into a single
+#'   block, possibly created by [readr::read_lines()] or some equivalent.
+#' @param char The character to use in the code fence; either backtick
+#'   characters... or tildes (`~`). Defaults to backticks.
+#' @param lang The info string text to follow the initial code fence, typically
+#'   a code for the language of the lines of `x`. Defaults to `r`.
 #' @return A character vector wrapped on either side by code fences.
 #' @family leaf block functions
 #' @examples

@@ -7,16 +7,14 @@
 md_fence(x, char = c("`", "~"), lang = "r")
 }
 \arguments{
-\item{lang}{The language of the code within the fence. Aside from clarity,
-this allows many markdown engines to adjust the syntax highlighting.
-Defaults to "r". This option is not used with indented blocks.}
+\item{x}{A character vector of lines to be wrapped concatenated into a single
+block, possibly created by \code{\link[readr:read_lines]{readr::read_lines()}} or some equivalent.}
 
-\item{lines}{A character vector of lines to be wrapped concatenated into a
-single block, possibly created by \code{\link[readr:read_lines]{readr::read_lines()}} or some equivalent.}
+\item{char}{The character to use in the code fence; either backtick
+characters... or tildes (\code{~}). Defaults to backticks.}
 
-\item{type}{The type of code block to be created. Defaults to tipple
-backticks code fences, but you can also use 4-spaces (useful for legacy
-support on Reddit).}
+\item{lang}{The info string text to follow the initial code fence, typically
+a code for the language of the lines of \code{x}. Defaults to \code{r}.}
 }
 \value{
 A character vector wrapped on either side by code fences.
@@ -27,10 +25,11 @@ lines bookended with a code fence of backticks or tildes. This markdown
 leaf block can be rendered as HTML \code{<code>} tags inside \code{<pre>} tags.
 }
 \details{
-From the \href{https://github.github.com/gfm/#code-fence}{GFM spec}: A
-code fence is a sequence of at least three consecutive backtick characters
-(\code{`}) or tildes (\code{~}). (Tildes and backticks cannot be mixed.) A fenced
-code block begins with a code fence, indented no more than three spaces.
+From the \href{https://github.github.com/gfm/#code-fence}{GFM spec}:
+A code fence is a sequence of at least three consecutive backtick
+characters... or tildes (\code{~}). (Tildes and backticks cannot be mixed.)
+A fenced code block begins with a code fence, indented no more than three
+spaces.
 
 The line with the opening code fence may optionally contain some text
 following the code fence; this is trimmed of leading and trailing

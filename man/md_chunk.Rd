@@ -45,3 +45,9 @@ sample
 md_chunk(c("library(ggplot2)", "ggplot(mpg)+", "geom_point(aes(displ, hwy))"))
 md_chunk(c("library(dplyr)", "starwars \%>\%", "filter(species == 'Droid')"), type = "indent")
 }
+\seealso{
+Other leaf block functions: \code{\link{md_break}},
+  \code{\link{md_heading}}, \code{\link{md_reference}},
+  \code{\link{md_setext}}, \code{\link{md_table}}
+}
+\concept{leaf block functions}

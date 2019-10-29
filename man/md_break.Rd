@@ -27,3 +27,9 @@ number of spaces or tabs, forms a thematic break.
 md_break("_")
 md_break(n = 10)
 }
+\seealso{
+Other leaf block functions: \code{\link{md_chunk}},
+  \code{\link{md_heading}}, \code{\link{md_reference}},
+  \code{\link{md_setext}}, \code{\link{md_table}}
+}
+\concept{leaf block functions}

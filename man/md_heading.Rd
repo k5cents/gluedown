@@ -31,3 +31,9 @@ opening sequence.
 md_heading("Overview")
 md_heading(c("Installation", "Development version"), level = 1:2)
 }
+\seealso{
+Other leaf block functions: \code{\link{md_break}},
+  \code{\link{md_chunk}}, \code{\link{md_reference}},
+  \code{\link{md_setext}}, \code{\link{md_table}}
+}
+\concept{leaf block functions}

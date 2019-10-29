@@ -16,6 +16,7 @@
 #' @param df A data frame to be formatted as table.
 #' @param ... Arguments passed to [knitr::kable()]
 #' @return A character vector of markdown table source code.
+#' @family leaf block functions
 #' @examples
 #' md_table(mtcars)
 #' @importFrom knitr kable

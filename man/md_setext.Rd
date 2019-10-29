@@ -36,6 +36,8 @@ md_setext("This is a setext\\nHeading", level = 2)
 md_setext(c("one", "two", "three"), c(1, 2, 1))
 }
 \seealso{
-Other leaf block functions: \code{\link{md_heading}}
+Other leaf block functions: \code{\link{md_break}},
+  \code{\link{md_chunk}}, \code{\link{md_heading}},
+  \code{\link{md_reference}}, \code{\link{md_table}}
 }
 \concept{leaf block functions}

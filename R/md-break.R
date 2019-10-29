@@ -6,6 +6,7 @@
 #' @param char The character used. Either an asterisk, hyphen, or underscore.
 #' @param n The number of times to repeat each character.
 #' @return A character vector of a repeated horizontal rule character.
+#' @family leaf block functions
 #' @examples
 #' md_break("_")
 #' md_break(n = 10)

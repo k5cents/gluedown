@@ -18,6 +18,7 @@
 #' @param url The URL to lead to.
 #' @param title The title of the link.
 #' @return A character vector of collapsed display text and associated URLs.
+#' @family leaf block functions
 #' @examples
 #' md_reference("tv", "https://www.tidyverse.org/")
 #' md_reference("tv", "https://www.tidyverse.org/", "tidyverse")

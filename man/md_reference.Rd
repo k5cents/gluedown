@@ -39,3 +39,9 @@ may occur on the line.
 md_reference("tv", "https://www.tidyverse.org/")
 md_reference("tv", "https://www.tidyverse.org/", "tidyverse")
 }
+\seealso{
+Other leaf block functions: \code{\link{md_break}},
+  \code{\link{md_chunk}}, \code{\link{md_heading}},
+  \code{\link{md_setext}}, \code{\link{md_table}}
+}
+\concept{leaf block functions}

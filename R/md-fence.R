@@ -22,6 +22,7 @@
 #' @param style logical; If the `styler` package is installed, should
 #'   [styler::style_text()] be called on `lines`?
 #' @return A character vector wrapped on either side by code fences.
+#' @family leaf block functions
 #' @examples
 #' md_chunk(c("library(ggplot2)", "ggplot(mpg)+", "geom_point(aes(displ, hwy))"))
 #' md_chunk(c("library(dplyr)", "starwars %>%", "filter(species == 'Droid')"), type = "indent")

@@ -35,3 +35,9 @@ indicate left, right, or center alignment respectively.
 \examples{
 md_table(mtcars)
 }
+\seealso{
+Other leaf block functions: \code{\link{md_break}},
+  \code{\link{md_chunk}}, \code{\link{md_heading}},
+  \code{\link{md_reference}}, \code{\link{md_setext}}
+}
+\concept{leaf block functions}

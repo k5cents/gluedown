@@ -20,3 +20,12 @@ test_that("md_hardline creates two valid HTML <br> tags", {
     html_nodes("br")
   expect_length(node, 2)
 })
+
+test_that("md_hardline creates only a single HTML <p> tag", {
+  node <- state.name[1:10] %>%
+    md_hardline() %>%
+    md_convert() %>%
+    read_html() %>%
+    html_nodes("p")
+  expect_length(node, 1)
+})

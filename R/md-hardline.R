@@ -9,6 +9,7 @@
 #' @family inline functions
 #' @examples
 #' md_hardline(c("One", "Two"))
+#' md_hardline(state.name[1:10])
 #' @export
 md_hardline <- function(x) {
   glue::glue_collapse(x, sep = "  \n")

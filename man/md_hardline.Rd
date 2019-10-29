@@ -23,6 +23,7 @@ line break (rendered in HTML as a \code{<br />} tag):
 }
 \examples{
 md_hardline(c("One", "Two"))
+md_hardline(state.name[1:10])
 }
 \seealso{
 Other inline functions: \code{\link{md_bold}},

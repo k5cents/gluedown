@@ -9,6 +9,7 @@
 #' @param x The text with punctuation to escape.
 #' @return A character string with all `[:punct:]` properly escaped with
 #'   prepended backslashes.
+#' @family inline functions
 #' @examples
 #' md_bold(md_escape("Use an * symbol in globs!"))
 #' @importFrom stringr str_replace_all

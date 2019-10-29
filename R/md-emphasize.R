@@ -20,6 +20,7 @@ emphasize_at <- function(x, f, n) {
 #' @title Markdown Bold Emphasis
 #' @param x The text to be emphasized in bold.
 #' @return A character vector with elements wrapped in two asterisk symbols.
+#' @family inline functions
 #' @examples
 #' md_bold("Example")
 #' md_bold(state.name)
@@ -32,6 +33,7 @@ md_bold <- function(x) {
 #' @title Markdown Italic Emphasis
 #' @param x The text to be emphasized in italics.
 #' @return A character vector with elements wrapped in underscore symbols.
+#' @family inline functions
 #' @examples
 #' md_italic("Example")
 #' md_italic(state.name)
@@ -44,6 +46,7 @@ md_italic <- function(x) {
 #' @title Markdown Inline Code
 #' @param x The text to be formatted as fixed-width inline code.
 #' @return A character vector with elements wrapped in backtick symbols.
+#' @family inline functions
 #' @examples
 #' md_code("ex_var")
 #' md_code(state.name)
@@ -56,6 +59,7 @@ md_code <- function(x) {
 #' @title Markdown Strikethrough Emphasis
 #' @param x The text to be striked though.
 #' @return A character vector with elements wrapped in two tilde symbols.
+#' @family inline functions
 #' @examples
 #' md_strike("Example")
 #' md_strike(state.name)

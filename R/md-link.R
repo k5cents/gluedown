@@ -42,6 +42,7 @@ md_reference <- function(label, url, title = NULL) {
 #' @param url The URL to lead to.
 #' @param title The title of the link.
 #' @return A character vector of collapsed display text and associated URLs.
+#' @family inline functions
 #' @examples
 #' md_link("tidyverse", "https://www.tidyverse.org/")
 #' md_link(c("R Project", "CRAN"), c("https://www.r-project.org/", "https://cran.r-project.org/"))
@@ -60,6 +61,7 @@ md_link <- function(text, url, title = NULL) {
 #'    be used to refer to an image.
 #' @param url The URL of an image to be displayed or referenced.
 #' @return A character vector of collapsed alternative text and associated URLs.
+#' @family inline functions
 #' @examples
 #' md_image("http://hexb.in/hexagons/eff.png")
 #' md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker")
@@ -75,6 +77,7 @@ md_image <- function(url, alt = "") {
 #' @param repo A character vector in the format `"user/rep"`.
 #' @param num The issue or pull number _without_ hash symbol.
 #' @return A character vector which GitHub can automatically hyperlink.
+#' @family inline functions
 #' @examples
 #' md_issue("kiernann/gluedown", 1)
 #' @export

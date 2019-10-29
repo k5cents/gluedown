@@ -6,6 +6,7 @@
 #' @param num The issue or pull number _without_ hash symbol.
 #' @return A character vector which GitHub can automatically hyperlink.
 #' @family inline functions
+#' @family markdown extensions
 #' @examples
 #' md_issue("kiernann/gluedown", 1)
 #' @export

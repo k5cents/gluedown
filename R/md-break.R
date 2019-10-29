@@ -1,4 +1,4 @@
-#' @title Markdown horizontal rule
+#' @title Markdown horizontal rule (4.1)
 #' @description Print the markdown characters used to represent a _thematic
 #'   break_. This markdown leaf block can be rendered as the `<hr>` HTML tag.
 #' @details From the [GFM spec](https://github.github.com/gfm/): A line

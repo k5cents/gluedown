@@ -2,21 +2,24 @@
 % Please edit documentation in R/md-heading.R
 \name{md_setext}
 \alias{md_setext}
-\title{Markdown Setext Headings}
+\title{Markdown Setext headings (4.3)}
 \usage{
 md_setext(x, level = 1)
 }
 \arguments{
-\item{x}{The text of the headings.}
+\item{x}{A character vector of heading text.}
 
-\item{level}{The heading level created; level 1 uses \code{=} and level 2 or
-greater uses \code{-}.}
+\item{level}{A numeric vector of use to determine the number of heading hash
+characters to preceed each element of \code{x}. The heading level is equal to
+the number of \code{#} characters in the opening sequence.}
 }
 \value{
-A heading with a setext underline the width of the longest line in \code{x}.
+A \code{glue} vector of a length equal to \code{x}.
 }
 \description{
-Form a single level 1 or 2 markdown setext headings.
+Turn a character vector into a vector of valid markdown Setext
+headings. These markdown leaf blocks can be rendered as the \code{<h1>} and
+\code{<h2>} tags \emph{only}.
 }
 \details{
 From the \href{https://github.github.com/gfm/#setext-headings}{GFM spec}:
@@ -32,12 +35,13 @@ characters are used.
 }
 \examples{
 md_setext("Overview")
-md_setext("This is a setext\\nHeading", level = 2)
-md_setext(c("one", "two", "three"), c(1, 2, 1))
+md_setext("This is a setext\\nheading", level = 2)
+md_setext(c("one", "two", "three", "four"), level = c(1, 2))
 }
 \seealso{
-Other leaf block functions: \code{\link{md_break}},
-  \code{\link{md_chunk}}, \code{\link{md_heading}},
-  \code{\link{md_reference}}, \code{\link{md_table}}
+Other leaf block functions: \code{\link{md_chunk}},
+  \code{\link{md_fence}}, \code{\link{md_heading}},
+  \code{\link{md_indent}}, \code{\link{md_reference}},
+  \code{\link{md_rule}}, \code{\link{md_table}}
 }
 \concept{leaf block functions}

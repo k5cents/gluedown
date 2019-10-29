@@ -2,38 +2,42 @@
 % Please edit documentation in R/md-heading.R
 \name{md_heading}
 \alias{md_heading}
-\title{Markdown ATX Headings}
+\title{Markdown ATX headings (4.2)}
 \usage{
 md_heading(x, level = 1)
 }
 \arguments{
-\item{x}{The text of the headings.}
+\item{x}{A character vector of heading text.}
 
-\item{level}{The number of header hash characters. The heading level is equal
-to the number of # characters in the opening sequence. In rendered markdown
-higher levels are typically displayed larger.}
+\item{level}{A numeric vector of use to determine the number of heading hash
+characters to preceed each element of \code{x}. The heading level is equal to
+the number of \code{#} characters in the opening sequence.}
 }
 \value{
-A character vector with elements preceded by hash symbols.
+A \code{glue} vector of a length equal to \code{x}.
 }
 \description{
-Form a vector of markdown headings.
+Turn a character vector into a vector of valid markdown ATX
+headings. These markdown leaf blocks can be rendered as the \code{<h1>} through
+\code{<h6>} HTML tags. See \code{\link[=md_setext]{md_setext()}} to create setext (underlined) headings.
 }
 \details{
 From the \href{https://github.github.com/gfm/#atx-heading}{GFM spec}: An
 ATX heading consists of a string of characters, parsed as inline content,
-between an opening sequence of 1–6 unescaped \code{#} characters… The opening
+between an opening sequence of 1–6 unescaped \code{#} characters... The opening
 sequence of \code{#} characters must be followed by a space or by the end of
-line… The heading level is equal to the number of \code{#} characters in the
+line... The heading level is equal to the number of \code{#} characters in the
 opening sequence.
 }
 \examples{
 md_heading("Overview")
-md_heading(c("Installation", "Development version"), level = 1:2)
+md_heading(x = c("One", "Two"), level = 1:2)
+md_heading(x = c("Installation", "Usage"), level = 2)
 }
 \seealso{
-Other leaf block functions: \code{\link{md_break}},
-  \code{\link{md_chunk}}, \code{\link{md_reference}},
+Other leaf block functions: \code{\link{md_chunk}},
+  \code{\link{md_fence}}, \code{\link{md_indent}},
+  \code{\link{md_reference}}, \code{\link{md_rule}},
   \code{\link{md_setext}}, \code{\link{md_table}}
 }
 \concept{leaf block functions}

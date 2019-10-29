@@ -1,4 +1,4 @@
-#' @title Markdown ATX headings
+#' @title Markdown ATX headings (4.2)
 #' @description Turn a character vector into a vector of valid markdown ATX
 #'   headings. These markdown leaf blocks can be rendered as the `<h1>` through
 #'   `<h6>` HTML tags. See [md_setext()] to create setext (underlined) headings.
@@ -28,7 +28,7 @@ md_heading <- function(x, level = 1) {
   glue::glue("{stringr::str_dup('#', level)} {x}")
 }
 
-#' @title Markdown Setext headings
+#' @title Markdown Setext headings (4.3)
 #' @description Turn a character vector into a vector of valid markdown Setext
 #'   headings. These markdown leaf blocks can be rendered as the `<h1>` and
 #'   `<h2>` tags _only_.

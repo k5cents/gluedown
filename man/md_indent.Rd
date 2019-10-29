@@ -32,7 +32,7 @@ spaces of indentation. An indented code block has no info string.
 }
 \examples{
 md_indent(deparse(sd))
-md_indent(c("library(dplyr)", "starwars \%>\%", "filter(species == 'Droid')"), n = c(4, 4, 6))
+
 }
 \seealso{
 Other leaf block functions: \code{\link{md_chunk}},

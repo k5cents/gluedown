@@ -75,3 +75,7 @@ test_that("md_setext makes a level 6 heading convertable to HTML H2 tag", {
 test_that("md_setext warns at levels greater than H2", {
   expect_warning(object = md_setext("Level 10", level = 10))
 })
+
+test_that("md_setext errors if levels length differs from headings length", {
+  expect_error(md_setext(x = c("One", "Two"), level = 1:3))
+})

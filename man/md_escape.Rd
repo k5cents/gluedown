@@ -29,8 +29,9 @@ md_bold(md_escape("Use an * symbol in globs!"))
 }
 \seealso{
 Other inline functions: \code{\link{md_bold}},
-  \code{\link{md_code}}, \code{\link{md_image}},
-  \code{\link{md_issue}}, \code{\link{md_italic}},
-  \code{\link{md_link}}, \code{\link{md_strike}}
+  \code{\link{md_code}}, \code{\link{md_hardline}},
+  \code{\link{md_image}}, \code{\link{md_issue}},
+  \code{\link{md_italic}}, \code{\link{md_link}},
+  \code{\link{md_strike}}
 }
 \concept{inline functions}

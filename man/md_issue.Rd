@@ -25,7 +25,8 @@ md_issue("kiernann/gluedown", 1)
 \seealso{
 Other inline functions: \code{\link{md_bold}},
   \code{\link{md_code}}, \code{\link{md_escape}},
-  \code{\link{md_image}}, \code{\link{md_italic}},
-  \code{\link{md_link}}, \code{\link{md_strike}}
+  \code{\link{md_hardline}}, \code{\link{md_image}},
+  \code{\link{md_italic}}, \code{\link{md_link}},
+  \code{\link{md_strike}}
 }
 \concept{inline functions}

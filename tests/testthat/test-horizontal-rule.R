@@ -20,5 +20,4 @@ test_that("md_break makes blocks convertable to HTML horizontal rule", {
 
 test_that("md_break stops with incorrect number of characters", {
   expect_error(md_rule(n = 2))
-  expect_error(md_rule(n = 100))
 })

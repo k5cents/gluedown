@@ -7,47 +7,42 @@
 md_reference(label, url, title = NULL)
 }
 \arguments{
-\item{label}{A reference.}
+\item{label}{A link label that is referenced elsewhere in the document.}
 
-\item{url}{The URL to lead to.}
+\item{url}{The URL to hyperlink the referenced text with.}
 
-\item{title}{The title of the link.}
+\item{title}{An \emph{optional} link title; defaults to \code{NULL}.}
 }
 \value{
 A single \code{glue} vector of length equal to that of \code{label} and \code{url},
 with elements the concatenated arguments.
 }
 \description{
-Combine elements of 2 or 3 character vetors into valid markdown
+Combine elements of 2 or 3 character vectors into valid markdown
 link references. These markdown leaf blocks then use \code{label} placed
 \emph{elsewhere} in a markdown document to render as \code{<href>} HTML tags.
 }
 \details{
-From the \href{https://github.github.com/gfm/#link-reference-definition}{GFM spec}:
-A link reference definition consists of a
-\href{https://github.github.com/gfm/#link-label}{link label}, indented up to
-three spaces, followed by a colon (\code{:}), optional
-\href{https://github.github.com/gfm/#whitespace}{whitespace} (including up to
-one \href{https://github.github.com/gfm/#line-ending}{line ending}), a
-\href{https://github.github.com/gfm/#link-destination}{link destination},
-optional whitespace (including up to one line ending), and an optional
-\href{https://github.github.com/gfm/#link-title}{link title}, which if it is
-present must be separated from the link destination by whitespace. No
-further
-\href{https://github.github.com/gfm/#non-whitespace-character}{non-whitespace characters}
-may occur on the line...
+A full reference link (6.6) consists of a link text immediately
+followed by a link label that matches a link reference definition elsewhere
+in the document...
+
+A link reference definition consists of a link label, indented up to three
+spaces, followed by a colon (\code{:}), optional whitespace (including up to one
+line ending), a link destination, optional whitespace (including up to one
+line ending), and an optional link title, which if it is present must be
+separated from the link destination by whitespace. No further
+non-whitespace characters may occur on the line.
 
 A link reference definition does not correspond to a structural element of
-a document. Instead, it defines a label which can be used in
-\href{https://github.github.com/gfm/#reference-link}{reference links} and
-reference-style \href{https://github.github.com/gfm/#images}{images} elsewhere
-in the document. Link reference definitions can come either before or after
-the links that use them.
+a document. Instead, it defines a label which can be used in reference
+links and reference-style images elsewhere in the document. Link reference
+definitions can come either before or after the links that use them.
 }
 \examples{
 md_reference("tv", "https://www.tidyverse.org/")
 md_reference("tv", "https://www.tidyverse.org/", "tidyverse")
-md_reference(label = c("one", "two"), url = c("https://one.org", "https://two.com"))
+md_reference(label = 1:2, url = c("https://one.org", "https://two.com"))
 }
 \seealso{
 Other leaf block functions: \code{\link{md_chunk}},

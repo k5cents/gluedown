@@ -2,14 +2,14 @@
 % Please edit documentation in R/md-define.R
 \name{md_define}
 \alias{md_define}
-\title{Markdown Definition}
+\title{Markdown definitions (unsupported extension)}
 \usage{
 md_define(term, def)
 }
 \arguments{
-\item{term}{The character vector of terms to define.}
+\item{term}{A character vector of terms to define.}
 
-\item{def}{The character vector of definitions to be used for each term.}
+\item{def}{A character vector of definitions to be used for each \code{term.}}
 }
 \value{
 A character vector with elements preceded by an asterisk symbol.
@@ -27,4 +27,5 @@ indented one or two spaces.
 }
 \examples{
 md_define("Democracy", "Government by the people")
+md_define(state.abb[1:5], state.name[1:5])
 }

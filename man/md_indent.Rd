@@ -23,12 +23,12 @@ nested HTML \code{<code>} and \code{<pre>} tags. This is the code block format
 required by legacy Reddit-flavored Markdown.
 }
 \details{
-From the \href{https://github.github.com/gfm/#indented-code-blocks}{GFM spec}:
-An indented code block is composed of one or more indented chunks separated
-by blank lines. An indented chunk is a sequence of non-blank lines, each
-indented four or more spaces. The contents of the code block are the
-literal contents of the lines, including trailing line endings, minus four
-spaces of indentation. An indented code block has no info string.
+An indented code block is composed of one or more indented chunks
+separated by blank lines. An indented chunk is a sequence of non-blank
+lines, each indented four or more spaces. The contents of the code block
+are the literal contents of the lines, including trailing line endings,
+minus four spaces of indentation. An indented code block has no info
+string.
 }
 \examples{
 md_indent(deparse(sd))

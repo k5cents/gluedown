@@ -14,7 +14,7 @@ characters to preceed each element of \code{x}. The heading level is equal to
 the number of \code{#} characters in the opening sequence.}
 }
 \value{
-A \code{glue} vector of a length equal to \code{x}.
+A \code{glue} vector of headings with length equal to \code{x}.
 }
 \description{
 Turn a character vector into a vector of valid markdown ATX
@@ -22,12 +22,16 @@ headings. These markdown leaf blocks can be rendered as the \code{<h1>} through
 \code{<h6>} HTML tags. See \code{\link[=md_setext]{md_setext()}} to create setext (underlined) headings.
 }
 \details{
-From the \href{https://github.github.com/gfm/#atx-heading}{GFM spec}: An
-ATX heading consists of a string of characters, parsed as inline content,
-between an opening sequence of 1–6 unescaped \code{#} characters... The opening
-sequence of \code{#} characters must be followed by a space or by the end of
-line... The heading level is equal to the number of \code{#} characters in the
-opening sequence.
+An ATX heading consists of a string of characters, parsed as inline
+content, between an opening sequence of 1–6 unescaped \code{#} characters and an
+optional closing sequence of any number of unescaped \code{#} characters. The
+opening sequence of \code{#} characters must be followed by a space or by the
+end of line. The optional closing sequence of \code{#}s must be preceded by a
+space and may be followed by spaces only. The opening # character may be
+indented 0-3 spaces. The raw contents of the heading are stripped of
+leading and trailing spaces before being parsed as inline content. The
+heading level is equal to the number of \code{#} characters in the opening
+sequence.
 }
 \examples{
 md_heading("Overview")

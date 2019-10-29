@@ -1,5 +1,12 @@
-#' @param f An emphasizing function (e.g., [md_bold()]).
-#' @return A character vector with elements wrapped in two tilde symbols.
+#' @title Targeted markdown formatting
+#' @description Split a sentence by whitespace and wrap a specific word(s) in a
+#'   markdown inline function.
+#' @param x A character vector of strings containing words separated by spaces.
+#' @param f An emphasizing inline function (e.g., [md_bold()]).
+#' @param n A numeric vector describing the positions of the words in `x` to be
+#'   emphasized with `f`.
+#' @return A `glue` vector of length equal to `x` with the `n`th word
+#'   formatted using `f`.
 #' @examples
 #' emphasize_at(x = "Live free or die", n = 4, f = md_bold)
 #' @importFrom stringr str_c str_split
@@ -11,5 +18,5 @@ emphasize_at <- function(x, f, n) {
     s2 <- purrr::map_at(.x = s[[i]], .at = n, .f = f)
     s[[i]] <- stringr::str_c(s2, collapse = " ")
   }
-  unlist(s)
+  glue::as_glue(unlist(s))
 }

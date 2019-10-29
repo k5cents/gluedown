@@ -3,11 +3,11 @@ library(gluedown)
 library(stringr)
 library(rvest)
 
-test_that("md_list makes blocks convertable to HTML ordered list", {
+test_that("md_order makes blocks convertable to HTML ordered list", {
   # create vector
   vector <- state.name[1:5]
   # create list from vector
-  list <- md_list(vector)
+  list <- md_order(vector)
   node <-
     # convery vector to HTML string
     md_convert(list) %>%
@@ -23,11 +23,11 @@ test_that("md_list makes blocks convertable to HTML ordered list", {
   expect_true(object = all(node == vector))
 })
 
-test_that("md_list works without sequential raw numbers", {
+test_that("md_order works without sequential raw numbers", {
   # create vector
   vector <- state.name[1:5]
   # create list from vector
-  list <- md_list(vector, seq = FALSE)
+  list <- md_order(vector, seq = FALSE)
   node <-
     # convery vector to HTML string
     md_convert(list) %>%
@@ -41,9 +41,4 @@ test_that("md_list works without sequential raw numbers", {
     html_text(trim = TRUE)
   # expect list items to all be the same
   expect_true(object = all(node == vector))
-})
-
-test_that("md_list stops if the list is... like, a trillion items long...", {
-  vector <- seq(1, 1000000000)
-  expect_error(md_list(vector, seq = TRUE))
 })

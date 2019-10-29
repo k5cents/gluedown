@@ -7,9 +7,10 @@
 md_rule(char = c("*", "-", "_"), n = 3)
 }
 \arguments{
-\item{char}{The character used. Either an asterisk, hyphen, or underscore.}
+\item{char}{The type of rule; either: \code{-}, \code{_}, or \code{*}. Defaults to \code{*}.}
 
-\item{n}{The number of times to repeat each character.}
+\item{n}{The width of the rule; an integer indicating number of times to
+repeat each character. Defaults to the minimum of 3.}
 }
 \value{
 A repeated-character \code{glue} vector with length 1.
@@ -19,10 +20,10 @@ Print the markdown characters used to represent a \emph{thematic
 break}. This markdown leaf block can be rendered as the \code{<hr>} HTML tag.
 }
 \details{
-From the \href{https://github.github.com/gfm/}{GFM spec}: A line
-consisting of 0-3 spaces of indentation, followed by a sequence of three or
-more matching \code{-}, \code{_}, or \code{*} characters, each followed optionally by any
-number of spaces or tabs, forms a thematic break.
+A line consisting of 0-3 spaces of indentation, followed by a
+sequence of three or more matching \code{-}, \code{_}, or \code{*} characters, each
+followed optionally by any number of spaces or tabs, forms a thematic
+break.
 }
 \examples{
 md_rule()

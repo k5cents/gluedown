@@ -2,31 +2,37 @@
 % Please edit documentation in R/md-list.R
 \name{md_bullet}
 \alias{md_bullet}
-\title{Markdown Bullet List}
+\title{Markdown bullet list (5.2)}
 \usage{
 md_bullet(x, marker = c("*", "-", "+"))
 }
 \arguments{
 \item{x}{The vector of bullet point list items.}
 
-\item{marker}{The bullet list marker to use.}
+\item{marker}{The bullet list marker to use; one of \code{-}, \code{+}, or \code{*}.}
 }
 \value{
-A character vector with elements preceded by an asterisk symbol.
+A \code{glue} vector with length equal to \code{x}.
 }
 \description{
-Form a single-level unordered list from a vector.
+Turn a character vector into a valid markdown bullet list. This
+container block can then be redered as nested \code{<li>} and \code{<ul>} HTML tags.
 }
 \details{
-From the \href{https://github.github.com/gfm/#bullet-list-marker}{GFM spec}:
-A bullet list marker is a \code{-}, \code{+}, or \code{*} character.
+A list is a sequence of one or more list items of the same type. The
+list items may be separated by any number of blank lines.
+
+Two list items are of the same type if they begin with a list marker of the
+same type. Two list markers are of the same type if (a) they are bullet
+list markers using the same character (\code{-}, \code{+}, or \code{*})...
 }
 \examples{
 md_bullet(state.name[1:5])
-md_bullet(state.name[1:5])
+md_bullet(sample(state.name, 5), marker = "+")
 }
 \seealso{
 Other container block functions: \code{\link{md_list}},
-  \code{\link{md_quote}}, \code{\link{md_task}}
+  \code{\link{md_order}}, \code{\link{md_quote}},
+  \code{\link{md_task}}
 }
 \concept{container block functions}

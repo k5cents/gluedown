@@ -29,7 +29,8 @@ Other inline functions: \code{\link{md_bold}},
   \code{\link{md_italic}}, \code{\link{md_link}},
   \code{\link{md_strike}}
 
-Other markdown extensions: \code{\link{md_table}}
+Other markdown extensions: \code{\link{md_strike}},
+  \code{\link{md_table}}
 }
 \concept{inline functions}
 \concept{markdown extensions}

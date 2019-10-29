@@ -2,27 +2,28 @@
 % Please edit documentation in R/md-hardline.R
 \name{md_hardline}
 \alias{md_hardline}
-\title{Markdown Hard Line Breaks}
+\title{Markdown hard line breaks (6.12)}
 \usage{
 md_hardline(x)
 }
 \arguments{
-\item{x}{The vector of bullet point list items.}
+\item{x}{A character vector of bullet point list items.}
 }
 \value{
-A single string with elements of \code{x} separated with a hard line break.
+A \code{glue} vector of length 1 with elements of \code{x} separated by two
+spaces and a newline.
 }
 \description{
-Separate strings with a hard line (non-paragraph) break.
+Separate strings with a hard line (non-paragraph) break. This
+inline hard line break can be rendered as \code{<br />} HTML tags.
 }
 \details{
-From the \href{https://github.github.com/gfm/#hard-line-breaks}{GFM spec}:
-A line break (not in a code span or HTML tag) that is preceded by two or
-more spaces and does not occur at the end of a block is parsed as a hard
-line break (rendered in HTML as a \code{<br />} tag):
+A line break (not in a code span or HTML tag) that is preceded by
+two or more spaces and does not occur at the end of a block is parsed as a
+hard line break (rendered in HTML as a \code{<br />} tag)
 }
 \examples{
-md_hardline(c("One", "Two"))
+md_hardline(md_bold(c("One", "Two")))
 md_hardline(state.name[1:10])
 }
 \seealso{

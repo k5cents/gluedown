@@ -4,7 +4,7 @@
 #'   rendered as nested HTML `<code>` and `<pre>` tags. This function either
 #'   calls [md_fence()] or [md_indent()] based on the `type` argument.
 #' @param x A character vector of lines to be wrapped concatenated into a
-#'   single block, possibly created by [readr::read_lines()] or some equivalent.
+#'   single block, possibly created by [readr::read_lines()] or [deparse()].
 #' @param ... Arguments to be passed to [md_fence()] or [md_indent()].
 #' @param type The type of code block to be created. Either "tick", "tilde"
 #'   (which call [md_fence()]) or "indent" (which calls [md_indent()]).
@@ -41,12 +41,12 @@ md_chunk <- function(x, type = c("tick", "tilde", "indent"), ...) {
 #'   each line indented four spaces. This markdown leaf block can be rendered as
 #'   nested HTML `<code>` and `<pre>` tags. This is the code block format
 #'   required by legacy Reddit-flavored Markdown.
-#' @details From the [GFM spec](https://github.github.com/gfm/#indented-code-blocks):
-#'   An indented code block is composed of one or more indented chunks separated
-#'   by blank lines. An indented chunk is a sequence of non-blank lines, each
-#'   indented four or more spaces. The contents of the code block are the
-#'   literal contents of the lines, including trailing line endings, minus four
-#'   spaces of indentation. An indented code block has no info string.
+#' @details  An indented code block is composed of one or more indented chunks
+#'   separated by blank lines. An indented chunk is a sequence of non-blank
+#'   lines, each indented four or more spaces. The contents of the code block
+#'   are the literal contents of the lines, including trailing line endings,
+#'   minus four spaces of indentation. An indented code block has no info
+#'   string.
 #' @param x A character vector of lines to be wrapped concatenated into a
 #'   single block, possibly created by [readr::read_lines()] or [deparse()].
 #' @param n A numeric vector
@@ -70,27 +70,30 @@ md_indent <- function(x, n = 4) {
 #' @description Turn a character vector of lines into a single code block with
 #'   lines bookended with a code fence of backticks or tildes. This markdown
 #'   leaf block can be rendered as HTML `<code>` tags inside `<pre>` tags.
-#' @details From the [GFM spec](https://github.github.com/gfm/#code-fence):
-#'   A code fence is a sequence of at least three consecutive backtick
-#'   characters... or tildes (`~`). (Tildes and backticks cannot be mixed.)
-#'   A fenced code block begins with a code fence, indented no more than three
+#' @details A code fence is a sequence of at least three consecutive backtick
+#'   characters (```) or tildes (`~`). (Tildes and backticks cannot be mixed.) A
+#'   fenced code block begins with a code fence, indented no more than three
 #'   spaces.
 #'
 #'   The line with the opening code fence may optionally contain some text
 #'   following the code fence; this is trimmed of leading and trailing
-#'   whitespace and called the info string (see `lang`)...
+#'   whitespace and called the **info string**...
 #'
 #'   The content of the code block consists of all subsequent lines, until a
 #'   closing code fence of the same type as the code block began with (backticks
 #'   or tildes), and with at least as many backticks or tildes as the opening
 #'   code fence...
 #'
+#'   A fenced code block may interrupt a paragraph, and does not require a blank
+#'   line either before or after.
+#'
 #'   The content of a code fence is treated as literal text, not parsed as
 #'   inlines. The first word of the info string is typically used to specify the
 #'   language of the code sample, and rendered in the class attribute of the
-#'   code tag.
+#'   code tag. However, this spec does not mandate any particular treatment of
+#'   the info string (see the `lang` argument).
 #' @param x A character vector of lines to be wrapped concatenated into a single
-#'   block, possibly created by [readr::read_lines()] or some equivalent.
+#'   block, possibly created by possibly created by [readr::read_lines()] or [deparse()].
 #' @param char The character to use in the code fence; either backtick
 #'   characters... or tildes (`~`). Defaults to backticks.
 #' @param lang The info string text to follow the initial code fence, typically

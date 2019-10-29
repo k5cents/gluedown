@@ -17,16 +17,34 @@ element.
 Form block quotes from a vector of character strings.
 }
 \details{
-From the \href{https://github.github.com/gfm/#block-quote-marker}{GFM spec}:
-A block quote marker consists of 0-3 spaces of initial indent, plus (a) the
-character \code{>} together with a following space, or (b) a single character
-\code{>} not followed by a space.
+A block quote marker consists of 0-3 spaces of initial indent, plus
+(a) the character \code{>} together with a following space, or (b) a single
+character \code{>} not followed by a space.
+
+The following rules define block quotes:
+\enumerate{
+\item \strong{Basic case.} If a string of lines \emph{Ls} constitute a sequence of
+blocks \emph{Bs}, then the result of prepending a block quote marker to the
+beginning of each line in \emph{Ls} is a block quote containing \emph{Bs}.
+\item \strong{Laziness.} If a string of lines \emph{Ls} constitute a block quote with
+contents \emph{Bs}, then the result of deleting the initial block quote marker
+from one or more lines in which the next non-whitespace character after the
+block quote marker is paragraph continuation text is a block quote with
+\emph{Bs} as its content. Paragraph continuation text is text that will be
+parsed as part of the content of a paragraph, but does not occur at the
+beginning of the paragraph.
+\item \strong{Consecutiveness.} A document cannot contain two block quotes in a row
+unless there is a blank line between them.
+}
+
+Nothing else counts as a block quote.
 }
 \examples{
-md_quote("Ask not what your country can do for you, but what you can do for your country.")
+md_quote("Give me liberty, or give me death!")
 }
 \seealso{
 Other container block functions: \code{\link{md_bullet}},
-  \code{\link{md_list}}, \code{\link{md_task}}
+  \code{\link{md_list}}, \code{\link{md_order}},
+  \code{\link{md_task}}
 }
 \concept{container block functions}

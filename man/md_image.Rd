@@ -2,24 +2,35 @@
 % Please edit documentation in R/md-link.R
 \name{md_image}
 \alias{md_image}
-\title{Markdown Image}
+\title{Markdown image links}
 \usage{
 md_image(url, alt = "")
 }
 \arguments{
-\item{url}{The URL of an image to be displayed or referenced.}
+\item{url}{A character vector of link destination (URL) strings.}
 
-\item{alt}{The optional
+\item{alt}{A character vector of
 \href{https://en.wikipedia.org/wiki/Alt_attribute}{alternative text} that can
 be used to refer to an image.}
 }
 \value{
-A character vector of collapsed alternative text and associated URLs.
+A \code{glue} vector of collapsed alternative text and associated URLs.
 }
 \description{
-Markdown Image
+Take a vector of image alt texts and image link destinations and
+return single vector of valid markdown image links. These inline image
+links can call images to be rendered as \code{<img>} HTML tags.
+}
+\details{
+Syntax for images is like the syntax for links, with one difference.
+Instead of link text, we have an image description. The rules for this are
+the same as for link text, except that (a) an image description starts with
+\code{![} rather than \code{[}, and (b) an image description may contain links. An
+image description has inline elements as its contents. When an image is
+rendered to HTML, this is standardly used as the image’s \code{alt} attribute.
 }
 \examples{
+if (file.exists("man/figures/logo.png")) md_image("man/figures/logo.png")
 md_image("http://hexb.in/hexagons/eff.png")
 md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker")
 }

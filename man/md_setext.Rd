@@ -9,12 +9,12 @@ md_setext(x, level = 1)
 \arguments{
 \item{x}{A character vector of heading text.}
 
-\item{level}{A numeric vector of use to determine the number of heading hash
-characters to preceed each element of \code{x}. The heading level is equal to
-the number of \code{#} characters in the opening sequence.}
+\item{level}{An numeric vector of all either 1 or 2 to determine whether
+level 1 headings are created with \code{=} or level two with \code{-}. If less levels
+are provided than headings, \code{level} will be repeated via \code{\link[glue:glue]{glue::glue()}}.}
 }
 \value{
-A \code{glue} vector of a length equal to \code{x}.
+A \code{glue} vector of headings with length equal to \code{x}.
 }
 \description{
 Turn a character vector into a vector of valid markdown Setext
@@ -22,16 +22,33 @@ headings. These markdown leaf blocks can be rendered as the \code{<h1>} and
 \code{<h2>} tags \emph{only}.
 }
 \details{
-From the \href{https://github.github.com/gfm/#setext-headings}{GFM spec}:
-A setext heading consists of one or more lines of text, each containing at
-least one \href{https://github.github.com/gfm/#non-whitespace-character}{non-whitespace character},
-with no more than 3 spaces indentation,
-followed by a \href{https://github.github.com/gfm/#setext-heading-underline}{setext heading underline}...
+A setext heading consists of one or more lines of text, each
+containing at least one non-whitespace character, with no more than 3
+spaces indentation, followed by a setext heading underline. The lines of
+text must be such that, were they not followed by the setext heading
+underline, they would be interpreted as a paragraph: they cannot be
+interpretable as a
+\href{https://github.github.com/gfm/#code-fence}{code fence},
+\href{https://github.github.com/gfm/#atx-headings}{ATX heading},
+\href{https://github.github.com/gfm/#block-quotes}{block quote},
+\href{https://github.github.com/gfm/#thematic-breaks}{thematic break},
+\href{https://github.github.com/gfm/#list-items}{list item}, or
+\href{https://github.github.com/gfm/#html-blocks}{HTML block.}
+
 A setext heading underline is a sequence of \code{=} characters or a sequence of
 \code{-} characters, with no more than 3 spaces indentation and any number of
-trailing spaces... The heading is a level 1 heading if \code{=} characters are
-used in the setext heading underline, and a level 2 heading if \code{-}
-characters are used.
+trailing spaces. If a line containing a single \code{-} can be interpreted as an
+empty list items, it should be interpreted this way and not as a setext
+heading underline.
+
+The heading is a level 1 heading if \code{=} characters are used in the setext
+heading underline, and a level 2 heading if \code{-} characters are used. The
+contents of the heading are the result of parsing the preceding lines of
+text as CommonMark inline content.
+
+In general, a setext heading need not be preceded or followed by a blank
+line. However, it cannot interrupt a paragraph, so when a setext heading
+comes after a paragraph, a blank line is needed between them.
 }
 \examples{
 md_setext("Overview")

@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-link.R
 \name{md_link}
 \alias{md_link}
-\title{Markdown Inline Like}
+\title{Markdown inline link (6.6)}
 \usage{
 md_link(text, url, title = NULL)
 }
@@ -14,17 +14,31 @@ md_link(text, url, title = NULL)
 \item{title}{The title of the link.}
 }
 \value{
-A character vector of collapsed display text and associated URLs.
+A \code{glue} vector of collapsed display text and associated URLs.
 }
 \description{
-Form an inline hyperlink to an another website.
+Take a vector of link texts and link destinations and return
+single vector of valid markdown inline links. These inline links can then
+be rendered as \code{<href>} HTML tags.
 }
 \details{
-From the \href{https://github.github.com/gfm/#inline-link}{GFM spec}:
-An inline link consists of a \href{https://github.github.com/gfm/#link-text}{link text}
-followed immediately by a left parenthesis \code{(}... an optional link
-destination, an optional link title separated from the link destination by
-whitespace, optional whitespace, and a right parenthesis \code{)}.
+A link contains link text (the visible text), a link destination (the URI
+that is the link destination), and optionally a link title. There are two
+basic kinds of links in Markdown. In inline links the destination and title
+are given immediately after the link text.
+
+A link text consists of a sequence of zero or more inline elements enclosed
+by square brackets (\code{[} and \code{]})...
+
+An inline link consists of a link text followed immediately by a left
+parenthesis \code{(}, optional whitespace, an optional link destination, an
+optional link title separated from the link destination by whitespace,
+optional whitespace, and a right parenthesis \code{)}. The link’s text consists
+of the inlines contained in the link text (excluding the enclosing square
+brackets). The link’s URI consists of the link destination, excluding
+enclosing \code{<...>} if present, with backslash-escapes in effect as described
+above. The link’s title consists of the link title, excluding its enclosing
+delimiters, with backslash-escapes in effect as described above.
 }
 \examples{
 md_link("tidyverse", "https://www.tidyverse.org/")

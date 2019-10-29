@@ -7,7 +7,8 @@
 md_escape(x)
 }
 \arguments{
-\item{x}{The text with punctuation to escape.}
+\item{x}{A character vector of strings containing punctuation that might
+accidentally be considered markdown syntax.}
 }
 \value{
 A character string with all \code{[:punct:]} properly escaped with
@@ -19,13 +20,13 @@ characters, it's necessary to "escape" those characters so that they are
 ignored by formatting.
 }
 \details{
-From the \href{https://github.github.com/gfm/#backslash-escapes}{GFM spec}:
-Any ASCII punctuation character may be backslash-escaped... Any ASCII
-punctuation character may be backslash-escaped... Escaped characters are
-treated as regular characters and do not have their usual Markdown meanings.
+Any ASCII punctuation character may be backslash-escaped... Escaped
+characters are treated as regular characters and do not have their usual
+Markdown meanings.
 }
 \examples{
-md_bold(md_escape("Use an * symbol in globs!"))
+hashtag <- "# six seasons and a movie"
+emphasize_at(md_escape(hashtag), md_bold, n = 6)
 }
 \seealso{
 Other inline functions: \code{\link{md_bold}},

@@ -8,7 +8,7 @@ md_chunk(x, type = c("tick", "tilde", "indent"), ...)
 }
 \arguments{
 \item{x}{A character vector of lines to be wrapped concatenated into a
-single block, possibly created by \code{\link[readr:read_lines]{readr::read_lines()}} or some equivalent.}
+single block, possibly created by \code{\link[readr:read_lines]{readr::read_lines()}} or \code{\link[=deparse]{deparse()}}.}
 
 \item{type}{The type of code block to be created. Either "tick", "tilde"
 (which call \code{\link[=md_fence]{md_fence()}}) or "indent" (which calls \code{\link[=md_indent]{md_indent()}}).}

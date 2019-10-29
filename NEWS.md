@@ -1,7 +1,11 @@
+# gluedown 0.1.2
+
+* Create `md_hardline()` (#10).
+
 # gluedown 0.1.1
 
-* Create `md_setext()` (#10)
-* Add family documentation (#11)
+* Create `md_setext()` (#10).
+* Add family documentation (#11).
 
 # gluedown 0.1.0
 

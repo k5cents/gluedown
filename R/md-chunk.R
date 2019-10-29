@@ -8,12 +8,20 @@
 #' @param ... Arguments to be passed to [md_fence()] or [md_indent()].
 #' @param type The type of code block to be created. Either "tick", "tilde"
 #'   (which call [md_fence()]) or "indent" (which calls [md_indent()]).
-#' @return A character vector wrapped on either side by code fences.
+#' @return A `glue` object of length 1, with elements of `x` formatted via
+#'   [md_fence()] or [md_indent()].
 #' @family leaf block functions
 #' @examples
 #' md_chunk("$ sudo apt install r-base-dev", lang = "bash")
 #' md_chunk(c("library(ggplot2)", "ggplot(mpg)+", "geom_point(aes(displ, hwy))"), type = "tilde")
-#' md_chunk(c("library(dplyr)", "starwars %>%", "filter(species == 'Droid')"), type = "indent", n = c(4, 4, 6))
+#' md_indent(
+#'   n = c(4, 4, 6),
+#'   x = c(
+#'     "library(dplyr)",
+#'     "starwars %>%",
+#'     "filter(species == 'Droid')"
+#'   )
+#' )
 #' @export
 md_chunk <- function(x, type = c("tick", "tilde", "indent"), ...) {
   type <- match.arg(type)
@@ -47,7 +55,7 @@ md_chunk <- function(x, type = c("tick", "tilde", "indent"), ...) {
 #' @family leaf block functions
 #' @examples
 #' md_indent(deparse(sd))
-#' md_indent(c("library(dplyr)", "starwars %>%", "filter(species == 'Droid')"), n = c(4, 4, 6))
+#'
 #' @importFrom glue glue glue_collapse
 #' @importFrom stringr str_dup
 #' @export

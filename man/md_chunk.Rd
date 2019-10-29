@@ -16,7 +16,8 @@ single block, possibly created by \code{\link[readr:read_lines]{readr::read_line
 \item{...}{Arguments to be passed to \code{\link[=md_fence]{md_fence()}} or \code{\link[=md_indent]{md_indent()}}.}
 }
 \value{
-A character vector wrapped on either side by code fences.
+A \code{glue} object of length 1, with elements of \code{x} formatted via
+\code{\link[=md_fence]{md_fence()}} or \code{\link[=md_indent]{md_indent()}}.
 }
 \description{
 Turn a character vector of lines into a single code block either
@@ -27,7 +28,14 @@ calls \code{\link[=md_fence]{md_fence()}} or \code{\link[=md_indent]{md_indent()
 \examples{
 md_chunk("$ sudo apt install r-base-dev", lang = "bash")
 md_chunk(c("library(ggplot2)", "ggplot(mpg)+", "geom_point(aes(displ, hwy))"), type = "tilde")
-md_chunk(c("library(dplyr)", "starwars \%>\%", "filter(species == 'Droid')"), type = "indent", n = c(4, 4, 6))
+md_indent(
+  n = c(4, 4, 6),
+  x = c(
+    "library(dplyr)",
+    "starwars \%>\%",
+    "filter(species == 'Droid')"
+  )
+)
 }
 \seealso{
 Other leaf block functions: \code{\link{md_fence}},

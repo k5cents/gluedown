@@ -6,7 +6,25 @@
 \alias{gluedown-package}
 \title{gluedown: A package to format character vectors with markdown.}
 \description{
-The gluedown package provides functions to create both container blocks and
-inlines from regular R character vectors. The package also helps uses these
-new formatted vectors as actual text in a markdown document.
+The \code{gluedown} package helps transition from R's powerful
+vectors to formatted markdown text. The functions use \code{\link[glue:glue]{glue::glue()}} to
+wrap character vectors in valid markdown syntax. In combination with the
+\code{knitr} package, this allows users to directly print R vectors as formatted
+text for improved clarity and readability.
 }
+\section{Glue wrappers}{
+
+The \code{md_*()} functions return \code{glue} objects, which are returned using
+\code{\link[=cat]{cat()}} by default. This allows users to both manipulate the formatted
+strings as they would with any character vector and still present the
+string to the user when an \code{knitr} chunk option is set to return code
+results \code{'asis'}.
+}
+
+\section{Other wrappers}{
+
+The \code{\link[=md_table]{md_table()}} and \code{\link[=md_convert]{md_convert()}} functions wrap around \code{\link[knitr:kable]{knitr::kable()}}
+and \code{\link[markdown:markdownToHTML]{markdown::markdownToHTML()}} respectively. The later allows users to
+convert \code{md_*()} outputs to HTML fragments.
+}
+

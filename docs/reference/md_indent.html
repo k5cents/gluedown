@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown code block — md_chunk • gluedown</title>
+<title>Markdown indented code block (4.4) — md_indent • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,11 +42,11 @@
 
 
 
-<meta property="og:title" content="Markdown code block — md_chunk" />
-<meta property="og:description" content="Turn a character vector of lines into a single code block either
-indented or fenced in tildes or backticks. This markdown leaf block can be
-rendered as nested HTML &amp;lt;code&amp;gt; and &amp;lt;pre&amp;gt; tags. This function either
-calls md_fence() or md_indent() based on the type argument." />
+<meta property="og:title" content="Markdown indented code block (4.4) — md_indent" />
+<meta property="og:description" content="Turn a character vector of lines into a single code block with
+each line indented four spaces. This markdown leaf block can be rendered as
+nested HTML &amp;lt;code&amp;gt; and &amp;lt;pre&amp;gt; tags. This is the code block format
+required by legacy Reddit-flavored Markdown." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -131,19 +131,19 @@ calls md_fence() or md_indent() based on the type argument." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown code block</h1>
+    <h1>Markdown indented code block (4.4)</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-chunk.R'><code>R/md-chunk.R</code></a></small>
-    <div class="hidden name"><code>md_chunk.Rd</code></div>
+    <div class="hidden name"><code>md_indent.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Turn a character vector of lines into a single code block either
-indented or fenced in tildes or backticks. This markdown leaf block can be
-rendered as nested HTML <code>&lt;code&gt;</code> and <code>&lt;pre&gt;</code> tags. This function either
-calls <code><a href='md_fence.html'>md_fence()</a></code> or <code><a href='md_indent.html'>md_indent()</a></code> based on the <code>type</code> argument.</p>
+    <p>Turn a character vector of lines into a single code block with
+each line indented four spaces. This markdown leaf block can be rendered as
+nested HTML <code>&lt;code&gt;</code> and <code>&lt;pre&gt;</code> tags. This is the code block format
+required by legacy Reddit-flavored Markdown.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_chunk</span>(<span class='no'>x</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"tick"</span>, <span class='st'>"tilde"</span>, <span class='st'>"indent"</span>), <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>md_indent</span>(<span class='no'>x</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>4</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -154,50 +154,42 @@ calls <code><a href='md_fence.html'>md_fence()</a></code> or <code><a href='md_i
 single block, possibly created by <code><a href='https://readr.tidyverse.org/reference/read_lines.html'>readr::read_lines()</a></code> or <code><a href='https://rdrr.io/r/base/deparse.html'>deparse()</a></code>.</p></td>
     </tr>
     <tr>
-      <th>type</th>
-      <td><p>The type of code block to be created. Either "tick", "tilde"
-(which call <code><a href='md_fence.html'>md_fence()</a></code>) or "indent" (which calls <code><a href='md_indent.html'>md_indent()</a></code>).</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Arguments to be passed to <code><a href='md_fence.html'>md_fence()</a></code> or <code><a href='md_indent.html'>md_indent()</a></code>.</p></td>
+      <th>n</th>
+      <td><p>A numeric vector</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code>glue</code> object of length 1, with elements of <code>x</code> formatted via
-<code><a href='md_fence.html'>md_fence()</a></code> or <code><a href='md_indent.html'>md_indent()</a></code>.</p>
+    <p>A <code>glue</code> object of length 1, with the elements of <code>x</code> preceded with
+4 spaces and separated by a newline.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>An indented code block is composed of one or more indented chunks
+separated by blank lines. An indented chunk is a sequence of non-blank
+lines, each indented four or more spaces. The contents of the code block
+are the literal contents of the lines, including trailing line endings,
+minus four spaces of indentation. An indented code block has no info
+string.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other leaf block functions: <code><a href='md_fence.html'>md_fence</a></code>,
-  <code><a href='md_heading.html'>md_heading</a></code>, <code><a href='md_indent.html'>md_indent</a></code>,
+    <div class='dont-index'><p>Other leaf block functions: <code><a href='md_chunk.html'>md_chunk</a></code>,
+  <code><a href='md_fence.html'>md_fence</a></code>, <code><a href='md_heading.html'>md_heading</a></code>,
   <code><a href='md_reference.html'>md_reference</a></code>, <code><a href='md_rule.html'>md_rule</a></code>,
   <code><a href='md_setext.html'>md_setext</a></code>, <code><a href='md_table.html'>md_table</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_chunk</span>(<span class='st'>"$ sudo apt install r-base-dev"</span>, <span class='kw'>lang</span> <span class='kw'>=</span> <span class='st'>"bash"</span>)</div><div class='output co'>#&gt; ```bash
-#&gt; $ sudo apt install r-base-dev
-#&gt; ```</div><div class='input'><span class='fu'>md_chunk</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"library(ggplot2)"</span>, <span class='st'>"ggplot(mpg)+"</span>, <span class='st'>"geom_point(aes(displ, hwy))"</span>), <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"tilde"</span>)</div><div class='output co'>#&gt; ~~~r
-#&gt; library(ggplot2)
-#&gt; ggplot(mpg)+
-#&gt; geom_point(aes(displ, hwy))
-#&gt; ~~~</div><div class='input'><span class='fu'><a href='md_indent.html'>md_indent</a></span>(
-  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>4</span>, <span class='fl'>4</span>, <span class='fl'>6</span>),
-  <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
-    <span class='st'>"library(dplyr)"</span>,
-    <span class='st'>"starwars %&gt;%"</span>,
-    <span class='st'>"filter(species == 'Droid')"</span>
-  )
-)</div><div class='output co'>#&gt;     library(dplyr)
-#&gt;     starwars %&gt;%
-#&gt;       filter(species == 'Droid')</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>md_indent</span>(<span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span>(<span class='no'>sd</span>))</div><div class='output co'>#&gt;     function (x, na.rm = FALSE) 
+#&gt;     sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
+#&gt;         na.rm = na.rm))</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
       <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>

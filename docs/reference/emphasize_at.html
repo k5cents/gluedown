@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Selective Markdown Emphasize — emphasize_at • gluedown</title>
+<title>Targeted markdown formatting — emphasize_at • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,9 @@
 
 
 
-<meta property="og:title" content="Selective Markdown Emphasize — emphasize_at" />
-<meta property="og:description" content="Selective Markdown Emphasize" />
+<meta property="og:title" content="Targeted markdown formatting — emphasize_at" />
+<meta property="og:description" content="Split a sentence by whitespace and wrap a specific word(s) in a
+markdown inline function." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +78,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -104,6 +105,9 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -125,13 +129,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Selective Markdown Emphasize</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-emphasize.R'><code>R/md-emphasize.R</code></a></small>
+    <h1>Targeted markdown formatting</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/emphasize-at.R'><code>R/emphasize-at.R</code></a></small>
     <div class="hidden name"><code>emphasize_at.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Selective Markdown Emphasize</p>
+    <p>Split a sentence by whitespace and wrap a specific word(s) in a
+markdown inline function.</p>
     </div>
 
     <pre class="usage"><span class='fu'>emphasize_at</span>(<span class='no'>x</span>, <span class='no'>f</span>, <span class='no'>n</span>)</pre>
@@ -141,24 +146,35 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A vector of sentence character strings.</p></td>
+      <td><p>A character vector of strings containing words separated by spaces.</p></td>
     </tr>
     <tr>
       <th>f</th>
-      <td><p>An emphasizing function (e.g., <code><a href='md_bold.html'>md_bold()</a></code>).</p></td>
+      <td><p>An emphasizing inline function (e.g., <code><a href='md_bold.html'>md_bold()</a></code>).</p></td>
     </tr>
     <tr>
       <th>n</th>
-      <td><p>The numeric <em>position</em> of the word in each sentence to emphasize.</p></td>
+      <td><p>A numeric vector describing the positions of the words in <code>x</code> to be
+emphasized with <code>f</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character vector with elements wrapped in two tilde symbols.</p>
+    <p>A <code>glue</code> vector of length equal to <code>x</code> with the <code>n</code>th word
+formatted using <code>f</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>emphasize_at</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"Live free or die"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>f</span> <span class='kw'>=</span> <span class='no'>md_bold</span>)</div><div class='output co'>#&gt; [1] "Live free or **die**"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>emphasize_at</span>(<span class='st'>"Live free or die"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>f</span> <span class='kw'>=</span> <span class='no'>md_bold</span>)</div><div class='output co'>#&gt; Live free or **die**</div><div class='input'><span class='fu'>emphasize_at</span>(<span class='kw pkg'>stringr</span><span class='kw ns'>::</span><span class='no'><a href='https://stringr.tidyverse.org/reference/stringr-data.html'>sentences</a></span>[<span class='fl'>1</span>:<span class='fl'>10</span>], <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>f</span> <span class='kw'>=</span> <span class='no'>md_italic</span>)</div><div class='output co'>#&gt; The _birch_ canoe slid on the smooth planks.
+#&gt; Glue _the_ sheet to the dark blue background.
+#&gt; It's _easy_ to tell the depth of a well.
+#&gt; These _days_ a chicken leg is a rare dish.
+#&gt; Rice _is_ often served in round bowls.
+#&gt; The _juice_ of lemons makes fine punch.
+#&gt; The _box_ was thrown beside the parked truck.
+#&gt; The _hogs_ were fed chopped corn and garbage.
+#&gt; Four _hours_ of steady work faced us.
+#&gt; Large _size_ in stockings is hard to sell.</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

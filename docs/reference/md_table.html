@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown Tables — md_table • gluedown</title>
+<title>Markdown tables (4.10 extension) — md_table • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,9 @@
 
 
 
-<meta property="og:title" content="Markdown Tables — md_table" />
-<meta property="og:description" content="Wraps around the knitr::kable() function." />
+<meta property="og:title" content="Markdown tables (4.10 extension) — md_table" />
+<meta property="og:description" content="Wraps around the knitr::kable() function to turn an R object,
+typically a data frame or matrix, into a single" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +78,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -104,6 +105,9 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -125,23 +129,24 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown Tables</h1>
+    <h1>Markdown tables (4.10 extension)</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-table.R'><code>R/md-table.R</code></a></small>
     <div class="hidden name"><code>md_table.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Wraps around the <code><a href='https://rdrr.io/pkg/knitr/man/kable.html'>knitr::kable()</a></code> function.</p>
+    <p>Wraps around the <code><a href='https://rdrr.io/pkg/knitr/man/kable.html'>knitr::kable()</a></code> function to turn an <code>R</code> object,
+typically a data frame or matrix, into a single</p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_table</span>(<span class='no'>df</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>md_table</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>df</th>
-      <td><p>A data frame to be formatted as table.</p></td>
+      <th>x</th>
+      <td><p>An <code>R</code> object to be formatted as table.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -151,27 +156,36 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character vector of markdown table source code.</p>
+    <p>A <code>glue</code> vector of length one, with each element or row of <code>x</code>
+separated by a newline.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>From the <a href='https://github.github.com/gfm/#table'>GFM spec</a>:
-A table is an arrangement of data with rows and columns, consisting of a
-single header row, a
-<a href='https://github.github.com/gfm/#delimiter-row'>delimiter row</a> separating
-the header from the data, and zero or more data rows... Each row consists
-of cells containing arbitrary text, in which
+    <p>FM enables the <code>table</code> extension, where an additional leaf block
+type is available.</p>
+<p>A table is an arrangement of data with rows and columns, consisting of a
+single header row, a delimiter row separating the header from the data, and
+zero or more data rows.</p>
+<p>Each row consists of cells containing arbitrary text, in which
 <a href='https://github.github.com/gfm/#inline'>inlines</a> are parsed, separated by
 pipes (<code>|</code>). A leading and trailing pipe is also recommended for clarity of
 reading, and if there’s otherwise parsing ambiguity. Spaces between pipes
 and cell content are trimmed. Block-level elements cannot be inserted in a
-table. The delimiter row consists of cells whose only content are hyphens
-(<code>-</code>), and optionally, a leading or trailing colon (<code>:</code>), or both, to
-indicate left, right, or center alignment respectively.</p>
+table.</p>
+<p>The delimiter row consists of cells whose only content are hyphens (<code>-</code>),
+and optionally, a leading or trailing colon (<code>:</code>), or both, to indicate
+left, right, or center alignment respectively (see <code>align</code> in
+<code><a href='https://rdrr.io/pkg/knitr/man/kable.html'>knitr::kable()</a></code>).</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other leaf block functions: <code><a href='md_chunk.html'>md_chunk</a></code>,
+  <code><a href='md_fence.html'>md_fence</a></code>, <code><a href='md_heading.html'>md_heading</a></code>,
+  <code><a href='md_indent.html'>md_indent</a></code>, <code><a href='md_reference.html'>md_reference</a></code>,
+  <code><a href='md_rule.html'>md_rule</a></code>, <code><a href='md_setext.html'>md_setext</a></code></p>
+<p>Other markdown extensions: <code><a href='md_issue.html'>md_issue</a></code>,
+  <code><a href='md_strike.html'>md_strike</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_table</span>(<span class='no'>mtcars</span>)</div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; |                    |  mpg| cyl|  disp|  hp| drat|    wt|  qsec| vs| am| gear| carb|
+    <pre class="examples"><div class='input'><span class='fu'>md_table</span>(<span class='no'>mtcars</span>)</div><div class='output co'>#&gt; |                    |  mpg| cyl|  disp|  hp| drat|    wt|  qsec| vs| am| gear| carb|
 #&gt; |:-------------------|----:|---:|-----:|---:|----:|-----:|-----:|--:|--:|----:|----:|
 #&gt; |Mazda RX4           | 21.0|   6| 160.0| 110| 3.90| 2.620| 16.46|  0|  1|    4|    4|
 #&gt; |Mazda RX4 Wag       | 21.0|   6| 160.0| 110| 3.90| 2.875| 17.02|  0|  1|    4|    4|
@@ -212,6 +226,7 @@ indicate left, right, or center alignment respectively.</p>
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

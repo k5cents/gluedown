@@ -19,7 +19,7 @@
 <script src="pkgdown.js"></script><meta property="og:title" content="Wrap Vectors in Markdown Formatting">
 <meta property="og:description" content="Ease the transition between R vectors and markdown
     text. With gluedown and rmarkdown, users can (1) create traditional
-    vectors in R (2) glue those strings together with the markdown syntax,
+    vectors in R, (2) glue those strings together with the markdown syntax,
     and (3) print those formatted vectors directly to the document. This
     package primarily uses GitHub Flavored Markdown (GFM), an offshoot of
     the unambiguous CommonMark specification.">
@@ -43,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -69,6 +69,9 @@
       <a href="articles/printing-markdown.html">Printing Markdown</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -96,7 +99,7 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The <code>gluedown</code> package helps transition from R’s powerful vectors to formatted markdown text. The functions use <a href="https://github.com/tidyverse/glue"><code>glue()</code></a> to wrap character vectors in valid markdown syntax. In combination with the <a href="https://github.com/rstudio/rmarkdown"><code>rmarkdown</code></a> package, this allows users to directly print R vectors as formatted text for improved clarity and readability.</p>
+<p>The <code>gluedown</code> package helps transition from R’s powerful vectors to formatted markdown text. The functions use <a href="https://github.com/tidyverse/glue"><code>glue()</code></a> to wrap character vectors in valid markdown syntax. In combination with the <a href="https://github.com/yihui/knitr"><code>knitr</code></a> package, this allows users to directly print R vectors as formatted text for improved clarity and readability.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -107,7 +110,7 @@
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<p>The <code>md_*()</code> functions are most useful in combination with the <code>results='asis'</code> chunk option; this allows users to directly print formatted text from a code chunk to the body of a document.</p>
+<p>The <code>md_*()</code> functions are most useful in combination with the <code>results='asis'</code> <code>knitr</code> chunk option; this allows users to directly print formatted text from a code chunk to the body of a document.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(gluedown)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tidyverse)</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(rvest)</a></code></pre></div>
@@ -135,7 +138,7 @@
 <div id="pipes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#pipes" class="anchor"></a>Pipes</h3>
-<p>All functions are designed to fit within the tidyverse ecosystem by working with <a href="https://magrittr.tidyverse.org/reference/pipe.html">pipes</a>.</p>
+<p>All functions are designed to fit within the tidyverse ecosystem by working with <a href="https://magrittr.tidyverse.org/reference/pipe.html">pipes</a>. Chain together some code and print the results.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">read_html</span>(<span class="st">"https://w.wiki/A58"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://rvest.tidyverse.org/reference/html_nodes.html">html_node</a></span>(<span class="st">"blockquote"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://rvest.tidyverse.org/reference/html_text.html">html_text</a></span>(<span class="dt">trim =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -165,13 +168,13 @@
 <a class="sourceLine" id="cb6-2" data-line-number="2">abb &lt;-<span class="st"> </span>state.abb[<span class="kw"><a href="https://rdrr.io/r/base/match.html">match</a></span>(name, state.name)]</a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># `r md_bold(name)`</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># `r md_italic(abb)`</span></a></code></pre></div>
-<p>Then you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is <strong>Missouri</strong>, which has the abbreviation <em>MO</em>.</p>
+<p>Then you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is <strong>Colorado</strong>, which has the abbreviation <em>CO</em>.</p>
 </div>
 </div>
 <div id="contribute" class="section level2">
 <h2 class="hasAnchor">
 <a href="#contribute" class="anchor"></a>Contribute</h2>
-<p>Please note that the ‘gluedown’ project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that the <code>gluedown</code> project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
   </div>

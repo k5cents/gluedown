@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown Image — md_image • gluedown</title>
+<title>Markdown image links — md_image • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,10 @@
 
 
 
-<meta property="og:title" content="Markdown Image — md_image" />
-<meta property="og:description" content="Markdown Image" />
+<meta property="og:title" content="Markdown image links — md_image" />
+<meta property="og:description" content="Take a vector of image alt texts and image link destinations and
+return single vector of valid markdown image links. These inline image
+links can call images to be rendered as &amp;lt;img&amp;gt; HTML tags." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -104,6 +106,9 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -125,13 +130,15 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown Image</h1>
+    <h1>Markdown image links</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-link.R'><code>R/md-link.R</code></a></small>
     <div class="hidden name"><code>md_image.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Markdown Image</p>
+    <p>Take a vector of image alt texts and image link destinations and
+return single vector of valid markdown image links. These inline image
+links can call images to be rendered as <code>&lt;img&gt;</code> HTML tags.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_image</span>(<span class='no'>url</span>, <span class='kw'>alt</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
@@ -141,11 +148,11 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>url</th>
-      <td><p>The URL of an image to be displayed or referenced.</p></td>
+      <td><p>A character vector of link destination (URL) strings.</p></td>
     </tr>
     <tr>
       <th>alt</th>
-      <td><p>The optional
+      <td><p>A character vector of
 <a href='https://en.wikipedia.org/wiki/Alt_attribute'>alternative text</a> that can
 be used to refer to an image.</p></td>
     </tr>
@@ -153,16 +160,34 @@ be used to refer to an image.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character vector of collapsed alternative text and associated URLs.</p>
+    <p>A <code>glue</code> vector of collapsed alternative text and associated URLs.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Syntax for images is like the syntax for links, with one difference.
+Instead of link text, we have an image description. The rules for this are
+the same as for link text, except that (a) an image description starts with
+<code>![</code> rather than <code>[</code>, and (b) an image description may contain links. An
+image description has inline elements as its contents. When an image is
+rendered to HTML, this is standardly used as the image’s <code>alt</code> attribute.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other inline functions: <code><a href='md_bold.html'>md_bold</a></code>,
+  <code><a href='md_code.html'>md_code</a></code>, <code><a href='md_escape.html'>md_escape</a></code>,
+  <code><a href='md_hardline.html'>md_hardline</a></code>, <code><a href='md_issue.html'>md_issue</a></code>,
+  <code><a href='md_italic.html'>md_italic</a></code>, <code><a href='md_link.html'>md_link</a></code>,
+  <code><a href='md_strike.html'>md_strike</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_image</span>(<span class='st'>"http://hexb.in/hexagons/eff.png"</span>)</div><div class='output co'>#&gt; ![](http://hexb.in/hexagons/eff.png)</div><div class='input'><span class='fu'>md_image</span>(<span class='st'>"http://hexb.in/hexagons/eff.png"</span>, <span class='st'>"EFF Hex Sticker"</span>)</div><div class='output co'>#&gt; ![EFF Hex Sticker](http://hexb.in/hexagons/eff.png)</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span>(<span class='st'>"man/figures/logo.png"</span>)) <span class='fu'>md_image</span>(<span class='st'>"man/figures/logo.png"</span>)
+<span class='fu'>md_image</span>(<span class='st'>"http://hexb.in/hexagons/eff.png"</span>)</div><div class='output co'>#&gt; ![](http://hexb.in/hexagons/eff.png)</div><div class='input'><span class='fu'>md_image</span>(<span class='st'>"http://hexb.in/hexagons/eff.png"</span>, <span class='st'>"EFF Hex Sticker"</span>)</div><div class='output co'>#&gt; ![EFF Hex Sticker](http://hexb.in/hexagons/eff.png)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

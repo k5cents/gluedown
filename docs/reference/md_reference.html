@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown Link Reference — md_reference • gluedown</title>
+<title>Markdown link reference (4.7) — md_reference • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,9 +42,10 @@
 
 
 
-<meta property="og:title" content="Markdown Link Reference — md_reference" />
-<meta property="og:description" content="Form the definition needed to reference a link destination
-elsewhere in a body of text." />
+<meta property="og:title" content="Markdown link reference (4.7) — md_reference" />
+<meta property="og:description" content="Combine elements of 2 or 3 character vectors into valid markdown
+link references. These markdown leaf blocks then use label placed
+elsewhere in a markdown document to render as &amp;lt;href&amp;gt; HTML tags." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -78,7 +79,7 @@ elsewhere in a body of text." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -105,6 +106,9 @@ elsewhere in a body of text." />
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -126,14 +130,15 @@ elsewhere in a body of text." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown Link Reference</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-link.R'><code>R/md-link.R</code></a></small>
+    <h1>Markdown link reference (4.7)</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-reference.R'><code>R/md-reference.R</code></a></small>
     <div class="hidden name"><code>md_reference.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Form the definition needed to reference a link destination
-elsewhere in a body of text.</p>
+    <p>Combine elements of 2 or 3 character vectors into valid markdown
+link references. These markdown leaf blocks then use <code>label</code> placed
+<em>elsewhere</em> in a markdown document to render as <code>&lt;href&gt;</code> HTML tags.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_reference</span>(<span class='no'>label</span>, <span class='no'>url</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
@@ -143,39 +148,47 @@ elsewhere in a body of text.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>label</th>
-      <td><p>The character vector to be displayed as hyperlinked text.</p></td>
+      <td><p>A link label that is referenced elsewhere in the document.</p></td>
     </tr>
     <tr>
       <th>url</th>
-      <td><p>The URL to lead to.</p></td>
+      <td><p>The URL to hyperlink the referenced text with.</p></td>
     </tr>
     <tr>
       <th>title</th>
-      <td><p>The title of the link.</p></td>
+      <td><p>An <em>optional</em> link title; defaults to <code>NULL</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character vector of collapsed display text and associated URLs.</p>
+    <p>A single <code>glue</code> vector of length equal to that of <code>label</code> and <code>url</code>,
+with elements the concatenated arguments.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>From the <a href='https://github.github.com/gfm/#link-reference-definition'>GFM spec</a>:
-A link reference definition consists of a
-<a href='https://github.github.com/gfm/#link-label'>link label</a>, indented up to
-three spaces, followed by a colon (<code>:</code>), optional
-<a href='https://github.github.com/gfm/#whitespace'>whitespace</a> (including up to
-one <a href='https://github.github.com/gfm/#line-ending'>line ending</a>), a
-<a href='https://github.github.com/gfm/#link-destination'>link destination</a>,
-optional whitespace (including up to one line ending), and an optional
-<a href='https://github.github.com/gfm/#link-title'>link title</a>, which if it is
-present must be separated from the link destination by whitespace. No
-further
-<a href='https://github.github.com/gfm/#non-whitespace-character'>non-whitespace characters</a>
-may occur on the line.</p>
+    <p>A full reference link (6.6) consists of a link text immediately
+followed by a link label that matches a link reference definition elsewhere
+in the document...</p>
+<p>A link reference definition consists of a link label, indented up to three
+spaces, followed by a colon (<code>:</code>), optional whitespace (including up to one
+line ending), a link destination, optional whitespace (including up to one
+line ending), and an optional link title, which if it is present must be
+separated from the link destination by whitespace. No further
+non-whitespace characters may occur on the line.</p>
+<p>A link reference definition does not correspond to a structural element of
+a document. Instead, it defines a label which can be used in reference
+links and reference-style images elsewhere in the document. Link reference
+definitions can come either before or after the links that use them.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other leaf block functions: <code><a href='md_chunk.html'>md_chunk</a></code>,
+  <code><a href='md_fence.html'>md_fence</a></code>, <code><a href='md_heading.html'>md_heading</a></code>,
+  <code><a href='md_indent.html'>md_indent</a></code>, <code><a href='md_rule.html'>md_rule</a></code>,
+  <code><a href='md_setext.html'>md_setext</a></code>, <code><a href='md_table.html'>md_table</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_reference</span>(<span class='st'>"tv"</span>, <span class='st'>"https://www.tidyverse.org/"</span>)</div><div class='output co'>#&gt; [tv]: https://www.tidyverse.org/</div><div class='input'><span class='fu'>md_reference</span>(<span class='st'>"tv"</span>, <span class='st'>"https://www.tidyverse.org/"</span>, <span class='st'>"tidyverse"</span>)</div><div class='output co'>#&gt; [tv]: https://www.tidyverse.org/ "tidyverse"</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>md_reference</span>(<span class='st'>"tv"</span>, <span class='st'>"https://www.tidyverse.org/"</span>)</div><div class='output co'>#&gt; [tv]: https://www.tidyverse.org/</div><div class='input'><span class='fu'>md_reference</span>(<span class='st'>"tv"</span>, <span class='st'>"https://www.tidyverse.org/"</span>, <span class='st'>"tidyverse"</span>)</div><div class='output co'>#&gt; [tv]: https://www.tidyverse.org/ "tidyverse"</div><div class='input'><span class='fu'>md_reference</span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>2</span>, <span class='kw'>url</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"https://one.org"</span>, <span class='st'>"https://two.com"</span>))</div><div class='output co'>#&gt; [1]: https://one.org
+#&gt; [2]: https://two.com</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -183,6 +196,7 @@ may occur on the line.</p>
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

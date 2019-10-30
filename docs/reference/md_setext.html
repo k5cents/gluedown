@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown code block — md_chunk • gluedown</title>
+<title>Markdown Setext headings (4.3) — md_setext • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,11 +42,10 @@
 
 
 
-<meta property="og:title" content="Markdown code block — md_chunk" />
-<meta property="og:description" content="Turn a character vector of lines into a single code block either
-indented or fenced in tildes or backticks. This markdown leaf block can be
-rendered as nested HTML &amp;lt;code&amp;gt; and &amp;lt;pre&amp;gt; tags. This function either
-calls md_fence() or md_indent() based on the type argument." />
+<meta property="og:title" content="Markdown Setext headings (4.3) — md_setext" />
+<meta property="og:description" content="Turn a character vector into a vector of valid markdown Setext
+headings. These markdown leaf blocks can be rendered as the &amp;lt;h1&amp;gt; and
+&amp;lt;h2&amp;gt; tags only." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -131,73 +130,89 @@ calls md_fence() or md_indent() based on the type argument." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown code block</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-chunk.R'><code>R/md-chunk.R</code></a></small>
-    <div class="hidden name"><code>md_chunk.Rd</code></div>
+    <h1>Markdown Setext headings (4.3)</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-heading.R'><code>R/md-heading.R</code></a></small>
+    <div class="hidden name"><code>md_setext.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Turn a character vector of lines into a single code block either
-indented or fenced in tildes or backticks. This markdown leaf block can be
-rendered as nested HTML <code>&lt;code&gt;</code> and <code>&lt;pre&gt;</code> tags. This function either
-calls <code><a href='md_fence.html'>md_fence()</a></code> or <code><a href='md_indent.html'>md_indent()</a></code> based on the <code>type</code> argument.</p>
+    <p>Turn a character vector into a vector of valid markdown Setext
+headings. These markdown leaf blocks can be rendered as the <code>&lt;h1&gt;</code> and
+<code>&lt;h2&gt;</code> tags <em>only</em>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_chunk</span>(<span class='no'>x</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"tick"</span>, <span class='st'>"tilde"</span>, <span class='st'>"indent"</span>), <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>md_setext</span>(<span class='no'>x</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A character vector of lines to be wrapped concatenated into a
-single block, possibly created by <code><a href='https://readr.tidyverse.org/reference/read_lines.html'>readr::read_lines()</a></code> or <code><a href='https://rdrr.io/r/base/deparse.html'>deparse()</a></code>.</p></td>
+      <td><p>A character vector of heading text.</p></td>
     </tr>
     <tr>
-      <th>type</th>
-      <td><p>The type of code block to be created. Either "tick", "tilde"
-(which call <code><a href='md_fence.html'>md_fence()</a></code>) or "indent" (which calls <code><a href='md_indent.html'>md_indent()</a></code>).</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Arguments to be passed to <code><a href='md_fence.html'>md_fence()</a></code> or <code><a href='md_indent.html'>md_indent()</a></code>.</p></td>
+      <th>level</th>
+      <td><p>An numeric vector of all either 1 or 2 to determine whether
+level 1 headings are created with <code>=</code> or level two with <code>-</code>. If less levels
+are provided than headings, <code>level</code> will be repeated via <code><a href='https://rdrr.io/pkg/glue/man/glue.html'>glue::glue()</a></code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code>glue</code> object of length 1, with elements of <code>x</code> formatted via
-<code><a href='md_fence.html'>md_fence()</a></code> or <code><a href='md_indent.html'>md_indent()</a></code>.</p>
+    <p>A <code>glue</code> vector of headings with length equal to <code>x</code>.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>A setext heading consists of one or more lines of text, each
+containing at least one non-whitespace character, with no more than 3
+spaces indentation, followed by a setext heading underline. The lines of
+text must be such that, were they not followed by the setext heading
+underline, they would be interpreted as a paragraph: they cannot be
+interpretable as a
+<a href='https://github.github.com/gfm/#code-fence'>code fence</a>,
+<a href='https://github.github.com/gfm/#atx-headings'>ATX heading</a>,
+<a href='https://github.github.com/gfm/#block-quotes'>block quote</a>,
+<a href='https://github.github.com/gfm/#thematic-breaks'>thematic break</a>,
+<a href='https://github.github.com/gfm/#list-items'>list item</a>, or
+<a href='https://github.github.com/gfm/#html-blocks'>HTML block.</a></p>
+<p>A setext heading underline is a sequence of <code>=</code> characters or a sequence of
+<code>-</code> characters, with no more than 3 spaces indentation and any number of
+trailing spaces. If a line containing a single <code>-</code> can be interpreted as an
+empty list items, it should be interpreted this way and not as a setext
+heading underline.</p>
+<p>The heading is a level 1 heading if <code>=</code> characters are used in the setext
+heading underline, and a level 2 heading if <code>-</code> characters are used. The
+contents of the heading are the result of parsing the preceding lines of
+text as CommonMark inline content.</p>
+<p>In general, a setext heading need not be preceded or followed by a blank
+line. However, it cannot interrupt a paragraph, so when a setext heading
+comes after a paragraph, a blank line is needed between them.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other leaf block functions: <code><a href='md_fence.html'>md_fence</a></code>,
-  <code><a href='md_heading.html'>md_heading</a></code>, <code><a href='md_indent.html'>md_indent</a></code>,
-  <code><a href='md_reference.html'>md_reference</a></code>, <code><a href='md_rule.html'>md_rule</a></code>,
-  <code><a href='md_setext.html'>md_setext</a></code>, <code><a href='md_table.html'>md_table</a></code></p></div>
+    <div class='dont-index'><p>Other leaf block functions: <code><a href='md_chunk.html'>md_chunk</a></code>,
+  <code><a href='md_fence.html'>md_fence</a></code>, <code><a href='md_heading.html'>md_heading</a></code>,
+  <code><a href='md_indent.html'>md_indent</a></code>, <code><a href='md_reference.html'>md_reference</a></code>,
+  <code><a href='md_rule.html'>md_rule</a></code>, <code><a href='md_table.html'>md_table</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_chunk</span>(<span class='st'>"$ sudo apt install r-base-dev"</span>, <span class='kw'>lang</span> <span class='kw'>=</span> <span class='st'>"bash"</span>)</div><div class='output co'>#&gt; ```bash
-#&gt; $ sudo apt install r-base-dev
-#&gt; ```</div><div class='input'><span class='fu'>md_chunk</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"library(ggplot2)"</span>, <span class='st'>"ggplot(mpg)+"</span>, <span class='st'>"geom_point(aes(displ, hwy))"</span>), <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"tilde"</span>)</div><div class='output co'>#&gt; ~~~r
-#&gt; library(ggplot2)
-#&gt; ggplot(mpg)+
-#&gt; geom_point(aes(displ, hwy))
-#&gt; ~~~</div><div class='input'><span class='fu'><a href='md_indent.html'>md_indent</a></span>(
-  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>4</span>, <span class='fl'>4</span>, <span class='fl'>6</span>),
-  <span class='kw'>x</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(
-    <span class='st'>"library(dplyr)"</span>,
-    <span class='st'>"starwars %&gt;%"</span>,
-    <span class='st'>"filter(species == 'Droid')"</span>
-  )
-)</div><div class='output co'>#&gt;     library(dplyr)
-#&gt;     starwars %&gt;%
-#&gt;       filter(species == 'Droid')</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>md_setext</span>(<span class='st'>"Overview"</span>)</div><div class='output co'>#&gt; Overview
+#&gt; ========</div><div class='input'><span class='fu'>md_setext</span>(<span class='st'>"This is a setext\nheading"</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; This is a setext
+#&gt; heading
+#&gt; ----------------</div><div class='input'><span class='fu'>md_setext</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"one"</span>, <span class='st'>"two"</span>, <span class='st'>"three"</span>, <span class='st'>"four"</span>), <span class='kw'>level</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>))</div><div class='output co'>#&gt; one
+#&gt; ===
+#&gt; two
+#&gt; ---
+#&gt; three
+#&gt; =====
+#&gt; four
+#&gt; ----</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
       <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>

@@ -79,7 +79,7 @@ ignored by formatting." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -105,6 +105,9 @@ ignored by formatting." />
       <a href="../articles/printing-markdown.html">Printing Markdown</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -145,7 +148,8 @@ ignored by formatting.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>The text with punctuation to escape.</p></td>
+      <td><p>A character vector of strings containing punctuation that might
+accidentally be considered markdown syntax.</p></td>
     </tr>
     </table>
 
@@ -155,13 +159,20 @@ ignored by formatting.</p>
 prepended backslashes.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>From the <a href='https://github.github.com/gfm/#backslash-escapes'>GFM spec</a>:
-Any ASCII punctuation character may be backslash-escaped... Any ASCII
-punctuation character may be backslash-escaped... Escaped characters are
-treated as regular characters and do not have their usual Markdown meanings.</p>
+    <p>Any ASCII punctuation character may be backslash-escaped... Escaped
+characters are treated as regular characters and do not have their usual
+Markdown meanings.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other inline functions: <code><a href='md_bold.html'>md_bold</a></code>,
+  <code><a href='md_code.html'>md_code</a></code>, <code><a href='md_hardline.html'>md_hardline</a></code>,
+  <code><a href='md_image.html'>md_image</a></code>, <code><a href='md_issue.html'>md_issue</a></code>,
+  <code><a href='md_italic.html'>md_italic</a></code>, <code><a href='md_link.html'>md_link</a></code>,
+  <code><a href='md_strike.html'>md_strike</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='md_bold.html'>md_bold</a></span>(<span class='fu'>md_escape</span>(<span class='st'>"Use an * symbol in globs!"</span>))</div><div class='output co'>#&gt; **Use an \* symbol in globs\!**</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>hashtag</span> <span class='kw'>&lt;-</span> <span class='st'>"# six seasons and a movie"</span>
+<span class='fu'><a href='emphasize_at.html'>emphasize_at</a></span>(<span class='fu'>md_escape</span>(<span class='no'>hashtag</span>), <span class='no'>md_bold</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>6</span>)</div><div class='output co'>#&gt; \# six seasons and a **movie**</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -169,6 +180,7 @@ treated as regular characters and do not have their usual Markdown meanings.</p>
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

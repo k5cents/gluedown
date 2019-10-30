@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -103,6 +103,9 @@
       <a href="../articles/printing-markdown.html">Printing Markdown</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -151,13 +154,33 @@
 element.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>From the <a href='https://github.github.com/gfm/#block-quote-marker'>GFM spec</a>:
-A block quote marker consists of 0-3 spaces of initial indent, plus (a) the
-character <code>&gt;</code> together with a following space, or (b) a single character
-<code>&gt;</code> not followed by a space.</p>
+    <p>A block quote marker consists of 0-3 spaces of initial indent, plus
+(a) the character <code>&gt;</code> together with a following space, or (b) a single
+character <code>&gt;</code> not followed by a space.</p>
+<p>The following rules define block quotes:</p><ol>
+<li><p><strong>Basic case.</strong> If a string of lines <em>Ls</em> constitute a sequence of
+blocks <em>Bs</em>, then the result of prepending a block quote marker to the
+beginning of each line in <em>Ls</em> is a block quote containing <em>Bs</em>.</p></li>
+<li><p><strong>Laziness.</strong> If a string of lines <em>Ls</em> constitute a block quote with
+contents <em>Bs</em>, then the result of deleting the initial block quote marker
+from one or more lines in which the next non-whitespace character after the
+block quote marker is paragraph continuation text is a block quote with
+<em>Bs</em> as its content. Paragraph continuation text is text that will be
+parsed as part of the content of a paragraph, but does not occur at the
+beginning of the paragraph.</p></li>
+<li><p><strong>Consecutiveness.</strong> A document cannot contain two block quotes in a row
+unless there is a blank line between them.</p></li>
+</ol>
+
+<p>Nothing else counts as a block quote.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other container block functions: <code><a href='md_bullet.html'>md_bullet</a></code>,
+  <code><a href='md_list.html'>md_list</a></code>, <code><a href='md_order.html'>md_order</a></code>,
+  <code><a href='md_task.html'>md_task</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_quote</span>(<span class='st'>"Ask not what your country can do for you, but what you can do for your country."</span>)</div><div class='output co'>#&gt; &gt; Ask not what your country can do for you, but what you can do for your country.</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>md_quote</span>(<span class='st'>"Give me liberty, or give me death!"</span>)</div><div class='output co'>#&gt; &gt; Give me liberty, or give me death!</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -165,6 +188,7 @@ character <code>&gt;</code> together with a following space, or (b) a single cha
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

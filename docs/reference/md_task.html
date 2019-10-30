@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown Task List — md_task • gluedown</title>
+<title>Markdown task list (5.3 extension) — md_task • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,10 +42,12 @@
 
 
 
-<meta property="og:title" content="Markdown Task List — md_task" />
-<meta property="og:description" content="Create a markdown task list from a vector of tasks. Define which
-task items should be checked off. Task lists are a GitHub specific markdown
-feature." />
+<meta property="og:title" content="Markdown task list (5.3 extension) — md_task" />
+<meta property="og:description" content="Turn a character vector into a valid markdown ordered list. This
+container block can then be rendered as nested &amp;lt;li&amp;gt; and &amp;lt;ol&amp;gt; HTML tags.
+On venues supporting GitHub Flavored Markdown, this list will be specially
+rendered with the list item market replaces with a
+&amp;lt;input type=&quot;checkbox&quot;&amp;gt; HTML tag." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -79,7 +81,7 @@ feature." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -106,6 +108,9 @@ feature." />
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -127,15 +132,17 @@ feature." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown Task List</h1>
+    <h1>Markdown task list (5.3 extension)</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-list.R'><code>R/md-list.R</code></a></small>
     <div class="hidden name"><code>md_task.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create a markdown task list from a vector of tasks. Define which
-task items should be checked off. Task lists are a GitHub specific markdown
-feature.</p>
+    <p>Turn a character vector into a valid markdown ordered list. This
+container block can then be rendered as nested <code>&lt;li&gt;</code> and <code>&lt;ol&gt;</code> HTML tags.
+On venues supporting GitHub Flavored Markdown, this list will be specially
+rendered with the list item market replaces with a
+<code>&lt;input type="checkbox"&gt;</code> HTML tag.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_task</span>(<span class='no'>x</span>, <span class='kw'>check</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
@@ -145,36 +152,47 @@ feature.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>The vector of task list items.</p></td>
+      <td><p>A character vector of task list items.</p></td>
     </tr>
     <tr>
       <th>check</th>
-      <td><p>A vector of list elements which should be checked off.</p></td>
+      <td><p>A optional numeric vector of list elements which should be
+checked off.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character vector check box brackets prepended to each element.</p>
+    <p>A <code>glue</code> vector with length equal to <code>x</code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>From the <a href='https://github.github.com/gfm/#task-list-item'>GFM spec</a>:
-A task <a href='https://github.github.com/gfm/#list-items'>list item</a> is a list
-item where the first block in it is a paragraph which begins with a
-<a href='https://github.github.com/gfm/#task-list-item-marker'>task list item marker</a>
-and at least one whitespace character before any other content… A task list
-item marker consists of an optional number of spaces, a left bracket (<code>[</code>),
-either a whitespace character or the letter <code>x</code> in either lowercase or
-uppercase, and then a right bracket (<code>]</code>)… When rendered, the task list
-item marker is replaced with a semantic checkbox element… If the character
-between the brackets is a whitespace character, the checkbox is unchecked.
-Otherwise, the checkbox is checked.</p>
-<p>[<code>), either a whitespace character or the letter </code>x<code> in either lowercase or uppercase, and then a right bracket (</code>]: R:<!-- %60),%0A%20%20either%20a%20whitespace%20character%20or%20the%20letter%20%60x%60%20in%20either%20lowercase%20or%0A%20%20uppercase,%20and%20then%20a%20right%20bracket%20(%60 --></p>
+    <p>GFM enables the tasklist extension, where an additional processing
+step is performed on list items.
+A task list item is a list item where the first block in it is a paragraph
+which begins with a task list item marker and at least one whitespace
+character before any other content.</p>
+<p>A task list item marker consists of an optional number of spaces, a left
+bracket (<code>[</code>), either a whitespace character or the letter <code>x</code> in either
+lowercase or uppercase, and then a right bracket (<code>]</code>).</p>
+<p>When rendered, the task list item marker is replaced with a semantic
+checkbox element; in an HTML output, this would be an <code>&lt;input type="checkbox"&gt;</code> element.</p>
+<p>If the character between the brackets is a whitespace character, the
+checkbox is unchecked. Otherwise, the checkbox is checked.</p>
+<p>This spec does not define how the checkbox elements are interacted with: in
+practice, implementors are free to render the checkboxes as disabled or
+inmutable elements, or they may dynamically handle dynamic interactions
+(i.e. checking, unchecking) in the final rendered document.</p>
+<p>[<code>), either a whitespace character or the letter </code>x<code> in either lowercase or uppercase, and then a right bracket (</code>]: R:<!-- %60),%20either%20a%20whitespace%20character%20or%20the%20letter%20%60x%60%20in%20either%0A%20%20lowercase%20or%20uppercase,%20and%20then%20a%20right%20bracket%20(%60 --></p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other container block functions: <code><a href='md_bullet.html'>md_bullet</a></code>,
+  <code><a href='md_list.html'>md_list</a></code>, <code><a href='md_order.html'>md_order</a></code>,
+  <code><a href='md_quote.html'>md_quote</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_task</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Wake up"</span>, <span class='st'>"Eat Breakfast"</span>, <span class='st'>"Brush Teeth"</span>), <span class='kw'>check</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>2</span>)</div><div class='output co'>#&gt; * [x] Wake up
-#&gt; * [x] Eat Breakfast
-#&gt; * [ ] Brush Teeth</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>md_task</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Wake up"</span>, <span class='st'>"Eat Breakfast"</span>, <span class='st'>"Brush Teeth"</span>), <span class='kw'>check</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>))</div><div class='output co'>#&gt; * [x] Wake up
+#&gt; * [ ] Eat Breakfast
+#&gt; * [x] Brush Teeth</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -182,6 +200,7 @@ Otherwise, the checkbox is checked.</p>
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

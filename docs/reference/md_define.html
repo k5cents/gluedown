@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown Definition — md_define • gluedown</title>
+<title>Markdown definitions (unsupported extension) — md_define • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,7 +42,7 @@
 
 
 
-<meta property="og:title" content="Markdown Definition — md_define" />
+<meta property="og:title" content="Markdown definitions (unsupported extension) — md_define" />
 <meta property="og:description" content="Form a single-level unordered list from a vector." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -77,7 +77,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -104,6 +104,9 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -125,7 +128,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown Definition</h1>
+    <h1>Markdown definitions (unsupported extension)</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-define.R'><code>R/md-define.R</code></a></small>
     <div class="hidden name"><code>md_define.Rd</code></div>
     </div>
@@ -141,11 +144,11 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>term</th>
-      <td><p>The character vector of terms to define.</p></td>
+      <td><p>A character vector of terms to define.</p></td>
     </tr>
     <tr>
       <th>def</th>
-      <td><p>The character vector of definitions to be used for each term.</p></td>
+      <td><p>A character vector of definitions to be used for each <code>term.</code></p></td>
     </tr>
     </table>
 
@@ -164,6 +167,20 @@ indented one or two spaces.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>md_define</span>(<span class='st'>"Democracy"</span>, <span class='st'>"Government by the people"</span>)</div><div class='output co'>#&gt; Democracy
 #&gt; :    Government by the people
+#&gt; </div><div class='input'><span class='fu'>md_define</span>(<span class='no'>state.abb</span>[<span class='fl'>1</span>:<span class='fl'>5</span>], <span class='no'>state.name</span>[<span class='fl'>1</span>:<span class='fl'>5</span>])</div><div class='output co'>#&gt; AL
+#&gt; :    Alabama
+#&gt; 
+#&gt; AK
+#&gt; :    Alaska
+#&gt; 
+#&gt; AZ
+#&gt; :    Arizona
+#&gt; 
+#&gt; AR
+#&gt; :    Arkansas
+#&gt; 
+#&gt; CA
+#&gt; :    California
 #&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

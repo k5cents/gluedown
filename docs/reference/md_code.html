@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown Inline Code — md_code • gluedown</title>
+<title>Markdown code span (6.3) — md_code • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,11 @@
 
 
 
-<meta property="og:title" content="Markdown Inline Code — md_code" />
-<meta property="og:description" content="Markdown Inline Code" />
+<meta property="og:title" content="Markdown code span (6.3) — md_code" />
+<meta property="og:description" content="Code spaces emphasize a section of text within a markdown block.
+This inline is rendered as a &amp;lt;code&amp;gt; HTML tag, which displays text in
+a fixed-width font. Code spans are commonly used to represent variables,
+packages, functions, or snippets of small code." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -104,6 +107,9 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -125,13 +131,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown Inline Code</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-emphasize.R'><code>R/md-emphasize.R</code></a></small>
+    <h1>Markdown code span (6.3)</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-inlines.R'><code>R/md-inlines.R</code></a></small>
     <div class="hidden name"><code>md_code.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Markdown Inline Code</p>
+    <p>Code spaces emphasize a section of text within a markdown block.
+This inline is rendered as a <code>&lt;code&gt;</code> HTML tag, which displays text in
+a fixed-width font. Code spans are commonly used to represent variables,
+packages, functions, or snippets of small code.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_code</span>(<span class='no'>x</span>)</pre>
@@ -147,65 +156,42 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character vector with elements wrapped in backtick symbols.</p>
+    <p>A <code>glue</code> vector of length equal to <code>x</code>.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>A backtick string is a string of one or more backtick characters
+that is neither preceded nor followed by a backtick.</p>
+<p>A code span begins with a backtick string and ends with a backtick string of
+equal length. The contents of the code span are the characters between the
+two backtick strings, normalized in the following ways:</p><ul>
+<li><p>First, line endings are converted to spaces.</p></li>
+<li><p>If the resulting string both begins and ends with a space character, but
+does not consist entirely of space characters, a single space character is
+removed from the front and back. This allows you to include code that begins
+or ends with backtick characters, which must be separated by whitespace from
+the opening or closing backtick strings.</p></li>
+</ul>
+
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other inline functions: <code><a href='md_bold.html'>md_bold</a></code>,
+  <code><a href='md_escape.html'>md_escape</a></code>, <code><a href='md_hardline.html'>md_hardline</a></code>,
+  <code><a href='md_image.html'>md_image</a></code>, <code><a href='md_issue.html'>md_issue</a></code>,
+  <code><a href='md_italic.html'>md_italic</a></code>, <code><a href='md_link.html'>md_link</a></code>,
+  <code><a href='md_strike.html'>md_strike</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_code</span>(<span class='st'>"ex_var"</span>)</div><div class='output co'>#&gt; `ex_var`</div><div class='input'><span class='fu'>md_code</span>(<span class='no'>state.name</span>)</div><div class='output co'>#&gt; `Alabama`
+    <pre class="examples"><div class='input'><span class='fu'>md_code</span>(<span class='st'>"ex_var"</span>)</div><div class='output co'>#&gt; `ex_var`</div><div class='input'><span class='fu'>md_code</span>(<span class='no'>state.name</span>[<span class='fl'>1</span>:<span class='fl'>3</span>])</div><div class='output co'>#&gt; `Alabama`
 #&gt; `Alaska`
-#&gt; `Arizona`
-#&gt; `Arkansas`
-#&gt; `California`
-#&gt; `Colorado`
-#&gt; `Connecticut`
-#&gt; `Delaware`
-#&gt; `Florida`
-#&gt; `Georgia`
-#&gt; `Hawaii`
-#&gt; `Idaho`
-#&gt; `Illinois`
-#&gt; `Indiana`
-#&gt; `Iowa`
-#&gt; `Kansas`
-#&gt; `Kentucky`
-#&gt; `Louisiana`
-#&gt; `Maine`
-#&gt; `Maryland`
-#&gt; `Massachusetts`
-#&gt; `Michigan`
-#&gt; `Minnesota`
-#&gt; `Mississippi`
-#&gt; `Missouri`
-#&gt; `Montana`
-#&gt; `Nebraska`
-#&gt; `Nevada`
-#&gt; `New Hampshire`
-#&gt; `New Jersey`
-#&gt; `New Mexico`
-#&gt; `New York`
-#&gt; `North Carolina`
-#&gt; `North Dakota`
-#&gt; `Ohio`
-#&gt; `Oklahoma`
-#&gt; `Oregon`
-#&gt; `Pennsylvania`
-#&gt; `Rhode Island`
-#&gt; `South Carolina`
-#&gt; `South Dakota`
-#&gt; `Tennessee`
-#&gt; `Texas`
-#&gt; `Utah`
-#&gt; `Vermont`
-#&gt; `Virginia`
-#&gt; `Washington`
-#&gt; `West Virginia`
-#&gt; `Wisconsin`
-#&gt; `Wyoming`</div></pre>
+#&gt; `Arizona`</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

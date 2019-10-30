@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown Bullet List — md_bullet • gluedown</title>
+<title>Markdown bullet list (5.2) — md_bullet • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,9 @@
 
 
 
-<meta property="og:title" content="Markdown Bullet List — md_bullet" />
-<meta property="og:description" content="Form a single-level unordered list from a vector." />
+<meta property="og:title" content="Markdown bullet list (5.2) — md_bullet" />
+<meta property="og:description" content="Turn a character vector into a valid markdown bullet list. This
+container block can then be rendered as nested &amp;lt;li&amp;gt; and &amp;lt;ul&amp;gt; HTML tags." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +78,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -104,6 +105,9 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -125,13 +129,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown Bullet List</h1>
+    <h1>Markdown bullet list (5.2)</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-list.R'><code>R/md-list.R</code></a></small>
     <div class="hidden name"><code>md_bullet.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Form a single-level unordered list from a vector.</p>
+    <p>Turn a character vector into a valid markdown bullet list. This
+container block can then be rendered as nested <code>&lt;li&gt;</code> and <code>&lt;ul&gt;</code> HTML tags.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_bullet</span>(<span class='no'>x</span>, <span class='kw'>marker</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"*"</span>, <span class='st'>"-"</span>, <span class='st'>"+"</span>))</pre>
@@ -145,28 +150,36 @@
     </tr>
     <tr>
       <th>marker</th>
-      <td><p>The bullet list marker to use.</p></td>
+      <td><p>The bullet list marker to use; one of <code>-</code>, <code>+</code>, or <code>*</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character vector with elements preceded by an asterisk symbol.</p>
+    <p>A <code>glue</code> vector with length equal to <code>x</code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>From the <a href='https://github.github.com/gfm/#bullet-list-marker'>GFM spec</a>:
-A bullet list marker is a <code>-</code>, <code>+</code>, or <code>*</code> character.</p>
+    <p>A list is a sequence of one or more list items of the same type. The
+list items may be separated by any number of blank lines.</p>
+<p>Two list items are of the same type if they begin with a list marker of the
+same type. Two list markers are of the same type if (a) they are bullet
+list markers using the same character (<code>-</code>, <code>+</code>, or <code>*</code>)...</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other container block functions: <code><a href='md_list.html'>md_list</a></code>,
+  <code><a href='md_order.html'>md_order</a></code>, <code><a href='md_quote.html'>md_quote</a></code>,
+  <code><a href='md_task.html'>md_task</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>md_bullet</span>(<span class='no'>state.name</span>[<span class='fl'>1</span>:<span class='fl'>5</span>])</div><div class='output co'>#&gt; * Alabama
 #&gt; * Alaska
 #&gt; * Arizona
 #&gt; * Arkansas
-#&gt; * California</div><div class='input'><span class='fu'>md_bullet</span>(<span class='no'>state.name</span>[<span class='fl'>1</span>:<span class='fl'>5</span>])</div><div class='output co'>#&gt; * Alabama
-#&gt; * Alaska
-#&gt; * Arizona
-#&gt; * Arkansas
-#&gt; * California</div></pre>
+#&gt; * California</div><div class='input'><span class='fu'>md_bullet</span>(<span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='no'>state.name</span>, <span class='fl'>5</span>), <span class='kw'>marker</span> <span class='kw'>=</span> <span class='st'>"+"</span>)</div><div class='output co'>#&gt; + Vermont
+#&gt; + Minnesota
+#&gt; + Idaho
+#&gt; + Oregon
+#&gt; + Pennsylvania</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -174,6 +187,7 @@ A bullet list marker is a <code>-</code>, <code>+</code>, or <code>*</code> char
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

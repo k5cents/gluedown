@@ -43,9 +43,11 @@
 
 
 <meta property="og:title" content="gluedown: A package to format character vectors with markdown. — gluedown" />
-<meta property="og:description" content="The gluedown package provides functions to create both container blocks and
-inlines from regular R character vectors. The package also helps uses these
-new formatted vectors as actual text in a markdown document." />
+<meta property="og:description" content="The gluedown package helps transition from R's powerful
+vectors to formatted markdown text. The functions use glue::glue() to
+wrap character vectors in valid markdown syntax. In combination with the
+knitr package, this allows users to directly print R vectors as formatted
+text for improved clarity and readability." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -79,7 +81,7 @@ new formatted vectors as actual text in a markdown document." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -105,6 +107,9 @@ new formatted vectors as actual text in a markdown document." />
       <a href="../articles/printing-markdown.html">Printing Markdown</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -133,18 +138,38 @@ new formatted vectors as actual text in a markdown document." />
     </div>
 
     <div class="ref-description">
-    <p>The gluedown package provides functions to create both container blocks and
-inlines from regular R character vectors. The package also helps uses these
-new formatted vectors as actual text in a markdown document.</p>
+    <p>The <code>gluedown</code> package helps transition from R's powerful
+vectors to formatted markdown text. The functions use <code><a href='https://rdrr.io/pkg/glue/man/glue.html'>glue::glue()</a></code> to
+wrap character vectors in valid markdown syntax. In combination with the
+<code>knitr</code> package, this allows users to directly print R vectors as formatted
+text for improved clarity and readability.</p>
     </div>
 
 
 
+    <h2 class="hasAnchor" id="glue-wrappers"><a class="anchor" href="#glue-wrappers"></a>Glue wrappers</h2>
+
+    
+
+<p>The <code>md_*()</code> functions return <code>glue</code> objects, which are returned using
+<code><a href='https://rdrr.io/r/base/cat.html'>cat()</a></code> by default. This allows users to both manipulate the formatted
+strings as they would with any character vector and still present the
+string to the user when an <code>knitr</code> chunk option is set to return code
+results <code>'asis'</code>.</p>
+    <h2 class="hasAnchor" id="other-wrappers"><a class="anchor" href="#other-wrappers"></a>Other wrappers</h2>
+
+    
+
+<p>The <code><a href='md_table.html'>md_table()</a></code> and <code><a href='md_convert.html'>md_convert()</a></code> functions wrap around <code><a href='https://rdrr.io/pkg/knitr/man/kable.html'>knitr::kable()</a></code>
+and <code><a href='https://rdrr.io/pkg/markdown/man/markdownToHTML.html'>markdown::markdownToHTML()</a></code> respectively. The later allows users to
+convert <code>md_*()</code> outputs to HTML fragments.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#glue-wrappers">Glue wrappers</a></li>
+      <li><a href="#other-wrappers">Other wrappers</a></li>
     </ul>
 
   </div>

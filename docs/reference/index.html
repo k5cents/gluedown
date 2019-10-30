@@ -76,7 +76,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -102,6 +102,9 @@
       <a href="../articles/printing-markdown.html">Printing Markdown</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -147,7 +150,7 @@
         <td>
           <p><code><a href="emphasize_at.html">emphasize_at()</a></code> </p>
         </td>
-        <td><p>Selective Markdown Emphasize</p></td>
+        <td><p>Targeted markdown formatting</p></td>
       </tr><tr>
         
         <td>
@@ -159,31 +162,25 @@
         <td>
           <p><code><a href="md_bold.html">md_bold()</a></code> </p>
         </td>
-        <td><p>Markdown Bold Emphasis</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="md_break.html">md_break()</a></code> </p>
-        </td>
-        <td><p>Markdown Thematic Break</p></td>
+        <td><p>Markdown strong/bold emphasis (6.4)</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="md_bullet.html">md_bullet()</a></code> </p>
         </td>
-        <td><p>Markdown Bullet List</p></td>
+        <td><p>Markdown bullet list (5.2)</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="md_chunk.html">md_chunk()</a></code> </p>
         </td>
-        <td><p>Markdown Code Block</p></td>
+        <td><p>Markdown code block</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="md_code.html">md_code()</a></code> </p>
         </td>
-        <td><p>Markdown Inline Code</p></td>
+        <td><p>Markdown code span (6.3)</p></td>
       </tr><tr>
         
         <td>
@@ -195,7 +192,7 @@
         <td>
           <p><code><a href="md_define.html">md_define()</a></code> </p>
         </td>
-        <td><p>Markdown Definition</p></td>
+        <td><p>Markdown definitions (unsupported extension)</p></td>
       </tr><tr>
         
         <td>
@@ -205,15 +202,33 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="md_fence.html">md_fence()</a></code> </p>
+        </td>
+        <td><p>Markdown fenced code block (4.5)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="md_hardline.html">md_hardline()</a></code> </p>
+        </td>
+        <td><p>Markdown hard line breaks (6.12)</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="md_heading.html">md_heading()</a></code> </p>
         </td>
-        <td><p>Markdown ATX Headings</p></td>
+        <td><p>Markdown ATX headings (4.2)</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="md_image.html">md_image()</a></code> </p>
         </td>
-        <td><p>Markdown Image</p></td>
+        <td><p>Markdown image links</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="md_indent.html">md_indent()</a></code> </p>
+        </td>
+        <td><p>Markdown indented code block (4.4)</p></td>
       </tr><tr>
         
         <td>
@@ -225,19 +240,25 @@
         <td>
           <p><code><a href="md_italic.html">md_italic()</a></code> </p>
         </td>
-        <td><p>Markdown Italic Emphasis</p></td>
+        <td><p>Markdown italic emphasis (6.4)</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="md_link.html">md_link()</a></code> </p>
         </td>
-        <td><p>Markdown Inline Like</p></td>
+        <td><p>Markdown inline link (6.6)</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="md_list.html">md_list()</a></code> </p>
         </td>
-        <td><p>Markdown Numbered List</p></td>
+        <td><p>Markdown list (5.4)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="md_order.html">md_order()</a></code> </p>
+        </td>
+        <td><p>Markdown ordered list (5.2)</p></td>
       </tr><tr>
         
         <td>
@@ -249,25 +270,37 @@
         <td>
           <p><code><a href="md_reference.html">md_reference()</a></code> </p>
         </td>
-        <td><p>Markdown Link Reference</p></td>
+        <td><p>Markdown link reference (4.7)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="md_rule.html">md_rule()</a></code> </p>
+        </td>
+        <td><p>Markdown horizontal rule (4.1)</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="md_setext.html">md_setext()</a></code> </p>
+        </td>
+        <td><p>Markdown Setext headings (4.3)</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="md_strike.html">md_strike()</a></code> </p>
         </td>
-        <td><p>Markdown Strikethrough Emphasis</p></td>
+        <td><p>Markdown strikethrough (6.5 extension)</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="md_table.html">md_table()</a></code> </p>
         </td>
-        <td><p>Markdown Tables</p></td>
+        <td><p>Markdown tables (4.10 extension)</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="md_task.html">md_task()</a></code> </p>
         </td>
-        <td><p>Markdown Task List</p></td>
+        <td><p>Markdown task list (5.3 extension)</p></td>
       </tr>
     </tbody>
     </table>

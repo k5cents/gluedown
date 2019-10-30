@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown Inline Like — md_link • gluedown</title>
+<title>Markdown inline link (6.6) — md_link • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,10 @@
 
 
 
-<meta property="og:title" content="Markdown Inline Like — md_link" />
-<meta property="og:description" content="Form an inline hyperlink to an another website." />
+<meta property="og:title" content="Markdown inline link (6.6) — md_link" />
+<meta property="og:description" content="Take a vector of link texts and link destinations and return
+single vector of valid markdown inline links. These inline links can then
+be rendered as &amp;lt;href&amp;gt; HTML tags." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
       </span>
     </div>
 
@@ -104,6 +106,9 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -125,13 +130,15 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown Inline Like</h1>
+    <h1>Markdown inline link (6.6)</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-link.R'><code>R/md-link.R</code></a></small>
     <div class="hidden name"><code>md_link.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Form an inline hyperlink to an another website.</p>
+    <p>Take a vector of link texts and link destinations and return
+single vector of valid markdown inline links. These inline links can then
+be rendered as <code>&lt;href&gt;</code> HTML tags.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_link</span>(<span class='no'>text</span>, <span class='no'>url</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
@@ -155,14 +162,31 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character vector of collapsed display text and associated URLs.</p>
+    <p>A <code>glue</code> vector of collapsed display text and associated URLs.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>From the <a href='https://github.github.com/gfm/#inline-link'>GFM spec</a>:
-An inline link consists of a <a href='https://github.github.com/gfm/#link-text'>link text</a>
-followed immediately by a left parenthesis <code>(</code>... an optional link
-destination, an optional link title separated from the link destination by
-whitespace, optional whitespace, and a right parenthesis <code>)</code>.</p>
+    <p>A link contains link text (the visible text), a link destination (the URI
+that is the link destination), and optionally a link title. There are two
+basic kinds of links in Markdown. In inline links the destination and title
+are given immediately after the link text.</p>
+<p>A link text consists of a sequence of zero or more inline elements enclosed
+by square brackets (<code>[</code> and <code>]</code>)...</p>
+<p>An inline link consists of a link text followed immediately by a left
+parenthesis <code>(</code>, optional whitespace, an optional link destination, an
+optional link title separated from the link destination by whitespace,
+optional whitespace, and a right parenthesis <code>)</code>. The link’s text consists
+of the inlines contained in the link text (excluding the enclosing square
+brackets). The link’s URI consists of the link destination, excluding
+enclosing <code>&lt;...&gt;</code> if present, with backslash-escapes in effect as described
+above. The link’s title consists of the link title, excluding its enclosing
+delimiters, with backslash-escapes in effect as described above.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other inline functions: <code><a href='md_bold.html'>md_bold</a></code>,
+  <code><a href='md_code.html'>md_code</a></code>, <code><a href='md_escape.html'>md_escape</a></code>,
+  <code><a href='md_hardline.html'>md_hardline</a></code>, <code><a href='md_image.html'>md_image</a></code>,
+  <code><a href='md_issue.html'>md_issue</a></code>, <code><a href='md_italic.html'>md_italic</a></code>,
+  <code><a href='md_strike.html'>md_strike</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>md_link</span>(<span class='st'>"tidyverse"</span>, <span class='st'>"https://www.tidyverse.org/"</span>)</div><div class='output co'>#&gt; [tidyverse](https://www.tidyverse.org/)</div><div class='input'><span class='fu'>md_link</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"R Project"</span>, <span class='st'>"CRAN"</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"https://www.r-project.org/"</span>, <span class='st'>"https://cran.r-project.org/"</span>))</div><div class='output co'>#&gt; [R Project](https://www.r-project.org/)
@@ -174,6 +198,7 @@ whitespace, optional whitespace, and a right parenthesis <code>)</code>.</p>
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

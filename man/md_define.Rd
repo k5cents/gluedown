@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-define.R
 \name{md_define}
 \alias{md_define}
-\title{Markdown definitions (unsupported extension)}
+\title{Markdown definitions}
 \usage{
 md_define(term, def)
 }
@@ -20,10 +20,10 @@ Form a single-level unordered list from a vector.
 \details{
 Definitions are not supported in GFM, but \emph{are} supported by the
 \href{https://pandoc.org/MANUAL.html#pandocs-markdown}{pandoc engine} used by R
-Markdown. Per that specification: Each term must fit on one line, which
-may optionally be followed by a blank line, and must be followed by one or
-more definitions. A definition begins with a colon or tilde, which may be
-indented one or two spaces.
+Markdown. Per that specification: Each term must fit on one line, which may
+optionally be followed by a blank line, and must be followed by one or more
+definitions. A definition begins with a colon or tilde, which may be indented
+one or two spaces.
 }
 \examples{
 md_define("Democracy", "Government by the people")

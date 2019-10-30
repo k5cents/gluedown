@@ -20,8 +20,8 @@ Wraps around the \code{\link[knitr:kable]{knitr::kable()}} function to turn an \
 typically a data frame or matrix, into a single
 }
 \details{
-FM enables the \code{table} extension, where an additional leaf block
-type is available.
+FM enables the \code{table} extension, where an additional leaf block type is
+available.
 
 A table is an arrangement of data with rows and columns, consisting of a
 single header row, a delimiter row separating the header from the data, and
@@ -30,14 +30,12 @@ zero or more data rows.
 Each row consists of cells containing arbitrary text, in which
 \href{https://github.github.com/gfm/#inline}{inlines} are parsed, separated by
 pipes (\code{|}). A leading and trailing pipe is also recommended for clarity of
-reading, and if there’s otherwise parsing ambiguity. Spaces between pipes
-and cell content are trimmed. Block-level elements cannot be inserted in a
-table.
+reading, and if there’s otherwise parsing ambiguity. Spaces between pipes and
+cell content are trimmed. Block-level elements cannot be inserted in a table.
 
-The delimiter row consists of cells whose only content are hyphens (\code{-}),
-and optionally, a leading or trailing colon (\code{:}), or both, to indicate
-left, right, or center alignment respectively (see \code{align} in
-\code{\link[knitr:kable]{knitr::kable()}}).
+The delimiter row consists of cells whose only content are hyphens (\code{-}), and
+optionally, a leading or trailing colon (\code{:}), or both, to indicate left,
+right, or center alignment respectively (see \code{align} in \code{\link[knitr:kable]{knitr::kable()}}).
 }
 \examples{
 md_table(mtcars)

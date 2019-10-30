@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-escape.R
 \name{md_escape}
 \alias{md_escape}
-\title{Markdown Escape Punctuation}
+\title{Backslash escape all punctuation}
 \usage{
 md_escape(x)
 }
@@ -15,9 +15,9 @@ A character string with all \code{[:punct:]} properly escaped with
 prepended backslashes.
 }
 \description{
-When trying to format text containing markdown syntax
-characters, it's necessary to "escape" those characters so that they are
-ignored by formatting.
+When trying to format text containing markdown syntax characters, it's
+necessary to "escape" those characters so that they are ignored by
+formatting.
 }
 \details{
 Any ASCII punctuation character may be backslash-escaped... Escaped

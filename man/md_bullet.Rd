@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-list.R
 \name{md_bullet}
 \alias{md_bullet}
-\title{Markdown bullet list (5.2)}
+\title{Markdown bullet list}
 \usage{
 md_bullet(x, marker = c("*", "-", "+"))
 }
@@ -15,16 +15,16 @@ md_bullet(x, marker = c("*", "-", "+"))
 A \code{glue} vector with length equal to \code{x}.
 }
 \description{
-Turn a character vector into a valid markdown bullet list. This
-container block can then be rendered as nested \code{<li>} and \code{<ul>} HTML tags.
+Turn a character vector into a valid markdown bullet list. This container
+block can then be rendered as nested \code{<li>} and \code{<ul>} HTML tags.
 }
 \details{
-A list is a sequence of one or more list items of the same type. The
-list items may be separated by any number of blank lines.
+A list is a sequence of one or more list items of the same type. The list
+items may be separated by any number of blank lines.
 
 Two list items are of the same type if they begin with a list marker of the
-same type. Two list markers are of the same type if (a) they are bullet
-list markers using the same character (\code{-}, \code{+}, or \code{*})...
+same type. Two list markers are of the same type if (a) they are bullet list
+markers using the same character (\code{-}, \code{+}, or \code{*})...
 }
 \examples{
 md_bullet(state.name[1:5])

@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-inlines.R
 \name{md_bold}
 \alias{md_bold}
-\title{Markdown strong/bold emphasis (6.4)}
+\title{Markdown strong/bold emphasis}
 \usage{
 md_bold(x)
 }
@@ -13,16 +13,14 @@ md_bold(x)
 A \code{glue} vector of length equal to \code{x}.
 }
 \description{
-Turn a character vector into a vector of valid strong emphasis
-markdown inline text. This inline text can then be rendered as the
-\code{<stong>} HTML tag. Right now, this package uses double \code{**} for strong
-emphasis, although double \code{__} meets the GFM spec.
+Turn a character vector into a vector of valid strong emphasis markdown
+inline text. This inline text can then be rendered as the \code{<stong>} HTML tag.
 }
 \details{
-A double \code{**} or \code{__} can open or close emphasis... Emphasis begins
-with a delimiter that can open emphasis and ends with a delimiter that can
-close emphasis, and that uses the same character (\code{__} or \code{**}) as the
-opening delimiter.
+A double \code{**} or \code{__} can open or close emphasis... Emphasis begins with a
+delimiter that can open emphasis and ends with a delimiter that can close
+emphasis, and that uses the same character (\code{__} or \code{**}) as the opening
+delimiter.
 }
 \examples{
 md_bold("Example")

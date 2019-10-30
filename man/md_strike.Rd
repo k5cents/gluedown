@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-inlines.R
 \name{md_strike}
 \alias{md_strike}
-\title{Markdown strikethrough (6.5 extension)}
+\title{Markdown strikethrough (extension)}
 \usage{
 md_strike(x)
 }
@@ -13,13 +13,12 @@ md_strike(x)
 A \code{glue} vector of length equal to \code{x}.
 }
 \description{
-Markdown strikethrough (6.5 extension)
+Turn a character vector into a vector of valid strikethough markdown inline
+text. This text can then be rendered as the \code{<strike>} HTML tag.
 }
 \details{
-GFM enables the strikethrough extension, where an additional
-emphasis type is available.
-
-Strikethrough text is any text wrapped in two tildes (\code{~}).
+GFM enables the strikethrough extension, where an additional emphasis type is
+available. Strikethrough text is any text wrapped in two tildes (\code{~}).
 }
 \examples{
 md_strike("Example")

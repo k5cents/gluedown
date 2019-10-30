@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-issue.R
 \name{md_issue}
 \alias{md_issue}
-\title{Markdown Issue}
+\title{Markdown GitHub issue}
 \usage{
 md_issue(repo, num)
 }
@@ -15,12 +15,12 @@ md_issue(repo, num)
 A character vector which GitHub can automatically hyperlink.
 }
 \description{
-A markdown feature unique to GitHub. Allows users to hyperlink
-a specific issue or pull request using a username, repository name, and
+A markdown feature unique to GitHub. Allows users to hyperlink a specific
+issue or pull request using a "username/repository" combination and
 issue number.
 }
 \examples{
-md_issue("kiernann/gluedown", 1)
+md_issue("kiernann/gluedown", 1:5)
 }
 \seealso{
 Other inline functions: \code{\link{md_bold}},

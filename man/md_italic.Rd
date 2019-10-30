@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-inlines.R
 \name{md_italic}
 \alias{md_italic}
-\title{Markdown italic emphasis (6.4)}
+\title{Markdown italic emphasis}
 \usage{
 md_italic(x)
 }
@@ -13,16 +13,14 @@ md_italic(x)
 A \code{glue} vector of length equal to \code{x}.
 }
 \description{
-Turn a character vector into a vector of valid italic emphasis
-markdown inline text. This inline text can then be rendered as the \code{<em>}
-HTML tag. Right now, this package uses single \code{_} for strong emphasis,
-although single \code{*} meets the GFM spec.
+Turn a character vector into a vector of valid italic emphasis markdown
+inline text. This inline text can then be rendered as the \code{<em>} HTML tag.
 }
 \details{
-A single \code{*} or \code{_} can open or close emphasis... Emphasis begins
-with a delimiter that can open emphasis and ends with a delimiter that can
-close emphasis, and that uses the same character (\code{_} or \code{*}) as the
-opening delimiter.
+A single \code{*} or \code{_} can open or close emphasis... Emphasis begins with a
+delimiter that can open emphasis and ends with a delimiter that can close
+emphasis, and that uses the same character (\code{_} or \code{*}) as the opening
+delimiter.
 }
 \examples{
 md_italic("Example")

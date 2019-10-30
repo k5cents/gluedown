@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-list.R
 \name{md_task}
 \alias{md_task}
-\title{Markdown task list (5.3 extension)}
+\title{Markdown task list (extension)}
 \usage{
 md_task(x, check = NULL)
 }
@@ -16,15 +16,15 @@ checked off.}
 A \code{glue} vector with length equal to \code{x}.
 }
 \description{
-Turn a character vector into a valid markdown ordered list. This
-container block can then be rendered as nested \code{<li>} and \code{<ol>} HTML tags.
-On venues supporting GitHub Flavored Markdown, this list will be specially
-rendered with the list item market replaces with a
-\code{<input type="checkbox">} HTML tag.
+Turn a character vector into a valid markdown ordered list. This container
+block can then be rendered as nested \code{<li>} and \code{<ol>} HTML tags. On venues
+supporting GitHub Flavored Markdown, this list will be specially rendered
+with the list item market replaces with a \code{<input type="checkbox">} HTML tag.
 }
 \details{
-GFM enables the tasklist extension, where an additional processing
-step is performed on list items.
+GFM enables the tasklist extension, where an additional processing step is
+performed on list items.
+
 A task list item is a list item where the first block in it is a paragraph
 which begins with a task list item marker and at least one whitespace
 character before any other content.
@@ -33,18 +33,19 @@ A task list item marker consists of an optional number of spaces, a left
 bracket (\code{[}), either a whitespace character or the letter \code{x} in either
 lowercase or uppercase, and then a right bracket (\code{]}).
 
-When rendered, the task list item marker is replaced with a semantic
-checkbox element; in an HTML output, this would be an \code{<input type="checkbox">} element.
+When rendered, the task list item marker is replaced with a semantic checkbox
+element; in an HTML output, this would be an \code{<input type="checkbox">}
+element.
 
-If the character between the brackets is a whitespace character, the
-checkbox is unchecked. Otherwise, the checkbox is checked.
+If the character between the brackets is a whitespace character, the checkbox
+is unchecked. Otherwise, the checkbox is checked.
 
 This spec does not define how the checkbox elements are interacted with: in
 practice, implementors are free to render the checkboxes as disabled or
-inmutable elements, or they may dynamically handle dynamic interactions
-(i.e. checking, unchecking) in the final rendered document.
+inmutable elements, or they may dynamically handle dynamic interactions (i.e.
+checking, unchecking) in the final rendered document.
 
-[\code{), either a whitespace character or the letter }x\code{ in either lowercase or uppercase, and then a right bracket (}]: R:%60),%20either%20a%20whitespace%20character%20or%20the%20letter%20%60x%60%20in%20either%0A%20%20lowercase%20or%20uppercase,%20and%20then%20a%20right%20bracket%20(%60
+[\code{), either a whitespace character or the letter }x\code{ in either lowercase or uppercase, and then a right bracket (}]: R:%60),%20either%20a%20whitespace%20character%20or%20the%20letter%20%60x%60%20in%20either%0Alowercase%20or%20uppercase,%20and%20then%20a%20right%20bracket%20(%60
 }
 \examples{
 md_task(c("Wake up", "Eat Breakfast", "Brush Teeth"), check = c(1, 3))

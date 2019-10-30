@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-chunk.R
 \name{md_fence}
 \alias{md_fence}
-\title{Markdown fenced code block (4.5)}
+\title{Markdown fenced code block}
 \usage{
 md_fence(x, char = c("`", "~"), lang = "r")
 }
@@ -20,33 +20,32 @@ a code for the language of the lines of \code{x}. Defaults to \code{r}.}
 A character vector wrapped on either side by code fences.
 }
 \description{
-Turn a character vector of lines into a single code block with
-lines bookended with a code fence of backticks or tildes. This markdown
-leaf block can be rendered as HTML \code{<code>} tags inside \code{<pre>} tags.
+Turn a character vector of lines into a single code block with lines
+bookended with a code fence of backticks or tildes. This markdown leaf block
+can be rendered as HTML \code{<code>} tags inside \code{<pre>} tags.
 }
 \details{
-A code fence is a sequence of at least three consecutive backtick
-characters (```) or tildes (\code{~}). (Tildes and backticks cannot be mixed.) A
-fenced code block begins with a code fence, indented no more than three
-spaces.
+A code fence is a sequence of at least three consecutive backtick characters
+(```) or tildes (\code{~}). (Tildes and backticks cannot be mixed.) A fenced code
+block begins with a code fence, indented no more than three spaces.
 
 The line with the opening code fence may optionally contain some text
-following the code fence; this is trimmed of leading and trailing
-whitespace and called the \strong{info string}...
+following the code fence; this is trimmed of leading and trailing whitespace
+and called the info string...
 
 The content of the code block consists of all subsequent lines, until a
 closing code fence of the same type as the code block began with (backticks
-or tildes), and with at least as many backticks or tildes as the opening
-code fence...
+or tildes), and with at least as many backticks or tildes as the opening code
+fence...
 
 A fenced code block may interrupt a paragraph, and does not require a blank
 line either before or after.
 
 The content of a code fence is treated as literal text, not parsed as
 inlines. The first word of the info string is typically used to specify the
-language of the code sample, and rendered in the class attribute of the
-code tag. However, this spec does not mandate any particular treatment of
-the info string (see the \code{lang} argument).
+language of the code sample, and rendered in the class attribute of the code
+tag. However, this spec does not mandate any particular treatment of the info
+string (see the \code{lang} argument).
 }
 \examples{
 md_fence(deparse(sd))

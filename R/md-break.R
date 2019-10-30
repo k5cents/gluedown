@@ -1,10 +1,12 @@
-#' @title Markdown horizontal rule (4.1)
-#' @description Print the markdown characters used to represent a _thematic
-#'   break_. This markdown leaf block can be rendered as the `<hr>` HTML tag.
-#' @details A line consisting of 0-3 spaces of indentation, followed by a
-#'   sequence of three or more matching `-`, `_`, or `*` characters, each
-#'   followed optionally by any number of spaces or tabs, forms a thematic
-#'   break.
+#' Markdown horizontal rule (4.1)
+#'
+#' Print the markdown characters used to represent a _thematic break_. This
+#' markdown leaf block can be rendered as the `<hr>` HTML tag.
+#'
+#' @details
+#' A line consisting of 0-3 spaces of indentation, followed by a sequence of
+#' three or more matching `-`, `_`, or `*` characters, each followed optionally
+#' by any number of spaces or tabs, forms a thematic break.
 #' @param char The type of rule; either: `-`, `_`, or `*`. Defaults to `*`.
 #' @param n The width of the rule; an integer indicating number of times to
 #'   repeat each character. Defaults to the minimum of 3.

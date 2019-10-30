@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-inlines.R
 \name{md_code}
 \alias{md_code}
-\title{Markdown code span (6.3)}
+\title{Markdown code span}
 \usage{
 md_code(x)
 }
@@ -13,26 +13,22 @@ md_code(x)
 A \code{glue} vector of length equal to \code{x}.
 }
 \description{
-Code spaces emphasize a section of text within a markdown block.
-This inline is rendered as a \code{<code>} HTML tag, which displays text in
-a fixed-width font. Code spans are commonly used to represent variables,
-packages, functions, or snippets of small code.
+Code spaces emphasize a section of text within a markdown block. This inline
+is rendered as a \code{<code>} HTML tag.
 }
 \details{
-A backtick string is a string of one or more backtick characters
-that is neither preceded nor followed by a backtick.
+A backtick string is a string of one or more backtick characters that is
+neither preceded nor followed by a backtick.
 
-A code span begins with a backtick string and ends with a backtick string of
-equal length. The contents of the code span are the characters between the
-two backtick strings, normalized in the following ways:
-\itemize{
-\item First, line endings are converted to spaces.
-\item If the resulting string both begins and ends with a space character, but
-does not consist entirely of space characters, a single space character is
-removed from the front and back. This allows you to include code that begins
-or ends with backtick characters, which must be separated by whitespace from
-the opening or closing backtick strings.
-}
+A code span begins with a backtick string and ends with a backtick string
+of equal length. The contents of the code span are the characters between
+the two backtick strings, normalized in the following ways: * First, line
+endings are converted to spaces. * If the resulting string both begins and
+ends with a space character, but does not consist entirely of space
+characters, a single space character is removed from the front and back.
+This allows you to include code that begins or ends with backtick
+characters, which must be separated by whitespace from the opening or
+closing backtick strings.
 }
 \examples{
 md_code("ex_var")

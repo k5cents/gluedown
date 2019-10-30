@@ -1,22 +1,25 @@
-#' @title Markdown link reference (4.7)
-#' @description Combine elements of 2 or 3 character vectors into valid markdown
-#'   link references. These markdown leaf blocks then use `label` placed
-#'   _elsewhere_ in a markdown document to render as `<href>` HTML tags.
-#' @details A full reference link (6.6) consists of a link text immediately
-#'   followed by a link label that matches a link reference definition elsewhere
-#'   in the document...
+#' Markdown link reference (4.7)
 #'
-#'   A link reference definition consists of a link label, indented up to three
-#'   spaces, followed by a colon (`:`), optional whitespace (including up to one
-#'   line ending), a link destination, optional whitespace (including up to one
-#'   line ending), and an optional link title, which if it is present must be
-#'   separated from the link destination by whitespace. No further
-#'   non-whitespace characters may occur on the line.
+#' Combine elements of 2 or 3 character vectors into valid markdown link
+#' references. These markdown leaf blocks then use `label` placed _elsewhere_ in
+#' a markdown document to render as `<href>` HTML tags.
 #'
-#'   A link reference definition does not correspond to a structural element of
-#'   a document. Instead, it defines a label which can be used in reference
-#'   links and reference-style images elsewhere in the document. Link reference
-#'   definitions can come either before or after the links that use them.
+#' @details
+#' A full reference link (6.6) consists of a link text immediately followed by a
+#' link label that matches a link reference definition elsewhere in the
+#' document...
+#'
+#' A link reference definition consists of a link label, indented up to three
+#' spaces, followed by a colon (`:`), optional whitespace (including up to one
+#' line ending), a link destination, optional whitespace (including up to one
+#' line ending), and an optional link title, which if it is present must be
+#' separated from the link destination by whitespace. No further non-whitespace
+#' characters may occur on the line.
+#'
+#' A link reference definition does not correspond to a structural element of a
+#' document. Instead, it defines a label which can be used in reference links
+#' and reference-style images elsewhere in the document. Link reference
+#' definitions can come either before or after the links that use them.
 #' @param label A link label that is referenced elsewhere in the document.
 #' @param url The URL to hyperlink the referenced text with.
 #' @param title An _optional_ link title; defaults to `NULL`.

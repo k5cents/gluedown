@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-quote.R
 \name{md_quote}
 \alias{md_quote}
-\title{Markdown Block Quotes}
+\title{Markdown block quotes}
 \usage{
 md_quote(x)
 }
@@ -17,22 +17,22 @@ element.
 Form block quotes from a vector of character strings.
 }
 \details{
-A block quote marker consists of 0-3 spaces of initial indent, plus
-(a) the character \code{>} together with a following space, or (b) a single
-character \code{>} not followed by a space.
+A block quote marker consists of 0-3 spaces of initial indent, plus (a) the
+character \code{>} together with a following space, or (b) a single character \code{>}
+not followed by a space.
 
 The following rules define block quotes:
 \enumerate{
-\item \strong{Basic case.} If a string of lines \emph{Ls} constitute a sequence of
-blocks \emph{Bs}, then the result of prepending a block quote marker to the
-beginning of each line in \emph{Ls} is a block quote containing \emph{Bs}.
+\item \strong{Basic case.} If a string of lines \emph{Ls} constitute a sequence of blocks
+\emph{Bs}, then the result of prepending a block quote marker to the beginning of
+each line in \emph{Ls} is a block quote containing \emph{Bs}.
 \item \strong{Laziness.} If a string of lines \emph{Ls} constitute a block quote with
 contents \emph{Bs}, then the result of deleting the initial block quote marker
 from one or more lines in which the next non-whitespace character after the
-block quote marker is paragraph continuation text is a block quote with
-\emph{Bs} as its content. Paragraph continuation text is text that will be
-parsed as part of the content of a paragraph, but does not occur at the
-beginning of the paragraph.
+block quote marker is paragraph continuation text is a block quote with \emph{Bs}
+as its content. Paragraph continuation text is text that will be parsed as
+part of the content of a paragraph, but does not occur at the beginning of
+the paragraph.
 \item \strong{Consecutiveness.} A document cannot contain two block quotes in a row
 unless there is a blank line between them.
 }

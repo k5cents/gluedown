@@ -1,10 +1,13 @@
-#' @title Markdown Escape Punctuation
-#' @description When trying to format text containing markdown syntax
-#'   characters, it's necessary to "escape" those characters so that they are
-#'   ignored by formatting.
-#' @details Any ASCII punctuation character may be backslash-escaped... Escaped
-#'   characters are treated as regular characters and do not have their usual
-#'   Markdown meanings.
+#' Backslash escape all punctuation
+#'
+#' When trying to format text containing markdown syntax characters, it's
+#' necessary to "escape" those characters so that they are ignored by
+#' formatting.
+#'
+#' @details
+#' Any ASCII punctuation character may be backslash-escaped... Escaped
+#' characters are treated as regular characters and do not have their usual
+#' Markdown meanings.
 #' @param x A character vector of strings containing punctuation that might
 #'   accidentally be considered markdown syntax.
 #' @return A character string with all `[:punct:]` properly escaped with

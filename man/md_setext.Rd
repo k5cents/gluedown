@@ -17,17 +17,16 @@ are provided than headings, \code{level} will be repeated via \code{\link[glue:g
 A \code{glue} vector of headings with length equal to \code{x}.
 }
 \description{
-Turn a character vector into a vector of valid markdown Setext
-headings. These markdown leaf blocks can be rendered as the \code{<h1>} and
-\code{<h2>} tags \emph{only}.
+Turn a character vector into a vector of valid markdown Setext headings.
+These markdown leaf blocks can be rendered as the \code{<h1>} and \code{<h2>} tags
+\emph{only}.
 }
 \details{
-A setext heading consists of one or more lines of text, each
-containing at least one non-whitespace character, with no more than 3
-spaces indentation, followed by a setext heading underline. The lines of
-text must be such that, were they not followed by the setext heading
-underline, they would be interpreted as a paragraph: they cannot be
-interpretable as a
+A setext heading consists of one or more lines of text, each containing at
+least one non-whitespace character, with no more than 3 spaces indentation,
+followed by a setext heading underline. The lines of text must be such that,
+were they not followed by the setext heading underline, they would be
+interpreted as a paragraph: they cannot be interpretable as a
 \href{https://github.github.com/gfm/#code-fence}{code fence},
 \href{https://github.github.com/gfm/#atx-headings}{ATX heading},
 \href{https://github.github.com/gfm/#block-quotes}{block quote},
@@ -43,8 +42,8 @@ heading underline.
 
 The heading is a level 1 heading if \code{=} characters are used in the setext
 heading underline, and a level 2 heading if \code{-} characters are used. The
-contents of the heading are the result of parsing the preceding lines of
-text as CommonMark inline content.
+contents of the heading are the result of parsing the preceding lines of text
+as CommonMark inline content.
 
 In general, a setext heading need not be preceded or followed by a blank
 line. However, it cannot interrupt a paragraph, so when a setext heading

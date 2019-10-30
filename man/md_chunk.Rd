@@ -20,10 +20,10 @@ A \code{glue} object of length 1, with elements of \code{x} formatted via
 \code{\link[=md_fence]{md_fence()}} or \code{\link[=md_indent]{md_indent()}}.
 }
 \description{
-Turn a character vector of lines into a single code block either
-indented or fenced in tildes or backticks. This markdown leaf block can be
-rendered as nested HTML \code{<code>} and \code{<pre>} tags. This function either
-calls \code{\link[=md_fence]{md_fence()}} or \code{\link[=md_indent]{md_indent()}} based on the \code{type} argument.
+Turn a character vector of lines into a single code block either indented or
+fenced in tildes or backticks. This markdown leaf block can be rendered as
+nested HTML \code{<code>} and \code{<pre>} tags. This function either calls
+\code{\link[=md_fence]{md_fence()}} or \code{\link[=md_indent]{md_indent()}} based on the \code{type} argument.
 }
 \examples{
 md_chunk("$ sudo apt install r-base-dev", lang = "bash")

@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-convert.R
 \name{md_convert}
 \alias{md_convert}
-\title{Convert Markdown to HTML}
+\title{Convert markdown to HTML}
 \usage{
 md_convert(x, frag = TRUE)
 }
@@ -16,9 +16,9 @@ md_convert(x, frag = TRUE)
 A \code{glue} vector of length 1 containing HTML tags.
 }
 \description{
-Wraps around \code{\link[markdown:markdownToHTML]{markdown::markdownToHTML()}} to convert markdown
-text into HTML \emph{fragments}. Primarily used to test that \code{md_*()} functions
-create vectors that can be properly rendered as HTML.
+Wraps around \code{\link[markdown:markdownToHTML]{markdown::markdownToHTML()}} to convert markdown text into HTML
+\emph{fragments}. Primarily used to test that \code{md_*()} functions create vectors
+that can be properly rendered as HTML.
 }
 \examples{
 md_convert(x = md_bold("test"))

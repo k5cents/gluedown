@@ -17,9 +17,9 @@ md_link(text, url, title = NULL)
 A \code{glue} vector of collapsed display text and associated URLs.
 }
 \description{
-Take a vector of link texts and link destinations and return
-single vector of valid markdown inline links. These inline links can then
-be rendered as \code{<href>} HTML tags.
+Take a vector of link texts and link destinations and return single vector of
+valid markdown inline links. These inline links can then be rendered as
+\code{<href>} HTML tags.
 }
 \details{
 A link contains link text (the visible text), a link destination (the URI
@@ -33,8 +33,8 @@ by square brackets (\code{[} and \code{]})...
 An inline link consists of a link text followed immediately by a left
 parenthesis \code{(}, optional whitespace, an optional link destination, an
 optional link title separated from the link destination by whitespace,
-optional whitespace, and a right parenthesis \code{)}. The link’s text consists
-of the inlines contained in the link text (excluding the enclosing square
+optional whitespace, and a right parenthesis \code{)}. The link’s text consists of
+the inlines contained in the link text (excluding the enclosing square
 brackets). The link’s URI consists of the link destination, excluding
 enclosing \code{<...>} if present, with backslash-escapes in effect as described
 above. The link’s title consists of the link title, excluding its enclosing

@@ -17,17 +17,17 @@ be used to refer to an image.}
 A \code{glue} vector of collapsed alternative text and associated URLs.
 }
 \description{
-Take a vector of image alt texts and image link destinations and
-return single vector of valid markdown image links. These inline image
-links can call images to be rendered as \code{<img>} HTML tags.
+Take a vector of image alt texts and image link destinations and return
+single vector of valid markdown image links. These inline image links can
+call images to be rendered as \code{<img>} HTML tags.
 }
 \details{
-Syntax for images is like the syntax for links, with one difference.
-Instead of link text, we have an image description. The rules for this are
-the same as for link text, except that (a) an image description starts with
-\code{![} rather than \code{[}, and (b) an image description may contain links. An
-image description has inline elements as its contents. When an image is
-rendered to HTML, this is standardly used as the image’s \code{alt} attribute.
+Syntax for images is like the syntax for links, with one difference. Instead
+of link text, we have an image description. The rules for this are the same
+as for link text, except that (a) an image description starts with \code{![}
+rather than \code{[}, and (b) an image description may contain links. An image
+description has inline elements as its contents. When an image is rendered to
+HTML, this is standardly used as the image’s \code{alt} attribute.
 }
 \examples{
 if (file.exists("man/figures/logo.png")) md_image("man/figures/logo.png")

@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-list.R
 \name{md_list}
 \alias{md_list}
-\title{Markdown list (5.4)}
+\title{Markdown list}
 \usage{
 md_list(x, type = c("bullet", "ordered", "task"), ...)
 }
@@ -17,11 +17,11 @@ md_list(x, type = c("bullet", "ordered", "task"), ...)
 A \code{glue} vector with length equal to \code{x}.
 }
 \description{
-Turn a character vector into a valid markdown list. The elements
-creating this container block can then be rendered as \code{<li>} HTML tags
-inside \code{<ul>} or \code{<ol>} depending on the \code{type} of list desired. This is a
-generic vector that calls \code{\link[=md_bullet]{md_bullet()}}, \code{\link[=md_order]{md_order()}}, or \code{\link[=md_task]{md_task()}}
-depending on what string is provided in the \code{type} argument.
+Turn a character vector into a valid markdown list. The elements creating
+this container block can then be rendered as \code{<li>} HTML tags inside \code{<ul>}
+or \code{<ol>} depending on the \code{type} of list desired. This is a generic vector
+that calls \code{\link[=md_bullet]{md_bullet()}}, \code{\link[=md_order]{md_order()}}, or \code{\link[=md_task]{md_task()}} depending on what
+string is provided in the \code{type} argument.
 }
 \examples{
 md_list(state.name[1:5], type = "bullet", marker = "+")

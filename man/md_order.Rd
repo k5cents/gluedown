@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-list.R
 \name{md_order}
 \alias{md_order}
-\title{Markdown ordered list (5.2)}
+\title{Markdown ordered list}
 \usage{
 md_order(x, marker = c(".", ")"), seq = TRUE, pad = TRUE)
 }
@@ -24,16 +24,16 @@ to \code{TRUE}.}
 A \code{glue} vector with length equal to \code{x}.
 }
 \description{
-Turn a character vector into a valid markdown ordered list. This
-container block can then be rendered as nested \code{<li>} and \code{<ol>} HTML tags.
+Turn a character vector into a valid markdown ordered list. This container
+block can then be rendered as nested \code{<li>} and \code{<ol>} HTML tags.
 }
 \details{
-A list is a sequence of one or more list items of the same type. The
-list items may be separated by any number of blank lines.
+A list is a sequence of one or more list items of the same type. The list
+items may be separated by any number of blank lines.
 
 Two list items are of the same type if they begin with a list marker of the
-same type. Two list markers are of the same type if (b) they are ordered
-list numbers with the same delimiter (either \code{.} or \code{)}).
+same type. Two list markers are of the same type if (b) they are ordered list
+numbers with the same delimiter (either \code{.} or \code{)}).
 
 A list is an ordered list if its constituent list items begin with ordered
 list markers, and a bullet list if its constituent list items begin with

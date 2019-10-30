@@ -1,3 +1,9 @@
+# gluedown 0.2.1
+
+* Return glued `md_convert()` output with `glue::as_glue()`.
+* Return glued `emphasize_at()` output.
+* Add description of `kable` and `markdown` wrapping in `gluedown.R`.
+
 # gluedown 0.2.0
 
 * Update the documentation for block container functions.

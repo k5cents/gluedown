@@ -8,7 +8,8 @@
 #' @return A `glue` vector of length equal to `x` with the `n`th word
 #'   formatted using `f`.
 #' @examples
-#' emphasize_at(x = "Live free or die", n = 4, f = md_bold)
+#' emphasize_at("Live free or die", n = 4, f = md_bold)
+#' emphasize_at(stringr::sentences[1:10], n = 2, f = md_italic)
 #' @importFrom stringr str_c str_split
 #' @importFrom purrr map_at
 #' @export
@@ -20,3 +21,5 @@ emphasize_at <- function(x, f, n) {
   }
   glue::as_glue(unlist(s))
 }
+
+

@@ -23,5 +23,6 @@ Split a sentence by whitespace and wrap a specific word(s) in a
 markdown inline function.
 }
 \examples{
-emphasize_at(x = "Live free or die", n = 4, f = md_bold)
+emphasize_at("Live free or die", n = 4, f = md_bold)
+emphasize_at(stringr::sentences[1:10], n = 2, f = md_italic)
 }

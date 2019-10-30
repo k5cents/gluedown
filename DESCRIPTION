@@ -1,6 +1,6 @@
 Package: gluedown
 Title: Wrap Vectors in Markdown Formatting
-Version: 0.2.0
+Version: 0.2.1
 Date: 2019-10-24
 Authors@R: 
     person(given = "Kiernan",
@@ -9,7 +9,7 @@ Authors@R:
            email = "kiernann@protonmail.com")
 Description: Ease the transition between R vectors and markdown
     text. With gluedown and rmarkdown, users can (1) create traditional
-    vectors in R (2) glue those strings together with the markdown syntax,
+    vectors in R, (2) glue those strings together with the markdown syntax,
     and (3) print those formatted vectors directly to the document. This
     package primarily uses GitHub Flavored Markdown (GFM), an offshoot of
     the unambiguous CommonMark specification.

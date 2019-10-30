@@ -1,3 +1,7 @@
+# gluedown 0.2.2
+
+* Check if `any()` number in `md_issue()` can't be coerced to numeric.
+
 # gluedown 0.2.1
 
 * Return glued `md_convert()` output with `glue::as_glue()`.

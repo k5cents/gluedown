@@ -8,7 +8,7 @@ Brief description of the problem
 
 ```r
 reprex({
-  #+ setup, results = 'asis' to print glue
+  #+ setup, echo=FALSE
   knitr::opts_chunk$set(results = 'asis')
 
   #+ actual-reprex-code below

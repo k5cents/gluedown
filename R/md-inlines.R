@@ -52,7 +52,7 @@ md_bold <- function(x) {
 #' @title Markdown italic emphasis (6.4)
 #' @description Turn a character vector into a vector of valid italic emphasis
 #'   markdown inline text. This inline text can then be rendered as the `<em>`
-#'   HTML tag. Right now, this package uses sinlge `_` for strong emphasis,
+#'   HTML tag. Right now, this package uses single `_` for strong emphasis,
 #'   although single `*` meets the GFM spec.
 #' @details A single `*` or `_` can open or close emphasis... Emphasis begins
 #'   with a delimiter that can open emphasis and ends with a delimiter that can

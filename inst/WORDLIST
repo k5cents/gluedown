@@ -11,6 +11,8 @@ GFM
 gluedown’
 Gruber
 Gruber's
+implementors
+inmutable
 interpretable
 Lifecycle
 pandoc
@@ -23,9 +25,15 @@ rmarkdown
 rmd
 setext
 Setext
+standardly
 striked
+strikethrough
 Strikethrough
+tasklist
+th
 tibble
 tidyverse
 Todo
+unchecking
 unescaped
+URI

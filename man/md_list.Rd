@@ -7,7 +7,7 @@
 md_list(x, type = c("bullet", "ordered", "task"), ...)
 }
 \arguments{
-\item{x}{A chracter vector of list items.}
+\item{x}{A character vector of list items.}
 
 \item{type}{The type of list to create; either bullet, ordered, or task.}
 
@@ -18,7 +18,7 @@ A \code{glue} vector with length equal to \code{x}.
 }
 \description{
 Turn a character vector into a valid markdown list. The elements
-creating this container block can then be redered as \code{<li>} HTML tags
+creating this container block can then be rendered as \code{<li>} HTML tags
 inside \code{<ul>} or \code{<ol>} depending on the \code{type} of list desired. This is a
 generic vector that calls \code{\link[=md_bullet]{md_bullet()}}, \code{\link[=md_order]{md_order()}}, or \code{\link[=md_task]{md_task()}}
 depending on what string is provided in the \code{type} argument.

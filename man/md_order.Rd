@@ -25,7 +25,7 @@ A \code{glue} vector with length equal to \code{x}.
 }
 \description{
 Turn a character vector into a valid markdown ordered list. This
-container block can then be redered as nested \code{<li>} and \code{<ol>} HTML tags.
+container block can then be rendered as nested \code{<li>} and \code{<ol>} HTML tags.
 }
 \details{
 A list is a sequence of one or more list items of the same type. The

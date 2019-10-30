@@ -15,7 +15,7 @@ A \code{glue} vector of length equal to \code{x}.
 \description{
 Turn a character vector into a vector of valid italic emphasis
 markdown inline text. This inline text can then be rendered as the \code{<em>}
-HTML tag. Right now, this package uses sinlge \code{_} for strong emphasis,
+HTML tag. Right now, this package uses single \code{_} for strong emphasis,
 although single \code{*} meets the GFM spec.
 }
 \details{

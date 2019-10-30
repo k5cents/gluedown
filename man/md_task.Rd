@@ -17,7 +17,7 @@ A \code{glue} vector with length equal to \code{x}.
 }
 \description{
 Turn a character vector into a valid markdown ordered list. This
-container block can then be redered as nested \code{<li>} and \code{<ol>} HTML tags.
+container block can then be rendered as nested \code{<li>} and \code{<ol>} HTML tags.
 On venues supporting GitHub Flavored Markdown, this list will be specially
 rendered with the list item market replaces with a
 \code{<input type="checkbox">} HTML tag.

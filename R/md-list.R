@@ -1,10 +1,10 @@
 #' @title Markdown list (5.4)
 #' @description Turn a character vector into a valid markdown list. The elements
-#'   creating this container block can then be redered as `<li>` HTML tags
+#'   creating this container block can then be rendered as `<li>` HTML tags
 #'   inside `<ul>` or `<ol>` depending on the `type` of list desired. This is a
 #'   generic vector that calls [md_bullet()], [md_order()], or [md_task()]
 #'   depending on what string is provided in the `type` argument.
-#' @param x A chracter vector of list items.
+#' @param x A character vector of list items.
 #' @param type The type of list to create; either bullet, ordered, or task.
 #' @param ... Arguments passed to the appropriate list type function.
 #' @return A `glue` vector with length equal to `x`.
@@ -29,7 +29,7 @@ md_list <- function(x, type = c("bullet", "ordered", "task"), ...) {
 
 #' @title Markdown bullet list (5.2)
 #' @description Turn a character vector into a valid markdown bullet list. This
-#'   container block can then be redered as nested `<li>` and `<ul>` HTML tags.
+#'   container block can then be rendered as nested `<li>` and `<ul>` HTML tags.
 #' @details A list is a sequence of one or more list items of the same type. The
 #'   list items may be separated by any number of blank lines.
 #'
@@ -52,7 +52,7 @@ md_bullet <- function(x, marker = c("*", "-", "+")) {
 
 #' @title Markdown ordered list (5.2)
 #' @description Turn a character vector into a valid markdown ordered list. This
-#'   container block can then be redered as nested `<li>` and `<ol>` HTML tags.
+#'   container block can then be rendered as nested `<li>` and `<ol>` HTML tags.
 #' @details A list is a sequence of one or more list items of the same type. The
 #'   list items may be separated by any number of blank lines.
 #'
@@ -104,7 +104,7 @@ md_order <- function(x, marker = c(".", ")"), seq = TRUE, pad = TRUE) {
 
 #' @title Markdown task list (5.3 extension)
 #' @description Turn a character vector into a valid markdown ordered list. This
-#'   container block can then be redered as nested `<li>` and `<ol>` HTML tags.
+#'   container block can then be rendered as nested `<li>` and `<ol>` HTML tags.
 #'   On venues supporting GitHub Flavored Markdown, this list will be specially
 #'   rendered with the list item market replaces with a
 #'   `<input type="checkbox">` HTML tag.

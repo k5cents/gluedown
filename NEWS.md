@@ -1,3 +1,13 @@
+# gluedown 0.2.0
+
+* Update the documentation for block container functions.
+* Update the documentation for inline functions.
+* Rename `md_list()` to `md_order()`.
+* Create generic `md_list()` to call all list types.
+* Implement `usethis::use_spell_check()`.
+* Improve template GitHub issue.
+* Create and delete `md_emoji()` (want the reverse, maybe).
+
 # gluedown 0.1.4
 
 * Split `md_chunk()` into `md_indent()` and `md_fence()`.
@@ -5,7 +15,6 @@
 * Use `stringr::str_dup()` in `md_heading()`, `md_setext()`, and `md_rule()`.
 * Update unit tests for the new versions of leaf block functions.
 * Update the documentation for leaf block functions.
-* _Todo: Improve the rest of the documentation_*.
 
 # gluedown 0.1.2
 

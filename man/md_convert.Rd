@@ -4,20 +4,22 @@
 \alias{md_convert}
 \title{Convert Markdown to HTML}
 \usage{
-md_convert(md, frag = TRUE)
+md_convert(x, frag = TRUE)
 }
 \arguments{
-\item{md}{The markdown text to be converted.}
+\item{x}{The \emph{markdown} text (from \code{md_*()}) to be converted.}
 
-\item{frag}{logical; Whether only a single HTML fragment should be returned.}
+\item{frag}{logical; Whether only a single HTML fragment should be returned.
+\code{TRUE} by default.}
 }
 \value{
-The HTML fragment equivalent.
+A \code{glue} vector of length 1 containing HTML tags.
 }
 \description{
 Wraps around \code{\link[markdown:markdownToHTML]{markdown::markdownToHTML()}} to convert markdown
-text into HTML \emph{fragments}.
+text into HTML \emph{fragments}. Primarily used to test that \code{md_*()} functions
+create vectors that can be properly rendered as HTML.
 }
 \examples{
-md_convert(md = md_bold("Test"))
+md_convert(x = md_bold("test"))
 }

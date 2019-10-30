@@ -19,9 +19,9 @@ The `gluedown` package helps transition from R’s powerful vectors to
 formatted markdown text. The functions use
 [`glue()`](https://github.com/tidyverse/glue) to wrap character vectors
 in valid markdown syntax. In combination with the
-[`rmarkdown`](https://github.com/rstudio/rmarkdown) package, this allows
-users to directly print R vectors as formatted text for improved clarity
-and readability.
+[`knitr`](https://github.com/yihui/knitr) package, this allows users to
+directly print R vectors as formatted text for improved clarity and
+readability.
 
 ## Installation
 
@@ -36,8 +36,8 @@ devtools::install_github("kiernann/gluedown")
 ## Usage
 
 The `md_*()` functions are most useful in combination with the
-`results='asis'` chunk option; this allows users to directly print
-formatted text from a code chunk to the body of a document.
+`results='asis'` `knitr` chunk option; this allows users to directly
+print formatted text from a code chunk to the body of a document.
 
 ``` r
 library(gluedown)
@@ -72,7 +72,8 @@ md_bullet(inlines)
 
 All functions are designed to fit within the tidyverse ecosystem by
 working with
-[pipes](https://magrittr.tidyverse.org/reference/pipe.html).
+[pipes](https://magrittr.tidyverse.org/reference/pipe.html). Chain
+together some code and print the results.
 
 ``` r
 read_html("https://w.wiki/A58") %>% 
@@ -102,9 +103,9 @@ legislation <- c("Houses passes", "Senate concurs", "President signs")
 md_task(legislation, check = 1:2)
 ```
 
-  - \[x\] Houses passes
-  - \[x\] Senate concurs
-  - \[ \] President signs
+  - [x] Houses passes
+  - [x] Senate concurs
+  - [ ] President signs
 
 ### Inline
 
@@ -121,10 +122,10 @@ abb <- state.abb[match(name, state.name)]
 
 Then you can easily print that result in the middle of regular text with
 markdown formatting. In this case, our randomly selected state is
-**Missouri**, which has the abbreviation *MO*.
+**Colorado**, which has the abbreviation *CO*.
 
 ## Contribute
 
-Please note that the ‘gluedown’ project is released with a [Contributor
+Please note that the `gluedown` project is released with a [Contributor
 Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this
 project, you agree to abide by its terms.

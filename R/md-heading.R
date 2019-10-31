@@ -71,6 +71,9 @@ md_heading <- function(x, level = 1) {
 #' @param level An numeric vector of all either 1 or 2 to determine whether
 #'   level 1 headings are created with `=` or level two with `-`. If less levels
 #'   are provided than headings, `level` will be repeated via [glue::glue()].
+#' @param width logical or integer; if `TRUE` the width will be automatically
+#'   determined by the width of the longest line in `x`. If an integer, the
+#'   setext underline will be that wide.
 #' @return A `glue` vector of headings with length equal to `x`.
 #' @importFrom glue glue glue_collapse
 #' @family leaf block functions
@@ -78,14 +81,22 @@ md_heading <- function(x, level = 1) {
 #' md_setext("Overview")
 #' md_setext("This is a setext\nheading", level = 2)
 #' md_setext(c("one", "two", "three", "four"), level = c(1, 2))
+#' md_setext("Installation", level = 2, width = 55)
 #' @export
-md_setext <- function(x, level = 1) {
+md_setext <- function(x, level = 1, width = TRUE) {
+  if (any(x == "")) {
+    stop("Setext headings cannot be empty.")
+  }
   char <- if (max(level) > 2 | min(level) < 1) {
     stop("Setext headings only support levels 1 and 2.")
   } else {
     char <- c("=", "-")[level]
   }
-
-  width <- sapply(strsplit(x, "\n"), function(y) max(nchar(y)))
-  glue::glue("{x}\n{stringr::str_dup(char, width)}")
+  n <- if ((all(is.logical(width)) & isTRUE(width)) | min(width) < 1) {
+    sapply(strsplit(x, "\n"), function(y) max(nchar(y)))
+  } else {
+    width
+  }
+  line <- stringr::str_dup(char, n)
+  glue::glue("{x}\n{line}")
 }

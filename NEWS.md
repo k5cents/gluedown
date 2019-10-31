@@ -1,3 +1,9 @@
+# gluedown 0.3.1
+
+* Rename `md-break.R` to `md-rule.R`
+* Implement optional spacing in `md_rule()`
+* Implement optional custom underline width in `md_setext()`.
+
 # gluedown 0.3.0
 
 * Create `md_paragraph()` and `md_softline()`.

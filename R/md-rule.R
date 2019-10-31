@@ -10,20 +10,29 @@
 #' @param char The type of rule; either: `-`, `_`, or `*`. Defaults to `*`.
 #' @param n The width of the rule; an integer indicating number of times to
 #'   repeat each character. Defaults to the minimum of 3.
+#' @param space logical or numeric; How many spaces to place between each
+#'   `char`. Defaults to `FALSE`, which places 0 spaces.
 #' @return A repeated-character `glue` vector with length 1.
 #' @family leaf block functions
 #' @examples
 #' md_rule()
 #' md_rule("_")
 #' md_rule(n = 10)
+#' md_rule(space = TRUE)
 #' @importFrom glue glue_collapse
 #' @importFrom stringr str_dup
 #' @export
-md_rule <- function(char = c("*", "-", "_"), n = 3) {
+md_rule <- function(char = c("*", "-", "_"), n = 3, space = FALSE) {
   if (n < 3)  {
     stop("At least 3 characters must be used")
   }
   char <- match.arg(char)
-  glue::glue("\n{stringr::str_dup(char, n)}\n")
+  sep <- glue::glue_collapse(rep(" ", as.numeric(space)))
+  sep <- if (length(sep) == 0) {
+    ""
+  } else {
+    sep
+  }
+  glue::glue_collapse(rep(char, n), sep = sep)
 }
 

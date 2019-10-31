@@ -4,13 +4,16 @@
 \alias{md_rule}
 \title{Markdown horizontal rule (4.1)}
 \usage{
-md_rule(char = c("*", "-", "_"), n = 3)
+md_rule(char = c("*", "-", "_"), n = 3, space = FALSE)
 }
 \arguments{
 \item{char}{The type of rule; either: \code{-}, \code{_}, or \code{*}. Defaults to \code{*}.}
 
 \item{n}{The width of the rule; an integer indicating number of times to
 repeat each character. Defaults to the minimum of 3.}
+
+\item{space}{logical or numeric; How many spaces to place between each
+\code{char}. Defaults to \code{FALSE}, which places 0 spaces.}
 }
 \value{
 A repeated-character \code{glue} vector with length 1.
@@ -28,6 +31,7 @@ by any number of spaces or tabs, forms a thematic break.
 md_rule()
 md_rule("_")
 md_rule(n = 10)
+md_rule(space = TRUE)
 }
 \seealso{
 Other leaf block functions: \code{\link{md_chunk}},

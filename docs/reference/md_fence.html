@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown fenced code block (4.5) — md_fence • gluedown</title>
+<title>Markdown fenced code block — md_fence • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,10 +42,10 @@
 
 
 
-<meta property="og:title" content="Markdown fenced code block (4.5) — md_fence" />
-<meta property="og:description" content="Turn a character vector of lines into a single code block with
-lines bookended with a code fence of backticks or tildes. This markdown
-leaf block can be rendered as HTML &amp;lt;code&amp;gt; tags inside &amp;lt;pre&amp;gt; tags." />
+<meta property="og:title" content="Markdown fenced code block — md_fence" />
+<meta property="og:description" content="Turn a character vector of lines into a single code block with lines
+bookended with a code fence of backticks or tildes. This markdown leaf block
+can be rendered as HTML &amp;lt;code&amp;gt; tags inside &amp;lt;pre&amp;gt; tags." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -79,7 +79,7 @@ leaf block can be rendered as HTML &amp;lt;code&amp;gt; tags inside &amp;lt;pre&
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -130,15 +130,15 @@ leaf block can be rendered as HTML &amp;lt;code&amp;gt; tags inside &amp;lt;pre&
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown fenced code block (4.5)</h1>
+    <h1>Markdown fenced code block</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-chunk.R'><code>R/md-chunk.R</code></a></small>
     <div class="hidden name"><code>md_fence.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Turn a character vector of lines into a single code block with
-lines bookended with a code fence of backticks or tildes. This markdown
-leaf block can be rendered as HTML <code>&lt;code&gt;</code> tags inside <code>&lt;pre&gt;</code> tags.</p>
+    <p>Turn a character vector of lines into a single code block with lines
+bookended with a code fence of backticks or tildes. This markdown leaf block
+can be rendered as HTML <code>&lt;code&gt;</code> tags inside <code>&lt;pre&gt;</code> tags.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_fence</span>(<span class='no'>x</span>, <span class='kw'>char</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"`"</span>, <span class='st'>"~"</span>), <span class='kw'>lang</span> <span class='kw'>=</span> <span class='st'>"r"</span>)</pre>
@@ -168,30 +168,30 @@ a code for the language of the lines of <code>x</code>. Defaults to <code>r</cod
     <p>A character vector wrapped on either side by code fences.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>A code fence is a sequence of at least three consecutive backtick
-characters (```) or tildes (<code>~</code>). (Tildes and backticks cannot be mixed.) A
-fenced code block begins with a code fence, indented no more than three
-spaces.</p>
+    <p>A code fence is a sequence of at least three consecutive backtick characters
+(```) or tildes (<code>~</code>). (Tildes and backticks cannot be mixed.) A fenced code
+block begins with a code fence, indented no more than three spaces.</p>
 <p>The line with the opening code fence may optionally contain some text
-following the code fence; this is trimmed of leading and trailing
-whitespace and called the <strong>info string</strong>...</p>
+following the code fence; this is trimmed of leading and trailing whitespace
+and called the info string...</p>
 <p>The content of the code block consists of all subsequent lines, until a
 closing code fence of the same type as the code block began with (backticks
-or tildes), and with at least as many backticks or tildes as the opening
-code fence...</p>
+or tildes), and with at least as many backticks or tildes as the opening code
+fence...</p>
 <p>A fenced code block may interrupt a paragraph, and does not require a blank
 line either before or after.</p>
 <p>The content of a code fence is treated as literal text, not parsed as
 inlines. The first word of the info string is typically used to specify the
-language of the code sample, and rendered in the class attribute of the
-code tag. However, this spec does not mandate any particular treatment of
-the info string (see the <code>lang</code> argument).</p>
+language of the code sample, and rendered in the class attribute of the code
+tag. However, this spec does not mandate any particular treatment of the info
+string (see the <code>lang</code> argument).</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other leaf block functions: <code><a href='md_chunk.html'>md_chunk</a></code>,
   <code><a href='md_heading.html'>md_heading</a></code>, <code><a href='md_indent.html'>md_indent</a></code>,
-  <code><a href='md_reference.html'>md_reference</a></code>, <code><a href='md_rule.html'>md_rule</a></code>,
-  <code><a href='md_setext.html'>md_setext</a></code>, <code><a href='md_table.html'>md_table</a></code></p></div>
+  <code><a href='md_paragraph.html'>md_paragraph</a></code>, <code><a href='md_reference.html'>md_reference</a></code>,
+  <code><a href='md_rule.html'>md_rule</a></code>, <code><a href='md_setext.html'>md_setext</a></code>,
+  <code><a href='md_table.html'>md_table</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>md_fence</span>(<span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span>(<span class='no'>sd</span>))</div><div class='output co'>#&gt; ```r

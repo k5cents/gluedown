@@ -43,9 +43,9 @@
 
 
 <meta property="og:title" content="Markdown Setext headings (4.3) — md_setext" />
-<meta property="og:description" content="Turn a character vector into a vector of valid markdown Setext
-headings. These markdown leaf blocks can be rendered as the &amp;lt;h1&amp;gt; and
-&amp;lt;h2&amp;gt; tags only." />
+<meta property="og:description" content="Turn a character vector into a vector of valid markdown Setext headings.
+These markdown leaf blocks can be rendered as the &amp;lt;h1&amp;gt; and &amp;lt;h2&amp;gt; tags
+only." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -79,7 +79,7 @@ headings. These markdown leaf blocks can be rendered as the &amp;lt;h1&amp;gt; a
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -136,9 +136,9 @@ headings. These markdown leaf blocks can be rendered as the &amp;lt;h1&amp;gt; a
     </div>
 
     <div class="ref-description">
-    <p>Turn a character vector into a vector of valid markdown Setext
-headings. These markdown leaf blocks can be rendered as the <code>&lt;h1&gt;</code> and
-<code>&lt;h2&gt;</code> tags <em>only</em>.</p>
+    <p>Turn a character vector into a vector of valid markdown Setext headings.
+These markdown leaf blocks can be rendered as the <code>&lt;h1&gt;</code> and <code>&lt;h2&gt;</code> tags
+<em>only</em>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_setext</span>(<span class='no'>x</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
@@ -163,12 +163,11 @@ are provided than headings, <code>level</code> will be repeated via <code><a hre
     <p>A <code>glue</code> vector of headings with length equal to <code>x</code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>A setext heading consists of one or more lines of text, each
-containing at least one non-whitespace character, with no more than 3
-spaces indentation, followed by a setext heading underline. The lines of
-text must be such that, were they not followed by the setext heading
-underline, they would be interpreted as a paragraph: they cannot be
-interpretable as a
+    <p>A setext heading consists of one or more lines of text, each containing at
+least one non-whitespace character, with no more than 3 spaces indentation,
+followed by a setext heading underline. The lines of text must be such that,
+were they not followed by the setext heading underline, they would be
+interpreted as a paragraph: they cannot be interpretable as a
 <a href='https://github.github.com/gfm/#code-fence'>code fence</a>,
 <a href='https://github.github.com/gfm/#atx-headings'>ATX heading</a>,
 <a href='https://github.github.com/gfm/#block-quotes'>block quote</a>,
@@ -182,8 +181,8 @@ empty list items, it should be interpreted this way and not as a setext
 heading underline.</p>
 <p>The heading is a level 1 heading if <code>=</code> characters are used in the setext
 heading underline, and a level 2 heading if <code>-</code> characters are used. The
-contents of the heading are the result of parsing the preceding lines of
-text as CommonMark inline content.</p>
+contents of the heading are the result of parsing the preceding lines of text
+as CommonMark inline content.</p>
 <p>In general, a setext heading need not be preceded or followed by a blank
 line. However, it cannot interrupt a paragraph, so when a setext heading
 comes after a paragraph, a blank line is needed between them.</p>
@@ -191,8 +190,9 @@ comes after a paragraph, a blank line is needed between them.</p>
 
     <div class='dont-index'><p>Other leaf block functions: <code><a href='md_chunk.html'>md_chunk</a></code>,
   <code><a href='md_fence.html'>md_fence</a></code>, <code><a href='md_heading.html'>md_heading</a></code>,
-  <code><a href='md_indent.html'>md_indent</a></code>, <code><a href='md_reference.html'>md_reference</a></code>,
-  <code><a href='md_rule.html'>md_rule</a></code>, <code><a href='md_table.html'>md_table</a></code></p></div>
+  <code><a href='md_indent.html'>md_indent</a></code>, <code><a href='md_paragraph.html'>md_paragraph</a></code>,
+  <code><a href='md_reference.html'>md_reference</a></code>, <code><a href='md_rule.html'>md_rule</a></code>,
+  <code><a href='md_table.html'>md_table</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>md_setext</span>(<span class='st'>"Overview"</span>)</div><div class='output co'>#&gt; Overview

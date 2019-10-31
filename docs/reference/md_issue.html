@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown Issue — md_issue • gluedown</title>
+<title>Markdown GitHub issue — md_issue • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,10 +42,9 @@
 
 
 
-<meta property="og:title" content="Markdown Issue — md_issue" />
-<meta property="og:description" content="A markdown feature unique to GitHub. Allows users to hyperlink
-a specific issue or pull request using a username, repository name, and
-issue number." />
+<meta property="og:title" content="Markdown GitHub issue — md_issue" />
+<meta property="og:description" content="Take a character vector and numeric vector and concatenate them into a glue
+vector of valid GitHub issue autolinks (username/repo#issue)." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -79,7 +78,7 @@ issue number." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -130,15 +129,14 @@ issue number." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown Issue</h1>
+    <h1>Markdown GitHub issue</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-issue.R'><code>R/md-issue.R</code></a></small>
     <div class="hidden name"><code>md_issue.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A markdown feature unique to GitHub. Allows users to hyperlink
-a specific issue or pull request using a username, repository name, and
-issue number.</p>
+    <p>Take a character vector and numeric vector and concatenate them into a glue
+vector of valid GitHub issue autolinks (username/repo#issue).</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_issue</span>(<span class='no'>repo</span>, <span class='no'>num</span>)</pre>
@@ -159,24 +157,33 @@ issue number.</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A character vector which GitHub can automatically hyperlink.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Within conversations on GitHub, references to issues and pull requests are
+<a href='https://help.github.com/en/github/writing-on-github/autolinked-references-and-urls#issues-and-pull-requests'>automatically converted to shortened links</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other inline functions: <code><a href='md_bold.html'>md_bold</a></code>,
   <code><a href='md_code.html'>md_code</a></code>, <code><a href='md_escape.html'>md_escape</a></code>,
   <code><a href='md_hardline.html'>md_hardline</a></code>, <code><a href='md_image.html'>md_image</a></code>,
   <code><a href='md_italic.html'>md_italic</a></code>, <code><a href='md_link.html'>md_link</a></code>,
-  <code><a href='md_strike.html'>md_strike</a></code></p>
+  <code><a href='md_softline.html'>md_softline</a></code>, <code><a href='md_strike.html'>md_strike</a></code></p>
 <p>Other markdown extensions: <code><a href='md_strike.html'>md_strike</a></code>,
   <code><a href='md_table.html'>md_table</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_issue</span>(<span class='st'>"kiernann/gluedown"</span>, <span class='fl'>1</span>)</div><div class='output co'>#&gt; kiernann/gluedown#1</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>md_issue</span>(<span class='st'>"kiernann/gluedown"</span>, <span class='fl'>1</span>:<span class='fl'>5</span>)</div><div class='output co'>#&gt; kiernann/gluedown#1
+#&gt; kiernann/gluedown#2
+#&gt; kiernann/gluedown#3
+#&gt; kiernann/gluedown#4
+#&gt; kiernann/gluedown#5</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
       <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>

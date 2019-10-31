@@ -43,10 +43,7 @@
 
 
 <meta property="og:title" content="Markdown code block — md_chunk" />
-<meta property="og:description" content="Turn a character vector of lines into a single code block either
-indented or fenced in tildes or backticks. This markdown leaf block can be
-rendered as nested HTML &amp;lt;code&amp;gt; and &amp;lt;pre&amp;gt; tags. This function either
-calls md_fence() or md_indent() based on the type argument." />
+<meta property="og:description" content="Take a character vector of lines and return a glue vector" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -80,7 +77,7 @@ calls md_fence() or md_indent() based on the type argument." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -137,10 +134,7 @@ calls md_fence() or md_indent() based on the type argument." />
     </div>
 
     <div class="ref-description">
-    <p>Turn a character vector of lines into a single code block either
-indented or fenced in tildes or backticks. This markdown leaf block can be
-rendered as nested HTML <code>&lt;code&gt;</code> and <code>&lt;pre&gt;</code> tags. This function either
-calls <code><a href='md_fence.html'>md_fence()</a></code> or <code><a href='md_indent.html'>md_indent()</a></code> based on the <code>type</code> argument.</p>
+    <p>Take a character vector of lines and return a glue vector</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_chunk</span>(<span class='no'>x</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"tick"</span>, <span class='st'>"tilde"</span>, <span class='st'>"indent"</span>), <span class='no'>...</span>)</pre>
@@ -168,12 +162,19 @@ single block, possibly created by <code><a href='https://readr.tidyverse.org/ref
 
     <p>A <code>glue</code> object of length 1, with elements of <code>x</code> formatted via
 <code><a href='md_fence.html'>md_fence()</a></code> or <code><a href='md_indent.html'>md_indent()</a></code>.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Turn a character vector of lines into a single code block either indented or
+fenced in tildes or backticks. This markdown leaf block can be rendered as
+nested HTML <code>&lt;code&gt;</code> and <code>&lt;pre&gt;</code> tags. This function either calls
+<code><a href='md_fence.html'>md_fence()</a></code> or <code><a href='md_indent.html'>md_indent()</a></code> based on the <code>type</code> argument.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other leaf block functions: <code><a href='md_fence.html'>md_fence</a></code>,
   <code><a href='md_heading.html'>md_heading</a></code>, <code><a href='md_indent.html'>md_indent</a></code>,
-  <code><a href='md_reference.html'>md_reference</a></code>, <code><a href='md_rule.html'>md_rule</a></code>,
-  <code><a href='md_setext.html'>md_setext</a></code>, <code><a href='md_table.html'>md_table</a></code></p></div>
+  <code><a href='md_paragraph.html'>md_paragraph</a></code>, <code><a href='md_reference.html'>md_reference</a></code>,
+  <code><a href='md_rule.html'>md_rule</a></code>, <code><a href='md_setext.html'>md_setext</a></code>,
+  <code><a href='md_table.html'>md_table</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>md_chunk</span>(<span class='st'>"$ sudo apt install r-base-dev"</span>, <span class='kw'>lang</span> <span class='kw'>=</span> <span class='st'>"bash"</span>)</div><div class='output co'>#&gt; ```bash
@@ -198,6 +199,7 @@ single block, possibly created by <code><a href='https://readr.tidyverse.org/ref
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
       <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>

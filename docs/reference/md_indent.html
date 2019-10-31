@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown indented code block (4.4) — md_indent • gluedown</title>
+<title>Markdown indented code block — md_indent • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,11 +42,11 @@
 
 
 
-<meta property="og:title" content="Markdown indented code block (4.4) — md_indent" />
-<meta property="og:description" content="Turn a character vector of lines into a single code block with
-each line indented four spaces. This markdown leaf block can be rendered as
-nested HTML &amp;lt;code&amp;gt; and &amp;lt;pre&amp;gt; tags. This is the code block format
-required by legacy Reddit-flavored Markdown." />
+<meta property="og:title" content="Markdown indented code block — md_indent" />
+<meta property="og:description" content="Turn a character vector of lines into a single code block with each line
+indented four spaces. This markdown leaf block can be rendered as nested HTML
+&amp;lt;code&amp;gt; and &amp;lt;pre&amp;gt; tags. This is the code block format required by legacy
+Reddit-flavored Markdown." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -80,7 +80,7 @@ required by legacy Reddit-flavored Markdown." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -131,16 +131,16 @@ required by legacy Reddit-flavored Markdown." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown indented code block (4.4)</h1>
+    <h1>Markdown indented code block</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-chunk.R'><code>R/md-chunk.R</code></a></small>
     <div class="hidden name"><code>md_indent.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Turn a character vector of lines into a single code block with
-each line indented four spaces. This markdown leaf block can be rendered as
-nested HTML <code>&lt;code&gt;</code> and <code>&lt;pre&gt;</code> tags. This is the code block format
-required by legacy Reddit-flavored Markdown.</p>
+    <p>Turn a character vector of lines into a single code block with each line
+indented four spaces. This markdown leaf block can be rendered as nested HTML
+<code>&lt;code&gt;</code> and <code>&lt;pre&gt;</code> tags. This is the code block format required by legacy
+Reddit-flavored Markdown.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_indent</span>(<span class='no'>x</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>4</span>)</pre>
@@ -165,24 +165,24 @@ single block, possibly created by <code><a href='https://readr.tidyverse.org/ref
 4 spaces and separated by a newline.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>An indented code block is composed of one or more indented chunks
-separated by blank lines. An indented chunk is a sequence of non-blank
-lines, each indented four or more spaces. The contents of the code block
-are the literal contents of the lines, including trailing line endings,
-minus four spaces of indentation. An indented code block has no info
-string.</p>
+    <p>An indented code block is composed of one or more indented chunks separated
+by blank lines. An indented chunk is a sequence of non-blank lines, each
+indented four or more spaces. The contents of the code block are the literal
+contents of the lines, including trailing line endings, minus four spaces of
+indentation. An indented code block has no info string.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other leaf block functions: <code><a href='md_chunk.html'>md_chunk</a></code>,
   <code><a href='md_fence.html'>md_fence</a></code>, <code><a href='md_heading.html'>md_heading</a></code>,
-  <code><a href='md_reference.html'>md_reference</a></code>, <code><a href='md_rule.html'>md_rule</a></code>,
-  <code><a href='md_setext.html'>md_setext</a></code>, <code><a href='md_table.html'>md_table</a></code></p></div>
+  <code><a href='md_paragraph.html'>md_paragraph</a></code>, <code><a href='md_reference.html'>md_reference</a></code>,
+  <code><a href='md_rule.html'>md_rule</a></code>, <code><a href='md_setext.html'>md_setext</a></code>,
+  <code><a href='md_table.html'>md_table</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_indent</span>(<span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span>(<span class='no'>sd</span>))</div><div class='output co'>#&gt;     function (x, na.rm = FALSE) 
-#&gt;     sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), 
-#&gt;         na.rm = na.rm))</div><div class='input'>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>md_indent</span>(<span class='fu'><a href='https://rdrr.io/r/base/deparse.html'>deparse</a></span>(<span class='no'>md_bold</span>))</div><div class='output co'>#&gt;     function (x) 
+#&gt;     {
+#&gt;         glue::glue("**{x}**")
+#&gt;     }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

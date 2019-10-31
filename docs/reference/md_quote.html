@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown Block Quotes — md_quote • gluedown</title>
+<title>Markdown block quotes — md_quote • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,10 @@
 
 
 
-<meta property="og:title" content="Markdown Block Quotes — md_quote" />
-<meta property="og:description" content="Form block quotes from a vector of character strings." />
+<meta property="og:title" content="Markdown block quotes — md_quote" />
+<meta property="og:description" content="Take a character vector and prepend each element in a greater-than symbol to
+create a glue vector of block quote markdown text. This inline is rendered as
+a &amp;lt;blockquote&amp;gt; HTML tag." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -128,13 +130,15 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown Block Quotes</h1>
+    <h1>Markdown block quotes</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-quote.R'><code>R/md-quote.R</code></a></small>
     <div class="hidden name"><code>md_quote.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Form block quotes from a vector of character strings.</p>
+    <p>Take a character vector and prepend each element in a greater-than symbol to
+create a glue vector of block quote markdown text. This inline is rendered as
+a <code>&lt;blockquote&gt;</code> HTML tag.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_quote</span>(<span class='no'>x</span>)</pre>
@@ -154,20 +158,20 @@
 element.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>A block quote marker consists of 0-3 spaces of initial indent, plus
-(a) the character <code>&gt;</code> together with a following space, or (b) a single
-character <code>&gt;</code> not followed by a space.</p>
+    <p>A block quote marker consists of 0-3 spaces of initial indent, plus (a) the
+character <code>&gt;</code> together with a following space, or (b) a single character <code>&gt;</code>
+not followed by a space.</p>
 <p>The following rules define block quotes:</p><ol>
-<li><p><strong>Basic case.</strong> If a string of lines <em>Ls</em> constitute a sequence of
-blocks <em>Bs</em>, then the result of prepending a block quote marker to the
-beginning of each line in <em>Ls</em> is a block quote containing <em>Bs</em>.</p></li>
+<li><p><strong>Basic case.</strong> If a string of lines <em>Ls</em> constitute a sequence of blocks
+<em>Bs</em>, then the result of prepending a block quote marker to the beginning of
+each line in <em>Ls</em> is a block quote containing <em>Bs</em>.</p></li>
 <li><p><strong>Laziness.</strong> If a string of lines <em>Ls</em> constitute a block quote with
 contents <em>Bs</em>, then the result of deleting the initial block quote marker
 from one or more lines in which the next non-whitespace character after the
-block quote marker is paragraph continuation text is a block quote with
-<em>Bs</em> as its content. Paragraph continuation text is text that will be
-parsed as part of the content of a paragraph, but does not occur at the
-beginning of the paragraph.</p></li>
+block quote marker is paragraph continuation text is a block quote with <em>Bs</em>
+as its content. Paragraph continuation text is text that will be parsed as
+part of the content of a paragraph, but does not occur at the beginning of
+the paragraph.</p></li>
 <li><p><strong>Consecutiveness.</strong> A document cannot contain two block quotes in a row
 unless there is a blank line between them.</p></li>
 </ol>
@@ -176,11 +180,13 @@ unless there is a blank line between them.</p></li>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other container block functions: <code><a href='md_bullet.html'>md_bullet</a></code>,
-  <code><a href='md_list.html'>md_list</a></code>, <code><a href='md_order.html'>md_order</a></code>,
-  <code><a href='md_task.html'>md_task</a></code></p></div>
+  <code><a href='md_define.html'>md_define</a></code>, <code><a href='md_list.html'>md_list</a></code>,
+  <code><a href='md_order.html'>md_order</a></code>, <code><a href='md_task.html'>md_task</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_quote</span>(<span class='st'>"Give me liberty, or give me death!"</span>)</div><div class='output co'>#&gt; &gt; Give me liberty, or give me death!</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>md_quote</span>(<span class='st'>"Give me liberty, or give me death!"</span>)</div><div class='output co'>#&gt; &gt; Give me liberty, or give me death!</div><div class='input'><span class='fu'>md_quote</span>(<span class='kw pkg'>stringr</span><span class='kw ns'>::</span><span class='no'><a href='https://stringr.tidyverse.org/reference/stringr-data.html'>sentences</a></span>[<span class='fl'>1</span>:<span class='fl'>3</span>])</div><div class='output co'>#&gt; &gt; The birch canoe slid on the smooth planks.
+#&gt; &gt; Glue the sheet to the dark blue background.
+#&gt; &gt; It's easy to tell the depth of a well.</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

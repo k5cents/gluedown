@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convert Markdown to HTML — md_convert • gluedown</title>
+<title>Convert markdown to HTML — md_convert • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,10 +42,11 @@
 
 
 
-<meta property="og:title" content="Convert Markdown to HTML — md_convert" />
-<meta property="og:description" content="Wraps around markdown::markdownToHTML() to convert markdown
-text into HTML fragments. Primarily used to test that md_*() functions
-create vectors that can be properly rendered as HTML." />
+<meta property="og:title" content="Convert markdown to HTML — md_convert" />
+<meta property="og:description" content="Take a character vector of valid markdown text and pass it to
+markdown::markdownToHTML() to create a glue vector of HTML fragments.
+Primarily used to test that md_*() functions create vectors that meet the
+GFM spec and can be rendered as HTML." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -79,7 +80,7 @@ create vectors that can be properly rendered as HTML." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -130,15 +131,16 @@ create vectors that can be properly rendered as HTML." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Convert Markdown to HTML</h1>
+    <h1>Convert markdown to HTML</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-convert.R'><code>R/md-convert.R</code></a></small>
     <div class="hidden name"><code>md_convert.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Wraps around <code><a href='https://rdrr.io/pkg/markdown/man/markdownToHTML.html'>markdown::markdownToHTML()</a></code> to convert markdown
-text into HTML <em>fragments</em>. Primarily used to test that <code>md_*()</code> functions
-create vectors that can be properly rendered as HTML.</p>
+    <p>Take a character vector of valid markdown text and pass it to
+<code><a href='https://rdrr.io/pkg/markdown/man/markdownToHTML.html'>markdown::markdownToHTML()</a></code> to create a glue vector of HTML fragments.
+Primarily used to test that <code>md_*()</code> functions create vectors that meet the
+GFM spec and can be rendered as HTML.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_convert</span>(<span class='no'>x</span>, <span class='kw'>frag</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
@@ -148,7 +150,7 @@ create vectors that can be properly rendered as HTML.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>The <em>markdown</em> text (from <code>md_*()</code>) to be converted.</p></td>
+      <td><p>A character vector of <em>markdown</em> text to be converted.</p></td>
     </tr>
     <tr>
       <th>frag</th>

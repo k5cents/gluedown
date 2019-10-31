@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown definitions (unsupported extension) — md_define • gluedown</title>
+<title>Markdown definitions — md_define • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,10 @@
 
 
 
-<meta property="og:title" content="Markdown definitions (unsupported extension) — md_define" />
-<meta property="og:description" content="Form a single-level unordered list from a vector." />
+<meta property="og:title" content="Markdown definitions — md_define" />
+<meta property="og:description" content="Take a character vector of terms and of corresponding definitions and
+return a single glue vector of concatenated entries sepated by two newlines.
+This container is rendered as the &amp;lt;dl&amp;gt; HTML" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -77,7 +79,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -128,13 +130,15 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown definitions (unsupported extension)</h1>
+    <h1>Markdown definitions</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-define.R'><code>R/md-define.R</code></a></small>
     <div class="hidden name"><code>md_define.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Form a single-level unordered list from a vector.</p>
+    <p>Take a character vector of terms and of corresponding definitions and
+return a single glue vector of concatenated entries sepated by two newlines.
+This container is rendered as the <code>&lt;dl&gt;</code> HTML</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_define</span>(<span class='no'>term</span>, <span class='no'>def</span>)</pre>
@@ -159,14 +163,19 @@
 
     <p>Definitions are not supported in GFM, but <em>are</em> supported by the
 <a href='https://pandoc.org/MANUAL.html#pandocs-markdown'>pandoc engine</a> used by R
-Markdown. Per that specification: Each term must fit on one line, which
-may optionally be followed by a blank line, and must be followed by one or
-more definitions. A definition begins with a colon or tilde, which may be
-indented one or two spaces.</p>
+Markdown. Per that specification: Each term must fit on one line, which may
+optionally be followed by a blank line, and must be followed by one or more
+definitions. A definition begins with a colon or tilde, which may be indented
+one or two spaces.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other container block functions: <code><a href='md_bullet.html'>md_bullet</a></code>,
+  <code><a href='md_list.html'>md_list</a></code>, <code><a href='md_order.html'>md_order</a></code>,
+  <code><a href='md_quote.html'>md_quote</a></code>, <code><a href='md_task.html'>md_task</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_define</span>(<span class='st'>"Democracy"</span>, <span class='st'>"Government by the people"</span>)</div><div class='output co'>#&gt; Democracy
-#&gt; :    Government by the people
+    <pre class="examples"><div class='input'><span class='fu'>md_define</span>(<span class='st'>"Democracy"</span>, <span class='fu'><a href='md_italic.html'>md_italic</a></span>(<span class='st'>"Government by the people"</span>))</div><div class='output co'>#&gt; Democracy
+#&gt; :    _Government by the people_
 #&gt; </div><div class='input'><span class='fu'>md_define</span>(<span class='no'>state.abb</span>[<span class='fl'>1</span>:<span class='fl'>5</span>], <span class='no'>state.name</span>[<span class='fl'>1</span>:<span class='fl'>5</span>])</div><div class='output co'>#&gt; AL
 #&gt; :    Alabama
 #&gt; 
@@ -189,6 +198,7 @@ indented one or two spaces.</p>
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

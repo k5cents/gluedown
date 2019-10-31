@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown ordered list (5.2) — md_order • gluedown</title>
+<title>Markdown ordered list — md_order • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,9 +42,11 @@
 
 
 
-<meta property="og:title" content="Markdown ordered list (5.2) — md_order" />
-<meta property="og:description" content="Turn a character vector into a valid markdown ordered list. This
-container block can then be rendered as nested &amp;lt;li&amp;gt; and &amp;lt;ol&amp;gt; HTML tags." />
+<meta property="og:title" content="Markdown ordered list — md_order" />
+<meta property="og:description" content="take a character vector and return a glue vector of valid ordered list items.
+When printed together, these ordered list items create a ordered list. This
+container block is rendered as the &amp;lt;ol&amp;gt; HTML tag, with each element of the
+vector creating a separate &amp;lt;li&amp;gt; tag." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -78,7 +80,7 @@ container block can then be rendered as nested &amp;lt;li&amp;gt; and &amp;lt;ol
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -129,14 +131,16 @@ container block can then be rendered as nested &amp;lt;li&amp;gt; and &amp;lt;ol
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown ordered list (5.2)</h1>
+    <h1>Markdown ordered list</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-list.R'><code>R/md-list.R</code></a></small>
     <div class="hidden name"><code>md_order.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Turn a character vector into a valid markdown ordered list. This
-container block can then be rendered as nested <code>&lt;li&gt;</code> and <code>&lt;ol&gt;</code> HTML tags.</p>
+    <p>take a character vector and return a glue vector of valid ordered list items.
+When printed together, these ordered list items create a ordered list. This
+container block is rendered as the <code>&lt;ol&gt;</code> HTML tag, with each element of the
+vector creating a separate <code>&lt;li&gt;</code> tag.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_order</span>(<span class='no'>x</span>, <span class='kw'>marker</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"."</span>, <span class='st'>")"</span>), <span class='kw'>seq</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>pad</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
@@ -172,11 +176,11 @@ to <code>TRUE</code>.</p></td>
     <p>A <code>glue</code> vector with length equal to <code>x</code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>A list is a sequence of one or more list items of the same type. The
-list items may be separated by any number of blank lines.</p>
+    <p>A list is a sequence of one or more list items of the same type. The list
+items may be separated by any number of blank lines.</p>
 <p>Two list items are of the same type if they begin with a list marker of the
-same type. Two list markers are of the same type if (b) they are ordered
-list numbers with the same delimiter (either <code>.</code> or <code>)</code>).</p>
+same type. Two list markers are of the same type if (b) they are ordered list
+numbers with the same delimiter (either <code>.</code> or <code>)</code>).</p>
 <p>A list is an ordered list if its constituent list items begin with ordered
 list markers, and a bullet list if its constituent list items begin with
 bullet list markers.</p>
@@ -185,8 +189,8 @@ initial list item. The numbers of subsequent list items are disregarded.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other container block functions: <code><a href='md_bullet.html'>md_bullet</a></code>,
-  <code><a href='md_list.html'>md_list</a></code>, <code><a href='md_quote.html'>md_quote</a></code>,
-  <code><a href='md_task.html'>md_task</a></code></p></div>
+  <code><a href='md_define.html'>md_define</a></code>, <code><a href='md_list.html'>md_list</a></code>,
+  <code><a href='md_quote.html'>md_quote</a></code>, <code><a href='md_task.html'>md_task</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>md_order</span>(<span class='no'>state.name</span>[<span class='fl'>1</span>:<span class='fl'>5</span>])</div><div class='output co'>#&gt; 1. Alabama

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown task list (extension) — md_task • gluedown</title>
+<title>Markdown soft line breaks — md_softline • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,13 +42,9 @@
 
 
 
-<meta property="og:title" content="Markdown task list (extension) — md_task" />
-<meta property="og:description" content="take a character vector and return a glue vector of valid bullet list items.
-When printed together, these bullet list items create a bullet list. This
-container block is rendered as the &amp;lt;ul&amp;gt; HTML tag, with each element of the
-vector creating a separate &amp;lt;li&amp;gt; tag. On venues supporting GitHub Flavored
-Markdown, this list will be specially rendered with the list item market
-replaces with a &amp;lt;input type=&quot;checkbox&quot;&amp;gt; HTML tag." />
+<meta property="og:title" content="Markdown soft line breaks — md_softline" />
+<meta property="og:description" content="Take a character vector and return a glue vector of separated by a single
+newline. This inline is rendered as single &amp;lt;p&amp;gt; HTML tags." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -133,69 +129,51 @@ replaces with a &amp;lt;input type=&quot;checkbox&quot;&amp;gt; HTML tag." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown task list (extension)</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-list.R'><code>R/md-list.R</code></a></small>
-    <div class="hidden name"><code>md_task.Rd</code></div>
+    <h1>Markdown soft line breaks</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-softline.R'><code>R/md-softline.R</code></a></small>
+    <div class="hidden name"><code>md_softline.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>take a character vector and return a glue vector of valid bullet list items.
-When printed together, these bullet list items create a bullet list. This
-container block is rendered as the <code>&lt;ul&gt;</code> HTML tag, with each element of the
-vector creating a separate <code>&lt;li&gt;</code> tag. On venues supporting GitHub Flavored
-Markdown, this list will be specially rendered with the list item market
-replaces with a <code>&lt;input type="checkbox"&gt;</code> HTML tag.</p>
+    <p>Take a character vector and return a glue vector of separated by a single
+newline. This inline is rendered as single <code>&lt;p&gt;</code> HTML tags.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_task</span>(<span class='no'>x</span>, <span class='kw'>check</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>md_softline</span>(<span class='no'>x</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A character vector of task list items.</p></td>
-    </tr>
-    <tr>
-      <th>check</th>
-      <td><p>A optional numeric vector of list elements which should be
-checked off.</p></td>
+      <td><p>A character vector of bullet point list items.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code>glue</code> vector with length equal to <code>x</code>.</p>
+    <p>A <code>glue</code> vector of length 1 with elements of <code>x</code> separated by two
+spaces and a newline.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>GFM enables the tasklist extension, where an additional processing step is
-performed on list items.</p>
-<p>A task list item is a list item where the first block in it is a paragraph
-which begins with a task list item marker and at least one whitespace
-character before any other content.</p>
-<p>A task list item marker consists of an optional number of spaces, a left
-bracket (<code>[</code>), either a whitespace character or the letter <code>x</code> in either
-lowercase or uppercase, and then a right bracket (<code>]</code>).</p>
-<p>When rendered, the task list item marker is replaced with a semantic checkbox
-element; in an HTML output, this would be an <code>&lt;input type="checkbox"&gt;</code>
-element.</p>
-<p>If the character between the brackets is a whitespace character, the checkbox
-is unchecked. Otherwise, the checkbox is checked.</p>
-<p>This spec does not define how the checkbox elements are interacted with: in
-practice, implementors are free to render the checkboxes as disabled or
-inmutable elements, or they may dynamically handle dynamic interactions (i.e.
-checking, unchecking) in the final rendered document.</p>
-<p>[<code>), either a whitespace character or the letter </code>x<code> in either lowercase or uppercase, and then a right bracket (</code>]: R:<!-- %60),%20either%20a%20whitespace%20character%20or%20the%20letter%20%60x%60%20in%20either%0Alowercase%20or%20uppercase,%20and%20then%20a%20right%20bracket%20(%60 --></p>
+    <p>A regular line break (not in a code span or HTML tag) that is not preceded by
+two or more spaces or a backslash is parsed as a softbreak. (A softbreak may
+be rendered in HTML either as a line ending or as a space. The result will be
+the same in browsers. In the examples here, a line ending will be used.)</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other container block functions: <code><a href='md_bullet.html'>md_bullet</a></code>,
-  <code><a href='md_define.html'>md_define</a></code>, <code><a href='md_list.html'>md_list</a></code>,
-  <code><a href='md_order.html'>md_order</a></code>, <code><a href='md_quote.html'>md_quote</a></code></p></div>
+    <div class='dont-index'><p>Other inline functions: <code><a href='md_bold.html'>md_bold</a></code>,
+  <code><a href='md_code.html'>md_code</a></code>, <code><a href='md_escape.html'>md_escape</a></code>,
+  <code><a href='md_hardline.html'>md_hardline</a></code>, <code><a href='md_image.html'>md_image</a></code>,
+  <code><a href='md_issue.html'>md_issue</a></code>, <code><a href='md_italic.html'>md_italic</a></code>,
+  <code><a href='md_link.html'>md_link</a></code>, <code><a href='md_strike.html'>md_strike</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_task</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Wake up"</span>, <span class='st'>"Eat Breakfast"</span>, <span class='st'>"Brush Teeth"</span>), <span class='kw'>check</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>))</div><div class='output co'>#&gt; * [x] Wake up
-#&gt; * [ ] Eat Breakfast
-#&gt; * [x] Brush Teeth</div></pre>
+    <pre class="examples"><div class='input'><span class='co'># compare the following</span>
+<span class='fu'><a href='md_bold.html'>md_bold</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"One"</span>, <span class='st'>"Two"</span>))</div><div class='output co'>#&gt; **One**
+#&gt; **Two**</div><div class='input'>
+<span class='fu'>md_softline</span>(<span class='fu'><a href='md_bold.html'>md_bold</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"One"</span>, <span class='st'>"Two"</span>)))</div><div class='output co'>#&gt; **One**
+#&gt; **Two**</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

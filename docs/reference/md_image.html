@@ -43,9 +43,9 @@
 
 
 <meta property="og:title" content="Markdown image links — md_image" />
-<meta property="og:description" content="Take a vector of image alt texts and image link destinations and
-return single vector of valid markdown image links. These inline image
-links can call images to be rendered as &amp;lt;img&amp;gt; HTML tags." />
+<meta property="og:description" content="Take character vectors of alternative text, image link destinations, and
+optional titles and return single glue vector of valid markdown inline image
+links. This inline is rendered as the &amp;lt;img&amp;gt; HTML tag." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -79,7 +79,7 @@ links can call images to be rendered as &amp;lt;img&amp;gt; HTML tags." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -136,9 +136,9 @@ links can call images to be rendered as &amp;lt;img&amp;gt; HTML tags." />
     </div>
 
     <div class="ref-description">
-    <p>Take a vector of image alt texts and image link destinations and
-return single vector of valid markdown image links. These inline image
-links can call images to be rendered as <code>&lt;img&gt;</code> HTML tags.</p>
+    <p>Take character vectors of alternative text, image link destinations, and
+optional titles and return single glue vector of valid markdown inline image
+links. This inline is rendered as the <code>&lt;img&gt;</code> HTML tag.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_image</span>(<span class='no'>url</span>, <span class='kw'>alt</span> <span class='kw'>=</span> <span class='st'>""</span>)</pre>
@@ -163,19 +163,19 @@ be used to refer to an image.</p></td>
     <p>A <code>glue</code> vector of collapsed alternative text and associated URLs.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Syntax for images is like the syntax for links, with one difference.
-Instead of link text, we have an image description. The rules for this are
-the same as for link text, except that (a) an image description starts with
-<code>![</code> rather than <code>[</code>, and (b) an image description may contain links. An
-image description has inline elements as its contents. When an image is
-rendered to HTML, this is standardly used as the image’s <code>alt</code> attribute.</p>
+    <p>Syntax for images is like the syntax for links, with one difference. Instead
+of link text, we have an image description. The rules for this are the same
+as for link text, except that (a) an image description starts with <code>![</code>
+rather than <code>[</code>, and (b) an image description may contain links. An image
+description has inline elements as its contents. When an image is rendered to
+HTML, this is standardly used as the image’s <code>alt</code> attribute.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other inline functions: <code><a href='md_bold.html'>md_bold</a></code>,
   <code><a href='md_code.html'>md_code</a></code>, <code><a href='md_escape.html'>md_escape</a></code>,
   <code><a href='md_hardline.html'>md_hardline</a></code>, <code><a href='md_issue.html'>md_issue</a></code>,
   <code><a href='md_italic.html'>md_italic</a></code>, <code><a href='md_link.html'>md_link</a></code>,
-  <code><a href='md_strike.html'>md_strike</a></code></p></div>
+  <code><a href='md_softline.html'>md_softline</a></code>, <code><a href='md_strike.html'>md_strike</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span>(<span class='st'>"man/figures/logo.png"</span>)) <span class='fu'>md_image</span>(<span class='st'>"man/figures/logo.png"</span>)

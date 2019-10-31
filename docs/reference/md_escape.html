@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown Escape Punctuation — md_escape • gluedown</title>
+<title>Backslash escape all punctuation — md_escape • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,10 +42,9 @@
 
 
 
-<meta property="og:title" content="Markdown Escape Punctuation — md_escape" />
-<meta property="og:description" content="When trying to format text containing markdown syntax
-characters, it's necessary to &quot;escape&quot; those characters so that they are
-ignored by formatting." />
+<meta property="og:title" content="Backslash escape all punctuation — md_escape" />
+<meta property="og:description" content="Take a character vector containing punctuation and return a glue vector with
+every punctuation mark prepended with double escape backslashes." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -79,7 +78,7 @@ ignored by formatting." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -130,15 +129,14 @@ ignored by formatting." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown Escape Punctuation</h1>
+    <h1>Backslash escape all punctuation</h1>
     <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-escape.R'><code>R/md-escape.R</code></a></small>
     <div class="hidden name"><code>md_escape.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>When trying to format text containing markdown syntax
-characters, it's necessary to "escape" those characters so that they are
-ignored by formatting.</p>
+    <p>Take a character vector containing punctuation and return a glue vector with
+every punctuation mark prepended with double escape backslashes.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_escape</span>(<span class='no'>x</span>)</pre>
@@ -159,7 +157,10 @@ accidentally be considered markdown syntax.</p></td>
 prepended backslashes.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Any ASCII punctuation character may be backslash-escaped... Escaped
+    <p>When trying to format text containing markdown syntax characters, it's
+necessary to "escape" those characters so that they are ignored by
+formatting.</p>
+<p>Any ASCII punctuation character may be backslash-escaped... Escaped
 characters are treated as regular characters and do not have their usual
 Markdown meanings.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
@@ -168,7 +169,7 @@ Markdown meanings.</p>
   <code><a href='md_code.html'>md_code</a></code>, <code><a href='md_hardline.html'>md_hardline</a></code>,
   <code><a href='md_image.html'>md_image</a></code>, <code><a href='md_issue.html'>md_issue</a></code>,
   <code><a href='md_italic.html'>md_italic</a></code>, <code><a href='md_link.html'>md_link</a></code>,
-  <code><a href='md_strike.html'>md_strike</a></code></p></div>
+  <code><a href='md_softline.html'>md_softline</a></code>, <code><a href='md_strike.html'>md_strike</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>hashtag</span> <span class='kw'>&lt;-</span> <span class='st'>"# six seasons and a movie"</span>

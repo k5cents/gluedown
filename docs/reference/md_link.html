@@ -43,9 +43,9 @@
 
 
 <meta property="og:title" content="Markdown inline link (6.6) — md_link" />
-<meta property="og:description" content="Take a vector of link texts and link destinations and return
-single vector of valid markdown inline links. These inline links can then
-be rendered as &amp;lt;href&amp;gt; HTML tags." />
+<meta property="og:description" content="Take character vectors of link texts, link destinations, and optional titles
+and return single glue vector of valid markdown inline links. This inline is
+rendered as the &amp;lt;href&amp;gt; HTML tag." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -79,7 +79,7 @@ be rendered as &amp;lt;href&amp;gt; HTML tags." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -136,9 +136,9 @@ be rendered as &amp;lt;href&amp;gt; HTML tags." />
     </div>
 
     <div class="ref-description">
-    <p>Take a vector of link texts and link destinations and return
-single vector of valid markdown inline links. These inline links can then
-be rendered as <code>&lt;href&gt;</code> HTML tags.</p>
+    <p>Take character vectors of link texts, link destinations, and optional titles
+and return single glue vector of valid markdown inline links. This inline is
+rendered as the <code>&lt;href&gt;</code> HTML tag.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_link</span>(<span class='no'>text</span>, <span class='no'>url</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
@@ -174,8 +174,8 @@ by square brackets (<code>[</code> and <code>]</code>)...</p>
 <p>An inline link consists of a link text followed immediately by a left
 parenthesis <code>(</code>, optional whitespace, an optional link destination, an
 optional link title separated from the link destination by whitespace,
-optional whitespace, and a right parenthesis <code>)</code>. The link’s text consists
-of the inlines contained in the link text (excluding the enclosing square
+optional whitespace, and a right parenthesis <code>)</code>. The link’s text consists of
+the inlines contained in the link text (excluding the enclosing square
 brackets). The link’s URI consists of the link destination, excluding
 enclosing <code>&lt;...&gt;</code> if present, with backslash-escapes in effect as described
 above. The link’s title consists of the link title, excluding its enclosing
@@ -186,7 +186,7 @@ delimiters, with backslash-escapes in effect as described above.</p>
   <code><a href='md_code.html'>md_code</a></code>, <code><a href='md_escape.html'>md_escape</a></code>,
   <code><a href='md_hardline.html'>md_hardline</a></code>, <code><a href='md_image.html'>md_image</a></code>,
   <code><a href='md_issue.html'>md_issue</a></code>, <code><a href='md_italic.html'>md_italic</a></code>,
-  <code><a href='md_strike.html'>md_strike</a></code></p></div>
+  <code><a href='md_softline.html'>md_softline</a></code>, <code><a href='md_strike.html'>md_strike</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>md_link</span>(<span class='st'>"tidyverse"</span>, <span class='st'>"https://www.tidyverse.org/"</span>)</div><div class='output co'>#&gt; [tidyverse](https://www.tidyverse.org/)</div><div class='input'><span class='fu'>md_link</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"R Project"</span>, <span class='st'>"CRAN"</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"https://www.r-project.org/"</span>, <span class='st'>"https://cran.r-project.org/"</span>))</div><div class='output co'>#&gt; [R Project](https://www.r-project.org/)

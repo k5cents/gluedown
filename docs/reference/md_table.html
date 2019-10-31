@@ -43,8 +43,8 @@
 
 
 <meta property="og:title" content="Markdown tables (4.10 extension) — md_table" />
-<meta property="og:description" content="Wraps around the knitr::kable() function to turn an R object,
-typically a data frame or matrix, into a single" />
+<meta property="og:description" content="Take a list of data frames or matrices and pass them to knitr::kable() to
+create a glue vector containing valid markdown tables." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -78,7 +78,7 @@ typically a data frame or matrix, into a single" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
       </span>
     </div>
 
@@ -135,8 +135,8 @@ typically a data frame or matrix, into a single" />
     </div>
 
     <div class="ref-description">
-    <p>Wraps around the <code><a href='https://rdrr.io/pkg/knitr/man/kable.html'>knitr::kable()</a></code> function to turn an <code>R</code> object,
-typically a data frame or matrix, into a single</p>
+    <p>Take a list of data frames or matrices and pass them to <code><a href='https://rdrr.io/pkg/knitr/man/kable.html'>knitr::kable()</a></code> to
+create a glue vector containing valid markdown tables.</p>
     </div>
 
     <pre class="usage"><span class='fu'>md_table</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
@@ -146,7 +146,7 @@ typically a data frame or matrix, into a single</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>An <code>R</code> object to be formatted as table.</p></td>
+      <td><p>An <code>R</code> object to be formatted as a table.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -160,27 +160,26 @@ typically a data frame or matrix, into a single</p>
 separated by a newline.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>FM enables the <code>table</code> extension, where an additional leaf block
-type is available.</p>
+    <p>FM enables the <code>table</code> extension, where an additional leaf block type is
+available.</p>
 <p>A table is an arrangement of data with rows and columns, consisting of a
 single header row, a delimiter row separating the header from the data, and
 zero or more data rows.</p>
 <p>Each row consists of cells containing arbitrary text, in which
 <a href='https://github.github.com/gfm/#inline'>inlines</a> are parsed, separated by
 pipes (<code>|</code>). A leading and trailing pipe is also recommended for clarity of
-reading, and if there’s otherwise parsing ambiguity. Spaces between pipes
-and cell content are trimmed. Block-level elements cannot be inserted in a
-table.</p>
-<p>The delimiter row consists of cells whose only content are hyphens (<code>-</code>),
-and optionally, a leading or trailing colon (<code>:</code>), or both, to indicate
-left, right, or center alignment respectively (see <code>align</code> in
-<code><a href='https://rdrr.io/pkg/knitr/man/kable.html'>knitr::kable()</a></code>).</p>
+reading, and if there’s otherwise parsing ambiguity. Spaces between pipes and
+cell content are trimmed. Block-level elements cannot be inserted in a table.</p>
+<p>The delimiter row consists of cells whose only content are hyphens (<code>-</code>), and
+optionally, a leading or trailing colon (<code>:</code>), or both, to indicate left,
+right, or center alignment respectively (see <code>align</code> in <code><a href='https://rdrr.io/pkg/knitr/man/kable.html'>knitr::kable()</a></code>).</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other leaf block functions: <code><a href='md_chunk.html'>md_chunk</a></code>,
   <code><a href='md_fence.html'>md_fence</a></code>, <code><a href='md_heading.html'>md_heading</a></code>,
-  <code><a href='md_indent.html'>md_indent</a></code>, <code><a href='md_reference.html'>md_reference</a></code>,
-  <code><a href='md_rule.html'>md_rule</a></code>, <code><a href='md_setext.html'>md_setext</a></code></p>
+  <code><a href='md_indent.html'>md_indent</a></code>, <code><a href='md_paragraph.html'>md_paragraph</a></code>,
+  <code><a href='md_reference.html'>md_reference</a></code>, <code><a href='md_rule.html'>md_rule</a></code>,
+  <code><a href='md_setext.html'>md_setext</a></code></p>
 <p>Other markdown extensions: <code><a href='md_issue.html'>md_issue</a></code>,
   <code><a href='md_strike.html'>md_strike</a></code></p></div>
 
@@ -218,7 +217,11 @@ left, right, or center alignment respectively (see <code>align</code> in
 #&gt; |Ford Pantera L      | 15.8|   8| 351.0| 264| 4.22| 3.170| 14.50|  0|  1|    5|    4|
 #&gt; |Ferrari Dino        | 19.7|   6| 145.0| 175| 3.62| 2.770| 15.50|  0|  1|    5|    6|
 #&gt; |Maserati Bora       | 15.0|   8| 301.0| 335| 3.54| 3.570| 14.60|  0|  1|    5|    8|
-#&gt; |Volvo 142E          | 21.4|   4| 121.0| 109| 4.11| 2.780| 18.60|  1|  1|    4|    2|</div></pre>
+#&gt; |Volvo 142E          | 21.4|   4| 121.0| 109| 4.11| 2.780| 18.60|  1|  1|    4|    2|</div><div class='input'><span class='fu'>md_table</span>(<span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>LETTERS</span>[<span class='fl'>1</span>:<span class='fl'>3</span>], <span class='kw'>y</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>3</span>), <span class='kw'>align</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"cc"</span>))</div><div class='output co'>#&gt; | x | y |
+#&gt; |:-:|:-:|
+#&gt; | A | 1 |
+#&gt; | B | 2 |
+#&gt; | C | 3 |</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

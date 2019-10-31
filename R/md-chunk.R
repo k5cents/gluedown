@@ -117,5 +117,10 @@ md_fence <- function(x, char = c("`", "~"), lang = "r") {
   char <- match.arg(char)
   string <- glue_collapse(x, sep = "\n")
   fence <- stringr::str_dup(char, 3)
+  lang <- if (is.null(lang)) {
+    ""
+  } else {
+    lang
+  }
   glue::glue("{fence}{lang}\n{string}\n{fence}")
 }

@@ -1,5 +1,8 @@
 #' Backslash escape all punctuation
 #'
+#' Take a character vector containing punctuation and return a glue vector with
+#' every punctuation mark prepended with double escape backslashes.
+#'
 #' When trying to format text containing markdown syntax characters, it's
 #' necessary to "escape" those characters so that they are ignored by
 #' formatting.

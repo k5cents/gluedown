@@ -1,7 +1,7 @@
 #' Markdown code span
 #'
-#' Code spaces emphasize a section of text within a markdown block. This inline
-#' is rendered as a `<code>` HTML tag.
+#' Take a character vector and wrap each element in backticks to create a glue
+#' vector of inline code spans. This inline is rendered as a `<code>` HTML tag.
 #'
 #' @details
 #' A backtick string is a string of one or more backtick characters that is
@@ -28,10 +28,11 @@ md_code <- function(x) {
   glue::glue("`{x}`")
 }
 
-#' Markdown strong/bold emphasis
+#' Markdown bold emphasis
 #'
-#' Turn a character vector into a vector of valid strong emphasis markdown
-#' inline text. This inline text can then be rendered as the `<stong>` HTML tag.
+#' Take a character vector and wrap each element in double asterisks to create a
+#' glue vector of bold emphasis text. This inline is rendered as the `<stong>`
+#' HTML tag.
 #'
 #' @details
 #' A double `**` or `__` can open or close emphasis... Emphasis begins with a
@@ -52,8 +53,9 @@ md_bold <- function(x) {
 
 #' Markdown italic emphasis
 #'
-#' Turn a character vector into a vector of valid italic emphasis markdown
-#' inline text. This inline text can then be rendered as the `<em>` HTML tag.
+#' Take a character vector and wrap each element in single underscores to create
+#' a glue vector of italic emphasis text. This inline is rendered as the `<em>`
+#' HTML tag.
 #'
 #' @details
 #' A single `*` or `_` can open or close emphasis... Emphasis begins with a
@@ -74,8 +76,9 @@ md_italic <- function(x) {
 
 #' Markdown strikethrough (extension)
 #'
-#' Turn a character vector into a vector of valid strikethough markdown inline
-#' text. This text can then be rendered as the `<strike>` HTML tag.
+#' Take a character vector and wrap each element in tildes to create a glue
+#' vector of strikethrough text. This inline is rendered as the `<strike>` HTML
+#' tag.
 #'
 #' @details
 #' GFM enables the strikethrough extension, where an additional emphasis type is

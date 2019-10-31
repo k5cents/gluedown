@@ -15,9 +15,12 @@ md_issue(repo, num)
 A character vector which GitHub can automatically hyperlink.
 }
 \description{
-A markdown feature unique to GitHub. Allows users to hyperlink a specific
-issue or pull request using a "username/repository" combination and
-issue number.
+Take a character vector and numeric vector and concatenate them into a glue
+vector of valid GitHub issue autolinks (username/repo#issue).
+}
+\details{
+Within conversations on GitHub, references to issues and pull requests are
+\href{https://help.github.com/en/github/writing-on-github/autolinked-references-and-urls#issues-and-pull-requests}{automatically converted to shortened links}.
 }
 \examples{
 md_issue("kiernann/gluedown", 1:5)
@@ -27,7 +30,7 @@ Other inline functions: \code{\link{md_bold}},
   \code{\link{md_code}}, \code{\link{md_escape}},
   \code{\link{md_hardline}}, \code{\link{md_image}},
   \code{\link{md_italic}}, \code{\link{md_link}},
-  \code{\link{md_strike}}
+  \code{\link{md_softline}}, \code{\link{md_strike}}
 
 Other markdown extensions: \code{\link{md_strike}},
   \code{\link{md_table}}

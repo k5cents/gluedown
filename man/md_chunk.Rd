@@ -20,6 +20,9 @@ A \code{glue} object of length 1, with elements of \code{x} formatted via
 \code{\link[=md_fence]{md_fence()}} or \code{\link[=md_indent]{md_indent()}}.
 }
 \description{
+Take a character vector of lines and return a glue vector
+}
+\details{
 Turn a character vector of lines into a single code block either indented or
 fenced in tildes or backticks. This markdown leaf block can be rendered as
 nested HTML \code{<code>} and \code{<pre>} tags. This function either calls
@@ -40,7 +43,8 @@ md_indent(
 \seealso{
 Other leaf block functions: \code{\link{md_fence}},
   \code{\link{md_heading}}, \code{\link{md_indent}},
-  \code{\link{md_reference}}, \code{\link{md_rule}},
-  \code{\link{md_setext}}, \code{\link{md_table}}
+  \code{\link{md_paragraph}}, \code{\link{md_reference}},
+  \code{\link{md_rule}}, \code{\link{md_setext}},
+  \code{\link{md_table}}
 }
 \concept{leaf block functions}

@@ -17,9 +17,9 @@ md_link(text, url, title = NULL)
 A \code{glue} vector of collapsed display text and associated URLs.
 }
 \description{
-Take a vector of link texts and link destinations and return single vector of
-valid markdown inline links. These inline links can then be rendered as
-\code{<href>} HTML tags.
+Take character vectors of link texts, link destinations, and optional titles
+and return single glue vector of valid markdown inline links. This inline is
+rendered as the \code{<href>} HTML tag.
 }
 \details{
 A link contains link text (the visible text), a link destination (the URI
@@ -49,6 +49,6 @@ Other inline functions: \code{\link{md_bold}},
   \code{\link{md_code}}, \code{\link{md_escape}},
   \code{\link{md_hardline}}, \code{\link{md_image}},
   \code{\link{md_issue}}, \code{\link{md_italic}},
-  \code{\link{md_strike}}
+  \code{\link{md_softline}}, \code{\link{md_strike}}
 }
 \concept{inline functions}

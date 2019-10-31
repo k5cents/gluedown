@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-hardline.R
 \name{md_hardline}
 \alias{md_hardline}
-\title{Markdown hard line breaks (6.12)}
+\title{Markdown hard line breaks}
 \usage{
 md_hardline(x)
 }
@@ -14,8 +14,9 @@ A \code{glue} vector of length 1 with elements of \code{x} separated by two
 spaces and a newline.
 }
 \description{
-Separate strings with a hard line (non-paragraph) break. This inline hard
-line break can be rendered as \code{<br />} HTML tags.
+Take a character vector and return a collapsed glue vector with each original
+element separated by two spaces and a newline. This inline is rendered as a
+\code{<br />} HTML tag.
 }
 \details{
 A line break (not in a code span or HTML tag) that is preceded by two or more
@@ -23,14 +24,16 @@ spaces and does not occur at the end of a block is parsed as a hard line
 break (rendered in HTML as a \code{<br />} tag)
 }
 \examples{
+# compare the following
+md_bold(c("One", "Two"))
+
 md_hardline(md_bold(c("One", "Two")))
-md_hardline(state.name[1:10])
 }
 \seealso{
 Other inline functions: \code{\link{md_bold}},
   \code{\link{md_code}}, \code{\link{md_escape}},
   \code{\link{md_image}}, \code{\link{md_issue}},
   \code{\link{md_italic}}, \code{\link{md_link}},
-  \code{\link{md_strike}}
+  \code{\link{md_softline}}, \code{\link{md_strike}}
 }
 \concept{inline functions}

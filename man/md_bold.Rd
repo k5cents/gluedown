@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-inlines.R
 \name{md_bold}
 \alias{md_bold}
-\title{Markdown strong/bold emphasis}
+\title{Markdown bold emphasis}
 \usage{
 md_bold(x)
 }
@@ -13,8 +13,9 @@ md_bold(x)
 A \code{glue} vector of length equal to \code{x}.
 }
 \description{
-Turn a character vector into a vector of valid strong emphasis markdown
-inline text. This inline text can then be rendered as the \code{<stong>} HTML tag.
+Take a character vector and wrap each element in double asterisks to create a
+glue vector of bold emphasis text. This inline is rendered as the \code{<stong>}
+HTML tag.
 }
 \details{
 A double \code{**} or \code{__} can open or close emphasis... Emphasis begins with a
@@ -31,6 +32,6 @@ Other inline functions: \code{\link{md_code}},
   \code{\link{md_escape}}, \code{\link{md_hardline}},
   \code{\link{md_image}}, \code{\link{md_issue}},
   \code{\link{md_italic}}, \code{\link{md_link}},
-  \code{\link{md_strike}}
+  \code{\link{md_softline}}, \code{\link{md_strike}}
 }
 \concept{inline functions}

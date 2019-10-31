@@ -15,7 +15,9 @@ md_define(term, def)
 A character vector with elements preceded by an asterisk symbol.
 }
 \description{
-Form a single-level unordered list from a vector.
+Take a character vector of terms and of corresponding definitions and
+return a single glue vector of concatenated entries sepated by two newlines.
+This container is rendered as the \code{<dl>} HTML
 }
 \details{
 Definitions are not supported in GFM, but \emph{are} supported by the
@@ -26,6 +28,12 @@ definitions. A definition begins with a colon or tilde, which may be indented
 one or two spaces.
 }
 \examples{
-md_define("Democracy", "Government by the people")
+md_define("Democracy", md_italic("Government by the people"))
 md_define(state.abb[1:5], state.name[1:5])
 }
+\seealso{
+Other container block functions: \code{\link{md_bullet}},
+  \code{\link{md_list}}, \code{\link{md_order}},
+  \code{\link{md_quote}}, \code{\link{md_task}}
+}
+\concept{container block functions}

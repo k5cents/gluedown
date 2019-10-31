@@ -1,9 +1,11 @@
 #' Convert markdown to HTML
 #'
-#' Wraps around [markdown::markdownToHTML()] to convert markdown text into HTML
-#' _fragments_. Primarily used to test that `md_*()` functions create vectors
-#' that can be properly rendered as HTML.
-#' @param x The _markdown_ text (from `md_*()`) to be converted.
+#' Take a character vector of valid markdown text and pass it to
+#' [markdown::markdownToHTML()] to create a glue vector of HTML fragments.
+#' Primarily used to test that `md_*()` functions create vectors that meet the
+#' GFM spec and can be rendered as HTML.
+#'
+#' @param x A character vector of _markdown_ text to be converted.
 #' @param frag logical; Whether only a single HTML fragment should be returned.
 #'   `TRUE` by default.
 #' @return A `glue` vector of length 1 containing HTML tags.

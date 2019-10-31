@@ -24,8 +24,10 @@ to \code{TRUE}.}
 A \code{glue} vector with length equal to \code{x}.
 }
 \description{
-Turn a character vector into a valid markdown ordered list. This container
-block can then be rendered as nested \code{<li>} and \code{<ol>} HTML tags.
+take a character vector and return a glue vector of valid ordered list items.
+When printed together, these ordered list items create a ordered list. This
+container block is rendered as the \code{<ol>} HTML tag, with each element of the
+vector creating a separate \code{<li>} tag.
 }
 \details{
 A list is a sequence of one or more list items of the same type. The list
@@ -49,7 +51,7 @@ md_order(sample(state.name, 5), seq = FALSE)
 }
 \seealso{
 Other container block functions: \code{\link{md_bullet}},
-  \code{\link{md_list}}, \code{\link{md_quote}},
-  \code{\link{md_task}}
+  \code{\link{md_define}}, \code{\link{md_list}},
+  \code{\link{md_quote}}, \code{\link{md_task}}
 }
 \concept{container block functions}

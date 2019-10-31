@@ -2,7 +2,7 @@
 % Please edit documentation in R/md-reference.R
 \name{md_reference}
 \alias{md_reference}
-\title{Markdown link reference (4.7)}
+\title{Markdown link reference}
 \usage{
 md_reference(label, url, title = NULL)
 }
@@ -18,9 +18,10 @@ A single \code{glue} vector of length equal to that of \code{label} and \code{ur
 with elements the concatenated arguments.
 }
 \description{
-Combine elements of 2 or 3 character vectors into valid markdown link
-references. These markdown leaf blocks then use \code{label} placed \emph{elsewhere} in
-a markdown document to render as \code{<href>} HTML tags.
+Take character vectors of link texts, link destinations, and optional titles
+and return single glue vector of valid markdown link references. This
+markdown leaf block then uses the \code{label} placed \emph{elsewhere} in a markdown
+document to render \code{<href>} HTML tags.
 }
 \details{
 A full reference link (6.6) consists of a link text immediately followed by a
@@ -40,14 +41,14 @@ and reference-style images elsewhere in the document. Link reference
 definitions can come either before or after the links that use them.
 }
 \examples{
-md_reference("tv", "https://www.tidyverse.org/")
 md_reference("tv", "https://www.tidyverse.org/", "tidyverse")
 md_reference(label = 1:2, url = c("https://one.org", "https://two.com"))
 }
 \seealso{
 Other leaf block functions: \code{\link{md_chunk}},
   \code{\link{md_fence}}, \code{\link{md_heading}},
-  \code{\link{md_indent}}, \code{\link{md_rule}},
-  \code{\link{md_setext}}, \code{\link{md_table}}
+  \code{\link{md_indent}}, \code{\link{md_paragraph}},
+  \code{\link{md_rule}}, \code{\link{md_setext}},
+  \code{\link{md_table}}
 }
 \concept{leaf block functions}

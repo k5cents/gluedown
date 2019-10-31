@@ -1,10 +1,8 @@
-#' Markdown list
+#' Markdown generic list
 #'
-#' Turn a character vector into a valid markdown list. The elements creating
-#' this container block can then be rendered as `<li>` HTML tags inside `<ul>`
-#' or `<ol>` depending on the `type` of list desired. This is a generic vector
-#' that calls [md_bullet()], [md_order()], or [md_task()] depending on what
-#' string is provided in the `type` argument.
+#' Turn a character vector into a valid markdown list block. This is a generic
+#' function that calls [md_bullet()], [md_order()], or [md_task()] depending on
+#' what string is provided in the `type` argument.
 #'
 #' @param x A character vector of list items.
 #' @param type The type of list to create; either bullet, ordered, or task.
@@ -31,8 +29,10 @@ md_list <- function(x, type = c("bullet", "ordered", "task"), ...) {
 
 #' Markdown bullet list
 #'
-#' Turn a character vector into a valid markdown bullet list. This container
-#' block can then be rendered as nested `<li>` and `<ul>` HTML tags.
+#' take a character vector and return a glue vector of valid bullet list items.
+#' When printed together, these bullet list items create a bullet list. This
+#' container block is rendered as the `<ul>` HTML tag, with each element of the
+#' vector creating a separate `<li>` tag.
 #'
 #' @details
 #' A list is a sequence of one or more list items of the same type. The list
@@ -57,8 +57,10 @@ md_bullet <- function(x, marker = c("*", "-", "+")) {
 
 #' Markdown ordered list
 #'
-#' Turn a character vector into a valid markdown ordered list. This container
-#' block can then be rendered as nested `<li>` and `<ol>` HTML tags.
+#' take a character vector and return a glue vector of valid ordered list items.
+#' When printed together, these ordered list items create a ordered list. This
+#' container block is rendered as the `<ol>` HTML tag, with each element of the
+#' vector creating a separate `<li>` tag.
 #'
 #' @details
 #' A list is a sequence of one or more list items of the same type. The list
@@ -112,10 +114,12 @@ md_order <- function(x, marker = c(".", ")"), seq = TRUE, pad = TRUE) {
 
 #' Markdown task list (extension)
 #'
-#' Turn a character vector into a valid markdown ordered list. This container
-#' block can then be rendered as nested `<li>` and `<ol>` HTML tags. On venues
-#' supporting GitHub Flavored Markdown, this list will be specially rendered
-#' with the list item market replaces with a `<input type="checkbox">` HTML tag.
+#' take a character vector and return a glue vector of valid bullet list items.
+#' When printed together, these bullet list items create a bullet list. This
+#' container block is rendered as the `<ul>` HTML tag, with each element of the
+#' vector creating a separate `<li>` tag. On venues supporting GitHub Flavored
+#' Markdown, this list will be specially rendered with the list item market
+#' replaces with a `<input type="checkbox">` HTML tag.
 #'
 #' @details
 #' GFM enables the tasklist extension, where an additional processing step is

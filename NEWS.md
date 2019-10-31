@@ -1,3 +1,7 @@
+# gluedown 0.2.3
+
+* Create `md_paragraph()` and `md_softline()`.
+
 # gluedown 0.2.2
 
 * Check if `any()` number in `md_issue()` can't be coerced to numeric.

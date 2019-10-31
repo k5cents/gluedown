@@ -13,8 +13,8 @@ md_code(x)
 A \code{glue} vector of length equal to \code{x}.
 }
 \description{
-Code spaces emphasize a section of text within a markdown block. This inline
-is rendered as a \code{<code>} HTML tag.
+Take a character vector and wrap each element in backticks to create a glue
+vector of inline code spans. This inline is rendered as a \code{<code>} HTML tag.
 }
 \details{
 A backtick string is a string of one or more backtick characters that is
@@ -39,6 +39,6 @@ Other inline functions: \code{\link{md_bold}},
   \code{\link{md_escape}}, \code{\link{md_hardline}},
   \code{\link{md_image}}, \code{\link{md_issue}},
   \code{\link{md_italic}}, \code{\link{md_link}},
-  \code{\link{md_strike}}
+  \code{\link{md_softline}}, \code{\link{md_strike}}
 }
 \concept{inline functions}

@@ -15,11 +15,14 @@ A character string with all \code{[:punct:]} properly escaped with
 prepended backslashes.
 }
 \description{
+Take a character vector containing punctuation and return a glue vector with
+every punctuation mark prepended with double escape backslashes.
+}
+\details{
 When trying to format text containing markdown syntax characters, it's
 necessary to "escape" those characters so that they are ignored by
 formatting.
-}
-\details{
+
 Any ASCII punctuation character may be backslash-escaped... Escaped
 characters are treated as regular characters and do not have their usual
 Markdown meanings.
@@ -33,6 +36,6 @@ Other inline functions: \code{\link{md_bold}},
   \code{\link{md_code}}, \code{\link{md_hardline}},
   \code{\link{md_image}}, \code{\link{md_issue}},
   \code{\link{md_italic}}, \code{\link{md_link}},
-  \code{\link{md_strike}}
+  \code{\link{md_softline}}, \code{\link{md_strike}}
 }
 \concept{inline functions}

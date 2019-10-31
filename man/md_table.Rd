@@ -7,7 +7,7 @@
 md_table(x, ...)
 }
 \arguments{
-\item{x}{An \code{R} object to be formatted as table.}
+\item{x}{An \code{R} object to be formatted as a table.}
 
 \item{...}{Arguments passed to \code{\link[knitr:kable]{knitr::kable()}}}
 }
@@ -16,8 +16,8 @@ A \code{glue} vector of length one, with each element or row of \code{x}
 separated by a newline.
 }
 \description{
-Wraps around the \code{\link[knitr:kable]{knitr::kable()}} function to turn an \code{R} object,
-typically a data frame or matrix, into a single
+Take a list of data frames or matrices and pass them to \code{\link[knitr:kable]{knitr::kable()}} to
+create a glue vector containing valid markdown tables.
 }
 \details{
 FM enables the \code{table} extension, where an additional leaf block type is
@@ -39,12 +39,14 @@ right, or center alignment respectively (see \code{align} in \code{\link[knitr:k
 }
 \examples{
 md_table(mtcars)
+md_table(data.frame(x = LETTERS[1:3], y = 1:3), align = c("cc"))
 }
 \seealso{
 Other leaf block functions: \code{\link{md_chunk}},
   \code{\link{md_fence}}, \code{\link{md_heading}},
-  \code{\link{md_indent}}, \code{\link{md_reference}},
-  \code{\link{md_rule}}, \code{\link{md_setext}}
+  \code{\link{md_indent}}, \code{\link{md_paragraph}},
+  \code{\link{md_reference}}, \code{\link{md_rule}},
+  \code{\link{md_setext}}
 
 Other markdown extensions: \code{\link{md_issue}},
   \code{\link{md_strike}}

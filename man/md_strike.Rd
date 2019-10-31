@@ -13,8 +13,9 @@ md_strike(x)
 A \code{glue} vector of length equal to \code{x}.
 }
 \description{
-Turn a character vector into a vector of valid strikethough markdown inline
-text. This text can then be rendered as the \code{<strike>} HTML tag.
+Take a character vector and wrap each element in tildes to create a glue
+vector of strikethrough text. This inline is rendered as the \code{<strike>} HTML
+tag.
 }
 \details{
 GFM enables the strikethrough extension, where an additional emphasis type is
@@ -29,7 +30,7 @@ Other inline functions: \code{\link{md_bold}},
   \code{\link{md_code}}, \code{\link{md_escape}},
   \code{\link{md_hardline}}, \code{\link{md_image}},
   \code{\link{md_issue}}, \code{\link{md_italic}},
-  \code{\link{md_link}}
+  \code{\link{md_link}}, \code{\link{md_softline}}
 
 Other markdown extensions: \code{\link{md_issue}},
   \code{\link{md_table}}

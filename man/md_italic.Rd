@@ -13,8 +13,9 @@ md_italic(x)
 A \code{glue} vector of length equal to \code{x}.
 }
 \description{
-Turn a character vector into a vector of valid italic emphasis markdown
-inline text. This inline text can then be rendered as the \code{<em>} HTML tag.
+Take a character vector and wrap each element in single underscores to create
+a glue vector of italic emphasis text. This inline is rendered as the \code{<em>}
+HTML tag.
 }
 \details{
 A single \code{*} or \code{_} can open or close emphasis... Emphasis begins with a
@@ -31,6 +32,6 @@ Other inline functions: \code{\link{md_bold}},
   \code{\link{md_code}}, \code{\link{md_escape}},
   \code{\link{md_hardline}}, \code{\link{md_image}},
   \code{\link{md_issue}}, \code{\link{md_link}},
-  \code{\link{md_strike}}
+  \code{\link{md_softline}}, \code{\link{md_strike}}
 }
 \concept{inline functions}

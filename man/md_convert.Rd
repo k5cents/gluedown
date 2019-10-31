@@ -7,7 +7,7 @@
 md_convert(x, frag = TRUE)
 }
 \arguments{
-\item{x}{The \emph{markdown} text (from \code{md_*()}) to be converted.}
+\item{x}{A character vector of \emph{markdown} text to be converted.}
 
 \item{frag}{logical; Whether only a single HTML fragment should be returned.
 \code{TRUE} by default.}
@@ -16,9 +16,10 @@ md_convert(x, frag = TRUE)
 A \code{glue} vector of length 1 containing HTML tags.
 }
 \description{
-Wraps around \code{\link[markdown:markdownToHTML]{markdown::markdownToHTML()}} to convert markdown text into HTML
-\emph{fragments}. Primarily used to test that \code{md_*()} functions create vectors
-that can be properly rendered as HTML.
+Take a character vector of valid markdown text and pass it to
+\code{\link[markdown:markdownToHTML]{markdown::markdownToHTML()}} to create a glue vector of HTML fragments.
+Primarily used to test that \code{md_*()} functions create vectors that meet the
+GFM spec and can be rendered as HTML.
 }
 \examples{
 md_convert(x = md_bold("test"))

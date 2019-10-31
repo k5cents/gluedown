@@ -1,6 +1,8 @@
 #' Markdown block quotes
 #'
-#' Form block quotes from a vector of character strings.
+#' Take a character vector and prepend each element in a greater-than symbol to
+#' create a glue vector of block quote markdown text. This inline is rendered as
+#' a `<blockquote>` HTML tag.
 #'
 #' @details
 #' A block quote marker consists of 0-3 spaces of initial indent, plus (a) the
@@ -28,6 +30,7 @@
 #' @family container block functions
 #' @examples
 #' md_quote("Give me liberty, or give me death!")
+#' md_quote(stringr::sentences[1:3])
 #' @export
 md_quote <- function(x) {
   glue::glue("> {x}")

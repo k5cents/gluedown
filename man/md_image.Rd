@@ -17,9 +17,9 @@ be used to refer to an image.}
 A \code{glue} vector of collapsed alternative text and associated URLs.
 }
 \description{
-Take a vector of image alt texts and image link destinations and return
-single vector of valid markdown image links. These inline image links can
-call images to be rendered as \code{<img>} HTML tags.
+Take character vectors of alternative text, image link destinations, and
+optional titles and return single glue vector of valid markdown inline image
+links. This inline is rendered as the \code{<img>} HTML tag.
 }
 \details{
 Syntax for images is like the syntax for links, with one difference. Instead
@@ -39,6 +39,6 @@ Other inline functions: \code{\link{md_bold}},
   \code{\link{md_code}}, \code{\link{md_escape}},
   \code{\link{md_hardline}}, \code{\link{md_issue}},
   \code{\link{md_italic}}, \code{\link{md_link}},
-  \code{\link{md_strike}}
+  \code{\link{md_softline}}, \code{\link{md_strike}}
 }
 \concept{inline functions}

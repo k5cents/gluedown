@@ -1,8 +1,8 @@
 #' Markdown inline link (6.6)
 #'
-#' Take a vector of link texts and link destinations and return single vector of
-#' valid markdown inline links. These inline links can then be rendered as
-#' `<href>` HTML tags.
+#' Take character vectors of link texts, link destinations, and optional titles
+#' and return single glue vector of valid markdown inline links. This inline is
+#' rendered as the `<href>` HTML tag.
 #'
 #' @details
 #' A link contains link text (the visible text), a link destination (the URI
@@ -43,9 +43,9 @@ md_link <- function(text, url, title = NULL) {
 
 #' Markdown image links
 #'
-#' Take a vector of image alt texts and image link destinations and return
-#' single vector of valid markdown image links. These inline image links can
-#' call images to be rendered as `<img>` HTML tags.
+#' Take character vectors of alternative text, image link destinations, and
+#' optional titles and return single glue vector of valid markdown inline image
+#' links. This inline is rendered as the `<img>` HTML tag.
 #'
 #' @details
 #' Syntax for images is like the syntax for links, with one difference. Instead

@@ -1,8 +1,9 @@
-#' Markdown link reference (4.7)
+#' Markdown link reference
 #'
-#' Combine elements of 2 or 3 character vectors into valid markdown link
-#' references. These markdown leaf blocks then use `label` placed _elsewhere_ in
-#' a markdown document to render as `<href>` HTML tags.
+#' Take character vectors of link texts, link destinations, and optional titles
+#' and return single glue vector of valid markdown link references. This
+#' markdown leaf block then uses the `label` placed _elsewhere_ in a markdown
+#' document to render `<href>` HTML tags.
 #'
 #' @details
 #' A full reference link (6.6) consists of a link text immediately followed by a
@@ -27,7 +28,6 @@
 #'   with elements the concatenated arguments.
 #' @family leaf block functions
 #' @examples
-#' md_reference("tv", "https://www.tidyverse.org/")
 #' md_reference("tv", "https://www.tidyverse.org/", "tidyverse")
 #' md_reference(label = 1:2, url = c("https://one.org", "https://two.com"))
 #' @export

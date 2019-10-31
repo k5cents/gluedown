@@ -16,10 +16,12 @@ checked off.}
 A \code{glue} vector with length equal to \code{x}.
 }
 \description{
-Turn a character vector into a valid markdown ordered list. This container
-block can then be rendered as nested \code{<li>} and \code{<ol>} HTML tags. On venues
-supporting GitHub Flavored Markdown, this list will be specially rendered
-with the list item market replaces with a \code{<input type="checkbox">} HTML tag.
+take a character vector and return a glue vector of valid bullet list items.
+When printed together, these bullet list items create a bullet list. This
+container block is rendered as the \code{<ul>} HTML tag, with each element of the
+vector creating a separate \code{<li>} tag. On venues supporting GitHub Flavored
+Markdown, this list will be specially rendered with the list item market
+replaces with a \code{<input type="checkbox">} HTML tag.
 }
 \details{
 GFM enables the tasklist extension, where an additional processing step is
@@ -52,7 +54,7 @@ md_task(c("Wake up", "Eat Breakfast", "Brush Teeth"), check = c(1, 3))
 }
 \seealso{
 Other container block functions: \code{\link{md_bullet}},
-  \code{\link{md_list}}, \code{\link{md_order}},
-  \code{\link{md_quote}}
+  \code{\link{md_define}}, \code{\link{md_list}},
+  \code{\link{md_order}}, \code{\link{md_quote}}
 }
 \concept{container block functions}

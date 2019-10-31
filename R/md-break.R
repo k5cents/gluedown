@@ -1,7 +1,7 @@
 #' Markdown horizontal rule (4.1)
 #'
-#' Print the markdown characters used to represent a _thematic break_. This
-#' markdown leaf block can be rendered as the `<hr>` HTML tag.
+#' Create a glue vector of characters used to represent a _thematic break_. This
+#' markdown leaf block is rendered as the `<hr>` HTML tag.
 #'
 #' @details
 #' A line consisting of 0-3 spaces of indentation, followed by a sequence of

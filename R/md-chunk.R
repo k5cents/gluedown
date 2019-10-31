@@ -1,5 +1,7 @@
 #' Markdown code block
 #'
+#' Take a character vector of lines and return a glue vector
+#'
 #' Turn a character vector of lines into a single code block either indented or
 #' fenced in tildes or backticks. This markdown leaf block can be rendered as
 #' nested HTML `<code>` and `<pre>` tags. This function either calls
@@ -58,8 +60,7 @@ md_chunk <- function(x, type = c("tick", "tilde", "indent"), ...) {
 #'   4 spaces and separated by a newline.
 #' @family leaf block functions
 #' @examples
-#' md_indent(deparse(sd))
-#'
+#' md_indent(deparse(md_bold))
 #' @importFrom glue glue glue_collapse
 #' @importFrom stringr str_dup
 #' @export
@@ -67,7 +68,7 @@ md_indent <- function(x, n = 4) {
   if (min(n) < 4) {
     stop("Indented code blocks must be indented by at least four spaces.")
   }
-  glue::glue_collapse(glue::glue("{stringr::str_dup(' ', n)}{x}"), sep = "\n")
+  glue::glue("{stringr::str_dup(' ', n)}{x}")
 }
 
 #' Markdown fenced code block

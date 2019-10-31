@@ -1,8 +1,8 @@
 #' Markdown definitions
 #'
-#' Take a character vector of terms and of corresponding definitions and
-#' return a single glue vector of concatenated entries sepated by two newlines.
-#' This container is rendered as the `<dl>` HTML
+#' Take a character vector of terms and of corresponding definitions and return
+#' a single glue vector of concatenated entries separated by two newlines. This
+#' container is rendered as the `<dl>` HTML
 #'
 #' @details
 #' Definitions are not supported in GFM, but _are_ supported by the

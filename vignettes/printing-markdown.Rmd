@@ -113,7 +113,7 @@ With some more work, we can use `cat()` to print an ordered list.
 cat(paste0(1:3, ". ", state.name[1:3]), sep = "\n")
 ```
 
-This workflow get's tiresome, although it's made slightly more simple with
+This workflow gets tiresome, although it's made slightly more simple with
 the fantastic [`glue`][glue] package from Jim Hester.
 
 ```{r glue_order, results='asis'}
@@ -181,7 +181,7 @@ md_bullet(inlines)
 These functions demonstrate how `gluedown` can be used to transition between
 R vectors, simply formatted markdown text, and beautifully formatted HTML text.
 
-Aside from container blocks and inlines, there is a third type of markown
+Aside from container blocks and inlines, there is a third type of markdown
 content. The leaf blocks cannot contain inline content. The thematic break
 is an example of a leaf block.
 
@@ -193,7 +193,7 @@ Code blocks are another type of leaf block. The code I've been writing so far
 is contained within `rmarkdown` _chunks_, which execute the code within. By
 default, those code chunks are then displayed as regular code blocks in the
 intermediary `.md` file. Sometimes we might want to use code blocks to display
-other types of text. Prhaps we want to show the content of a function. The
+other types of text. Perhaps we want to show the content of a function. The
 `md_fence()` function creates a _new_ code fence from the lines created by
 `deparse()`.
 
@@ -210,7 +210,7 @@ command <- "sudo apt install r-base-dev"
 md_fence(paste("$", command), char = "~", lang = "bash")
 ```
 
-Or maybe we simply want to display some preformated text that only works in a
+Or maybe we simply want to display some preformatted text that only works in a
 monospace font like that which is used in code blocks.
 
 ```{r indent_block, results='asis'}
@@ -281,7 +281,7 @@ md_define(terms, definitions)
 [df]: https://daringfireball.net/projects/markdown/
 [force]: https://pandoc.org/MANUAL.html#definition-lists
 
-Markdown tables are another extremelly useful extension. The `md_table()`
+Markdown tables are another extremely useful extension. The `md_table()`
 functions wraps around the much more powerful `knitr::kable()` function, which
 allows data frames to be printed in a number of alternative formats. Printing
 data frames is a very typical use case for documenting the process of data

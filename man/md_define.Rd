@@ -15,9 +15,9 @@ md_define(term, def)
 A character vector with elements preceded by an asterisk symbol.
 }
 \description{
-Take a character vector of terms and of corresponding definitions and
-return a single glue vector of concatenated entries sepated by two newlines.
-This container is rendered as the \code{<dl>} HTML
+Take a character vector of terms and of corresponding definitions and return
+a single glue vector of concatenated entries separated by two newlines. This
+container is rendered as the \code{<dl>} HTML
 }
 \details{
 Definitions are not supported in GFM, but \emph{are} supported by the

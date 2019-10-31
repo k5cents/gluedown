@@ -1,7 +1,10 @@
+# gluedown 0.3.0
+
+* Create `md_paragraph()` and `md_softline()`.
+
 # gluedown 0.2.3
 
 * Rewrite function descriptions with consistent language.
-* Create `md_paragraph()` and `md_softline()`.
 
 # gluedown 0.2.2
 

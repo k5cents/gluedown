@@ -207,7 +207,7 @@ supposed to be executed
 
 ```{r tilde_block}
 command <- "sudo apt install r-base-dev"
-md_fence(paste("$", command), char = "~", lang = "bash")
+md_fence(paste("$", command), char = "~", info = "bash")
 ```
 
 Or maybe we simply want to display some preformatted text that only works in a

@@ -16,7 +16,7 @@
 #'   [md_fence()] or [md_indent()].
 #' @family leaf block functions
 #' @examples
-#' md_chunk("$ sudo apt install r-base-dev", lang = "bash")
+#' md_chunk("$ sudo apt install r-base-dev", info = "bash")
 #' md_chunk(c("library(ggplot2)", "ggplot(mpg)+", "geom_point(aes(displ, hwy))"), type = "tilde")
 #' md_indent(
 #'   n = c(4, 4, 6),
@@ -98,12 +98,12 @@ md_indent <- function(x, n = 4) {
 #' inlines. The first word of the info string is typically used to specify the
 #' language of the code sample, and rendered in the class attribute of the code
 #' tag. However, this spec does not mandate any particular treatment of the info
-#' string (see the `lang` argument).
+#' string (see the `info` argument).
 #' @param x A character vector of lines to be wrapped concatenated into a single
 #'   block, possibly created by possibly created by [readr::read_lines()] or [deparse()].
 #' @param char The character to use in the code fence; either backtick
 #'   characters... or tildes (`~`). Defaults to backticks.
-#' @param lang The info string text to follow the initial code fence, typically
+#' @param info The info string text to follow the initial code fence, typically
 #'   a code for the language of the lines of `x`. Defaults to `r`.
 #' @return A character vector wrapped on either side by code fences.
 #' @family leaf block functions
@@ -113,14 +113,14 @@ md_indent <- function(x, n = 4) {
 #' @importFrom glue glue glue_collapse
 #' @importFrom stringr str_dup
 #' @export
-md_fence <- function(x, char = c("`", "~"), lang = "r") {
+md_fence <- function(x, char = c("`", "~"), info = "r") {
   char <- match.arg(char)
   string <- glue_collapse(x, sep = "\n")
   fence <- stringr::str_dup(char, 3)
-  lang <- if (is.null(lang)) {
+  info <- if (is.null(info)) {
     ""
   } else {
-    lang
+    info
   }
-  glue::glue("{fence}{lang}\n{string}\n{fence}")
+  glue::glue("{fence}{info}\n{string}\n{fence}")
 }

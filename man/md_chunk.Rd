@@ -29,7 +29,7 @@ nested HTML \code{<code>} and \code{<pre>} tags. This function either calls
 \code{\link[=md_fence]{md_fence()}} or \code{\link[=md_indent]{md_indent()}} based on the \code{type} argument.
 }
 \examples{
-md_chunk("$ sudo apt install r-base-dev", lang = "bash")
+md_chunk("$ sudo apt install r-base-dev", info = "bash")
 md_chunk(c("library(ggplot2)", "ggplot(mpg)+", "geom_point(aes(displ, hwy))"), type = "tilde")
 md_indent(
   n = c(4, 4, 6),

@@ -4,7 +4,7 @@
 \alias{md_fence}
 \title{Markdown fenced code block}
 \usage{
-md_fence(x, char = c("`", "~"), lang = "r")
+md_fence(x, char = c("`", "~"), info = "r")
 }
 \arguments{
 \item{x}{A character vector of lines to be wrapped concatenated into a single
@@ -13,7 +13,7 @@ block, possibly created by possibly created by \code{\link[readr:read_lines]{rea
 \item{char}{The character to use in the code fence; either backtick
 characters... or tildes (\code{~}). Defaults to backticks.}
 
-\item{lang}{The info string text to follow the initial code fence, typically
+\item{info}{The info string text to follow the initial code fence, typically
 a code for the language of the lines of \code{x}. Defaults to \code{r}.}
 }
 \value{
@@ -45,7 +45,7 @@ The content of a code fence is treated as literal text, not parsed as
 inlines. The first word of the info string is typically used to specify the
 language of the code sample, and rendered in the class attribute of the code
 tag. However, this spec does not mandate any particular treatment of the info
-string (see the \code{lang} argument).
+string (see the \code{info} argument).
 }
 \examples{
 md_fence(deparse(sd))

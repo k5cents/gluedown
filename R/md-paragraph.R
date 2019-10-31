@@ -1,4 +1,4 @@
-#' Markdown paragraphs
+#' Markdown paragraphs breaks
 #'
 #' Take a character vector and return a glue vector of paragraphs separated by
 #' double newlines. This leaf block is rendered as distinct `<p>` HTML tags.

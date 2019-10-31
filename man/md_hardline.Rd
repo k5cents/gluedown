@@ -15,7 +15,7 @@ spaces and a newline.
 }
 \description{
 Take a character vector and return a collapsed glue vector with each original
-element separated by two spaces and a newline. This inline is rendered as a
+element separated by two spaces and a newline. This inline is rendered with a
 \code{<br />} HTML tag.
 }
 \details{

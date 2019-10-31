@@ -14,8 +14,8 @@ A \code{glue} vector of length 1 with elements of \code{x} separated by two
 spaces and a newline.
 }
 \description{
-Take a character vector and return a collapsed glue vector with each original
-element separated a single newline.
+Take a character vector and return a glue vector of separated by a single
+newline. This inline is rendered as single \code{<p>} HTML tags.
 }
 \details{
 A regular line break (not in a code span or HTML tag) that is not preceded by

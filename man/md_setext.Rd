@@ -4,7 +4,7 @@
 \alias{md_setext}
 \title{Markdown Setext headings (4.3)}
 \usage{
-md_setext(x, level = 1)
+md_setext(x, level = 1, width = TRUE)
 }
 \arguments{
 \item{x}{A character vector of heading text.}
@@ -12,6 +12,10 @@ md_setext(x, level = 1)
 \item{level}{An numeric vector of all either 1 or 2 to determine whether
 level 1 headings are created with \code{=} or level two with \code{-}. If less levels
 are provided than headings, \code{level} will be repeated via \code{\link[glue:glue]{glue::glue()}}.}
+
+\item{width}{logical or integer; if \code{TRUE} the width will be automatically
+determined by the width of the longest line in \code{x}. If an integer, the
+setext underline will be that wide.}
 }
 \value{
 A \code{glue} vector of headings with length equal to \code{x}.
@@ -53,6 +57,7 @@ comes after a paragraph, a blank line is needed between them.
 md_setext("Overview")
 md_setext("This is a setext\\nheading", level = 2)
 md_setext(c("one", "two", "three", "four"), level = c(1, 2))
+md_setext("Installation", level = 2, width = 55)
 }
 \seealso{
 Other leaf block functions: \code{\link{md_chunk}},

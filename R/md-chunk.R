@@ -115,6 +115,11 @@ md_indent <- function(x, n = 4) {
 #' @export
 md_fence <- function(x, char = c("`", "~"), info = "r") {
   char <- match.arg(char)
+  if (!is.null(info)) {
+    if (char == "`" & grepl("`", info)) {
+      stop("The info string cannot contain any backtick characters.")
+    }
+  }
   string <- glue_collapse(x, sep = "\n")
   fence <- stringr::str_dup(char, 3)
   info <- if (is.null(info)) {

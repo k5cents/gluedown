@@ -101,3 +101,39 @@ test_that("md_fence uses an info string that creates a class tag (ex. 112)", {
     html_attr("class")
   expect_equal(node, "ruby")
 })
+
+test_that("md_fence info string can ignore extra (ex. 113)", {
+  skip("This render is not supported by markdown::markdownToHTML()")
+  # https://github.github.com/gfm/#example-113
+  lines <- c("def foo(x)","  return 3", "end") %>%
+    md_fence(char = "`", info = "    ruby startline=3 $%@#$")
+  node <- md_convert(lines) %>%
+    find_nodes("code") %>%
+    html_attr("class")
+  expect_equal(node, "ruby")
+})
+
+test_that("md_fence backtick info string can't contain backticks (ex. 115)", {
+  # https://github.github.com/gfm/#example-115
+  expect_error(md_fence("foo", info = "aa ```"))
+})
+
+test_that("md_fence tilde info string can contain backticks (ex. 116)", {
+  # https://github.github.com/gfm/#example-116
+  # this doesn't actual work due to md_convert issue with info strings
+  # not a violation of gfm spec, just a conversion issue
+  node <- md_fence("foo", char = "~", info = "aa ```") %>%
+    md_convert() %>%
+    find_nodes("code")
+  expect_full(node)
+})
+
+test_that("md_chunk can call each chunk type", {
+  x <- deparse(md_bold)
+  node <- md_chunk(x, "tick") %>% md_convert() %>% find_nodes("code")
+  expect_full(node)
+  node <- md_chunk(x, "tilde") %>% md_convert() %>% find_nodes("code")
+  expect_full(node)
+  node <- md_chunk(x, "indent") %>% md_convert() %>% find_nodes("code")
+  expect_full(node)
+})

@@ -9,10 +9,12 @@
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/gluedown)](https://CRAN.R-project.org/package=gluedown)
+[![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![Travis build
 status](https://travis-ci.org/kiernann/gluedown.svg?branch=master)](https://travis-ci.org/kiernann/gluedown)
 [![Codecov test
 coverage](https://codecov.io/gh/kiernann/gluedown/branch/master/graph/badge.svg)](https://codecov.io/gh/kiernann/gluedown?branch=master)
+
 <!-- badges: end -->
 
 The `gluedown` package helps transition from R’s powerful vectors to
@@ -103,9 +105,9 @@ legislation <- c("Houses passes", "Senate concurs", "President signs")
 md_task(legislation, check = 1:2)
 ```
 
-  - [x] Houses passes
-  - [x] Senate concurs
-  - [ ] President signs
+  - \[x\] Houses passes
+  - \[x\] Senate concurs
+  - \[ \] President signs
 
 ### Inline
 
@@ -122,7 +124,7 @@ abb <- state.abb[match(name, state.name)]
 
 Then you can easily print that result in the middle of regular text with
 markdown formatting. In this case, our randomly selected state is
-**Colorado**, which has the abbreviation *CO*.
+**Illinois**, which has the abbreviation *IL*.
 
 ## Contribute
 

@@ -41,3 +41,10 @@ test_that("md_paragraph creates two soft line paragraphs (ex. 190)", {
   node <- md_convert(lines) %>% find_nodes("p") %>% html_text()
   expect_equal(text, node)
 })
+
+test_that("md_paragraph ignores extra blank lines (ex. 191)", {
+  # https://github.github.com/gfm/#example-191
+  lines <- md_paragraph("aaa", "\n", "bbb")
+  node <- md_convert(lines) %>% find_nodes("p")
+  expect_length(node, 2)
+})

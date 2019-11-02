@@ -60,11 +60,11 @@ test_that("md_fence can havbe no content (ex. 100)", {
 
 test_that("md_fence blocks can interrupt paragraphs (ex. 110)", {
   # https://github.github.com/gfm/#example-110
-  lines <- md_softline(c(
+  lines <- md_softline(
     "foo",
     md_fence("bar", info = NULL),
     "baz"
-  ))
+  )
   node <- md_convert(lines) %>%
     find_nodes("code") %>%
     html_text(trim = TRUE)
@@ -73,11 +73,11 @@ test_that("md_fence blocks can interrupt paragraphs (ex. 110)", {
 
 test_that("md_fence works when surrounded by blocks and no newline (ex. 111)", {
   # https://github.github.com/gfm/#example-111
-  lines <- md_softline(c(
+  lines <- md_softline(
     md_setext("foo", 2),
     md_fence("bar", char = "~", info = NULL),
     md_heading("baz", 1)
-  ))
+  )
   node <- md_convert(lines) %>%
     find_nodes("h2") %>%
     html_text(trim = TRUE)

@@ -52,26 +52,23 @@ test_that("md_rule do not need blank lines (ex. 27", {
   skip("This seems to be an error with conversion via pandoc, etc")
   # https://github.github.com/gfm/#example-27
   lines <- md_softline(
-    c(
-      md_bullet("foo", "-"),
-      md_rule(),
-      md_bullet("bar", "-")
-    )
+    md_bullet("foo", "-"),
+    md_rule(),
+    md_bullet("bar", "-")
   )
-
   md_convert(lines)
 })
 
 test_that("md_rule can interupt a paragraph (ex. 28", {
   # https://github.github.com/gfm/#example-28
-  lines <- md_softline(c("Foo", md_rule("*"), "Bar"))
+  lines <- md_softline("Foo", md_rule("*"), "Bar")
   node <- md_convert(lines) %>% find_nodes("hr")
   expect_false(is.na(node))
 })
 
 test_that("md_rule with hyphens creates <h2> tag not <hr> (ex. 29)", {
   # https://github.github.com/gfm/#example-29
-  lines <- md_softline(c("Foo", md_rule("-"), "Bar"))
+  lines <- md_softline("Foo", md_rule("-"), "Bar")
   node1 <- md_convert(lines) %>% find_nodes("hr")
   node2 <- md_convert(lines) %>% find_nodes("h2")
   expect_empty(node1)
@@ -82,11 +79,9 @@ test_that("md_rule takes precedence over list item (ex. 30)", {
   skip("This seems to be an error with conversion via pandoc, etc")
   # https://github.github.com/gfm/#example-30
   lines <- md_softline(
-    c(
-      md_bullet("Foo"),
-      md_rule(space = TRUE),
-      md_bullet("Bar")
-    )
+    md_bullet("Foo"),
+    md_rule(space = TRUE),
+    md_bullet("Bar")
   )
   node <- md_convert(lines)
 })

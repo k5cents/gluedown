@@ -36,11 +36,11 @@ test_that("md_heading doesn't allow more than 6 #'s (ex.33)", {
 
 test_that("md_heading doesn't need to be separated from content (ex. 47)", {
   # https://github.github.com/gfm/#example-47
-  lines <- md_softline(c(
+  lines <- md_softline(
     md_rule(n = 4),
     md_heading("foo", 2),
     md_rule(n = 4)
-  ))
+  )
   node <- md_convert(lines) %>%
     find_nodes("h2") %>%
     html_text(trim = TRUE)

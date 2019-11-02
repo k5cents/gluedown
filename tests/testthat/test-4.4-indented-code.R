@@ -69,13 +69,13 @@ expect_that("md_indent ends after non-blank line (ex. 84)", {
 
 test_that("md_indent can occur immediately before other blocks (ex. 85)", {
   # https://github.github.com/gfm/#example-85
-  lines <- md_softline(c(
+  lines <- md_softline(
     md_heading("Heading"),
     md_indent("foo"),
     md_setext("Heading", 2, 6),
     md_indent("foo"),
     md_rule("-", 4)
-  ))
+  )
   node <- md_convert(lines) %>%
     find_nodes("code") %>%
     html_text(trim = TRUE)

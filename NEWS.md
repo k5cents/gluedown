@@ -1,3 +1,7 @@
+# gluedown 0.3.2
+
+* Use `...` in `md_hardline()`, `md_softline()`, and `md_paragraph()`
+
 # gluedown 0.3.1
 
 * Rename `md-break.R` to `md-rule.R`

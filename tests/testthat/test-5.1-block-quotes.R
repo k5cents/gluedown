@@ -54,3 +54,23 @@ test_that("md_quotes with soft lines create a single quote (ex. 221)", {
     html_text(trim = TRUE)
   expect_equal(node, str_c(text, collapse = "\n"))
 })
+
+test_that("md_quotes with blank lines create paragraphs (ex. 222)", {
+  # https://github.github.com/gfm/#example-222
+  text <- c("foo", "", "bar")
+  node <- md_quote(text) %>%
+    md_convert() %>%
+    find_nodes("blockquote") %>%
+    html_nodes("p") %>%
+    html_text(trim = TRUE)
+  expect_equal(node, text[which(text != "")])
+})
+
+test_that("md_quote can create nested block qutoes (ex. 228)", {
+  # https://github.github.com/gfm/#example-228
+  lines <- md_quote(md_quote(md_quote("foo")))
+  nodes <- lines %>%
+    md_convert() %>%
+    find_nodes("blockquote")
+  expect_length(nodes, 3)
+})

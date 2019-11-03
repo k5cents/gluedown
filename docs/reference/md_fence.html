@@ -79,7 +79,7 @@ can be rendered as HTML &amp;lt;code&amp;gt; tags inside &amp;lt;pre&amp;gt; tag
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.3</span>
       </span>
     </div>
 
@@ -141,7 +141,7 @@ bookended with a code fence of backticks or tildes. This markdown leaf block
 can be rendered as HTML <code>&lt;code&gt;</code> tags inside <code>&lt;pre&gt;</code> tags.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_fence</span>(<span class='no'>x</span>, <span class='kw'>char</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"`"</span>, <span class='st'>"~"</span>), <span class='kw'>lang</span> <span class='kw'>=</span> <span class='st'>"r"</span>)</pre>
+    <pre class="usage"><span class='fu'>md_fence</span>(<span class='no'>x</span>, <span class='kw'>char</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"`"</span>, <span class='st'>"~"</span>), <span class='kw'>info</span> <span class='kw'>=</span> <span class='st'>"r"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -157,7 +157,7 @@ block, possibly created by possibly created by <code><a href='https://readr.tidy
 characters... or tildes (<code>~</code>). Defaults to backticks.</p></td>
     </tr>
     <tr>
-      <th>lang</th>
+      <th>info</th>
       <td><p>The info string text to follow the initial code fence, typically
 a code for the language of the lines of <code>x</code>. Defaults to <code>r</code>.</p></td>
     </tr>
@@ -184,7 +184,7 @@ line either before or after.</p>
 inlines. The first word of the info string is typically used to specify the
 language of the code sample, and rendered in the class attribute of the code
 tag. However, this spec does not mandate any particular treatment of the info
-string (see the <code>lang</code> argument).</p>
+string (see the <code>info</code> argument).</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other leaf block functions: <code><a href='md_chunk.html'>md_chunk</a></code>,

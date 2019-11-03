@@ -78,7 +78,7 @@ markdown leaf block is rendered as the &amp;lt;hr&amp;gt; HTML tag." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.3</span>
       </span>
     </div>
 
@@ -130,7 +130,7 @@ markdown leaf block is rendered as the &amp;lt;hr&amp;gt; HTML tag." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Markdown horizontal rule (4.1)</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-break.R'><code>R/md-break.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-rule.R'><code>R/md-rule.R</code></a></small>
     <div class="hidden name"><code>md_rule.Rd</code></div>
     </div>
 
@@ -139,7 +139,7 @@ markdown leaf block is rendered as the &amp;lt;hr&amp;gt; HTML tag." />
 markdown leaf block is rendered as the <code>&lt;hr&gt;</code> HTML tag.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_rule</span>(<span class='kw'>char</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"*"</span>, <span class='st'>"-"</span>, <span class='st'>"_"</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>3</span>)</pre>
+    <pre class="usage"><span class='fu'>md_rule</span>(<span class='kw'>char</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"*"</span>, <span class='st'>"-"</span>, <span class='st'>"_"</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>space</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -152,6 +152,11 @@ markdown leaf block is rendered as the <code>&lt;hr&gt;</code> HTML tag.</p>
       <th>n</th>
       <td><p>The width of the rule; an integer indicating number of times to
 repeat each character. Defaults to the minimum of 3.</p></td>
+    </tr>
+    <tr>
+      <th>space</th>
+      <td><p>logical or numeric; How many spaces to place between each
+<code>char</code>. Defaults to <code>FALSE</code>, which places 0 spaces.</p></td>
     </tr>
     </table>
 
@@ -172,7 +177,7 @@ by any number of spaces or tabs, forms a thematic break.</p>
   <code><a href='md_table.html'>md_table</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_rule</span>()</div><div class='output co'>#&gt; ***</div><div class='input'><span class='fu'>md_rule</span>(<span class='st'>"_"</span>)</div><div class='output co'>#&gt; ___</div><div class='input'><span class='fu'>md_rule</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt; **********</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>md_rule</span>()</div><div class='output co'>#&gt; ***</div><div class='input'><span class='fu'>md_rule</span>(<span class='st'>"_"</span>)</div><div class='output co'>#&gt; ___</div><div class='input'><span class='fu'>md_rule</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt; **********</div><div class='input'><span class='fu'>md_rule</span>(<span class='kw'>space</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; * * *</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -78,7 +78,7 @@ double newlines. This leaf block is rendered as distinct &amp;lt;p&amp;gt; HTML 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.3</span>
       </span>
     </div>
 
@@ -130,7 +130,7 @@ double newlines. This leaf block is rendered as distinct &amp;lt;p&amp;gt; HTML 
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Markdown paragraphs breaks</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-paragraph.R'><code>R/md-paragraph.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-lines.R'><code>R/md-lines.R</code></a></small>
     <div class="hidden name"><code>md_paragraph.Rd</code></div>
     </div>
 
@@ -139,17 +139,20 @@ double newlines. This leaf block is rendered as distinct &amp;lt;p&amp;gt; HTML 
 double newlines. This leaf block is rendered as distinct <code>&lt;p&gt;</code> HTML tags.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_paragraph</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>md_paragraph</span>(<span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>A character vector of distinct paragraphs.</p></td>
+      <th>...</th>
+      <td><p>Any number of character vectors.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A <code>glue</code> vector with elements of <code>...</code> separated by two newlines.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>A sequence of non-blank lines that cannot be interpreted as other kinds of
@@ -177,6 +180,7 @@ whitespace... Paragraphs can contain multiple lines, but no blank lines.</p>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
       <li><a href="#details">Details</a></li>
       <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>

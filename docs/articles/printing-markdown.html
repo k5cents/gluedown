@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.3</span>
       </span>
     </div>
 
@@ -132,7 +132,7 @@
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/length.html">length</a></span>(state.name)</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; [1] 50</span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(state.name, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; [1] "Kansas"         "Arkansas"       "North Carolina"</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; [1] "Florida"    "Wisconsin"  "California"</span></a></code></pre></div>
 <p>If we as a user want to use those state names as <em>text</em> in our markdown document we can use the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> function and tell <code>rmarkdown</code> to print the results of that function “as is” (rather than as code output).</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(state.name[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])</a></code></pre></div>
 <p>Alabama Alaska Arizona</p>
@@ -148,7 +148,7 @@
 <li>Alaska</li>
 <li>Arizona</li>
 </ol>
-<p>This workflow get’s tiresome, although it’s made slightly more simple with the fantastic <a href="https://github.com/tidyverse/glue"><code>glue</code></a> package from Jim Hester.</p>
+<p>This workflow gets tiresome, although it’s made slightly more simple with the fantastic <a href="https://github.com/tidyverse/glue"><code>glue</code></a> package from Jim Hester.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/pkg/glue/man/glue.html">glue</a></span>(<span class="st">"{1:3}. {state.name[1:3]}"</span>)</a></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Alabama</li>
@@ -225,10 +225,10 @@
 <li><del>Delaware</del></li>
 </ul>
 <p>These functions demonstrate how <code>gluedown</code> can be used to transition between R vectors, simply formatted markdown text, and beautifully formatted HTML text.</p>
-<p>Aside from container blocks and inlines, there is a third type of markown content. The leaf blocks cannot contain inline content. The thematic break is an example of a leaf block.</p>
+<p>Aside from container blocks and inlines, there is a third type of markdown content. The leaf blocks cannot contain inline content. The thematic break is an example of a leaf block.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw"><a href="../reference/md_rule.html">md_rule</a></span>(<span class="dt">char =</span> <span class="st">"*"</span>, <span class="dt">n =</span> <span class="dv">80</span>)</a></code></pre></div>
 <hr>
-<p>Code blocks are another type of leaf block. The code I’ve been writing so far is contained within <code>rmarkdown</code> <em>chunks</em>, which execute the code within. By default, those code chunks are then displayed as regular code blocks in the intermediary <code>.md</code> file. Sometimes we might want to use code blocks to display other types of text. Prhaps we want to show the content of a function. The <code><a href="../reference/md_fence.html">md_fence()</a></code> function creates a <em>new</em> code fence from the lines created by <code><a href="https://rdrr.io/r/base/deparse.html">deparse()</a></code>.</p>
+<p>Code blocks are another type of leaf block. The code I’ve been writing so far is contained within <code>rmarkdown</code> <em>chunks</em>, which execute the code within. By default, those code chunks are then displayed as regular code blocks in the intermediary <code>.md</code> file. Sometimes we might want to use code blocks to display other types of text. Perhaps we want to show the content of a function. The <code><a href="../reference/md_fence.html">md_fence()</a></code> function creates a <em>new</em> code fence from the lines created by <code><a href="https://rdrr.io/r/base/deparse.html">deparse()</a></code>.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">lines &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/deparse.html">deparse</a></span>(md_bullet)</a>
 <a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw"><a href="../reference/md_fence.html">md_fence</a></span>(lines)</a>
 <a class="sourceLine" id="cb16-3" data-line-number="3"><span class="cf">function</span> (x, <span class="dt">marker =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"*"</span>, <span class="st">"-"</span>, <span class="st">"+"</span>)) </a>
@@ -238,11 +238,11 @@
 <a class="sourceLine" id="cb16-7" data-line-number="7">}</a></code></pre></div>
 <p>Or perhaps we want to display some code from another language that isn’t supposed to be executed</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">command &lt;-<span class="st"> "sudo apt install r-base-dev"</span></a>
-<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="kw"><a href="../reference/md_fence.html">md_fence</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">"$"</span>, command), <span class="dt">char =</span> <span class="st">"~"</span>, <span class="dt">lang =</span> <span class="st">"bash"</span>)</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="kw"><a href="../reference/md_fence.html">md_fence</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste</a></span>(<span class="st">"$"</span>, command), <span class="dt">char =</span> <span class="st">"~"</span>, <span class="dt">info =</span> <span class="st">"bash"</span>)</a>
 <a class="sourceLine" id="cb17-3" data-line-number="3"><span class="co">#&gt; ~~~bash</span></a>
 <a class="sourceLine" id="cb17-4" data-line-number="4"><span class="co">#&gt; $ sudo apt install r-base-dev</span></a>
 <a class="sourceLine" id="cb17-5" data-line-number="5"><span class="co">#&gt; ~~~</span></a></code></pre></div>
-<p>Or maybe we simply want to display some preformated text that only works in a monospace font like that which is used in code blocks.</p>
+<p>Or maybe we simply want to display some preformatted text that only works in a monospace font like that which is used in code blocks.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">cat &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
 <a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="st">" -------------- "</span>, <span class="st">"Gluedown rules!"</span> ,<span class="st">" --------------"</span>,</a>
 <a class="sourceLine" id="cb18-3" data-line-number="3">  <span class="st">"    </span><span class="ch">\\</span><span class="st">"</span>, <span class="st">"     </span><span class="ch">\\</span><span class="st">"</span>, <span class="st">"      </span><span class="ch">\\</span><span class="st">"</span>, <span class="st">"         /</span><span class="ch">\\</span><span class="st">_/</span><span class="ch">\\</span><span class="st">"</span>,</a>
@@ -306,7 +306,7 @@ Gluedown rules!
 <dd>a form of government with a monarch at the head.
 </dd>
 </dl>
-<p>Markdown tables are another extremelly useful extension. The <code><a href="../reference/md_table.html">md_table()</a></code> functions wraps around the much more powerful <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable()</a></code> function, which allows data frames to be printed in a number of alternative formats. Printing data frames is a very typical use case for documenting the process of data science. With small summary tables like the one below, a markdown table is much more readable than the plain text tibble or data frame printed by default.</p>
+<p>Markdown tables are another extremely useful extension. The <code><a href="../reference/md_table.html">md_table()</a></code> functions wraps around the much more powerful <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable()</a></code> function, which allows data frames to be printed in a number of alternative formats. Printing data frames is a very typical use case for documenting the process of data science. With small summary tables like the one below, a markdown table is much more readable than the plain text tibble or data frame printed by default.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">mass &lt;-<span class="st"> </span>starwars <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb23-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(species) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb23-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(<span class="dt">n =</span> <span class="kw"><a href="https://dplyr.tidyverse.org/reference/n.html">n</a></span>(), <span class="dt">mass =</span> <span class="kw"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(mass, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
@@ -383,7 +383,7 @@ Gluedown rules!
 <a class="sourceLine" id="cb26-2" data-line-number="2"><span class="co"># `r md_bold(rand)`</span></a>
 <a class="sourceLine" id="cb26-3" data-line-number="3">var &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(starwars), <span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb26-4" data-line-number="4"><span class="co"># `r md_code(var)`</span></a></code></pre></div>
-<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>Maryland</strong> and the <code>starships</code> variable was randomly selected from the <code><a href="https://dplyr.tidyverse.org/reference/starwars.html">dplyr::starwars</a></code> dataframe. Calculating results and using those calculations in the body of a text document increases reproducability.</p>
+<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>Oregon</strong> and the <code>skin_color</code> variable was randomly selected from the <code><a href="https://dplyr.tidyverse.org/reference/starwars.html">dplyr::starwars</a></code> dataframe. Calculating results and using those calculations in the body of a text document increases reproducability.</p>
 <p>In a <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3174372/">meta-study of psychology journals</a>, researchers found that “around 15% of the articles contained at least one statistical conclusion that proved, upon recalculation, to be incorrect.” These errors can be mitigated by using inline printing of results like we did above. With the <code>gluedown</code> package, programmers can <strong>emphasize</strong> those results without worry.</p>
 </div>
   </div>

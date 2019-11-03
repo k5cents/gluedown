@@ -79,7 +79,7 @@ element separated by two spaces and a newline. This inline is rendered with a
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.3</span>
       </span>
     </div>
 
@@ -131,7 +131,7 @@ element separated by two spaces and a newline. This inline is rendered with a
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Markdown hard line breaks</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-hardline.R'><code>R/md-hardline.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-lines.R'><code>R/md-lines.R</code></a></small>
     <div class="hidden name"><code>md_hardline.Rd</code></div>
     </div>
 
@@ -141,21 +141,21 @@ element separated by two spaces and a newline. This inline is rendered with a
 <code>&lt;br /&gt;</code> HTML tag.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_hardline</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>md_hardline</span>(<span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>A character vector of bullet point list items.</p></td>
+      <th>...</th>
+      <td><p>Any number of character vectors.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code>glue</code> vector of length 1 with elements of <code>x</code> separated by two
-spaces and a newline.</p>
+    <p>A <code>glue</code> vector with elements of <code>...</code> separated by two trailing
+spaces and a single newline.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>A line break (not in a code span or HTML tag) that is preceded by two or more
@@ -172,9 +172,9 @@ break (rendered in HTML as a <code>&lt;br /&gt;</code> tag)</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># compare the following</span>
 <span class='fu'><a href='md_bold.html'>md_bold</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"One"</span>, <span class='st'>"Two"</span>))</div><div class='output co'>#&gt; **One**
-#&gt; **Two**</div><div class='input'>
-<span class='fu'>md_hardline</span>(<span class='fu'><a href='md_bold.html'>md_bold</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"One"</span>, <span class='st'>"Two"</span>)))</div><div class='output co'>#&gt; **One**  
-#&gt; **Two**  </div></pre>
+#&gt; **Two**</div><div class='input'><span class='fu'>md_hardline</span>(<span class='fu'><a href='md_bold.html'>md_bold</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"One"</span>, <span class='st'>"Two"</span>)), <span class='fu'><a href='md_italic.html'>md_italic</a></span>(<span class='st'>"Three"</span>))</div><div class='output co'>#&gt; **One**  
+#&gt; **Two**  
+#&gt; _Three_  </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -79,7 +79,7 @@ only." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.3</span>
       </span>
     </div>
 
@@ -141,7 +141,7 @@ These markdown leaf blocks can be rendered as the <code>&lt;h1&gt;</code> and <c
 <em>only</em>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_setext</span>(<span class='no'>x</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
+    <pre class="usage"><span class='fu'>md_setext</span>(<span class='no'>x</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,6 +155,12 @@ These markdown leaf blocks can be rendered as the <code>&lt;h1&gt;</code> and <c
       <td><p>An numeric vector of all either 1 or 2 to determine whether
 level 1 headings are created with <code>=</code> or level two with <code>-</code>. If less levels
 are provided than headings, <code>level</code> will be repeated via <code><a href='https://rdrr.io/pkg/glue/man/glue.html'>glue::glue()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>width</th>
+      <td><p>logical or integer; if <code>TRUE</code> the width will be automatically
+determined by the width of the longest line in <code>x</code>. If an integer, the
+setext underline will be that wide.</p></td>
     </tr>
     </table>
 
@@ -205,7 +211,8 @@ comes after a paragraph, a blank line is needed between them.</p>
 #&gt; three
 #&gt; =====
 #&gt; four
-#&gt; ----</div></pre>
+#&gt; ----</div><div class='input'><span class='fu'>md_setext</span>(<span class='st'>"Installation"</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>width</span> <span class='kw'>=</span> <span class='fl'>55</span>)</div><div class='output co'>#&gt; Installation
+#&gt; -------------------------------------------------------</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -103,3 +103,7 @@ test_that("md_indent preserves trailing spaces in block (ex. 88)", {
     str_remove("\n")
   expect_true(str_detect(node, "\\s\\s"))
 })
+
+test_that("md_indent errors with less than four spaces", {
+  expect_error(md_indent("foo", n = 3))
+})

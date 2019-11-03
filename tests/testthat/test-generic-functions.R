@@ -33,7 +33,7 @@ test_that("md_list can create all list types", {
     expect_equal(x)
 })
 
-test_that("md_list can create all list types", {
+test_that("md_chunk can create all list types", {
   x <- deparse(md_bold)
   y <- str_c(x, collapse = "\n")
   x %>%
@@ -60,4 +60,9 @@ test_that("md_list can create all list types", {
     html_nodes("code") %>%
     html_text(trim = TRUE) %>%
     expect_equal(y)
+})
+
+test_that("md_chunk errors in the same was as underlying function", {
+  x <- deparse(md_bold)
+  expect_error(md_chunk(x, type = "indent", n = 3))
 })

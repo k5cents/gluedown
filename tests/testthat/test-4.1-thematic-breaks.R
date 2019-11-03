@@ -95,3 +95,11 @@ test_that("md_rule can creat a <h2> withing a hypeh bullet list (ex. 31)", {
     html_node("hr")
   expect_false(is.na(node[2]))
 })
+
+test_that("md_rule works with sep of any length", {
+  md_rule(space = 0) %>% find_nodes("hr") %>% expect_full()
+  md_rule(space = 1) %>% find_nodes("hr") %>% expect_full()
+  md_rule(space = 10) %>% find_nodes("hr") %>% expect_full()
+  md_rule(space = TRUE) %>% find_nodes("hr") %>% expect_full()
+  md_rule(space = FALSE) %>% find_nodes("hr") %>% expect_full()
+})

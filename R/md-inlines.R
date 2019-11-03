@@ -25,7 +25,11 @@
 #' @importFrom glue glue
 #' @export
 md_code <- function(x) {
-  glue::glue("`{x}`")
+  if (any(grepl("`", x))) {
+    glue::glue("`` {x} ``")
+  } else {
+    glue::glue("`{x}`")
+  }
 }
 
 #' Markdown bold emphasis

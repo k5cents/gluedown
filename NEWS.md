@@ -1,3 +1,7 @@
+# gluedown 0.3.3
+
+* Add and remove tests from the GFM spec.
+
 # gluedown 0.3.2
 
 * Use `...` in `md_hardline()`, `md_softline()`, and `md_paragraph()`

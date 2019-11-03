@@ -45,3 +45,16 @@ test_that("md_chunk produces valid HTML indented blocks", {
 test_that("md_indent errors if less than 4 spaces are uses", {
   expect_error(md_indent("code", n = 2))
 })
+
+test_that("md_fence returns an error if info has backtick", {
+  lines <- c("library(dplyr)", "starwars %>%", "filter(species == 'Droid')")
+  expect_error(md_fence(lines, info = "r`"))
+})
+
+test_that("md_fence uses empty info if NULL", {
+  lines <- c("library(dplyr)", "starwars %>%", "filter(species == 'Droid')")
+  lines %>%
+    md_fence(info = NULL) %>%
+    str_detect("```\n") %>%
+    expect_true()
+})

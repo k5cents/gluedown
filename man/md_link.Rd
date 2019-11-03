@@ -11,7 +11,7 @@ md_link(text, url, title = NULL)
 
 \item{url}{The URL to lead to.}
 
-\item{title}{The title of the link.}
+\item{title}{The optional title of the link.}
 }
 \value{
 A \code{glue} vector of collapsed display text and associated URLs.

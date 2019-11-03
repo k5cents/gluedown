@@ -12,6 +12,8 @@ md_image(url, alt = "", title = NULL)
 \item{alt}{A character vector of
 \href{https://en.wikipedia.org/wiki/Alt_attribute}{alternative text} that can
 be used to refer to an image.}
+
+\item{title}{The optional title of the link.}
 }
 \value{
 A \code{glue} vector of collapsed alternative text and associated URLs.

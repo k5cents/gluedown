@@ -1,7 +1,6 @@
 library(testthat)
 library(gluedown)
 library(stringr)
-library(tibble)
 library(rvest)
 library(glue)
 
@@ -26,27 +25,30 @@ expect_nchar <- function(object, n) {
 
 test_that("md_table creates a single <table> tag (ex. 198)", {
   # https://github.github.com/gfm/#example-198
-  df <- tribble(
-    ~foo, ~bar,
-    "baz", "bim"
+  df <- data.frame(
+    foo = "baz",
+    bar = "bim",
+    stringsAsFactors = FALSE
   )
   node <- md_table(df) %>%
-    find_nodes("table") %>%
-    html_table() %>%
-    `[[`(1) %>%
-    as_tibble()
+    md_convert() %>%
+    read_html() %>%
+    html_node("table") %>%
+    html_table()
   expect_equal(node, df)
 })
 
 test_that("md_table can create a table with no body (ex. 205)", {
   # https://github.github.com/gfm/#example-205
-  df <- tribble(
-    ~foo, ~bar
+  df <- data.frame(
+    foo = logical(),
+    bar = logical(),
+    stringsAsFactors = FALSE
   )
   node <- md_table(df) %>%
-    find_nodes("table") %>%
-    html_table() %>%
-    `[[`(1) %>%
-    as_tibble()
+    md_convert() %>%
+    read_html() %>%
+    html_node("table") %>%
+    html_table()
   expect_equal(node, df)
 })

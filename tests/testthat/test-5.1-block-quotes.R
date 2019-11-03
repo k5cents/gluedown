@@ -1,7 +1,6 @@
 library(testthat)
 library(gluedown)
 library(stringr)
-library(tibble)
 library(rvest)
 library(glue)
 

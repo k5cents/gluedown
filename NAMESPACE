@@ -2,6 +2,7 @@
 
 export("%>%")
 export(emphasize_at)
+export(md_autolink)
 export(md_bold)
 export(md_bullet)
 export(md_chunk)

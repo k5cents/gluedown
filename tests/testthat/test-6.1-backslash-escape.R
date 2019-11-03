@@ -11,6 +11,15 @@ expect_full <- function(object) {
   expect_true(length(object) != 0)
 }
 
+test_that("md_escape prepends ASCII punctuation with a backslash (ex. 308)", {
+  # https://github.github.com/gfm/#example-308
+  ascii_punct <- as_glue("!\"#$%&'()*+,-./:;<=>?@[]^_`{|}~")
+  n <- nchar(ascii_punct)
+  md_escape(ascii_punct) %>%
+    str_count("\\\\") %>%
+    expect_equal(n)
+})
+
 test_that("md_escape prevents italic emphasis (ex. 311)", {
   # https://github.github.com/gfm/#example-311
   node <- md_italic("emphasis") %>%
@@ -20,6 +29,3 @@ test_that("md_escape prevents italic emphasis (ex. 311)", {
     html_node("em")
   expect_true(is.na(node))
 })
-
-
-

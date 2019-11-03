@@ -64,8 +64,13 @@ md_link <- function(text, url, title = NULL) {
 #' if (file.exists("man/figures/logo.png")) md_image("man/figures/logo.png")
 #' md_image("http://hexb.in/hexagons/eff.png")
 #' md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker")
+#' md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker", "Logo")
 #' @importFrom glue glue
 #' @export
-md_image <- function(url, alt = "") {
-  glue::glue("![{alt}]({url})")
+md_image <- function(url, alt = "", title = NULL) {
+  if (!is.null(title)) {
+    glue::glue("![{alt}]({url} \"{title}\")")
+  } else {
+    glue::glue("![{alt}]({url})")
+  }
 }

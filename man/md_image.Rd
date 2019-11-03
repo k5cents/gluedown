@@ -4,7 +4,7 @@
 \alias{md_image}
 \title{Markdown image links}
 \usage{
-md_image(url, alt = "")
+md_image(url, alt = "", title = NULL)
 }
 \arguments{
 \item{url}{A character vector of link destination (URL) strings.}
@@ -33,6 +33,7 @@ HTML, this is standardly used as the image’s \code{alt} attribute.
 if (file.exists("man/figures/logo.png")) md_image("man/figures/logo.png")
 md_image("http://hexb.in/hexagons/eff.png")
 md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker")
+md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker", "Logo")
 }
 \seealso{
 Other inline functions: \code{\link{md_bold}},

@@ -34,7 +34,9 @@ test_that("md_quote creates a <blockquote> tag with other blocks (ex. 206)", {
 test_that("md_quote can create an empty block quote (ex. 217)", {
   # https://github.github.com/gfm/#example-217
   node <- md_quote("") %>%
-    find_nodes("blockquote") %>%
+    md_convert() %>%
+    read_html() %>%
+    html_nodes("blockquote") %>%
     html_text(trim = TRUE)
   expect_nchar(node, 0)
 })
@@ -68,6 +70,8 @@ test_that("md_quote can create nested block qutoes (ex. 228)", {
   # https://github.github.com/gfm/#example-228
   lines <- md_quote(md_quote(md_quote("foo")))
   nodes <- lines %>%
-    find_nodes("blockquote")
+    md_convert() %>%
+    read_html() %>%
+    html_nodes("blockquote")
   expect_length(nodes, 3)
 })

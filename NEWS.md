@@ -1,3 +1,7 @@
+# gluedown 0.4.1
+
+* Cover all errors in `md_rule()` and `md_chunk()`, brings coverage to 100%.
+
 # gluedown 0.4.0
 
 * Add back all the tests from the GFM spec (#13).

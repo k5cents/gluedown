@@ -87,5 +87,5 @@ md_paragraph <- function(...) {
 #' @importFrom glue glue
 #' @export
 md_blank <- function() {
-  glue::glue("\n\n")
+  glue::glue("\n")
 }

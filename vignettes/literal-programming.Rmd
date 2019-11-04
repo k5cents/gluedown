@@ -1,5 +1,5 @@
 ---
-title: "Printing Markdown"
+title: "Markdown Literal Programming"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Printing Markdown}

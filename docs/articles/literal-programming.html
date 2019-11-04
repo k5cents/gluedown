@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Printing Markdown • gluedown</title>
+<title>Markdown Literal Programming • gluedown</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -16,7 +16,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Printing Markdown">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Markdown Literal Programming">
 <meta property="og:description" content="">
 <meta property="og:image" content="/logo.png">
 <meta name="twitter:card" content="summary">
@@ -64,7 +64,7 @@
       <a href="../articles/gfm.html">GitHub Flavored Markdown</a>
     </li>
     <li>
-      <a href="../articles/printing-markdown.html">Printing Markdown</a>
+      <a href="../articles/literal-programming.html">Markdown Literal Programming</a>
     </li>
   </ul>
 </li>
@@ -92,11 +92,11 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Printing Markdown</h1>
+      <h1>Markdown Literal Programming</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/kiernann/gluedown/blob/master/vignettes/printing-markdown.Rmd"><code>vignettes/printing-markdown.Rmd</code></a></small>
-      <div class="hidden name"><code>printing-markdown.Rmd</code></div>
+      <small class="dont-index">Source: <a href="https://github.com/kiernann/gluedown/blob/master/vignettes/literal-programming.Rmd"><code>vignettes/literal-programming.Rmd</code></a></small>
+      <div class="hidden name"><code>literal-programming.Rmd</code></div>
 
     </div>
 
@@ -135,7 +135,7 @@
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/length.html">length</a></span>(state.name)</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; [1] 50</span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(state.name, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; [1] "Hawaii"       "Wisconsin"    "North Dakota"</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; [1] "Hawaii"   "Michigan" "Indiana"</span></a></code></pre></div>
 <p>If we as a user want to use those state names as <em>text</em> in our markdown document we can use the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> function and tell <code>rmarkdown</code> to print the results of that function “as is” (rather than as code output).</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(state.name[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])</a></code></pre></div>
 <p>Alabama Alaska Arizona</p>
@@ -386,7 +386,7 @@ Gluedown rules!
 <a class="sourceLine" id="cb26-2" data-line-number="2"><span class="co"># `r md_bold(rand)`</span></a>
 <a class="sourceLine" id="cb26-3" data-line-number="3">var &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(starwars), <span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb26-4" data-line-number="4"><span class="co"># `r md_code(var)`</span></a></code></pre></div>
-<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>Kentucky</strong> and the <code>vehicles</code> variable was randomly selected from the <code><a href="https://dplyr.tidyverse.org/reference/starwars.html">dplyr::starwars</a></code> dataframe. Calculating results and using those calculations in the body of a text document increases reproducability.</p>
+<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>Maine</strong> and the <code>films</code> variable was randomly selected from the <code><a href="https://dplyr.tidyverse.org/reference/starwars.html">dplyr::starwars</a></code> dataframe. Calculating results and using those calculations in the body of a text document increases reproducability.</p>
 <p>In a <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3174372/">meta-study of psychology journals</a>, researchers found that “around 15% of the articles contained at least one statistical conclusion that proved, upon recalculation, to be incorrect.” These errors can be mitigated by using inline printing of results like we did above. With the <code>gluedown</code> package, programmers can <strong>emphasize</strong> those results without worry.</p>
 </div>
   </div>

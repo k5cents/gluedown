@@ -79,7 +79,7 @@ rendered as the &amp;lt;href&amp;gt; HTML tag." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.3</span>
       </span>
     </div>
 
@@ -102,7 +102,10 @@ rendered as the &amp;lt;href&amp;gt; HTML tag." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/printing-markdown.html">Printing Markdown</a>
+      <a href="../articles/gfm.html">GitHub Flavored Markdown</a>
+    </li>
+    <li>
+      <a href="../articles/literal-programming.html">Markdown Literal Programming</a>
     </li>
   </ul>
 </li>
@@ -156,7 +159,7 @@ rendered as the <code>&lt;href&gt;</code> HTML tag.</p>
     </tr>
     <tr>
       <th>title</th>
-      <td><p>The title of the link.</p></td>
+      <td><p>The optional title of the link.</p></td>
     </tr>
     </table>
 
@@ -182,11 +185,13 @@ above. The link’s title consists of the link title, excluding its enclosing
 delimiters, with backslash-escapes in effect as described above.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other inline functions: <code><a href='md_bold.html'>md_bold</a></code>,
-  <code><a href='md_code.html'>md_code</a></code>, <code><a href='md_escape.html'>md_escape</a></code>,
-  <code><a href='md_hardline.html'>md_hardline</a></code>, <code><a href='md_image.html'>md_image</a></code>,
-  <code><a href='md_issue.html'>md_issue</a></code>, <code><a href='md_italic.html'>md_italic</a></code>,
-  <code><a href='md_softline.html'>md_softline</a></code>, <code><a href='md_strike.html'>md_strike</a></code></p></div>
+    <div class='dont-index'><p>Other inline functions: <code><a href='md_autolink.html'>md_autolink</a></code>,
+  <code><a href='md_bold.html'>md_bold</a></code>, <code><a href='md_code.html'>md_code</a></code>,
+  <code><a href='md_convert.html'>md_convert</a></code>, <code><a href='md_disallow.html'>md_disallow</a></code>,
+  <code><a href='md_escape.html'>md_escape</a></code>, <code><a href='md_hardline.html'>md_hardline</a></code>,
+  <code><a href='md_image.html'>md_image</a></code>, <code><a href='md_issue.html'>md_issue</a></code>,
+  <code><a href='md_italic.html'>md_italic</a></code>, <code><a href='md_softline.html'>md_softline</a></code>,
+  <code><a href='md_strike.html'>md_strike</a></code>, <code><a href='md_text.html'>md_text</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>md_link</span>(<span class='st'>"tidyverse"</span>, <span class='st'>"https://www.tidyverse.org/"</span>)</div><div class='output co'>#&gt; [tidyverse](https://www.tidyverse.org/)</div><div class='input'><span class='fu'>md_link</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"R Project"</span>, <span class='st'>"CRAN"</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"https://www.r-project.org/"</span>, <span class='st'>"https://cran.r-project.org/"</span>))</div><div class='output co'>#&gt; [R Project](https://www.r-project.org/)

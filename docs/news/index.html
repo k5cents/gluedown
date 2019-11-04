@@ -76,7 +76,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.3</span>
       </span>
     </div>
 
@@ -99,7 +99,10 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/printing-markdown.html">Printing Markdown</a>
+      <a href="../articles/gfm.html">GitHub Flavored Markdown</a>
+    </li>
+    <li>
+      <a href="../articles/literal-programming.html">Markdown Literal Programming</a>
     </li>
   </ul>
 </li>
@@ -131,19 +134,49 @@
       <small>Source: <a href='https://github.com/kiernann/gluedown/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="gluedown-0-4-3" class="section level1">
+<h1 class="page-header">
+<a href="#gluedown-0-4-3" class="anchor"></a>gluedown 0.4.3</h1>
+<ul>
+<li>Add vignette walking through all the features of GFM.</li>
+</ul>
+</div>
+    <div id="gluedown-0-4-2" class="section level1">
+<h1 class="page-header">
+<a href="#gluedown-0-4-2" class="anchor"></a>gluedown 0.4.2</h1>
+<ul>
+<li>Create <code><a href="../reference/md_disallow.html">md_disallow()</a></code> and add to <code><a href="../reference/md_convert.html">md_convert()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/10'>#10</a>).</li>
+<li>Create <code><a href="../reference/md_text.html">md_text()</a></code> wrapper for <code><a href="https://rdrr.io/pkg/glue/man/as_glue.html">glue::as_glue()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/10'>#10</a>).</li>
+<li>Create <code><a href="../reference/md_blank.html">md_blank()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/10'>#10</a>).</li>
+</ul>
+</div>
+    <div id="gluedown-0-4-1" class="section level1">
+<h1 class="page-header">
+<a href="#gluedown-0-4-1" class="anchor"></a>gluedown 0.4.1</h1>
+<ul>
+<li>Cover all errors in <code><a href="../reference/md_rule.html">md_rule()</a></code> and <code><a href="../reference/md_chunk.html">md_chunk()</a></code>, brings coverage to 100%.</li>
+</ul>
+</div>
+    <div id="gluedown-0-4-0" class="section level1">
+<h1 class="page-header">
+<a href="#gluedown-0-4-0" class="anchor"></a>gluedown 0.4.0</h1>
+<ul>
+<li>Add back all the tests from the GFM spec (<a href='https://github.com/kiernann/gluedown/issues/13'>#13</a>).</li>
+<li>Create <code><a href="../reference/md_autolink.html">md_autolink()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/10'>#10</a>).</li>
+</ul>
+</div>
     <div id="gluedown-0-3-3" class="section level1">
 <h1 class="page-header">
 <a href="#gluedown-0-3-3" class="anchor"></a>gluedown 0.3.3</h1>
 <ul>
-<li>Add and remove tests from the GFM spec.</li>
+<li>Add and remove tests from the GFM spec (<a href='https://github.com/kiernann/gluedown/issues/13'>#13</a>).</li>
 </ul>
 </div>
     <div id="gluedown-0-3-2" class="section level1">
 <h1 class="page-header">
 <a href="#gluedown-0-3-2" class="anchor"></a>gluedown 0.3.2</h1>
 <ul>
-<li>Use <code>...</code> in <code><a href="../reference/md_hardline.html">md_hardline()</a></code>, <code><a href="../reference/md_softline.html">md_softline()</a></code>, and <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code>
-</li>
+<li>Use <code>...</code> in <code><a href="../reference/md_hardline.html">md_hardline()</a></code>, <code><a href="../reference/md_softline.html">md_softline()</a></code>, and <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code>.</li>
 </ul>
 </div>
     <div id="gluedown-0-3-1" class="section level1">
@@ -161,7 +194,7 @@
 <h1 class="page-header">
 <a href="#gluedown-0-3-0" class="anchor"></a>gluedown 0.3.0</h1>
 <ul>
-<li>Create <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code> and <code><a href="../reference/md_softline.html">md_softline()</a></code>.</li>
+<li>Create <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code> and <code><a href="../reference/md_softline.html">md_softline()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/10'>#10</a>).</li>
 </ul>
 </div>
     <div id="gluedown-0-2-3" class="section level1">
@@ -241,6 +274,10 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#gluedown-0-4-3">0.4.3</a></li>
+        <li><a href="#gluedown-0-4-2">0.4.2</a></li>
+        <li><a href="#gluedown-0-4-1">0.4.1</a></li>
+        <li><a href="#gluedown-0-4-0">0.4.0</a></li>
         <li><a href="#gluedown-0-3-3">0.3.3</a></li>
         <li><a href="#gluedown-0-3-2">0.3.2</a></li>
         <li><a href="#gluedown-0-3-1">0.3.1</a></li>

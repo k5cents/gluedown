@@ -34,6 +34,7 @@ emphasize_at(md_escape(hashtag), md_bold, n = 6)
 \seealso{
 Other inline functions: \code{\link{md_autolink}},
   \code{\link{md_bold}}, \code{\link{md_code}},
+  \code{\link{md_convert}}, \code{\link{md_disallow}},
   \code{\link{md_hardline}}, \code{\link{md_image}},
   \code{\link{md_issue}}, \code{\link{md_italic}},
   \code{\link{md_link}}, \code{\link{md_softline}},

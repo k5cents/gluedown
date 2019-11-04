@@ -70,3 +70,22 @@ md_paragraph <- function(...) {
   dots <- unlist(list(...))
   glue::glue("{dots}\n\n")
 }
+
+#' Markdown blank line
+#'
+#' Create a blank line between other markdown block-level elements.
+#'
+#' @details
+#' Blank lines between block-level elements are ignored, except for the role
+#' they play in determining whether a list is tight or loose.
+#'
+#' Blank lines at the beginning and end of the document are also ignored.
+#' @return A `glue` vector of length one containing two newline characters.
+#' @family leaf block functions
+#' @examples
+#' md_blank
+#' @importFrom glue glue
+#' @export
+md_blank <- function() {
+  glue::glue("\n\n")
+}

@@ -1,3 +1,7 @@
+# gluedown 0.4.3
+
+* Add vignette walking through all the features of GFM.
+
 # gluedown 0.4.2
 
 * Create `md_disallow()` and add to `md_convert()` (#10).

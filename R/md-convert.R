@@ -62,7 +62,7 @@ md_convert <- function(x, frag = TRUE, disallow = TRUE) {
 #' Filtering is done by replacing the leading `<` with the entity `&lt;`. These
 #' tags are chosen in particular as they change how HTML is interpreted in a way
 #' unique to them (i.e. nested HTML is interpreted differently), and this is
-#' usually undesireable in the context of other rendered Markdown content.
+#' usually undesireable (sic) in the context of other rendered Markdown content.
 #'
 #' All other HTML tags are left untouched.
 #' @param html A character vector of _markdown_ text to be converted.

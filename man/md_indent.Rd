@@ -33,10 +33,10 @@ indentation. An indented code block has no info string.
 md_indent(deparse(md_bold))
 }
 \seealso{
-Other leaf block functions: \code{\link{md_chunk}},
-  \code{\link{md_fence}}, \code{\link{md_heading}},
-  \code{\link{md_paragraph}}, \code{\link{md_reference}},
-  \code{\link{md_rule}}, \code{\link{md_setext}},
-  \code{\link{md_table}}
+Other leaf block functions: \code{\link{md_blank}},
+  \code{\link{md_chunk}}, \code{\link{md_fence}},
+  \code{\link{md_heading}}, \code{\link{md_paragraph}},
+  \code{\link{md_reference}}, \code{\link{md_rule}},
+  \code{\link{md_setext}}, \code{\link{md_table}}
 }
 \concept{leaf block functions}

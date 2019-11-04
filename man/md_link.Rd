@@ -11,7 +11,7 @@ md_link(text, url, title = NULL)
 
 \item{url}{The URL to lead to.}
 
-\item{title}{The title of the link.}
+\item{title}{The optional title of the link.}
 }
 \value{
 A \code{glue} vector of collapsed display text and associated URLs.
@@ -45,10 +45,12 @@ md_link("tidyverse", "https://www.tidyverse.org/")
 md_link(c("R Project", "CRAN"), c("https://www.r-project.org/", "https://cran.r-project.org/"))
 }
 \seealso{
-Other inline functions: \code{\link{md_bold}},
-  \code{\link{md_code}}, \code{\link{md_escape}},
-  \code{\link{md_hardline}}, \code{\link{md_image}},
-  \code{\link{md_issue}}, \code{\link{md_italic}},
-  \code{\link{md_softline}}, \code{\link{md_strike}}
+Other inline functions: \code{\link{md_autolink}},
+  \code{\link{md_bold}}, \code{\link{md_code}},
+  \code{\link{md_convert}}, \code{\link{md_disallow}},
+  \code{\link{md_escape}}, \code{\link{md_hardline}},
+  \code{\link{md_image}}, \code{\link{md_issue}},
+  \code{\link{md_italic}}, \code{\link{md_softline}},
+  \code{\link{md_strike}}, \code{\link{md_text}}
 }
 \concept{inline functions}

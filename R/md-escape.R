@@ -26,7 +26,7 @@ md_escape <- function(x) {
   glue::as_glue(
     stringr::str_replace_all(
       string = x,
-      pattern = "([:punct:])",
+      pattern = "([^[:alnum:]])",
       replacement = "\\\\\\1"
     )
   )

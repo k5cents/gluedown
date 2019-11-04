@@ -24,7 +24,7 @@
 #' delimiters, with backslash-escapes in effect as described above.
 #' @param text The character vector to be displayed as hyperlinked text.
 #' @param url The URL to lead to.
-#' @param title The title of the link.
+#' @param title The optional title of the link.
 #' @return A `glue` vector of collapsed display text and associated URLs.
 #' @family inline functions
 #' @examples
@@ -34,7 +34,7 @@
 #' @export
 md_link <- function(text, url, title = NULL) {
   if (!is.null(title)) {
-    glue::glue("[{text}]({url}) \"{title}\"")
+    glue::glue("[{text}]({url} \"{title}\")")
   } else {
     glue::glue("[{text}]({url})")
   }
@@ -58,14 +58,20 @@ md_link <- function(text, url, title = NULL) {
 #'    [alternative text](https://en.wikipedia.org/wiki/Alt_attribute) that can
 #'    be used to refer to an image.
 #' @param url A character vector of link destination (URL) strings.
+#' @param title The optional title of the link.
 #' @return A `glue` vector of collapsed alternative text and associated URLs.
 #' @family inline functions
 #' @examples
 #' if (file.exists("man/figures/logo.png")) md_image("man/figures/logo.png")
 #' md_image("http://hexb.in/hexagons/eff.png")
 #' md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker")
+#' md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker", "Logo")
 #' @importFrom glue glue
 #' @export
-md_image <- function(url, alt = "") {
-  glue::glue("![{alt}]({url})")
+md_image <- function(url, alt = "", title = NULL) {
+  if (!is.null(title)) {
+    glue::glue("![{alt}]({url} \"{title}\")")
+  } else {
+    glue::glue("![{alt}]({url})")
+  }
 }

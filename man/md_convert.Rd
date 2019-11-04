@@ -4,13 +4,16 @@
 \alias{md_convert}
 \title{Convert markdown to HTML}
 \usage{
-md_convert(x, frag = TRUE)
+md_convert(x, frag = TRUE, disallow = TRUE)
 }
 \arguments{
 \item{x}{A character vector of \emph{markdown} text to be converted.}
 
 \item{frag}{logical; Whether only a single HTML fragment should be returned.
 \code{TRUE} by default.}
+
+\item{disallow}{logical; Should \code{\link[=md_disallow]{md_disallow()}} be called on the converted
+output?}
 }
 \value{
 A \code{glue} vector of length 1 containing HTML tags.
@@ -21,6 +24,20 @@ Take a character vector of valid markdown text and pass it to
 Primarily used to test that \code{md_*()} functions create vectors that meet the
 GFM spec and can be rendered as HTML.
 }
+\details{
+GFM enables the \code{tagfilter} extension, where the following HTML tags will be
+filtered when rendering HTML output...
+}
 \examples{
 md_convert(x = md_bold("test"))
 }
+\seealso{
+Other inline functions: \code{\link{md_autolink}},
+  \code{\link{md_bold}}, \code{\link{md_code}},
+  \code{\link{md_disallow}}, \code{\link{md_escape}},
+  \code{\link{md_hardline}}, \code{\link{md_image}},
+  \code{\link{md_issue}}, \code{\link{md_italic}},
+  \code{\link{md_link}}, \code{\link{md_softline}},
+  \code{\link{md_strike}}, \code{\link{md_text}}
+}
+\concept{inline functions}

@@ -34,10 +34,10 @@ md_rule(n = 10)
 md_rule(space = TRUE)
 }
 \seealso{
-Other leaf block functions: \code{\link{md_chunk}},
-  \code{\link{md_fence}}, \code{\link{md_heading}},
-  \code{\link{md_indent}}, \code{\link{md_paragraph}},
-  \code{\link{md_reference}}, \code{\link{md_setext}},
-  \code{\link{md_table}}
+Other leaf block functions: \code{\link{md_blank}},
+  \code{\link{md_chunk}}, \code{\link{md_fence}},
+  \code{\link{md_heading}}, \code{\link{md_indent}},
+  \code{\link{md_paragraph}}, \code{\link{md_reference}},
+  \code{\link{md_setext}}, \code{\link{md_table}}
 }
 \concept{leaf block functions}

@@ -27,11 +27,11 @@ md_rule <- function(char = c("*", "-", "_"), n = 3, space = FALSE) {
     stop("At least 3 characters must be used")
   }
   char <- match.arg(char)
-  sep <- glue::glue_collapse(rep(" ", as.numeric(space)))
-  sep <- if (length(sep) == 0) {
-    ""
+  spaces <- glue::glue_collapse(rep(" ", as.numeric(space)))
+  if (length(spaces) == 0) {
+    sep <- ""
   } else {
-    sep
+    sep <- spaces
   }
   glue::glue_collapse(rep(char, n), sep = sep)
 }

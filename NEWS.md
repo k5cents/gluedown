@@ -1,10 +1,25 @@
+# gluedown 0.4.2
+
+* Create `md_disallow()` and add to `md_convert()` (#10).
+* Create `md_text()` wrapper for `glue::as_glue()` (#10).
+* Create `md_blank()` (#10).
+
+# gluedown 0.4.1
+
+* Cover all errors in `md_rule()` and `md_chunk()`, brings coverage to 100%.
+
+# gluedown 0.4.0
+
+* Add back all the tests from the GFM spec (#13).
+* Create `md_autolink()` (#10).
+
 # gluedown 0.3.3
 
-* Add and remove tests from the GFM spec.
+* Add and remove tests from the GFM spec (#13).
 
 # gluedown 0.3.2
 
-* Use `...` in `md_hardline()`, `md_softline()`, and `md_paragraph()`
+* Use `...` in `md_hardline()`, `md_softline()`, and `md_paragraph()`.
 
 # gluedown 0.3.1
 
@@ -14,7 +29,7 @@
 
 # gluedown 0.3.0
 
-* Create `md_paragraph()` and `md_softline()`.
+* Create `md_paragraph()` and `md_softline()` (#10).
 
 # gluedown 0.2.3
 

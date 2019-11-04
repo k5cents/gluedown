@@ -45,10 +45,10 @@ md_reference("tv", "https://www.tidyverse.org/", "tidyverse")
 md_reference(label = 1:2, url = c("https://one.org", "https://two.com"))
 }
 \seealso{
-Other leaf block functions: \code{\link{md_chunk}},
-  \code{\link{md_fence}}, \code{\link{md_heading}},
-  \code{\link{md_indent}}, \code{\link{md_paragraph}},
-  \code{\link{md_rule}}, \code{\link{md_setext}},
-  \code{\link{md_table}}
+Other leaf block functions: \code{\link{md_blank}},
+  \code{\link{md_chunk}}, \code{\link{md_fence}},
+  \code{\link{md_heading}}, \code{\link{md_indent}},
+  \code{\link{md_paragraph}}, \code{\link{md_rule}},
+  \code{\link{md_setext}}, \code{\link{md_table}}
 }
 \concept{leaf block functions}

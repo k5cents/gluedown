@@ -26,11 +26,13 @@ Within conversations on GitHub, references to issues and pull requests are
 md_issue("kiernann/gluedown", 1:5)
 }
 \seealso{
-Other inline functions: \code{\link{md_bold}},
-  \code{\link{md_code}}, \code{\link{md_escape}},
-  \code{\link{md_hardline}}, \code{\link{md_image}},
-  \code{\link{md_italic}}, \code{\link{md_link}},
-  \code{\link{md_softline}}, \code{\link{md_strike}}
+Other inline functions: \code{\link{md_autolink}},
+  \code{\link{md_bold}}, \code{\link{md_code}},
+  \code{\link{md_convert}}, \code{\link{md_disallow}},
+  \code{\link{md_escape}}, \code{\link{md_hardline}},
+  \code{\link{md_image}}, \code{\link{md_italic}},
+  \code{\link{md_link}}, \code{\link{md_softline}},
+  \code{\link{md_strike}}, \code{\link{md_text}}
 
 Other markdown extensions: \code{\link{md_strike}},
   \code{\link{md_table}}

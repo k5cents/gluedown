@@ -4,7 +4,7 @@
 \alias{md_image}
 \title{Markdown image links}
 \usage{
-md_image(url, alt = "")
+md_image(url, alt = "", title = NULL)
 }
 \arguments{
 \item{url}{A character vector of link destination (URL) strings.}
@@ -12,6 +12,8 @@ md_image(url, alt = "")
 \item{alt}{A character vector of
 \href{https://en.wikipedia.org/wiki/Alt_attribute}{alternative text} that can
 be used to refer to an image.}
+
+\item{title}{The optional title of the link.}
 }
 \value{
 A \code{glue} vector of collapsed alternative text and associated URLs.
@@ -33,12 +35,15 @@ HTML, this is standardly used as the image’s \code{alt} attribute.
 if (file.exists("man/figures/logo.png")) md_image("man/figures/logo.png")
 md_image("http://hexb.in/hexagons/eff.png")
 md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker")
+md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker", "Logo")
 }
 \seealso{
-Other inline functions: \code{\link{md_bold}},
-  \code{\link{md_code}}, \code{\link{md_escape}},
-  \code{\link{md_hardline}}, \code{\link{md_issue}},
-  \code{\link{md_italic}}, \code{\link{md_link}},
-  \code{\link{md_softline}}, \code{\link{md_strike}}
+Other inline functions: \code{\link{md_autolink}},
+  \code{\link{md_bold}}, \code{\link{md_code}},
+  \code{\link{md_convert}}, \code{\link{md_disallow}},
+  \code{\link{md_escape}}, \code{\link{md_hardline}},
+  \code{\link{md_issue}}, \code{\link{md_italic}},
+  \code{\link{md_link}}, \code{\link{md_softline}},
+  \code{\link{md_strike}}, \code{\link{md_text}}
 }
 \concept{inline functions}

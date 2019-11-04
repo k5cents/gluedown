@@ -1,8 +1,11 @@
 ---
 title: "GitHub Flavored Markdown"
-output: rmarkdown::html_vignette
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 3
 vignette: >
-  %\VignetteIndexEntry{gfm}
+  %\VignetteIndexEntry{GitHub Flavored Markdown}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,7 +17,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, warning=FALSE, message=FALSE}
 library(gluedown)
 library(stringr)
 library(rvest)
@@ -42,22 +45,6 @@ paragraphs, block quotations, lists, headings, rules, and code blocks. Some
 blocks (like block quotes and list items) contain other blocks; others (like
 headings and paragraphs) contain inline content—text, links, emphasized text,
 images, code spans, and so on.
-
-### 3.1 Precedence
-
-> Indicators of block structure always take precedence over indicators of inline
-structure...
-
-> This means that parsing can proceed in two steps: first, the block structure
-of the document can be discerned; second, text lines inside paragraphs,
-headings, and other block constructs can be parsed for inline structure. The
-second step requires information about link reference definitions that will be
-available only at the end of the first step. Note that the first step requires
-processing lines in sequence, but the second can be parallelized, since the
-inline parsing of one block element does not affect the inline parsing of any
-other.
-
-### 3.2 Container blocks and leaf blocks
 
 > We can divide blocks into two types: container blocks, which can contain other
 blocks, and leaf blocks, which cannot.
@@ -104,7 +91,9 @@ md_rule(char = "-", n = 10, space = TRUE)
 md_rule(char = "-", n = 10, space = TRUE)
 ```
 
-### 4.2 ATX headings
+```{r echo=FALSE, results='asis'}
+md_heading("4.2 ATX Headings", level = 3)
+```
 
 > An ATX heading consists of a string of characters, parsed as inline content,
 between an opening sequence of 1–6 unescaped `#` characters and an optional
@@ -113,20 +102,10 @@ of the heading are stripped of leading and trailing spaces before being parsed
 as inline content. The heading level is equal to the number of `#` characters in
 the opening sequence.
 
-```{r}
-md_heading("example")
-```
-
-```{r echo=FALSE, results='asis'}
-md_heading("example")
-```
+The heading for this section was created with `md_heading()`.
 
 ```{r}
-md_heading("example", level = 5)
-```
-
-```{r echo=FALSE, results='asis'}
-md_heading("example", level = 5)
+md_heading("4.2 ATX Headings", level = 3)
 ```
 
 ### 4.3 Setext headings
@@ -139,28 +118,20 @@ spaces indentation and any number of trailing spaces... The heading is a level 1
 heading if `=` characters are used in the setext heading underline, and a level
 2 heading if `-` characters are used.
 
-```{r}
-md_setext("foo bar", level = 1)
-```
-
-```{r echo=FALSE, results='asis'}
-md_setext("foo bar", level = 1)
-```
+I'm going to forgo printing these headings, just to preserve the structure of this document. The
+`md_setext()` function can only be used to create level 1 (`<h1>`) and level 2 (`<h2>`) headings.
+A level 1 Setext heading is sometimes used as the very first, initial title heading.
 
 ```{r}
-md_setext("foo bar baz", level = 2)
-```
-
-```{r echo=FALSE, results='asis'}
-md_setext("foo bar baz", level = 2)
+md_setext("Headings", level = 1)
 ```
 
 ```{r}
-md_setext("foo bar", width = 50)
+md_setext("4.3 Setext headings", level = 2)
 ```
 
-```{r echo=FALSE, results='asis'}
-md_setext("foo bar", width = 50)
+```{r}
+md_setext("4.3 Setext headings", width = 50)
 ```
 
 ### 4.4 Indented code blocks
@@ -214,6 +185,10 @@ fence....
 The first word of the info string is typically used to specify the language of
 the code sample, and rendered in the class attribute of the code tag. However,
 this spec does not mandate any particular treatment of the info string.
+
+The man feature of `md_fence()` is the ability to specify the info string which defines the code
+language used to highlight syntax. Compare the following output to the one produced by 
+`md_indent()`.
 
 ```{r}
 md_fence(source)
@@ -303,11 +278,14 @@ blocks forms a paragraph. The contents of the paragraph are the result of
 parsing the paragraph’s raw content as inlines. The paragraph’s raw content is
 formed by concatenating the lines and removing initial and final whitespace.
 
-Paragraphs are one are where it's easy for markdown newcomers can have 
-difficulty writing the plain text in the way they need to result in the text
-they want. Words separated by a single newline are rendered as a single
-paragraph `<p>` tag. Using `md_paragraph()`, we can take a vector of character
-text and output _distinct_ paragraphs.
+Paragraphs are one instance are where it's easy for markdown newcomers can have
+difficulty writing the plain text in the proper format to produce their desired
+outcome. Words separated by a single newline are rendered as a single paragraph
+`<p>` tag. Using `md_paragraph()`, we can take a vector of character text and
+output _distinct_ paragraphs.
+
+In section 6.12 and 6.13 you can compare the output of `md_paragraph()` with
+the other line break functions.
 
 ```{r}
 sentences <- sample(stringr::sentences, size = 5)
@@ -362,16 +340,18 @@ The `md_table()` function wraps around `knitr::kable()` to return R objects
 presenting data created using R in a format that's more readable than a
 plain-text data frame (or tibble) printout.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 band <- left_join(band_members, band_instruments)
 print(band)
 ```
 
 ```{r}
+options(knitr.kable.NA = "")
 md_table(band, align = "c")
 ```
 
 ```{r echo=FALSE, results='asis'}
+options(knitr.kable.NA = "")
 md_table(band, align = "c")
 ```
 
@@ -603,6 +583,8 @@ md_hardline(sentences)
 md_hardline(sentences)
 ```
 
+***
+
 > A regular line break (not in a code span or HTML tag) that is not preceded by
 two or more spaces or a backslash is parsed as a softbreak. (A softbreak may be
 rendered in HTML either as a line ending or as a space. The result will be the
@@ -616,6 +598,8 @@ md_softline(sentences)
 ```{r echo=FALSE, results='asis'}
 md_softline(sentences)
 ```
+
+***
 
 You can see how both hard line and soft line breaks are different from the
 paragraphs as created using `md_paragraph()`

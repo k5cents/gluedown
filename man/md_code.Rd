@@ -40,6 +40,6 @@ Other inline functions: \code{\link{md_autolink}},
   \code{\link{md_hardline}}, \code{\link{md_image}},
   \code{\link{md_issue}}, \code{\link{md_italic}},
   \code{\link{md_link}}, \code{\link{md_softline}},
-  \code{\link{md_strike}}
+  \code{\link{md_strike}}, \code{\link{md_text}}
 }
 \concept{inline functions}

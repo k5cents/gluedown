@@ -1,3 +1,9 @@
+# gluedown 0.4.2
+
+* Create `md_disallow()` and add to `md_convert()` (#10).
+* Create `md_text()` wrapper for `glue::as_glue()` (#10).
+* Create `md_blank()` (#10).
+
 # gluedown 0.4.1
 
 * Cover all errors in `md_rule()` and `md_chunk()`, brings coverage to 100%.

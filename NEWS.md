@@ -1,3 +1,7 @@
+# gluedown 1.0.0
+
+* Submit to CRAN!
+
 # gluedown 0.4.4
 
 * Replace `emphasize_at()` with `map_md()`, which now uses 

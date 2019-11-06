@@ -11,3 +11,4 @@
 ^\.covrignore$
 ^\.github$
 ^data-raw$
+^CRAN-RELEASE$

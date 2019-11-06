@@ -26,7 +26,7 @@ can be rendered as HTML \code{<code>} tags inside \code{<pre>} tags.
 }
 \details{
 A code fence is a sequence of at least three consecutive backtick characters
-(```) or tildes (\code{~}). (Tildes and backticks cannot be mixed.) A fenced code
+... or tildes (\code{~}). (Tildes and backticks cannot be mixed.) A fenced code
 block begins with a code fence, indented no more than three spaces.
 
 The line with the opening code fence may optionally contain some text

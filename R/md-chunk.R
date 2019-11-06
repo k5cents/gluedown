@@ -79,7 +79,7 @@ md_indent <- function(x, n = 4) {
 #'
 #' @details
 #' A code fence is a sequence of at least three consecutive backtick characters
-#' (```) or tildes (`~`). (Tildes and backticks cannot be mixed.) A fenced code
+#' ... or tildes (`~`). (Tildes and backticks cannot be mixed.) A fenced code
 #' block begins with a code fence, indented no more than three spaces.
 #'
 #' The line with the opening code fence may optionally contain some text

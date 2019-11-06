@@ -14,7 +14,7 @@
 #' @importFrom stringr str_split str_trim str_c
 #' @export
 map_md <- function(x, f, n) {
-  if (!is(f, "function")) {
+  if (class(f) != "function") {
     stop("f must be a function, typically one from the inline family.")
   }
   s <- stringr::str_split(x, pattern = "\\s", simplify = TRUE)

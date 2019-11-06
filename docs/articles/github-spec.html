@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -212,7 +212,7 @@
 <h3 class="hasAnchor">
 <a href="#fenced-code-blocks" class="anchor"></a>4.5 Fenced code blocks</h3>
 <blockquote>
-<p>A code fence is a sequence of at least three consecutive backtick characters (<code>`</code>) or tildes (<code>~</code>). (Tildes and backticks cannot be mixed.) A fenced code block begins with a code fence, indented no more than three spaces…</p>
+<p>A code fence is a sequence of at least three consecutive backtick characters … or tildes (<code>~</code>). (Tildes and backticks cannot be mixed.) A fenced code block begins with a code fence, indented no more than three spaces…</p>
 <p>The line with the opening code fence may optionally contain some text following the code fence; this is trimmed of leading and trailing whitespace and called the info string…</p>
 <p>The content of the code block consists of all subsequent lines, until a closing code fence of the same type as the code block began with (backticks or tildes), and with at least as many backticks or tildes as the opening code fence….</p>
 <p>The content of a code fence is treated as literal text, not parsed as inlines. The first word of the info string is typically used to specify the language of the code sample, and rendered in the class attribute of the code tag. However, this spec does not mandate any particular treatment of the info string.</p>
@@ -295,20 +295,20 @@ This domain is for use in illustrative examples in documents. You may use this d
 <p>In section 6.12 and 6.13 you can compare the output of <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code> with the other line break functions.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">sentences &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(stringr<span class="op">::</span>sentences, <span class="dt">size =</span> <span class="dv">5</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw"><a href="../reference/md_paragraph.html">md_paragraph</a></span>(sentences)</a>
-<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="co">#&gt; A siege will crack the strong defense.</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="co">#&gt; Wipe the grease off his dirty face.</span></a>
 <a class="sourceLine" id="cb21-3" data-line-number="3"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="co">#&gt; The rope will bind the seven books at once.</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="co">#&gt; That guy is the writer of a few banned books.</span></a>
 <a class="sourceLine" id="cb21-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="co">#&gt; He lay prone and hardly moved a limb.</span></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="co">#&gt; The wreck occurred by the bank on Main Street.</span></a>
 <a class="sourceLine" id="cb21-7" data-line-number="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb21-8" data-line-number="8"><span class="co">#&gt; He smoke a big pipe with strong contents.</span></a>
+<a class="sourceLine" id="cb21-8" data-line-number="8"><span class="co">#&gt; The crunch of feet in the snow was the only sound.</span></a>
 <a class="sourceLine" id="cb21-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb21-10" data-line-number="10"><span class="co">#&gt; There are more than two factors here.</span></a></code></pre></div>
-<p>A siege will crack the strong defense.</p>
-<p>The rope will bind the seven books at once.</p>
-<p>He lay prone and hardly moved a limb.</p>
-<p>He smoke a big pipe with strong contents.</p>
-<p>There are more than two factors here.</p>
+<a class="sourceLine" id="cb21-10" data-line-number="10"><span class="co">#&gt; A steep trail is painful for our feet.</span></a></code></pre></div>
+<p>Wipe the grease off his dirty face.</p>
+<p>That guy is the writer of a few banned books.</p>
+<p>The wreck occurred by the bank on Main Street.</p>
+<p>The crunch of feet in the snow was the only sound.</p>
+<p>A steep trail is painful for our feet.</p>
 </div>
 <div id="blank-lines" class="section level3">
 <h3 class="hasAnchor">
@@ -394,25 +394,25 @@ This domain is for use in illustrative examples in documents. You may use this d
 <p>We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.</p>
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw"><a href="../reference/md_quote.html">md_quote</a></span>(sentences)</a>
-<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="co">#&gt; &gt; A siege will crack the strong defense.</span></a>
-<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="co">#&gt; &gt; The rope will bind the seven books at once.</span></a>
-<a class="sourceLine" id="cb26-4" data-line-number="4"><span class="co">#&gt; &gt; He lay prone and hardly moved a limb.</span></a>
-<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="co">#&gt; &gt; He smoke a big pipe with strong contents.</span></a>
-<a class="sourceLine" id="cb26-6" data-line-number="6"><span class="co">#&gt; &gt; There are more than two factors here.</span></a></code></pre></div>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="co">#&gt; &gt; Wipe the grease off his dirty face.</span></a>
+<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="co">#&gt; &gt; That guy is the writer of a few banned books.</span></a>
+<a class="sourceLine" id="cb26-4" data-line-number="4"><span class="co">#&gt; &gt; The wreck occurred by the bank on Main Street.</span></a>
+<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="co">#&gt; &gt; The crunch of feet in the snow was the only sound.</span></a>
+<a class="sourceLine" id="cb26-6" data-line-number="6"><span class="co">#&gt; &gt; A steep trail is painful for our feet.</span></a></code></pre></div>
 <blockquote>
-<p>A siege will crack the strong defense.</p>
+<p>Wipe the grease off his dirty face.</p>
 </blockquote>
 <blockquote>
-<p>The rope will bind the seven books at once.</p>
+<p>That guy is the writer of a few banned books.</p>
 </blockquote>
 <blockquote>
-<p>He lay prone and hardly moved a limb.</p>
+<p>The wreck occurred by the bank on Main Street.</p>
 </blockquote>
 <blockquote>
-<p>He smoke a big pipe with strong contents.</p>
+<p>The crunch of feet in the snow was the only sound.</p>
 </blockquote>
 <blockquote>
-<p>There are more than two factors here.</p>
+<p>A steep trail is painful for our feet.</p>
 </blockquote>
 </div>
 <div id="list-items" class="section level3">
@@ -437,17 +437,17 @@ This domain is for use in illustrative examples in documents. You may use this d
 </blockquote>
 <p>Markdown extensions like this one are optionally supported on different venues. On GitHub (in <code>README.md</code> files, issues, or comments, etc.) these tasks list are rendered as check boxes, sometimes even interactable. On other venues, like this very HTML vignette, these check boxes just render are bullet lists with weird bracket boxes on each line.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw"><a href="../reference/md_task.html">md_task</a></span>(sentences, <span class="dt">check =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="co">#&gt; * [ ] A siege will crack the strong defense.</span></a>
-<a class="sourceLine" id="cb27-3" data-line-number="3"><span class="co">#&gt; * [ ] The rope will bind the seven books at once.</span></a>
-<a class="sourceLine" id="cb27-4" data-line-number="4"><span class="co">#&gt; * [x] He lay prone and hardly moved a limb.</span></a>
-<a class="sourceLine" id="cb27-5" data-line-number="5"><span class="co">#&gt; * [x] He smoke a big pipe with strong contents.</span></a>
-<a class="sourceLine" id="cb27-6" data-line-number="6"><span class="co">#&gt; * [ ] There are more than two factors here.</span></a></code></pre></div>
+<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="co">#&gt; * [ ] Wipe the grease off his dirty face.</span></a>
+<a class="sourceLine" id="cb27-3" data-line-number="3"><span class="co">#&gt; * [ ] That guy is the writer of a few banned books.</span></a>
+<a class="sourceLine" id="cb27-4" data-line-number="4"><span class="co">#&gt; * [x] The wreck occurred by the bank on Main Street.</span></a>
+<a class="sourceLine" id="cb27-5" data-line-number="5"><span class="co">#&gt; * [x] The crunch of feet in the snow was the only sound.</span></a>
+<a class="sourceLine" id="cb27-6" data-line-number="6"><span class="co">#&gt; * [ ] A steep trail is painful for our feet.</span></a></code></pre></div>
 <ul>
-<li>[ ] A siege will crack the strong defense.</li>
-<li>[ ] The rope will bind the seven books at once.</li>
-<li>[x] He lay prone and hardly moved a limb.</li>
-<li>[x] He smoke a big pipe with strong contents.</li>
-<li>[ ] There are more than two factors here.</li>
+<li>[ ] Wipe the grease off his dirty face.</li>
+<li>[ ] That guy is the writer of a few banned books.</li>
+<li>[x] The wreck occurred by the bank on Main Street.</li>
+<li>[x] The crunch of feet in the snow was the only sound.</li>
+<li>[ ] A steep trail is painful for our feet.</li>
 </ul>
 </div>
 <div id="lists" class="section level3">
@@ -462,40 +462,40 @@ This domain is for use in illustrative examples in documents. You may use this d
 <p>The <code><a href="../reference/md_order.html">md_order()</a></code> and <code><a href="../reference/md_bullet.html">md_bullet()</a></code> functions let users display character vectors as list blocks. The functions let users adjust the which list item markets are used, but all the options are rendered as the same <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> tags in the rendered <code>.html</code> file.</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">states &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(state.name, <span class="dt">size =</span> <span class="dv">3</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw"><a href="../reference/md_bullet.html">md_bullet</a></span>(states)</a>
-<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="co">#&gt; * Indiana</span></a>
-<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="co">#&gt; * Michigan</span></a>
-<a class="sourceLine" id="cb29-4" data-line-number="4"><span class="co">#&gt; * New York</span></a></code></pre></div>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="co">#&gt; * South Carolina</span></a>
+<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="co">#&gt; * North Dakota</span></a>
+<a class="sourceLine" id="cb29-4" data-line-number="4"><span class="co">#&gt; * Pennsylvania</span></a></code></pre></div>
 <ul>
-<li>Indiana</li>
-<li>Michigan</li>
-<li>New York</li>
+<li>South Carolina</li>
+<li>North Dakota</li>
+<li>Pennsylvania</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw"><a href="../reference/md_bullet.html">md_bullet</a></span>(states, <span class="dt">marker =</span> <span class="st">"+"</span>)</a>
-<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="co">#&gt; + Indiana</span></a>
-<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="co">#&gt; + Michigan</span></a>
-<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="co">#&gt; + New York</span></a></code></pre></div>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="co">#&gt; + South Carolina</span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="co">#&gt; + North Dakota</span></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="co">#&gt; + Pennsylvania</span></a></code></pre></div>
 <ul>
-<li>Indiana</li>
-<li>Michigan</li>
-<li>New York</li>
+<li>South Carolina</li>
+<li>North Dakota</li>
+<li>Pennsylvania</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw"><a href="../reference/md_order.html">md_order</a></span>(states)</a>
-<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="co">#&gt; 1. Indiana</span></a>
-<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="co">#&gt; 2. Michigan</span></a>
-<a class="sourceLine" id="cb31-4" data-line-number="4"><span class="co">#&gt; 3. New York</span></a></code></pre></div>
+<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="co">#&gt; 1. South Carolina</span></a>
+<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="co">#&gt; 2. North Dakota</span></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4"><span class="co">#&gt; 3. Pennsylvania</span></a></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Indiana</li>
-<li>Michigan</li>
-<li>New York</li>
+<li>South Carolina</li>
+<li>North Dakota</li>
+<li>Pennsylvania</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw"><a href="../reference/md_order.html">md_order</a></span>(states, <span class="dt">seq =</span> <span class="ot">FALSE</span>, <span class="dt">marker =</span> <span class="st">")"</span>)</a>
-<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="co">#&gt; 1) Indiana</span></a>
-<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="co">#&gt; 1) Michigan</span></a>
-<a class="sourceLine" id="cb32-4" data-line-number="4"><span class="co">#&gt; 1) New York</span></a></code></pre></div>
+<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="co">#&gt; 1) South Carolina</span></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="co">#&gt; 1) North Dakota</span></a>
+<a class="sourceLine" id="cb32-4" data-line-number="4"><span class="co">#&gt; 1) Pennsylvania</span></a></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Indiana</li>
-<li>Michigan</li>
-<li>New York</li>
+<li>South Carolina</li>
+<li>North Dakota</li>
+<li>Pennsylvania</li>
 </ol>
 </div>
 </div>
@@ -566,45 +566,45 @@ This domain is for use in illustrative examples in documents. You may use this d
 </blockquote>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co"># 6.12 Hard line breaks</span></a>
 <a class="sourceLine" id="cb37-2" data-line-number="2"><span class="kw"><a href="../reference/md_hardline.html">md_hardline</a></span>(sentences)</a>
-<a class="sourceLine" id="cb37-3" data-line-number="3"><span class="co">#&gt; A siege will crack the strong defense.  </span></a>
-<a class="sourceLine" id="cb37-4" data-line-number="4"><span class="co">#&gt; The rope will bind the seven books at once.  </span></a>
-<a class="sourceLine" id="cb37-5" data-line-number="5"><span class="co">#&gt; He lay prone and hardly moved a limb.  </span></a>
-<a class="sourceLine" id="cb37-6" data-line-number="6"><span class="co">#&gt; He smoke a big pipe with strong contents.  </span></a>
-<a class="sourceLine" id="cb37-7" data-line-number="7"><span class="co">#&gt; There are more than two factors here.</span></a></code></pre></div>
-<p>A siege will crack the strong defense.<br>
-The rope will bind the seven books at once.<br>
-He lay prone and hardly moved a limb.<br>
-He smoke a big pipe with strong contents.<br>
-There are more than two factors here.</p>
+<a class="sourceLine" id="cb37-3" data-line-number="3"><span class="co">#&gt; Wipe the grease off his dirty face.  </span></a>
+<a class="sourceLine" id="cb37-4" data-line-number="4"><span class="co">#&gt; That guy is the writer of a few banned books.  </span></a>
+<a class="sourceLine" id="cb37-5" data-line-number="5"><span class="co">#&gt; The wreck occurred by the bank on Main Street.  </span></a>
+<a class="sourceLine" id="cb37-6" data-line-number="6"><span class="co">#&gt; The crunch of feet in the snow was the only sound.  </span></a>
+<a class="sourceLine" id="cb37-7" data-line-number="7"><span class="co">#&gt; A steep trail is painful for our feet.</span></a></code></pre></div>
+<p>Wipe the grease off his dirty face.<br>
+That guy is the writer of a few banned books.<br>
+The wreck occurred by the bank on Main Street.<br>
+The crunch of feet in the snow was the only sound.<br>
+A steep trail is painful for our feet.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not preceded by two or more spaces or a backslash is parsed as a softbreak. (A softbreak may be rendered in HTML either as a line ending or as a space. The result will be the same in browsers. In the examples here, a line ending will be used.)</p>
 </blockquote>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co"># 6.13 Soft line breaks</span></a>
 <a class="sourceLine" id="cb38-2" data-line-number="2"><span class="kw"><a href="../reference/md_softline.html">md_softline</a></span>(sentences)</a>
-<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="co">#&gt; A siege will crack the strong defense.</span></a>
-<a class="sourceLine" id="cb38-4" data-line-number="4"><span class="co">#&gt; The rope will bind the seven books at once.</span></a>
-<a class="sourceLine" id="cb38-5" data-line-number="5"><span class="co">#&gt; He lay prone and hardly moved a limb.</span></a>
-<a class="sourceLine" id="cb38-6" data-line-number="6"><span class="co">#&gt; He smoke a big pipe with strong contents.</span></a>
-<a class="sourceLine" id="cb38-7" data-line-number="7"><span class="co">#&gt; There are more than two factors here.</span></a></code></pre></div>
-<p>A siege will crack the strong defense. The rope will bind the seven books at once. He lay prone and hardly moved a limb. He smoke a big pipe with strong contents. There are more than two factors here.</p>
+<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="co">#&gt; Wipe the grease off his dirty face.</span></a>
+<a class="sourceLine" id="cb38-4" data-line-number="4"><span class="co">#&gt; That guy is the writer of a few banned books.</span></a>
+<a class="sourceLine" id="cb38-5" data-line-number="5"><span class="co">#&gt; The wreck occurred by the bank on Main Street.</span></a>
+<a class="sourceLine" id="cb38-6" data-line-number="6"><span class="co">#&gt; The crunch of feet in the snow was the only sound.</span></a>
+<a class="sourceLine" id="cb38-7" data-line-number="7"><span class="co">#&gt; A steep trail is painful for our feet.</span></a></code></pre></div>
+<p>Wipe the grease off his dirty face. That guy is the writer of a few banned books. The wreck occurred by the bank on Main Street. The crunch of feet in the snow was the only sound. A steep trail is painful for our feet.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw"><a href="../reference/md_paragraph.html">md_paragraph</a></span>(sentences)</a>
-<a class="sourceLine" id="cb39-2" data-line-number="2"><span class="co">#&gt; A siege will crack the strong defense.</span></a>
+<a class="sourceLine" id="cb39-2" data-line-number="2"><span class="co">#&gt; Wipe the grease off his dirty face.</span></a>
 <a class="sourceLine" id="cb39-3" data-line-number="3"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb39-4" data-line-number="4"><span class="co">#&gt; The rope will bind the seven books at once.</span></a>
+<a class="sourceLine" id="cb39-4" data-line-number="4"><span class="co">#&gt; That guy is the writer of a few banned books.</span></a>
 <a class="sourceLine" id="cb39-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb39-6" data-line-number="6"><span class="co">#&gt; He lay prone and hardly moved a limb.</span></a>
+<a class="sourceLine" id="cb39-6" data-line-number="6"><span class="co">#&gt; The wreck occurred by the bank on Main Street.</span></a>
 <a class="sourceLine" id="cb39-7" data-line-number="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb39-8" data-line-number="8"><span class="co">#&gt; He smoke a big pipe with strong contents.</span></a>
+<a class="sourceLine" id="cb39-8" data-line-number="8"><span class="co">#&gt; The crunch of feet in the snow was the only sound.</span></a>
 <a class="sourceLine" id="cb39-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb39-10" data-line-number="10"><span class="co">#&gt; There are more than two factors here.</span></a></code></pre></div>
-<p>A siege will crack the strong defense.</p>
-<p>The rope will bind the seven books at once.</p>
-<p>He lay prone and hardly moved a limb.</p>
-<p>He smoke a big pipe with strong contents.</p>
-<p>There are more than two factors here.</p>
+<a class="sourceLine" id="cb39-10" data-line-number="10"><span class="co">#&gt; A steep trail is painful for our feet.</span></a></code></pre></div>
+<p>Wipe the grease off his dirty face.</p>
+<p>That guy is the writer of a few banned books.</p>
+<p>The wreck occurred by the bank on Main Street.</p>
+<p>The crunch of feet in the snow was the only sound.</p>
+<p>A steep trail is painful for our feet.</p>
 </div>
 <div id="textual-content" class="section level3">
 <h3 class="hasAnchor">
@@ -615,29 +615,29 @@ There are more than two factors here.</p>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function is a catch-all wrapper around <code><a href="https://rdrr.io/pkg/glue/man/as_glue.html">glue::as_glue()</a></code> with simply converts any character string into a <code>glue</code> object, which when used in an <code>.Rmd.</code> document alongside the <code>results='asis'</code> allows users to simply print text to the body of the document.</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="co"># 6.14 Textual content</span></a>
 <a class="sourceLine" id="cb40-2" data-line-number="2"><span class="kw"><a href="../reference/md_text.html">md_text</a></span>(sentences)</a>
-<a class="sourceLine" id="cb40-3" data-line-number="3"><span class="co">#&gt; A siege will crack the strong defense.</span></a>
-<a class="sourceLine" id="cb40-4" data-line-number="4"><span class="co">#&gt; The rope will bind the seven books at once.</span></a>
-<a class="sourceLine" id="cb40-5" data-line-number="5"><span class="co">#&gt; He lay prone and hardly moved a limb.</span></a>
-<a class="sourceLine" id="cb40-6" data-line-number="6"><span class="co">#&gt; He smoke a big pipe with strong contents.</span></a>
-<a class="sourceLine" id="cb40-7" data-line-number="7"><span class="co">#&gt; There are more than two factors here.</span></a></code></pre></div>
-<p>A siege will crack the strong defense. The rope will bind the seven books at once. He lay prone and hardly moved a limb. He smoke a big pipe with strong contents. There are more than two factors here.</p>
+<a class="sourceLine" id="cb40-3" data-line-number="3"><span class="co">#&gt; Wipe the grease off his dirty face.</span></a>
+<a class="sourceLine" id="cb40-4" data-line-number="4"><span class="co">#&gt; That guy is the writer of a few banned books.</span></a>
+<a class="sourceLine" id="cb40-5" data-line-number="5"><span class="co">#&gt; The wreck occurred by the bank on Main Street.</span></a>
+<a class="sourceLine" id="cb40-6" data-line-number="6"><span class="co">#&gt; The crunch of feet in the snow was the only sound.</span></a>
+<a class="sourceLine" id="cb40-7" data-line-number="7"><span class="co">#&gt; A steep trail is painful for our feet.</span></a></code></pre></div>
+<p>Wipe the grease off his dirty face. That guy is the writer of a few banned books. The wreck occurred by the bank on Main Street. The crunch of feet in the snow was the only sound. A steep trail is painful for our feet.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(sentences)</a>
-<a class="sourceLine" id="cb41-2" data-line-number="2"><span class="co">#&gt; [1] "A siege will crack the strong defense."     </span></a>
-<a class="sourceLine" id="cb41-3" data-line-number="3"><span class="co">#&gt; [2] "The rope will bind the seven books at once."</span></a>
-<a class="sourceLine" id="cb41-4" data-line-number="4"><span class="co">#&gt; [3] "He lay prone and hardly moved a limb."      </span></a>
-<a class="sourceLine" id="cb41-5" data-line-number="5"><span class="co">#&gt; [4] "He smoke a big pipe with strong contents."  </span></a>
-<a class="sourceLine" id="cb41-6" data-line-number="6"><span class="co">#&gt; [5] "There are more than two factors here."</span></a></code></pre></div>
-<p>[1] “A siege will crack the strong defense.”<br>
-[2] “The rope will bind the seven books at once.” [3] “He lay prone and hardly moved a limb.”<br>
-[4] “He smoke a big pipe with strong contents.”<br>
-[5] “There are more than two factors here.”</p>
+<a class="sourceLine" id="cb41-2" data-line-number="2"><span class="co">#&gt; [1] "Wipe the grease off his dirty face."               </span></a>
+<a class="sourceLine" id="cb41-3" data-line-number="3"><span class="co">#&gt; [2] "That guy is the writer of a few banned books."     </span></a>
+<a class="sourceLine" id="cb41-4" data-line-number="4"><span class="co">#&gt; [3] "The wreck occurred by the bank on Main Street."    </span></a>
+<a class="sourceLine" id="cb41-5" data-line-number="5"><span class="co">#&gt; [4] "The crunch of feet in the snow was the only sound."</span></a>
+<a class="sourceLine" id="cb41-6" data-line-number="6"><span class="co">#&gt; [5] "A steep trail is painful for our feet."</span></a></code></pre></div>
+<p>[1] “Wipe the grease off his dirty face.”<br>
+[2] “That guy is the writer of a few banned books.”<br>
+[3] “The wreck occurred by the bank on Main Street.”<br>
+[4] “The crunch of feet in the snow was the only sound.” [5] “A steep trail is painful for our feet.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the <code>glue</code> S3 class. This class works in the same way as the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(sentences)</a>
-<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="co">#&gt; A siege will crack the strong defense. The rope will bind the seven books at once. He lay prone and hardly moved a limb. He smoke a big pipe with strong contents. There are more than two factors here.</span></a></code></pre></div>
-<p>A siege will crack the strong defense. The rope will bind the seven books at once. He lay prone and hardly moved a limb. He smoke a big pipe with strong contents. There are more than two factors here.</p>
+<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="co">#&gt; Wipe the grease off his dirty face. That guy is the writer of a few banned books. The wreck occurred by the bank on Main Street. The crunch of feet in the snow was the only sound. A steep trail is painful for our feet.</span></a></code></pre></div>
+<p>Wipe the grease off his dirty face. That guy is the writer of a few banned books. The wreck occurred by the bank on Main Street. The crunch of feet in the snow was the only sound. A steep trail is painful for our feet.</p>
 </div>
 </div>
   </div>

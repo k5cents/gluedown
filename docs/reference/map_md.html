@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown GitHub issue — md_issue • gluedown</title>
+<title>Targeted markdown formatting — map_md • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,9 +42,9 @@
 
 
 
-<meta property="og:title" content="Markdown GitHub issue — md_issue" />
-<meta property="og:description" content="Take a character vector and numeric vector and concatenate them into a glue
-vector of valid GitHub issue autolinks (username/repo#issue)." />
+<meta property="og:title" content="Targeted markdown formatting — map_md" />
+<meta property="og:description" content="Split a sentence by whitespace and wrap a specific word(s) in a
+markdown inline function." />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -132,64 +132,53 @@ vector of valid GitHub issue autolinks (username/repo#issue)." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown GitHub issue</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-issue.R'><code>R/md-issue.R</code></a></small>
-    <div class="hidden name"><code>md_issue.Rd</code></div>
+    <h1>Targeted markdown formatting</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/map_md.R'><code>R/map_md.R</code></a></small>
+    <div class="hidden name"><code>map_md.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Take a character vector and numeric vector and concatenate them into a glue
-vector of valid GitHub issue autolinks (username/repo#issue).</p>
+    <p>Split a sentence by whitespace and wrap a specific word(s) in a
+markdown inline function.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_issue</span>(<span class='no'>repo</span>, <span class='no'>num</span>)</pre>
+    <pre class="usage"><span class='fu'>map_md</span>(<span class='no'>x</span>, <span class='no'>f</span>, <span class='no'>n</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>repo</th>
-      <td><p>A character vector in the format <code>"user/rep"</code>.</p></td>
+      <th>x</th>
+      <td><p>A character vector of strings containing words separated by spaces.</p></td>
     </tr>
     <tr>
-      <th>num</th>
-      <td><p>The issue or pull number <em>without</em> hash symbol.</p></td>
+      <th>f</th>
+      <td><p>An emphasizing inline function (e.g., <code><a href='md_bold.html'>md_bold()</a></code>).</p></td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td><p>A numeric vector describing the positions of the words in <code>x</code> to be
+emphasized with <code>f</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A character vector which GitHub can automatically hyperlink.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>Within conversations on GitHub, references to issues and pull requests are
-<a href='https://help.github.com/en/github/writing-on-github/autolinked-references-and-urls#issues-and-pull-requests'>automatically converted to shortened links</a>.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other inline functions: <code><a href='md_autolink.html'>md_autolink</a></code>,
-  <code><a href='md_bold.html'>md_bold</a></code>, <code><a href='md_code.html'>md_code</a></code>,
-  <code><a href='md_convert.html'>md_convert</a></code>, <code><a href='md_disallow.html'>md_disallow</a></code>,
-  <code><a href='md_escape.html'>md_escape</a></code>, <code><a href='md_hardline.html'>md_hardline</a></code>,
-  <code><a href='md_image.html'>md_image</a></code>, <code><a href='md_italic.html'>md_italic</a></code>,
-  <code><a href='md_link.html'>md_link</a></code>, <code><a href='md_softline.html'>md_softline</a></code>,
-  <code><a href='md_strike.html'>md_strike</a></code>, <code><a href='md_text.html'>md_text</a></code></p>
-<p>Other markdown extensions: <code><a href='md_strike.html'>md_strike</a></code>,
-  <code><a href='md_table.html'>md_table</a></code></p></div>
+    <p>A <code>glue</code> vector of length equal to <code>x</code> with the <code>n</code>th word
+formatted using <code>f</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_issue</span>(<span class='st'>"kiernann/gluedown"</span>, <span class='fl'>1</span>:<span class='fl'>5</span>)</div><div class='output co'>#&gt; kiernann/gluedown#1
-#&gt; kiernann/gluedown#2
-#&gt; kiernann/gluedown#3
-#&gt; kiernann/gluedown#4
-#&gt; kiernann/gluedown#5</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>map_md</span>(<span class='st'>"Live free or die"</span>, <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>f</span> <span class='kw'>=</span> <span class='no'>md_bold</span>)</div><div class='output co'>#&gt; Live free or **die**</div><div class='input'><span class='fu'>map_md</span>(<span class='kw pkg'>stringr</span><span class='kw ns'>::</span><span class='no'><a href='https://stringr.tidyverse.org/reference/stringr-data.html'>sentences</a></span>[<span class='fl'>1</span>:<span class='fl'>3</span>], <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>f</span> <span class='kw'>=</span> <span class='no'>md_italic</span>)</div><div class='output co'>#&gt; The _birch_ canoe slid on the smooth planks.
+#&gt; Glue _the_ sheet to the dark blue background.
+#&gt; It's _easy_ to tell the depth of a well.</div><div class='input'><span class='fu'>map_md</span>(<span class='kw pkg'>stringr</span><span class='kw ns'>::</span><span class='no'><a href='https://stringr.tidyverse.org/reference/stringr-data.html'>sentences</a></span>[<span class='fl'>4</span>:<span class='fl'>6</span>], <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>:<span class='fl'>3</span>, <span class='kw'>f</span> <span class='kw'>=</span> <span class='no'>md_italic</span>)</div><div class='output co'>#&gt; These _days_ _a_ chicken leg is a rare dish.
+#&gt; Rice _is_ _often_ served in round bowls.
+#&gt; The _juice_ _of_ lemons makes fine punch.</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

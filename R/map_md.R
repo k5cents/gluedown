@@ -8,18 +8,16 @@
 #' @return A `glue` vector of length equal to `x` with the `n`th word
 #'   formatted using `f`.
 #' @examples
-#' emphasize_at("Live free or die", n = 4, f = md_bold)
-#' emphasize_at(stringr::sentences[1:10], n = 2, f = md_italic)
-#' @importFrom stringr str_c str_split
-#' @importFrom purrr map_at
+#' map_md("Live free or die", n = 4, f = md_bold)
+#' map_md(stringr::sentences[1:3], n = 2, f = md_italic)
+#' map_md(stringr::sentences[4:6], n = 2:3, f = md_italic)
+#' @importFrom stringr str_split str_trim str_c
 #' @export
-emphasize_at <- function(x, f, n) {
-  s <- stringr::str_split(x, pattern = " ")
-  for (i in seq_along(s)) {
-    s2 <- purrr::map_at(.x = s[[i]], .at = n, .f = f)
-    s[[i]] <- stringr::str_c(s2, collapse = " ")
+map_md <- function(x, f, n) {
+  if (!is(f, "function")) {
+    stop("f must be a function, typically one from the inline family.")
   }
-  glue::as_glue(unlist(s))
+  s <- stringr::str_split(x, pattern = "\\s", simplify = TRUE)
+  s[, n] <- f(s[, n])
+  glue::as_glue(stringr::str_trim(apply(X = s, MARGIN = 1, stringr::str_c, collapse = " ")))
 }
-
-

@@ -29,7 +29,7 @@ Markdown meanings.
 }
 \examples{
 hashtag <- "# six seasons and a movie"
-emphasize_at(md_escape(hashtag), md_bold, n = 6)
+map_md(md_escape(hashtag), md_bold, n = 6)
 }
 \seealso{
 Other inline functions: \code{\link{md_autolink}},

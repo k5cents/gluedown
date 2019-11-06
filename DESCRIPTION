@@ -1,6 +1,6 @@
 Package: gluedown
 Title: Wrap Vectors in Markdown Formatting
-Version: 0.4.3
+Version: 0.4.4
 Date: 2019-10-24
 Authors@R: 
     person(given = "Kiernan",
@@ -23,7 +23,6 @@ Imports:
     knitr (>= 1.25),
     magrittr (>= 1.5),
     markdown (>= 1.1),
-    purrr (>= 0.3.2),
     stringr (>= 1.4.0)
 Suggests: 
     covr (>= 3.3.2),

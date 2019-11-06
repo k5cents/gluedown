@@ -1,3 +1,8 @@
+# gluedown 0.4.4
+
+* Replace `emphasize_at()` with `map_md()`, which now uses 
+`str_split(simplify = TRUE)` and `apply()` instead of `purrr::map_at()`.
+
 # gluedown 0.4.3
 
 * Add vignette walking through all the features of GFM.

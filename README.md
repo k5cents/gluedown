@@ -124,10 +124,10 @@ abb <- state.abb[match(name, state.name)]
 
 Then you can easily print that result in the middle of regular text with
 markdown formatting. In this case, our randomly selected state is
-**Illinois**, which has the abbreviation *IL*.
+**Louisiana**, which has the abbreviation *LA*.
 
 ## Contribute
 
 Please note that the `gluedown` project is released with a [Contributor
-Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this
-project, you agree to abide by its terms.
+Code of Conduct](https://kiernann.com/gluedown/CODE_OF_CONDUCT.html). By
+contributing to this project, you agree to abide by its terms.

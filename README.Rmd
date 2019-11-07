@@ -120,6 +120,8 @@ markdown formatting. In this case, our randomly selected state is
 
 ## Contribute
 
-Please note that the `gluedown` project is released with a
-[Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md).
-By contributing to this project, you agree to abide by its terms.
+Please note that the `gluedown` project is released with a 
+[Contributor Code of Conduct][coc]. By contributing to this project, you agree
+to abide by its terms.
+
+[coc]: https://kiernann.com/gluedown/CODE_OF_CONDUCT.html

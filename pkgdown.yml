@@ -1,0 +1,7 @@
+pandoc: '2.2'
+pkgdown: 1.4.1
+pkgdown_sha: ~
+articles:
+  github-spec: github-spec.html
+  literal-programming: literal-programming.html
+

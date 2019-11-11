@@ -11,7 +11,8 @@
 
 * This is a new release.
 
-## Changes
+## Resubmission
 
-* John MacFarlane, author of CommonMark, is cited.
-* Fix Code of Conduct link in `README.md`
+* John MacFarlane, author of CommonMark, is cited in `DESCRIPTION`.
+* `readr::read_lines()` link in documentation is replaced with `readLines()`.
+* Fix Code of Conduct link in `README.md`.

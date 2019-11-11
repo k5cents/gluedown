@@ -7,8 +7,8 @@
 #' nested HTML `<code>` and `<pre>` tags. This function either calls
 #' [md_fence()] or [md_indent()] based on the `type` argument.
 #'
-#' @param x A character vector of lines to be wrapped concatenated into a
-#'   single block, possibly created by [readr::read_lines()] or [deparse()].
+#' @param x A character vector of lines to be wrapped concatenated into a single
+#'   block, possibly created by [readLines()] or [deparse()].
 #' @param ... Arguments to be passed to [md_fence()] or [md_indent()].
 #' @param type The type of code block to be created. Either "tick", "tilde"
 #'   (which call [md_fence()]) or "indent" (which calls [md_indent()]).
@@ -54,7 +54,7 @@ md_chunk <- function(x, type = c("tick", "tilde", "indent"), ...) {
 #' contents of the lines, including trailing line endings, minus four spaces of
 #' indentation. An indented code block has no info string.
 #' @param x A character vector of lines to be wrapped concatenated into a
-#'   single block, possibly created by [readr::read_lines()] or [deparse()].
+#'   single block, possibly created by [readLines()] or [deparse()].
 #' @param n A numeric vector
 #' @return A `glue` object of length 1, with the elements of `x` preceded with
 #'   4 spaces and separated by a newline.
@@ -100,7 +100,8 @@ md_indent <- function(x, n = 4) {
 #' tag. However, this spec does not mandate any particular treatment of the info
 #' string (see the `info` argument).
 #' @param x A character vector of lines to be wrapped concatenated into a single
-#'   block, possibly created by possibly created by [readr::read_lines()] or [deparse()].
+#'   block, possibly created by possibly created by [readLines()] or
+#'   [deparse()].
 #' @param char The character to use in the code fence; either backtick
 #'   characters... or tildes (`~`). Defaults to backticks.
 #' @param info The info string text to follow the initial code fence, typically

@@ -8,7 +8,8 @@ md_fence(x, char = c("`", "~"), info = "r")
 }
 \arguments{
 \item{x}{A character vector of lines to be wrapped concatenated into a single
-block, possibly created by possibly created by \code{\link[readr:read_lines]{readr::read_lines()}} or \code{\link[=deparse]{deparse()}}.}
+block, possibly created by possibly created by \code{\link[=readLines]{readLines()}} or
+\code{\link[=deparse]{deparse()}}.}
 
 \item{char}{The character to use in the code fence; either backtick
 characters... or tildes (\code{~}). Defaults to backticks.}

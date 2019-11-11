@@ -8,7 +8,7 @@ md_indent(x, n = 4)
 }
 \arguments{
 \item{x}{A character vector of lines to be wrapped concatenated into a
-single block, possibly created by \code{\link[readr:read_lines]{readr::read_lines()}} or \code{\link[=deparse]{deparse()}}.}
+single block, possibly created by \code{\link[=readLines]{readLines()}} or \code{\link[=deparse]{deparse()}}.}
 
 \item{n}{A numeric vector}
 }

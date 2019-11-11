@@ -10,3 +10,8 @@
 0 errors | 0 warnings | 1 note
 
 * This is a new release.
+
+## Changes
+
+* John MacFarlane, author of CommonMark, is cited.
+* Fix Code of Conduct link in `README.md`

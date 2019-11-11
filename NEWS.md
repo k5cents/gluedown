@@ -1,6 +1,10 @@
 # gluedown 1.0.0
 
-* Submit to CRAN!
+* Remove `readr::read_lines()` from docs.
+* Cite CommonMark author in `DESCRIPTION`.
+* Remove the `%>%` utility and magrittr package.
+* Remove all `/docs` and move to `gh-pages` branch.
+* Re-submit to CRAN.
 
 # gluedown 0.4.4
 

@@ -8,7 +8,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "kiernann@protonmail.com")
 Description: Ease the transition between R vectors and markdown
-    text. With gluedown and rmarkdown, users can (1) create traditional
+    text. With 'gluedown' and 'rmarkdown', users can (1) create traditional
     vectors in R, (2) glue those strings together with the markdown
     syntax, and (3) print those formatted vectors directly to the
     document. This package primarily uses GitHub Flavored Markdown (GFM),

@@ -13,6 +13,7 @@
 
 ## Resubmission
 
+* Quote package names in `DESCRIPTION`.
 * John MacFarlane, author of CommonMark, is cited in `DESCRIPTION`.
 * `readr::read_lines()` link in documentation is replaced with `readLines()`.
 * Fix Code of Conduct link in `README.md`.

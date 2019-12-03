@@ -25,13 +25,12 @@
 #' md_heading(x = c("One", "Two"), level = 1:2)
 #' md_heading(x = c("Installation", "Usage"), level = 2)
 #' @importFrom glue glue
-#' @importFrom stringr str_dup
 #' @export
 md_heading <- function(x, level = 1) {
   if (max(level) > 6 | min(level) < 1) {
     stop("ATX headings only support levels 1 through 6.")
   }
-  glue::glue("{stringr::str_dup('#', level)} {x}")
+  glue::glue("{strrep('#', level)} {x}")
 }
 
 #' Markdown Setext headings (4.3)
@@ -97,6 +96,5 @@ md_setext <- function(x, level = 1, width = TRUE) {
   } else {
     width
   }
-  line <- stringr::str_dup(char, n)
-  glue::glue("{x}\n{line}")
+  glue::glue("{x}\n{strrep(char, n)}")
 }

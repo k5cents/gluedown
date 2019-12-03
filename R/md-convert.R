@@ -19,7 +19,6 @@
 #' md_convert(x = md_bold("test"))
 #' @importFrom glue as_glue
 #' @importFrom markdown markdownToHTML
-#' @importFrom stringr str_detect
 #' @export
 md_convert <- function(x, frag = TRUE, disallow = TRUE) {
   html <- glue::as_glue(markdown::markdownToHTML(text = x, fragment.only = frag))
@@ -72,7 +71,6 @@ md_convert <- function(x, frag = TRUE, disallow = TRUE) {
 #' md_disallow("<title>GitHub Flavored Markdown Spec</title>")
 #' @importFrom glue as_glue
 #' @importFrom markdown markdownToHTML
-#' @importFrom stringr str_detect
 #' @export
 md_disallow <- function(html) {
   bad <- c(

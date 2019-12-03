@@ -24,7 +24,7 @@ test_that("md_setext errors at levels greater than 2", {
 
 test_that("md_setext creates <h1> and <h2> tags (ex. 50)", {
   # https://github.github.com/gfm/#example-50
-  lines <- md_setext(map_md("Foo bar", md_italic, 2), 1:2)
+  lines <- md_setext("Foo _bar_", 1:2)
   for (i in seq_along(lines)) {
     node <- md_convert(lines) %>%
       find_nodes(paste0("h", i)) %>%

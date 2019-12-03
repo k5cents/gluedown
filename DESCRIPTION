@@ -30,7 +30,8 @@ Suggests:
     rmarkdown (>= 1.16),
     rvest (>= 0.3.2),
     spelling (>= 2.1),
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    stringr
 VignetteBuilder: 
     knitr
 Encoding: UTF-8

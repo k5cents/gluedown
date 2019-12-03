@@ -1,5 +1,5 @@
 # gluedown (development version)
-
+# 
 # gluedown 1.0.0
 
 * Remove `readr::read_lines()` from docs.

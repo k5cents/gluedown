@@ -28,8 +28,7 @@ characters are treated as regular characters and do not have their usual
 Markdown meanings.
 }
 \examples{
-hashtag <- "# six seasons and a movie"
-map_md(md_escape(hashtag), md_bold, n = 6)
+md_escape("# six seasons and a movie")
 }
 \seealso{
 Other inline functions: \code{\link{md_autolink}},

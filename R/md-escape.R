@@ -17,17 +17,9 @@
 #'   prepended backslashes.
 #' @family inline functions
 #' @examples
-#' hashtag <- "# six seasons and a movie"
-#' map_md(md_escape(hashtag), md_bold, n = 6)
-#' @importFrom stringr str_replace_all
+#' md_escape("# six seasons and a movie")
 #' @importFrom glue as_glue
 #' @export
 md_escape <- function(x) {
-  glue::as_glue(
-    stringr::str_replace_all(
-      string = x,
-      pattern = "([^[:alnum:]])",
-      replacement = "\\\\\\1"
-    )
-  )
+  glue::as_glue(gsub(pattern = "([[:punct:]])", replacement = "\\\\\\1", x))
 }

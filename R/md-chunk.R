@@ -62,13 +62,12 @@ md_chunk <- function(x, type = c("tick", "tilde", "indent"), ...) {
 #' @examples
 #' md_indent(deparse(md_bold))
 #' @importFrom glue glue glue_collapse
-#' @importFrom stringr str_dup
 #' @export
 md_indent <- function(x, n = 4) {
   if (min(n) < 4) {
     stop("Indented code blocks must be indented by at least four spaces.")
   }
-  glue::glue("{stringr::str_dup(' ', n)}{x}")
+  glue::glue("{strrep(' ', n)}{x}")
 }
 
 #' Markdown fenced code block
@@ -112,7 +111,6 @@ md_indent <- function(x, n = 4) {
 #' md_fence(deparse(sd))
 #' md_fence(c("library(dplyr)", "starwars %>%", "  filter(species == 'Droid')"))
 #' @importFrom glue glue glue_collapse
-#' @importFrom stringr str_dup
 #' @export
 md_fence <- function(x, char = c("`", "~"), info = "r") {
   char <- match.arg(char)
@@ -122,7 +120,7 @@ md_fence <- function(x, char = c("`", "~"), info = "r") {
     }
   }
   string <- glue_collapse(x, sep = "\n")
-  fence <- stringr::str_dup(char, 3)
+  fence <- strrep(char, 3)
   info <- if (is.null(info)) {
     ""
   } else {

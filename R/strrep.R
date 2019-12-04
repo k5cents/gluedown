@@ -3,7 +3,6 @@
 #' See the original description in \code{base::strrep}.
 #'
 #' @keywords internal
-#' @rawNamespace if (getRversion() < "3.3.0") export(strrep)
 strrep = function(x, times) {
   x = as.character(x)
   if (length(x) == 0L)

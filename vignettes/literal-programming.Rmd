@@ -31,6 +31,8 @@ language, this is primarily done with the [`rmarkdown`][rmd] package, which
 takes a plaint text special `.Rmd` file containing code "chunks" and executes
 that code when converting to some other format (`.md`, `.html`, `.pdf`, etc).
 
+[rmd]: https://rmarkdown.rstudio.com/
+
 Markdown is a lightweight plain-text language used to format text. Let's look at
 the original description of markdown from John Gruber's website, the creator of
 the markdown standard. Using the `rvest` package, we can programmatically scrape
@@ -261,25 +263,10 @@ legislation <- c("Houses passes", "Senate concurs", "President signs")
 md_task(legislation, check = 1:2)
 ```
 
-Some features aren't technically supported by GFM, but can be 
-[forced by pandoc][force]. For example, the output of `md_define()` will be 
-rendered as bullet lists on GitHub but appear as formatted definition lists in
-HTML formats like this.
-
-```{r ex_define, results='asis'}
-terms <- c("Democracy", "Monarchy")
-definitions <- c(
-  "a system of government by all the eligible members of a state.",
-  "a form of government with a monarch at the head."
-)
-md_define(terms, definitions)
-```
-
 [task]: https://help.github.com/en/articles/about-task-lists
 [gfm]: https://github.github.com/gfm/
 [cm]: https://spec.commonmark.org/
 [df]: https://daringfireball.net/projects/markdown/
-[force]: https://pandoc.org/MANUAL.html#definition-lists
 
 Markdown tables are another extremely useful extension. The `md_table()`
 functions wraps around the much more powerful `knitr::kable()` function, which
@@ -301,7 +288,7 @@ print(mass)
 ```
 
 ```{r table_mass, results='asis'}
-md_table(mass)
+md_table(mass, digits = 2)
 ```
 
 ## Inlines

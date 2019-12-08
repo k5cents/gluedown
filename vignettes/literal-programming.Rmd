@@ -222,12 +222,12 @@ Or maybe we simply want to display some preformatted text that only works in a
 monospace font like that which is used in code blocks.
 
 ```{r indent_block, results='asis'}
-cal <- system2("cal 7 1776", stdout = TRUE)
+cal <- system2("cal", stdout = TRUE)
 md_indent(cal)
 ```
 
 ```{r print_block, results='asis'}
-cal <- system2("cal 7 1776", stdout = TRUE)
+cal <- system2("cal", stdout = TRUE)
 cat(cal, sep = "\n")
 ```
 

@@ -47,7 +47,7 @@ md_quote(stringr::sentences[1:3])
 }
 \seealso{
 Other container block functions: \code{\link{md_bullet}},
-  \code{\link{md_define}}, \code{\link{md_list}},
-  \code{\link{md_order}}, \code{\link{md_task}}
+  \code{\link{md_list}}, \code{\link{md_order}},
+  \code{\link{md_task}}
 }
 \concept{container block functions}

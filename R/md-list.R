@@ -91,7 +91,6 @@ md_bullet <- function(x, marker = c("*", "-", "+")) {
 #' md_order(state.name[1:5])
 #' md_order(sample(state.name, 5), marker = ")")
 #' md_order(sample(state.name, 5), seq = FALSE)
-#' @importFrom stringr str_pad
 #' @importFrom glue glue
 #' @export
 md_order <- function(x, marker = c(".", ")"), seq = TRUE, pad = TRUE) {
@@ -99,12 +98,8 @@ md_order <- function(x, marker = c(".", ")"), seq = TRUE, pad = TRUE) {
   if (seq) {
     nums <- seq_along(x)
     if (pad) {
-      nums <- stringr::str_pad(
-        string = nums,
-        side = "left",
-        width = max(nchar(nums)),
-        pad = "0"
-      )
+      width <- max(nchar(nums))
+      nums <- sprintf(glue::glue("%0{width}d"), nums)
     }
   } else {
     nums <- 1

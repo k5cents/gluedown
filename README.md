@@ -6,40 +6,44 @@
 <!-- badges: start -->
 
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/gluedown)](https://CRAN.R-project.org/package=gluedown)
-[![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![Travis build
 status](https://travis-ci.org/kiernann/gluedown.svg?branch=master)](https://travis-ci.org/kiernann/gluedown)
 [![Codecov test
-coverage](https://codecov.io/gh/kiernann/gluedown/branch/master/graph/badge.svg)](https://codecov.io/gh/kiernann/gluedown?branch=master)
-
+coverage](https://img.shields.io/codecov/c/github/kiernann/gluedown/master.svg)](https://codecov.io/gh/kiernann/gluedown?branch=master')
+![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/gluedown)
 <!-- badges: end -->
 
-The `gluedown` package helps transition from R’s powerful vectors to
-formatted markdown text. The functions use
+The goal of `gluedown` is to ease the transition from R’s powerful
+vectors to formatted markdown text. The functions use
 [`glue()`](https://github.com/tidyverse/glue) to wrap character vectors
-in valid markdown syntax. In combination with the
-[`knitr`](https://github.com/yihui/knitr) package, this allows users to
-directly print R vectors as formatted text for improved clarity and
-readability.
+in valid markdown syntax. With the
+[`knitr`](https://github.com/yihui/knitr) package, users can print the
+formatted vectors to the body of a markdown document.
 
 ## Installation
 
-You can install the development version from
-[GitHub](https://github.com/) with:
+Install the released version of usethis from
+[CRAN](https://cran.r-project.org/package=gluedown):
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("kiernann/gluedown")
+install.packages("gluedown")
+```
+
+Or install the development version from
+[GitHub](https://github.com/kiernann/gluedown) with:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("kiernann/gluedown")
 ```
 
 ## Usage
 
-The `md_*()` functions are most useful in combination with the
-`results='asis'` `knitr` chunk option; this allows users to directly
-print formatted text from a code chunk to the body of a document.
+Use the `results='asis'` chunk option to print the formatted text from a
+code chunk to the body of a document.
 
 ``` r
 library(gluedown)
@@ -54,13 +58,12 @@ package.
 
 ``` r
 inlines <- c(
-  md_bold(state.name[1]),
-  md_code(state.name[2]),
-  md_link(state.name[3], "https://az.gov"),
-  md_italic(state.name[4]),
-  md_strike(state.name[5])
+  md_bold("Alabama"),
+  md_code("Alaska"),
+  md_link("Arizona", "https://az.gov"),
+  md_italic("Arkansas"),
+  md_strike("California")
 )
-
 md_bullet(inlines)
 ```
 
@@ -74,8 +77,7 @@ md_bullet(inlines)
 
 All functions are designed to fit within the tidyverse ecosystem by
 working with
-[pipes](https://magrittr.tidyverse.org/reference/pipe.html). Chain
-together some code and print the results.
+[pipes](https://magrittr.tidyverse.org/reference/pipe.html).
 
 ``` r
 read_html("https://w.wiki/A58") %>% 
@@ -94,11 +96,9 @@ read_html("https://w.wiki/A58") %>%
 ### Extensions
 
 The package primarily uses [GitHub Flavored
-Markdown](https://github.github.com/gfm/) (GFM). With this flavor, some
-useful extensions like [task
-lists](https://help.github.com/en/articles/about-task-lists) are
-supported on GitHub. Be mindful of how these results look in your venue
-render.
+Markdown](https://github.github.com/gfm/), with support for useful
+extensions like [task
+lists](https://help.github.com/en/articles/about-task-lists).
 
 ``` r
 legislation <- c("Houses passes", "Senate concurs", "President signs")
@@ -112,22 +112,24 @@ md_task(legislation, check = 1:2)
 ### Inline
 
 You can also use `gluedown` to format R [inline code
-results](https://rmarkdown.rstudio.com/lesson-4.html). First, use R to
-calculate a result.
+results](https://rmarkdown.rstudio.com/lesson-4.html).
 
 ``` r
-name <- sample(state.name, 1)
+name <- sample(state.name, size = 1)
 abb <- state.abb[match(name, state.name)]
 # `r md_bold(name)`
 # `r md_italic(abb)`
 ```
 
-Then you can easily print that result in the middle of regular text with
-markdown formatting. In this case, our randomly selected state is
-**Louisiana**, which has the abbreviation *LA*.
+In this case, our randomly selected state is **Tennessee**, which has
+the abbreviation *TN*.
 
 ## Contribute
 
 Please note that the `gluedown` project is released with a [Contributor
 Code of Conduct](https://kiernann.com/gluedown/CODE_OF_CONDUCT.html). By
 contributing to this project, you agree to abide by its terms.
+
+<!-- links: start -->
+
+<!-- links: end -->

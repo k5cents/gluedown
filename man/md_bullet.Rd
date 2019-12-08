@@ -33,8 +33,8 @@ md_bullet(state.name[1:5])
 md_bullet(sample(state.name, 5), marker = "+")
 }
 \seealso{
-Other container block functions: \code{\link{md_define}},
-  \code{\link{md_list}}, \code{\link{md_order}},
-  \code{\link{md_quote}}, \code{\link{md_task}}
+Other container block functions: \code{\link{md_list}},
+  \code{\link{md_order}}, \code{\link{md_quote}},
+  \code{\link{md_task}}
 }
 \concept{container block functions}

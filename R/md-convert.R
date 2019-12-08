@@ -19,21 +19,9 @@
 #' md_convert(x = md_bold("test"))
 #' @importFrom glue as_glue
 #' @importFrom markdown markdownToHTML
-#' @importFrom stringr str_detect
 #' @export
 md_convert <- function(x, frag = TRUE, disallow = TRUE) {
   html <- glue::as_glue(markdown::markdownToHTML(text = x, fragment.only = frag))
-  bad <- c(
-    "<title(.*)>",
-    "<textarea(.*)>",
-    "<style(.*)>",
-    "<xmp(.*)>",
-    "<iframe(.*)>",
-    "<noembed(.*)>",
-    "<noframes(.*)>",
-    "<script(.*)>",
-    "<plaintext(.*)>"
-  )
   if (disallow) {
     md_disallow(html)
   } else {
@@ -71,37 +59,26 @@ md_convert <- function(x, frag = TRUE, disallow = TRUE) {
 #' @examples
 #' md_disallow("<title>GitHub Flavored Markdown Spec</title>")
 #' @importFrom glue as_glue
-#' @importFrom markdown markdownToHTML
-#' @importFrom stringr str_detect
 #' @export
 md_disallow <- function(html) {
   bad <- c(
-    # pattern...     replacement
-    "<(title)"     = "&lt;\\1",
-    "<(textarea)"  = "&lt;\\1",
-    "<(style)"     = "&lt;\\1",
-    "<(xmp)"       = "&lt;\\1",
-    "<(iframe)"    = "&lt;\\1",
-    "<(noembed)"   = "&lt;\\1",
-    "<(noframes)"  = "&lt;\\1",
-    "<(script)"    = "&lt;\\1",
-    "<(plaintext)" = "&lt;\\1",
-    # upper versions too
-    "<(TITLE)"     = "&lt;\\1",
-    "<(TEXTAREA)"  = "&lt;\\1",
-    "<(STYLE)"     = "&lt;\\1",
-    "<(XMP)"       = "&lt;\\1",
-    "<(IFRAME)"    = "&lt;\\1",
-    "<(NOEMBED)"   = "&lt;\\1",
-    "<(NOFRAMES)"  = "&lt;\\1",
-    "<(SCRIPT)"    = "&lt;\\1",
-    "<(PLAINTEXT)" = "&lt;\\1"
+    "<(title)",
+    "<(textarea)",
+    "<(style)",
+    "<(xmp)",
+    "<(iframe)",
+    "<(noembed)",
+    "<(noframes)",
+    "<(script)",
+    "<(plaintext)"
   )
-  glue::as_glue(
-    stringr::str_replace_all(
-      string = html,
-      pattern = bad,
-      replacement = "&lt;(\\1)"
+  for (i in seq_along(bad)) {
+    html <- gsub(
+      pattern = bad[[i]],
+      replacement = "&lt;\\1",
+      x = html,
+      ignore.case = TRUE
     )
-  )
+  }
+  glue::as_glue(html)
 }

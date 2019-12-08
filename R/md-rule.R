@@ -20,7 +20,6 @@
 #' md_rule(n = 10)
 #' md_rule(space = TRUE)
 #' @importFrom glue glue_collapse
-#' @importFrom stringr str_dup
 #' @export
 md_rule <- function(char = c("*", "-", "_"), n = 3, space = FALSE) {
   if (n < 3)  {

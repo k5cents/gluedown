@@ -121,8 +121,8 @@ to abide by its terms.
 [trav_link]: https://travis-ci.org/kiernann/gluedown
 [cov_badge]: https://img.shields.io/codecov/c/github/kiernann/gluedown/master.svg
 [cov_link]: https://codecov.io/gh/kiernann/gluedown?branch=master'
-[dl_badge]: http://cranlogs.r-pkg.org/badges/grand-total/gluedown
-<!-- [coc]: https://kiernann.com/gluedown/CODE_OF_CONDUCT.html -->
+[dl_badge]: https://cranlogs.r-pkg.org/badges/grand-total/gluedown
+[coc]: https://kiernann.com/gluedown/CODE_OF_CONDUCT.html
 [cran]: https://cran.r-project.org/package=gluedown
 [gfm]: https://github.github.com/gfm/
 [gh]: https://github.com/kiernann/gluedown

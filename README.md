@@ -13,7 +13,7 @@ status](https://www.r-pkg.org/badges/version/gluedown)](https://CRAN.R-project.o
 status](https://travis-ci.org/kiernann/gluedown.svg?branch=master)](https://travis-ci.org/kiernann/gluedown)
 [![Codecov test
 coverage](https://img.shields.io/codecov/c/github/kiernann/gluedown/master.svg)](https://codecov.io/gh/kiernann/gluedown?branch=master')
-![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/gluedown)
+![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/gluedown)
 <!-- badges: end -->
 
 The goal of `gluedown` is to ease the transition from R’s powerful
@@ -104,9 +104,9 @@ legislation <- c("Houses passes", "Senate concurs", "President signs")
 md_task(legislation, check = 1:2)
 ```
 
-  - \[x\] Houses passes
-  - \[x\] Senate concurs
-  - \[ \] President signs
+  - [x] Houses passes
+  - [x] Senate concurs
+  - [ ] President signs
 
 ### Inline
 
@@ -120,8 +120,8 @@ abb <- state.abb[match(name, state.name)]
 # `r md_italic(abb)`
 ```
 
-In this case, our randomly selected state is **Louisiana**, which has
-the abbreviation *LA*.
+In this case, our randomly selected state is **Virginia**, which has the
+abbreviation *VA*.
 
 ## Contribute
 

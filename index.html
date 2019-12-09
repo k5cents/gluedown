@@ -103,22 +103,22 @@
 </h1></div>
 <!-- badges: start -->
 <p><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: experimental"></a> <a href="https://CRAN.R-project.org/package=gluedown"><img src="https://www.r-pkg.org/badges/version/gluedown" alt="CRAN status"></a> <a href="https://travis-ci.org/kiernann/gluedown"><img src="https://travis-ci.org/kiernann/gluedown.svg?branch=master" alt="Travis build status"></a> <a href="https://codecov.io/gh/kiernann/gluedown?branch=master'"><img src="https://img.shields.io/codecov/c/github/kiernann/gluedown/master.svg" alt="Codecov test coverage"></a> <img src="http://cranlogs.r-pkg.org/badges/grand-total/gluedown" alt="Downloads"><!-- badges: end --></p>
-<p>The goal of <code>gluedown</code> is to ease the transition from R’s powerful vectors to formatted markdown text. The functions use <a href="https://github.com/tidyverse/glue"><code>glue()</code></a> to wrap character vectors in valid markdown syntax. With the <a href="https://github.com/yihui/knitr"><code>knitr</code></a> package, users can print the formatted vectors to the body of a markdown document.</p>
+<p>The goal of <code>gluedown</code> is to ease the transition from R’s powerful vectors to formatted markdown text. The package uses <a href="https://github.com/tidyverse/glue"><code>glue()</code></a> to wrap character vectors in markdown syntax. With the <a href="https://github.com/yihui/knitr"><code>knitr</code></a> package, users can print the formatted vectors directly to the body of a markdown document.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>Install the released version of usethis from <a href="https://cran.r-project.org/package=gluedown">CRAN</a>:</p>
+<p>Install the release version from <a href="https://cran.r-project.org/package=gluedown">CRAN</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"gluedown"</span>)</a></code></pre></div>
-<p>Or install the development version from <a href="https://github.com/kiernann/gluedown">GitHub</a> with:</p>
+<p>To install the development version from <a href="https://github.com/kiernann/gluedown">GitHub</a>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># install.packages("remotes")</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"kiernann/gluedown"</span>)</a></code></pre></div>
 </div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
-<p>Use the <code>results='asis'</code> chunk option to print the formatted text from a code chunk to the body of a document.</p>
+<p>Use the <code>results='asis'</code> chunk option to print the formatted output from a code chunk to the body of a document.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(gluedown)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(tidyverse)</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(stringr)</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(rvest)</a></code></pre></div>
 <div id="lists" class="section level3">
 <h3 class="hasAnchor">
@@ -143,11 +143,11 @@
 <div id="pipes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#pipes" class="anchor"></a>Pipes</h3>
-<p>All functions are designed to fit within the tidyverse ecosystem by working with <a href="https://magrittr.tidyverse.org/reference/pipe.html">pipes</a>.</p>
+<p>All functions are designed to fit within the tidyverse ecosystem and work with <a href="https://magrittr.tidyverse.org/reference/pipe.html">pipes</a>.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">read_html</span>(<span class="st">"https://w.wiki/A58"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://rvest.tidyverse.org/reference/html_nodes.html">html_node</a></span>(<span class="st">"blockquote"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://rvest.tidyverse.org/reference/html_text.html">html_text</a></span>(<span class="dt">trim =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw">str_remove</span>(<span class="st">"</span><span class="ch">\\</span><span class="st">[(.*)</span><span class="ch">\\</span><span class="st">]"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">[(.*)</span><span class="ch">\\</span><span class="st">]"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/md_quote.html">md_quote</a></span>()</a></code></pre></div>
 <blockquote>
 <p>We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.</p>
@@ -173,7 +173,7 @@
 <a class="sourceLine" id="cb7-2" data-line-number="2">abb &lt;-<span class="st"> </span>state.abb[<span class="kw"><a href="https://rdrr.io/r/base/match.html">match</a></span>(name, state.name)]</a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># `r md_bold(name)`</span></a>
 <a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co"># `r md_italic(abb)`</span></a></code></pre></div>
-<p>In this case, our randomly selected state is <strong>Tennessee</strong>, which has the abbreviation <em>TN</em>.</p>
+<p>In this case, our randomly selected state is <strong>Louisiana</strong>, which has the abbreviation <em>LA</em>.</p>
 </div>
 </div>
 <div id="contribute" class="section level2">

@@ -2,7 +2,11 @@
 
 * Remove `md_define()` to avoid pandoc issue (#16, #17).
 * Remove all `stringr` functions in place of `base` alternatives (#15).
-* Remove `map_md()`.
+* Remove `map_md()` function.
+* Remove `dplyr` suggestion dependency.
+* Remove `httr` tests in `md_issue()`.
+* Remove `httr` suggestion dependency.
+* Improve vignettes.
 
 # gluedown 1.0.0
 

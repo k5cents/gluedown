@@ -11,26 +11,26 @@ md_heading(x, level = 1)
 
 \item{level}{A numeric vector of use to determine the number of heading hash
 characters to preceed each element of \code{x}. The heading level is equal to
-the number of \code{#} characters in the opening sequence.}
+the number of \verb{#} characters in the opening sequence.}
 }
 \value{
 A \code{glue} vector of headings with length equal to \code{x}.
 }
 \description{
 Turn a character vector into a vector of valid markdown ATX headings. These
-markdown leaf blocks can be rendered as the \code{<h1>} through \code{<h6>} HTML tags.
+markdown leaf blocks can be rendered as the \verb{<h1>} through \verb{<h6>} HTML tags.
 See \code{\link[=md_setext]{md_setext()}} to create setext (underlined) headings.
 }
 \details{
 An ATX heading consists of a string of characters, parsed as inline content,
-between an opening sequence of 1–6 unescaped \code{#} characters and an optional
-closing sequence of any number of unescaped \code{#} characters. The opening
-sequence of \code{#} characters must be followed by a space or by the end of line.
-The optional closing sequence of \code{#}s must be preceded by a space and may be
+between an opening sequence of 1–6 unescaped \verb{#} characters and an optional
+closing sequence of any number of unescaped \verb{#} characters. The opening
+sequence of \verb{#} characters must be followed by a space or by the end of line.
+The optional closing sequence of \verb{#}s must be preceded by a space and may be
 followed by spaces only. The opening # character may be indented 0-3 spaces.
 The raw contents of the heading are stripped of leading and trailing spaces
 before being parsed as inline content. The heading level is equal to the
-number of \code{#} characters in the opening sequence.
+number of \verb{#} characters in the opening sequence.
 }
 \examples{
 md_heading("Overview")
@@ -38,10 +38,15 @@ md_heading(x = c("One", "Two"), level = 1:2)
 md_heading(x = c("Installation", "Usage"), level = 2)
 }
 \seealso{
-Other leaf block functions: \code{\link{md_blank}},
-  \code{\link{md_chunk}}, \code{\link{md_fence}},
-  \code{\link{md_indent}}, \code{\link{md_paragraph}},
-  \code{\link{md_reference}}, \code{\link{md_rule}},
-  \code{\link{md_setext}}, \code{\link{md_table}}
+Other leaf block functions: 
+\code{\link{md_blank}()},
+\code{\link{md_chunk}()},
+\code{\link{md_fence}()},
+\code{\link{md_indent}()},
+\code{\link{md_paragraph}()},
+\code{\link{md_reference}()},
+\code{\link{md_rule}()},
+\code{\link{md_setext}()},
+\code{\link{md_table}()}
 }
 \concept{leaf block functions}

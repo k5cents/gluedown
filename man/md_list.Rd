@@ -27,8 +27,10 @@ md_list(state.name[6:10], type = "ordered", marker = ")")
 md_list(state.name[11:15], type = "task", check = 3:5)
 }
 \seealso{
-Other container block functions: \code{\link{md_bullet}},
-  \code{\link{md_order}}, \code{\link{md_quote}},
-  \code{\link{md_task}}
+Other container block functions: 
+\code{\link{md_bullet}()},
+\code{\link{md_order}()},
+\code{\link{md_quote}()},
+\code{\link{md_task}()}
 }
 \concept{container block functions}

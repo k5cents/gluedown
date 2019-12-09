@@ -14,24 +14,24 @@ A \code{glue} vector of length 1 containing HTML tags.
 }
 \description{
 Take a character vector of raw HTML text (possibly via \code{\link[=md_convert]{md_convert()}}) and
-disallow certain tags by replacing \code{<} with \code{&lt;}.
+disallow certain tags by replacing \code{<} with \verb{&lt;}.
 }
 \details{
 GFM enables the tagfilter extension, where the following HTML tags will be
 filtered when rendering HTML output:
 \itemize{
-\item \code{<title>}
-\item \code{<textarea>}
-\item \code{<style>}
-\item \code{<xmp>}
-\item \code{<iframe>}
-\item \code{<noembed>}
-\item \code{<noframes>}
-\item \code{<script>}
-\item \code{<plaintext>}
+\item \verb{<title>}
+\item \verb{<textarea>}
+\item \verb{<style>}
+\item \verb{<xmp>}
+\item \verb{<iframe>}
+\item \verb{<noembed>}
+\item \verb{<noframes>}
+\item \verb{<script>}
+\item \verb{<plaintext>}
 }
 
-Filtering is done by replacing the leading \code{<} with the entity \code{&lt;}. These
+Filtering is done by replacing the leading \code{<} with the entity \verb{&lt;}. These
 tags are chosen in particular as they change how HTML is interpreted in a way
 unique to them (i.e. nested HTML is interpreted differently), and this is
 usually undesireable (sic) in the context of other rendered Markdown content.
@@ -42,12 +42,19 @@ All other HTML tags are left untouched.
 md_disallow("<title>GitHub Flavored Markdown Spec</title>")
 }
 \seealso{
-Other inline functions: \code{\link{md_autolink}},
-  \code{\link{md_bold}}, \code{\link{md_code}},
-  \code{\link{md_convert}}, \code{\link{md_escape}},
-  \code{\link{md_hardline}}, \code{\link{md_image}},
-  \code{\link{md_issue}}, \code{\link{md_italic}},
-  \code{\link{md_link}}, \code{\link{md_softline}},
-  \code{\link{md_strike}}, \code{\link{md_text}}
+Other inline functions: 
+\code{\link{md_autolink}()},
+\code{\link{md_bold}()},
+\code{\link{md_code}()},
+\code{\link{md_convert}()},
+\code{\link{md_escape}()},
+\code{\link{md_hardline}()},
+\code{\link{md_image}()},
+\code{\link{md_issue}()},
+\code{\link{md_italic}()},
+\code{\link{md_link}()},
+\code{\link{md_softline}()},
+\code{\link{md_strike}()},
+\code{\link{md_text}()}
 }
 \concept{inline functions}

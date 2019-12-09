@@ -19,7 +19,7 @@ A \code{glue} vector of collapsed display text and associated URLs.
 \description{
 Take character vectors of link texts, link destinations, and optional titles
 and return single glue vector of valid markdown inline links. This inline is
-rendered as the \code{<href>} HTML tag.
+rendered as the \verb{<href>} HTML tag.
 }
 \details{
 A link contains link text (the visible text), a link destination (the URI
@@ -28,15 +28,15 @@ basic kinds of links in Markdown. In inline links the destination and title
 are given immediately after the link text.
 
 A link text consists of a sequence of zero or more inline elements enclosed
-by square brackets (\code{[} and \code{]})...
+by square brackets (\code{[} and \verb{]})...
 
 An inline link consists of a link text followed immediately by a left
 parenthesis \code{(}, optional whitespace, an optional link destination, an
 optional link title separated from the link destination by whitespace,
-optional whitespace, and a right parenthesis \code{)}. The link’s text consists of
+optional whitespace, and a right parenthesis \verb{)}. The link’s text consists of
 the inlines contained in the link text (excluding the enclosing square
 brackets). The link’s URI consists of the link destination, excluding
-enclosing \code{<...>} if present, with backslash-escapes in effect as described
+enclosing \verb{<...>} if present, with backslash-escapes in effect as described
 above. The link’s title consists of the link title, excluding its enclosing
 delimiters, with backslash-escapes in effect as described above.
 }
@@ -45,12 +45,19 @@ md_link("tidyverse", "https://www.tidyverse.org/")
 md_link(c("R Project", "CRAN"), c("https://www.r-project.org/", "https://cran.r-project.org/"))
 }
 \seealso{
-Other inline functions: \code{\link{md_autolink}},
-  \code{\link{md_bold}}, \code{\link{md_code}},
-  \code{\link{md_convert}}, \code{\link{md_disallow}},
-  \code{\link{md_escape}}, \code{\link{md_hardline}},
-  \code{\link{md_image}}, \code{\link{md_issue}},
-  \code{\link{md_italic}}, \code{\link{md_softline}},
-  \code{\link{md_strike}}, \code{\link{md_text}}
+Other inline functions: 
+\code{\link{md_autolink}()},
+\code{\link{md_bold}()},
+\code{\link{md_code}()},
+\code{\link{md_convert}()},
+\code{\link{md_disallow}()},
+\code{\link{md_escape}()},
+\code{\link{md_hardline}()},
+\code{\link{md_image}()},
+\code{\link{md_issue}()},
+\code{\link{md_italic}()},
+\code{\link{md_softline}()},
+\code{\link{md_strike}()},
+\code{\link{md_text}()}
 }
 \concept{inline functions}

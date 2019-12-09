@@ -14,7 +14,7 @@ A \code{glue} vector with elements of \code{...} separated by two newlines.
 }
 \description{
 Take a character vector and return a glue vector of paragraphs separated by
-double newlines. This leaf block is rendered as distinct \code{<p>} HTML tags.
+double newlines. This leaf block is rendered as distinct \verb{<p>} HTML tags.
 }
 \details{
 A sequence of non-blank lines that cannot be interpreted as other kinds of
@@ -27,10 +27,15 @@ whitespace... Paragraphs can contain multiple lines, but no blank lines.
 md_paragraph(stringr::sentences[1:3])
 }
 \seealso{
-Other leaf block functions: \code{\link{md_blank}},
-  \code{\link{md_chunk}}, \code{\link{md_fence}},
-  \code{\link{md_heading}}, \code{\link{md_indent}},
-  \code{\link{md_reference}}, \code{\link{md_rule}},
-  \code{\link{md_setext}}, \code{\link{md_table}}
+Other leaf block functions: 
+\code{\link{md_blank}()},
+\code{\link{md_chunk}()},
+\code{\link{md_fence}()},
+\code{\link{md_heading}()},
+\code{\link{md_indent}()},
+\code{\link{md_reference}()},
+\code{\link{md_rule}()},
+\code{\link{md_setext}()},
+\code{\link{md_table}()}
 }
 \concept{leaf block functions}

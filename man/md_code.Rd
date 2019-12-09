@@ -14,7 +14,7 @@ A \code{glue} vector of length equal to \code{x}.
 }
 \description{
 Take a character vector and wrap each element in backticks to create a glue
-vector of inline code spans. This inline is rendered as a \code{<code>} HTML tag.
+vector of inline code spans. This inline is rendered as a \verb{<code>} HTML tag.
 }
 \details{
 A backtick string is a string of one or more backtick characters that is
@@ -35,12 +35,19 @@ md_code("ex_var")
 md_code(state.name[1:3])
 }
 \seealso{
-Other inline functions: \code{\link{md_autolink}},
-  \code{\link{md_bold}}, \code{\link{md_convert}},
-  \code{\link{md_disallow}}, \code{\link{md_escape}},
-  \code{\link{md_hardline}}, \code{\link{md_image}},
-  \code{\link{md_issue}}, \code{\link{md_italic}},
-  \code{\link{md_link}}, \code{\link{md_softline}},
-  \code{\link{md_strike}}, \code{\link{md_text}}
+Other inline functions: 
+\code{\link{md_autolink}()},
+\code{\link{md_bold}()},
+\code{\link{md_convert}()},
+\code{\link{md_disallow}()},
+\code{\link{md_escape}()},
+\code{\link{md_hardline}()},
+\code{\link{md_image}()},
+\code{\link{md_issue}()},
+\code{\link{md_italic}()},
+\code{\link{md_link}()},
+\code{\link{md_softline}()},
+\code{\link{md_strike}()},
+\code{\link{md_text}()}
 }
 \concept{inline functions}

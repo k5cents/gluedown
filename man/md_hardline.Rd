@@ -16,12 +16,12 @@ spaces and a single newline.
 \description{
 Take a character vector and return a collapsed glue vector with each original
 element separated by two spaces and a newline. This inline is rendered with a
-\code{<br />} HTML tag.
+\verb{<br />} HTML tag.
 }
 \details{
 A line break (not in a code span or HTML tag) that is preceded by two or more
 spaces and does not occur at the end of a block is parsed as a hard line
-break (rendered in HTML as a \code{<br />} tag)
+break (rendered in HTML as a \verb{<br />} tag)
 }
 \examples{
 # compare the following
@@ -29,12 +29,19 @@ md_bold(c("One", "Two"))
 md_hardline(md_bold(c("One", "Two")), md_italic("Three"))
 }
 \seealso{
-Other inline functions: \code{\link{md_autolink}},
-  \code{\link{md_bold}}, \code{\link{md_code}},
-  \code{\link{md_convert}}, \code{\link{md_disallow}},
-  \code{\link{md_escape}}, \code{\link{md_image}},
-  \code{\link{md_issue}}, \code{\link{md_italic}},
-  \code{\link{md_link}}, \code{\link{md_softline}},
-  \code{\link{md_strike}}, \code{\link{md_text}}
+Other inline functions: 
+\code{\link{md_autolink}()},
+\code{\link{md_bold}()},
+\code{\link{md_code}()},
+\code{\link{md_convert}()},
+\code{\link{md_disallow}()},
+\code{\link{md_escape}()},
+\code{\link{md_image}()},
+\code{\link{md_issue}()},
+\code{\link{md_italic}()},
+\code{\link{md_link}()},
+\code{\link{md_softline}()},
+\code{\link{md_strike}()},
+\code{\link{md_text}()}
 }
 \concept{inline functions}

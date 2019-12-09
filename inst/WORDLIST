@@ -3,10 +3,10 @@ ATX
 autolink
 autolinks
 Autolinks
-Backport
 backtick
 bookended
 Bs
+coc
 Codecov
 commonmark
 CommonMark
@@ -34,7 +34,6 @@ Reddit
 repo
 reproducability
 rmarkdown
-rmd
 setext
 Setext
 softbreak
@@ -42,7 +41,6 @@ standardly
 striked
 strikethrough
 Strikethrough
-strrep
 tagfilter
 tasklist
 tibble

@@ -125,8 +125,8 @@ md_order <- function(x, marker = c(".", ")"), seq = TRUE, pad = TRUE) {
 #' character before any other content.
 #'
 #' A task list item marker consists of an optional number of spaces, a left
-#' bracket (`[`), either a whitespace character or the letter `x` in either
-#' lowercase or uppercase, and then a right bracket (`]`).
+#' bracket, either a whitespace character or the letter `x` in either
+#' lowercase or uppercase, and then a right bracket.
 #'
 #' When rendered, the task list item marker is replaced with a semantic checkbox
 #' element; in an HTML output, this would be an `<input type="checkbox">`

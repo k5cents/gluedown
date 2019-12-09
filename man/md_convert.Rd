@@ -21,7 +21,7 @@ A \code{glue} vector of length 1 containing HTML tags.
 \description{
 Take a character vector of valid markdown text and pass it to
 \code{\link[markdown:markdownToHTML]{markdown::markdownToHTML()}} to create a glue vector of HTML fragments.
-Primarily used to test that \code{md_*()} functions create vectors that meet the
+Primarily used to test that \verb{md_*()} functions create vectors that meet the
 GFM spec and can be rendered as HTML.
 }
 \details{
@@ -32,12 +32,19 @@ filtered when rendering HTML output...
 md_convert(x = md_bold("test"))
 }
 \seealso{
-Other inline functions: \code{\link{md_autolink}},
-  \code{\link{md_bold}}, \code{\link{md_code}},
-  \code{\link{md_disallow}}, \code{\link{md_escape}},
-  \code{\link{md_hardline}}, \code{\link{md_image}},
-  \code{\link{md_issue}}, \code{\link{md_italic}},
-  \code{\link{md_link}}, \code{\link{md_softline}},
-  \code{\link{md_strike}}, \code{\link{md_text}}
+Other inline functions: 
+\code{\link{md_autolink}()},
+\code{\link{md_bold}()},
+\code{\link{md_code}()},
+\code{\link{md_disallow}()},
+\code{\link{md_escape}()},
+\code{\link{md_hardline}()},
+\code{\link{md_image}()},
+\code{\link{md_issue}()},
+\code{\link{md_italic}()},
+\code{\link{md_link}()},
+\code{\link{md_softline}()},
+\code{\link{md_strike}()},
+\code{\link{md_text}()}
 }
 \concept{inline functions}

@@ -14,13 +14,13 @@ A \code{glue} vector of length equal to \code{x}.
 }
 \description{
 Take a character vector and wrap each element in single underscores to create
-a glue vector of italic emphasis text. This inline is rendered as the \code{<em>}
+a glue vector of italic emphasis text. This inline is rendered as the \verb{<em>}
 HTML tag.
 }
 \details{
-A single \code{*} or \code{_} can open or close emphasis... Emphasis begins with a
+A single \code{*} or \verb{_} can open or close emphasis... Emphasis begins with a
 delimiter that can open emphasis and ends with a delimiter that can close
-emphasis, and that uses the same character (\code{_} or \code{*}) as the opening
+emphasis, and that uses the same character (\verb{_} or \code{*}) as the opening
 delimiter.
 }
 \examples{
@@ -28,12 +28,19 @@ md_italic("Example")
 md_italic(state.name)
 }
 \seealso{
-Other inline functions: \code{\link{md_autolink}},
-  \code{\link{md_bold}}, \code{\link{md_code}},
-  \code{\link{md_convert}}, \code{\link{md_disallow}},
-  \code{\link{md_escape}}, \code{\link{md_hardline}},
-  \code{\link{md_image}}, \code{\link{md_issue}},
-  \code{\link{md_link}}, \code{\link{md_softline}},
-  \code{\link{md_strike}}, \code{\link{md_text}}
+Other inline functions: 
+\code{\link{md_autolink}()},
+\code{\link{md_bold}()},
+\code{\link{md_code}()},
+\code{\link{md_convert}()},
+\code{\link{md_disallow}()},
+\code{\link{md_escape}()},
+\code{\link{md_hardline}()},
+\code{\link{md_image}()},
+\code{\link{md_issue}()},
+\code{\link{md_link}()},
+\code{\link{md_softline}()},
+\code{\link{md_strike}()},
+\code{\link{md_text}()}
 }
 \concept{inline functions}

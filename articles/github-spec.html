@@ -72,14 +72,7 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/kiernann/gluedown">
-    <span class="fab fa fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
-      </ul>
+<ul class="nav navbar-nav navbar-right"></ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -95,7 +88,7 @@
       <h1>GitHub Flavored Markdown</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/kiernann/gluedown/blob/master/vignettes/github-spec.Rmd"><code>vignettes/github-spec.Rmd</code></a></small>
+      
       <div class="hidden name"><code>github-spec.Rmd</code></div>
 
     </div>
@@ -104,8 +97,7 @@
     
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(gluedown)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(stringr)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(rvest)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</a></code></pre></div>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(rvest)</a></code></pre></div>
 <p>In this vignette, we will explore how the functions in <code>gluedown</code> enable users to transition from R vectors to the kind of formatted markdown text used in the GitHub Flavored Markdown (GFM) specification. Functions like <code><a href="../reference/md_bullet.html">md_bullet()</a></code> and <code><a href="../reference/md_quote.html">md_quote()</a></code> may be used more often, but there are functions for practically every section of the GFM spec including, some of which have limited practical value (e.g., <code><a href="../reference/md_blank.html">md_blank()</a></code> and <code><a href="../reference/md_text.html">md_text()</a></code>).</p>
 <p>In each section of this vignette, the GFM spec is quoted first and followed by <code>gluedown</code> function usage. For each R code block containing <code>gluedown</code> usage, the raw text is shows as <code>#&gt;</code> comments followed by the rendered HTML version, which is printed using the <code>results='asis'</code> option of the <code>knitr</code> package. (To achieve this output, each block is actually repeated twice, with the code of the second result printing block hidden via <code>echo=FALSE</code>.)</p>
 <div id="blocks-and-inlines" class="section level2">
@@ -291,22 +283,22 @@ This domain is for use in illustrative examples in documents. You may use this d
 </blockquote>
 <p>Paragraphs are one instance are where it’s easy for markdown newcomers can have difficulty writing the plain text in the proper format to produce their desired outcome. Words separated by a single newline are rendered as a single paragraph <code>&lt;p&gt;</code> tag. Using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code>, we can take a vector of character text and output <em>distinct</em> paragraphs.</p>
 <p>In section 6.12 and 6.13 you can compare the output of <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code> with the other line break functions.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">sentences &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(stringr<span class="op">::</span>sentences, <span class="dt">size =</span> <span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">sentences &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(stringr<span class="op">::</span>sentences, <span class="dt">size =</span> <span class="dv">5</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw"><a href="../reference/md_paragraph.html">md_paragraph</a></span>(sentences)</a>
-<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="co">#&gt; The nag pulled the frail cart along.</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="co">#&gt; Watch the log float in the wide river.</span></a>
 <a class="sourceLine" id="cb21-3" data-line-number="3"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="co">#&gt; The weight. of the package was seen on the high scale.</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="co">#&gt; The grass and bushes were wet with dew.</span></a>
 <a class="sourceLine" id="cb21-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="co">#&gt; The chair looked strong but had no bottom.</span></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="co">#&gt; He lent his coat to the tall gaunt stranger.</span></a>
 <a class="sourceLine" id="cb21-7" data-line-number="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb21-8" data-line-number="8"><span class="co">#&gt; The team with the best timing looks good.</span></a>
+<a class="sourceLine" id="cb21-8" data-line-number="8"><span class="co">#&gt; A siege will crack the strong defense.</span></a>
 <a class="sourceLine" id="cb21-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb21-10" data-line-number="10"><span class="co">#&gt; Read verse out loud for pleasure.</span></a></code></pre></div>
-<p>The nag pulled the frail cart along.</p>
-<p>The weight. of the package was seen on the high scale.</p>
-<p>The chair looked strong but had no bottom.</p>
-<p>The team with the best timing looks good.</p>
-<p>Read verse out loud for pleasure.</p>
+<a class="sourceLine" id="cb21-10" data-line-number="10"><span class="co">#&gt; The price is fair for a good antique clock.</span></a></code></pre></div>
+<p>Watch the log float in the wide river.</p>
+<p>The grass and bushes were wet with dew.</p>
+<p>He lent his coat to the tall gaunt stranger.</p>
+<p>A siege will crack the strong defense.</p>
+<p>The price is fair for a good antique clock.</p>
 </div>
 <div id="blank-lines" class="section level3">
 <h3 class="hasAnchor">
@@ -328,42 +320,103 @@ This domain is for use in illustrative examples in documents. You may use this d
 <p>The delimiter row consists of cells whose only content are hyphens (<code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code>), and optionally, a leading or trailing colon (<code>:</code>), or both, to indicate left, right, or center alignment respectively.</p>
 </blockquote>
 <p>The <code><a href="../reference/md_table.html">md_table()</a></code> function wraps around <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable()</a></code> to return R objects (Typically data frames or matrices) as markdown tables. This is useful for presenting data created using R in a format that’s more readable than a plain-text data frame (or tibble) printout.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">band &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(band_members, band_instruments)</a>
-<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(band)</a>
-<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="co">#&gt; # A tibble: 3 x 3</span></a>
-<a class="sourceLine" id="cb23-4" data-line-number="4"><span class="co">#&gt;   name  band    plays </span></a>
-<a class="sourceLine" id="cb23-5" data-line-number="5"><span class="co">#&gt;   &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt; </span></a>
-<a class="sourceLine" id="cb23-6" data-line-number="6"><span class="co">#&gt; 1 Mick  Stones  &lt;NA&gt;  </span></a>
-<a class="sourceLine" id="cb23-7" data-line-number="7"><span class="co">#&gt; 2 John  Beatles guitar</span></a>
-<a class="sourceLine" id="cb23-8" data-line-number="8"><span class="co">#&gt; 3 Paul  Beatles bass</span></a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">states &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(state.x77)</a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(states)</a>
+<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="co">#&gt;            Population Income Illiteracy Life Exp Murder HS Grad Frost   Area</span></a>
+<a class="sourceLine" id="cb23-4" data-line-number="4"><span class="co">#&gt; Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708</span></a>
+<a class="sourceLine" id="cb23-5" data-line-number="5"><span class="co">#&gt; Alaska            365   6315        1.5    69.31   11.3    66.7   152 566432</span></a>
+<a class="sourceLine" id="cb23-6" data-line-number="6"><span class="co">#&gt; Arizona          2212   4530        1.8    70.55    7.8    58.1    15 113417</span></a>
+<a class="sourceLine" id="cb23-7" data-line-number="7"><span class="co">#&gt; Arkansas         2110   3378        1.9    70.66   10.1    39.9    65  51945</span></a>
+<a class="sourceLine" id="cb23-8" data-line-number="8"><span class="co">#&gt; California      21198   5114        1.1    71.71   10.3    62.6    20 156361</span></a>
+<a class="sourceLine" id="cb23-9" data-line-number="9"><span class="co">#&gt; Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</span></a></code></pre></div>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/options.html">options</a></span>(<span class="dt">knitr.kable.NA =</span> <span class="st">""</span>)</a>
-<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw"><a href="../reference/md_table.html">md_table</a></span>(band, <span class="dt">align =</span> <span class="st">"c"</span>)</a>
-<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="co">#&gt; | name |  band   | plays  |</span></a>
-<a class="sourceLine" id="cb24-4" data-line-number="4"><span class="co">#&gt; |:----:|:-------:|:------:|</span></a>
-<a class="sourceLine" id="cb24-5" data-line-number="5"><span class="co">#&gt; | Mick | Stones  |        |</span></a>
-<a class="sourceLine" id="cb24-6" data-line-number="6"><span class="co">#&gt; | John | Beatles | guitar |</span></a>
-<a class="sourceLine" id="cb24-7" data-line-number="7"><span class="co">#&gt; | Paul | Beatles |  bass  |</span></a></code></pre></div>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw"><a href="../reference/md_table.html">md_table</a></span>(states, <span class="dt">align =</span> <span class="st">"c"</span>)</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="co">#&gt; |           | Population | Income | Illiteracy | Life Exp | Murder | HS Grad | Frost |  Area  |</span></a>
+<a class="sourceLine" id="cb24-4" data-line-number="4"><span class="co">#&gt; |:----------|:----------:|:------:|:----------:|:--------:|:------:|:-------:|:-----:|:------:|</span></a>
+<a class="sourceLine" id="cb24-5" data-line-number="5"><span class="co">#&gt; |Alabama    |    3615    |  3624  |    2.1     |  69.05   |  15.1  |  41.3   |  20   | 50708  |</span></a>
+<a class="sourceLine" id="cb24-6" data-line-number="6"><span class="co">#&gt; |Alaska     |    365     |  6315  |    1.5     |  69.31   |  11.3  |  66.7   |  152  | 566432 |</span></a>
+<a class="sourceLine" id="cb24-7" data-line-number="7"><span class="co">#&gt; |Arizona    |    2212    |  4530  |    1.8     |  70.55   |  7.8   |  58.1   |  15   | 113417 |</span></a>
+<a class="sourceLine" id="cb24-8" data-line-number="8"><span class="co">#&gt; |Arkansas   |    2110    |  3378  |    1.9     |  70.66   |  10.1  |  39.9   |  65   | 51945  |</span></a>
+<a class="sourceLine" id="cb24-9" data-line-number="9"><span class="co">#&gt; |California |   21198    |  5114  |    1.1     |  71.71   |  10.3  |  62.6   |  20   | 156361 |</span></a>
+<a class="sourceLine" id="cb24-10" data-line-number="10"><span class="co">#&gt; |Colorado   |    2541    |  4884  |    0.7     |  72.06   |  6.8   |  63.9   |  166  | 103766 |</span></a></code></pre></div>
 <table class="table">
 <thead><tr class="header">
-<th align="center">name</th>
-<th align="center">band</th>
-<th align="center">plays</th>
+<th align="left"></th>
+<th align="center">Population</th>
+<th align="center">Income</th>
+<th align="center">Illiteracy</th>
+<th align="center">Life Exp</th>
+<th align="center">Murder</th>
+<th align="center">HS Grad</th>
+<th align="center">Frost</th>
+<th align="center">Area</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="center">Mick</td>
-<td align="center">Stones</td>
-<td align="center"></td>
+<td align="left">Alabama</td>
+<td align="center">3615</td>
+<td align="center">3624</td>
+<td align="center">2.1</td>
+<td align="center">69.05</td>
+<td align="center">15.1</td>
+<td align="center">41.3</td>
+<td align="center">20</td>
+<td align="center">50708</td>
 </tr>
 <tr class="even">
-<td align="center">John</td>
-<td align="center">Beatles</td>
-<td align="center">guitar</td>
+<td align="left">Alaska</td>
+<td align="center">365</td>
+<td align="center">6315</td>
+<td align="center">1.5</td>
+<td align="center">69.31</td>
+<td align="center">11.3</td>
+<td align="center">66.7</td>
+<td align="center">152</td>
+<td align="center">566432</td>
 </tr>
 <tr class="odd">
-<td align="center">Paul</td>
-<td align="center">Beatles</td>
-<td align="center">bass</td>
+<td align="left">Arizona</td>
+<td align="center">2212</td>
+<td align="center">4530</td>
+<td align="center">1.8</td>
+<td align="center">70.55</td>
+<td align="center">7.8</td>
+<td align="center">58.1</td>
+<td align="center">15</td>
+<td align="center">113417</td>
+</tr>
+<tr class="even">
+<td align="left">Arkansas</td>
+<td align="center">2110</td>
+<td align="center">3378</td>
+<td align="center">1.9</td>
+<td align="center">70.66</td>
+<td align="center">10.1</td>
+<td align="center">39.9</td>
+<td align="center">65</td>
+<td align="center">51945</td>
+</tr>
+<tr class="odd">
+<td align="left">California</td>
+<td align="center">21198</td>
+<td align="center">5114</td>
+<td align="center">1.1</td>
+<td align="center">71.71</td>
+<td align="center">10.3</td>
+<td align="center">62.6</td>
+<td align="center">20</td>
+<td align="center">156361</td>
+</tr>
+<tr class="even">
+<td align="left">Colorado</td>
+<td align="center">2541</td>
+<td align="center">4884</td>
+<td align="center">0.7</td>
+<td align="center">72.06</td>
+<td align="center">6.8</td>
+<td align="center">63.9</td>
+<td align="center">166</td>
+<td align="center">103766</td>
 </tr>
 </tbody>
 </table>
@@ -392,25 +445,25 @@ This domain is for use in illustrative examples in documents. You may use this d
 <p>We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.</p>
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw"><a href="../reference/md_quote.html">md_quote</a></span>(sentences)</a>
-<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="co">#&gt; &gt; The nag pulled the frail cart along.</span></a>
-<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="co">#&gt; &gt; The weight. of the package was seen on the high scale.</span></a>
-<a class="sourceLine" id="cb26-4" data-line-number="4"><span class="co">#&gt; &gt; The chair looked strong but had no bottom.</span></a>
-<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="co">#&gt; &gt; The team with the best timing looks good.</span></a>
-<a class="sourceLine" id="cb26-6" data-line-number="6"><span class="co">#&gt; &gt; Read verse out loud for pleasure.</span></a></code></pre></div>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="co">#&gt; &gt; Watch the log float in the wide river.</span></a>
+<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="co">#&gt; &gt; The grass and bushes were wet with dew.</span></a>
+<a class="sourceLine" id="cb26-4" data-line-number="4"><span class="co">#&gt; &gt; He lent his coat to the tall gaunt stranger.</span></a>
+<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="co">#&gt; &gt; A siege will crack the strong defense.</span></a>
+<a class="sourceLine" id="cb26-6" data-line-number="6"><span class="co">#&gt; &gt; The price is fair for a good antique clock.</span></a></code></pre></div>
 <blockquote>
-<p>The nag pulled the frail cart along.</p>
+<p>Watch the log float in the wide river.</p>
 </blockquote>
 <blockquote>
-<p>The weight. of the package was seen on the high scale.</p>
+<p>The grass and bushes were wet with dew.</p>
 </blockquote>
 <blockquote>
-<p>The chair looked strong but had no bottom.</p>
+<p>He lent his coat to the tall gaunt stranger.</p>
 </blockquote>
 <blockquote>
-<p>The team with the best timing looks good.</p>
+<p>A siege will crack the strong defense.</p>
 </blockquote>
 <blockquote>
-<p>Read verse out loud for pleasure.</p>
+<p>The price is fair for a good antique clock.</p>
 </blockquote>
 </div>
 <div id="list-items" class="section level3">
@@ -435,17 +488,17 @@ This domain is for use in illustrative examples in documents. You may use this d
 </blockquote>
 <p>Markdown extensions like this one are optionally supported on different venues. On GitHub (in <code>README.md</code> files, issues, or comments, etc.) these tasks list are rendered as check boxes, sometimes even interactable. On other venues, like this very HTML vignette, these check boxes just render are bullet lists with weird bracket boxes on each line.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw"><a href="../reference/md_task.html">md_task</a></span>(sentences, <span class="dt">check =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="co">#&gt; * [ ] The nag pulled the frail cart along.</span></a>
-<a class="sourceLine" id="cb27-3" data-line-number="3"><span class="co">#&gt; * [ ] The weight. of the package was seen on the high scale.</span></a>
-<a class="sourceLine" id="cb27-4" data-line-number="4"><span class="co">#&gt; * [x] The chair looked strong but had no bottom.</span></a>
-<a class="sourceLine" id="cb27-5" data-line-number="5"><span class="co">#&gt; * [x] The team with the best timing looks good.</span></a>
-<a class="sourceLine" id="cb27-6" data-line-number="6"><span class="co">#&gt; * [ ] Read verse out loud for pleasure.</span></a></code></pre></div>
+<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="co">#&gt; * [ ] Watch the log float in the wide river.</span></a>
+<a class="sourceLine" id="cb27-3" data-line-number="3"><span class="co">#&gt; * [ ] The grass and bushes were wet with dew.</span></a>
+<a class="sourceLine" id="cb27-4" data-line-number="4"><span class="co">#&gt; * [x] He lent his coat to the tall gaunt stranger.</span></a>
+<a class="sourceLine" id="cb27-5" data-line-number="5"><span class="co">#&gt; * [x] A siege will crack the strong defense.</span></a>
+<a class="sourceLine" id="cb27-6" data-line-number="6"><span class="co">#&gt; * [ ] The price is fair for a good antique clock.</span></a></code></pre></div>
 <ul>
-<li>[ ] The nag pulled the frail cart along.</li>
-<li>[ ] The weight. of the package was seen on the high scale.</li>
-<li>[x] The chair looked strong but had no bottom.</li>
-<li>[x] The team with the best timing looks good.</li>
-<li>[ ] Read verse out loud for pleasure.</li>
+<li>[ ] Watch the log float in the wide river.</li>
+<li>[ ] The grass and bushes were wet with dew.</li>
+<li>[x] He lent his coat to the tall gaunt stranger.</li>
+<li>[x] A siege will crack the strong defense.</li>
+<li>[ ] The price is fair for a good antique clock.</li>
 </ul>
 </div>
 <div id="lists" class="section level3">
@@ -458,42 +511,42 @@ This domain is for use in illustrative examples in documents. You may use this d
 <p>The start number of an ordered list is determined by the list number of its initial list item. The numbers of subsequent list items are disregarded.</p>
 </blockquote>
 <p>The <code><a href="../reference/md_order.html">md_order()</a></code> and <code><a href="../reference/md_bullet.html">md_bullet()</a></code> functions let users display character vectors as list blocks. The functions let users adjust the which list item markets are used, but all the options are rendered as the same <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> tags in the rendered <code>.html</code> file.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">states &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(state.name, <span class="dt">size =</span> <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">states &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(state.name, <span class="dt">size =</span> <span class="dv">3</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw"><a href="../reference/md_bullet.html">md_bullet</a></span>(states)</a>
-<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="co">#&gt; * Alabama</span></a>
-<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="co">#&gt; * Michigan</span></a>
-<a class="sourceLine" id="cb29-4" data-line-number="4"><span class="co">#&gt; * Hawaii</span></a></code></pre></div>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="co">#&gt; * California</span></a>
+<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="co">#&gt; * Alabama</span></a>
+<a class="sourceLine" id="cb29-4" data-line-number="4"><span class="co">#&gt; * Vermont</span></a></code></pre></div>
 <ul>
+<li>California</li>
 <li>Alabama</li>
-<li>Michigan</li>
-<li>Hawaii</li>
+<li>Vermont</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw"><a href="../reference/md_bullet.html">md_bullet</a></span>(states, <span class="dt">marker =</span> <span class="st">"+"</span>)</a>
-<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="co">#&gt; + Alabama</span></a>
-<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="co">#&gt; + Michigan</span></a>
-<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="co">#&gt; + Hawaii</span></a></code></pre></div>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="co">#&gt; + California</span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="co">#&gt; + Alabama</span></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="co">#&gt; + Vermont</span></a></code></pre></div>
 <ul>
+<li>California</li>
 <li>Alabama</li>
-<li>Michigan</li>
-<li>Hawaii</li>
+<li>Vermont</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw"><a href="../reference/md_order.html">md_order</a></span>(states)</a>
-<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="co">#&gt; 1. Alabama</span></a>
-<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="co">#&gt; 2. Michigan</span></a>
-<a class="sourceLine" id="cb31-4" data-line-number="4"><span class="co">#&gt; 3. Hawaii</span></a></code></pre></div>
+<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="co">#&gt; 1. California</span></a>
+<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="co">#&gt; 2. Alabama</span></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4"><span class="co">#&gt; 3. Vermont</span></a></code></pre></div>
 <ol style="list-style-type: decimal">
+<li>California</li>
 <li>Alabama</li>
-<li>Michigan</li>
-<li>Hawaii</li>
+<li>Vermont</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw"><a href="../reference/md_order.html">md_order</a></span>(states, <span class="dt">seq =</span> <span class="ot">FALSE</span>, <span class="dt">marker =</span> <span class="st">")"</span>)</a>
-<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="co">#&gt; 1) Alabama</span></a>
-<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="co">#&gt; 1) Michigan</span></a>
-<a class="sourceLine" id="cb32-4" data-line-number="4"><span class="co">#&gt; 1) Hawaii</span></a></code></pre></div>
+<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="co">#&gt; 1) California</span></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="co">#&gt; 1) Alabama</span></a>
+<a class="sourceLine" id="cb32-4" data-line-number="4"><span class="co">#&gt; 1) Vermont</span></a></code></pre></div>
 <ol style="list-style-type: decimal">
+<li>California</li>
 <li>Alabama</li>
-<li>Michigan</li>
-<li>Hawaii</li>
+<li>Vermont</li>
 </ol>
 </div>
 </div>
@@ -564,45 +617,45 @@ This domain is for use in illustrative examples in documents. You may use this d
 </blockquote>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co"># 6.12 Hard line breaks</span></a>
 <a class="sourceLine" id="cb37-2" data-line-number="2"><span class="kw"><a href="../reference/md_hardline.html">md_hardline</a></span>(sentences)</a>
-<a class="sourceLine" id="cb37-3" data-line-number="3"><span class="co">#&gt; The nag pulled the frail cart along.  </span></a>
-<a class="sourceLine" id="cb37-4" data-line-number="4"><span class="co">#&gt; The weight. of the package was seen on the high scale.  </span></a>
-<a class="sourceLine" id="cb37-5" data-line-number="5"><span class="co">#&gt; The chair looked strong but had no bottom.  </span></a>
-<a class="sourceLine" id="cb37-6" data-line-number="6"><span class="co">#&gt; The team with the best timing looks good.  </span></a>
-<a class="sourceLine" id="cb37-7" data-line-number="7"><span class="co">#&gt; Read verse out loud for pleasure.</span></a></code></pre></div>
-<p>The nag pulled the frail cart along.<br>
-The weight. of the package was seen on the high scale.<br>
-The chair looked strong but had no bottom.<br>
-The team with the best timing looks good.<br>
-Read verse out loud for pleasure.</p>
+<a class="sourceLine" id="cb37-3" data-line-number="3"><span class="co">#&gt; Watch the log float in the wide river.  </span></a>
+<a class="sourceLine" id="cb37-4" data-line-number="4"><span class="co">#&gt; The grass and bushes were wet with dew.  </span></a>
+<a class="sourceLine" id="cb37-5" data-line-number="5"><span class="co">#&gt; He lent his coat to the tall gaunt stranger.  </span></a>
+<a class="sourceLine" id="cb37-6" data-line-number="6"><span class="co">#&gt; A siege will crack the strong defense.  </span></a>
+<a class="sourceLine" id="cb37-7" data-line-number="7"><span class="co">#&gt; The price is fair for a good antique clock.</span></a></code></pre></div>
+<p>Watch the log float in the wide river.<br>
+The grass and bushes were wet with dew.<br>
+He lent his coat to the tall gaunt stranger.<br>
+A siege will crack the strong defense.<br>
+The price is fair for a good antique clock.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not preceded by two or more spaces or a backslash is parsed as a softbreak. (A softbreak may be rendered in HTML either as a line ending or as a space. The result will be the same in browsers. In the examples here, a line ending will be used.)</p>
 </blockquote>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co"># 6.13 Soft line breaks</span></a>
 <a class="sourceLine" id="cb38-2" data-line-number="2"><span class="kw"><a href="../reference/md_softline.html">md_softline</a></span>(sentences)</a>
-<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="co">#&gt; The nag pulled the frail cart along.</span></a>
-<a class="sourceLine" id="cb38-4" data-line-number="4"><span class="co">#&gt; The weight. of the package was seen on the high scale.</span></a>
-<a class="sourceLine" id="cb38-5" data-line-number="5"><span class="co">#&gt; The chair looked strong but had no bottom.</span></a>
-<a class="sourceLine" id="cb38-6" data-line-number="6"><span class="co">#&gt; The team with the best timing looks good.</span></a>
-<a class="sourceLine" id="cb38-7" data-line-number="7"><span class="co">#&gt; Read verse out loud for pleasure.</span></a></code></pre></div>
-<p>The nag pulled the frail cart along. The weight. of the package was seen on the high scale. The chair looked strong but had no bottom. The team with the best timing looks good. Read verse out loud for pleasure.</p>
+<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="co">#&gt; Watch the log float in the wide river.</span></a>
+<a class="sourceLine" id="cb38-4" data-line-number="4"><span class="co">#&gt; The grass and bushes were wet with dew.</span></a>
+<a class="sourceLine" id="cb38-5" data-line-number="5"><span class="co">#&gt; He lent his coat to the tall gaunt stranger.</span></a>
+<a class="sourceLine" id="cb38-6" data-line-number="6"><span class="co">#&gt; A siege will crack the strong defense.</span></a>
+<a class="sourceLine" id="cb38-7" data-line-number="7"><span class="co">#&gt; The price is fair for a good antique clock.</span></a></code></pre></div>
+<p>Watch the log float in the wide river. The grass and bushes were wet with dew. He lent his coat to the tall gaunt stranger. A siege will crack the strong defense. The price is fair for a good antique clock.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw"><a href="../reference/md_paragraph.html">md_paragraph</a></span>(sentences)</a>
-<a class="sourceLine" id="cb39-2" data-line-number="2"><span class="co">#&gt; The nag pulled the frail cart along.</span></a>
+<a class="sourceLine" id="cb39-2" data-line-number="2"><span class="co">#&gt; Watch the log float in the wide river.</span></a>
 <a class="sourceLine" id="cb39-3" data-line-number="3"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb39-4" data-line-number="4"><span class="co">#&gt; The weight. of the package was seen on the high scale.</span></a>
+<a class="sourceLine" id="cb39-4" data-line-number="4"><span class="co">#&gt; The grass and bushes were wet with dew.</span></a>
 <a class="sourceLine" id="cb39-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb39-6" data-line-number="6"><span class="co">#&gt; The chair looked strong but had no bottom.</span></a>
+<a class="sourceLine" id="cb39-6" data-line-number="6"><span class="co">#&gt; He lent his coat to the tall gaunt stranger.</span></a>
 <a class="sourceLine" id="cb39-7" data-line-number="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb39-8" data-line-number="8"><span class="co">#&gt; The team with the best timing looks good.</span></a>
+<a class="sourceLine" id="cb39-8" data-line-number="8"><span class="co">#&gt; A siege will crack the strong defense.</span></a>
 <a class="sourceLine" id="cb39-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb39-10" data-line-number="10"><span class="co">#&gt; Read verse out loud for pleasure.</span></a></code></pre></div>
-<p>The nag pulled the frail cart along.</p>
-<p>The weight. of the package was seen on the high scale.</p>
-<p>The chair looked strong but had no bottom.</p>
-<p>The team with the best timing looks good.</p>
-<p>Read verse out loud for pleasure.</p>
+<a class="sourceLine" id="cb39-10" data-line-number="10"><span class="co">#&gt; The price is fair for a good antique clock.</span></a></code></pre></div>
+<p>Watch the log float in the wide river.</p>
+<p>The grass and bushes were wet with dew.</p>
+<p>He lent his coat to the tall gaunt stranger.</p>
+<p>A siege will crack the strong defense.</p>
+<p>The price is fair for a good antique clock.</p>
 </div>
 <div id="textual-content" class="section level3">
 <h3 class="hasAnchor">
@@ -613,29 +666,29 @@ Read verse out loud for pleasure.</p>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function is a catch-all wrapper around <code><a href="https://rdrr.io/pkg/glue/man/as_glue.html">glue::as_glue()</a></code> with simply converts any character string into a <code>glue</code> object, which when used in an <code>.Rmd.</code> document alongside the <code>results='asis'</code> allows users to simply print text to the body of the document.</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="co"># 6.14 Textual content</span></a>
 <a class="sourceLine" id="cb40-2" data-line-number="2"><span class="kw"><a href="../reference/md_text.html">md_text</a></span>(sentences)</a>
-<a class="sourceLine" id="cb40-3" data-line-number="3"><span class="co">#&gt; The nag pulled the frail cart along.</span></a>
-<a class="sourceLine" id="cb40-4" data-line-number="4"><span class="co">#&gt; The weight. of the package was seen on the high scale.</span></a>
-<a class="sourceLine" id="cb40-5" data-line-number="5"><span class="co">#&gt; The chair looked strong but had no bottom.</span></a>
-<a class="sourceLine" id="cb40-6" data-line-number="6"><span class="co">#&gt; The team with the best timing looks good.</span></a>
-<a class="sourceLine" id="cb40-7" data-line-number="7"><span class="co">#&gt; Read verse out loud for pleasure.</span></a></code></pre></div>
-<p>The nag pulled the frail cart along. The weight. of the package was seen on the high scale. The chair looked strong but had no bottom. The team with the best timing looks good. Read verse out loud for pleasure.</p>
+<a class="sourceLine" id="cb40-3" data-line-number="3"><span class="co">#&gt; Watch the log float in the wide river.</span></a>
+<a class="sourceLine" id="cb40-4" data-line-number="4"><span class="co">#&gt; The grass and bushes were wet with dew.</span></a>
+<a class="sourceLine" id="cb40-5" data-line-number="5"><span class="co">#&gt; He lent his coat to the tall gaunt stranger.</span></a>
+<a class="sourceLine" id="cb40-6" data-line-number="6"><span class="co">#&gt; A siege will crack the strong defense.</span></a>
+<a class="sourceLine" id="cb40-7" data-line-number="7"><span class="co">#&gt; The price is fair for a good antique clock.</span></a></code></pre></div>
+<p>Watch the log float in the wide river. The grass and bushes were wet with dew. He lent his coat to the tall gaunt stranger. A siege will crack the strong defense. The price is fair for a good antique clock.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(sentences)</a>
-<a class="sourceLine" id="cb41-2" data-line-number="2"><span class="co">#&gt; [1] "The nag pulled the frail cart along."                  </span></a>
-<a class="sourceLine" id="cb41-3" data-line-number="3"><span class="co">#&gt; [2] "The weight. of the package was seen on the high scale."</span></a>
-<a class="sourceLine" id="cb41-4" data-line-number="4"><span class="co">#&gt; [3] "The chair looked strong but had no bottom."            </span></a>
-<a class="sourceLine" id="cb41-5" data-line-number="5"><span class="co">#&gt; [4] "The team with the best timing looks good."             </span></a>
-<a class="sourceLine" id="cb41-6" data-line-number="6"><span class="co">#&gt; [5] "Read verse out loud for pleasure."</span></a></code></pre></div>
-<p>[1] “The nag pulled the frail cart along.”<br>
-[2] “The weight. of the package was seen on the high scale.” [3] “The chair looked strong but had no bottom.”<br>
-[4] “The team with the best timing looks good.”<br>
-[5] “Read verse out loud for pleasure.”</p>
+<a class="sourceLine" id="cb41-2" data-line-number="2"><span class="co">#&gt; [1] "Watch the log float in the wide river."      </span></a>
+<a class="sourceLine" id="cb41-3" data-line-number="3"><span class="co">#&gt; [2] "The grass and bushes were wet with dew."     </span></a>
+<a class="sourceLine" id="cb41-4" data-line-number="4"><span class="co">#&gt; [3] "He lent his coat to the tall gaunt stranger."</span></a>
+<a class="sourceLine" id="cb41-5" data-line-number="5"><span class="co">#&gt; [4] "A siege will crack the strong defense."      </span></a>
+<a class="sourceLine" id="cb41-6" data-line-number="6"><span class="co">#&gt; [5] "The price is fair for a good antique clock."</span></a></code></pre></div>
+<p>[1] “Watch the log float in the wide river.”<br>
+[2] “The grass and bushes were wet with dew.”<br>
+[3] “He lent his coat to the tall gaunt stranger.” [4] “A siege will crack the strong defense.”<br>
+[5] “The price is fair for a good antique clock.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the <code>glue</code> S3 class. This class works in the same way as the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(sentences)</a>
-<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="co">#&gt; The nag pulled the frail cart along. The weight. of the package was seen on the high scale. The chair looked strong but had no bottom. The team with the best timing looks good. Read verse out loud for pleasure.</span></a></code></pre></div>
-<p>The nag pulled the frail cart along. The weight. of the package was seen on the high scale. The chair looked strong but had no bottom. The team with the best timing looks good. Read verse out loud for pleasure.</p>
+<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="co">#&gt; Watch the log float in the wide river. The grass and bushes were wet with dew. He lent his coat to the tall gaunt stranger. A siege will crack the strong defense. The price is fair for a good antique clock.</span></a></code></pre></div>
+<p>Watch the log float in the wide river. The grass and bushes were wet with dew. He lent his coat to the tall gaunt stranger. A siege will crack the strong defense. The price is fair for a good antique clock.</p>
 </div>
 </div>
   </div>

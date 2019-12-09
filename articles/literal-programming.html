@@ -72,14 +72,7 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/kiernann/gluedown">
-    <span class="fab fa fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
-      </ul>
+<ul class="nav navbar-nav navbar-right"></ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -95,7 +88,7 @@
       <h1>Markdown Literal Programming</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/kiernann/gluedown/blob/master/vignettes/literal-programming.Rmd"><code>vignettes/literal-programming.Rmd</code></a></small>
+      
       <div class="hidden name"><code>literal-programming.Rmd</code></div>
 
     </div>
@@ -105,8 +98,7 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(gluedown)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(stringr)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(rvest)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(glue)</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</a></code></pre></div>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(glue)</a></code></pre></div>
 <p>In literate programming, the typical paradigm of source code is reversed; instead of a wall of code with the occasional comment, the user writes <em>human</em> readable text (like this paragraph) with source code interspersed. In the R language, this is primarily done with the <a href="https://rmarkdown.rstudio.com/"><code>rmarkdown</code></a> package, which takes a plaint text <em>R</em> markdown file (<code>.Rmd</code>) containing code “chunks” and executes that code when converting to a regular markdown file (<code>.md</code>) and then possibly some other format (<code>.html</code>, <code>.pdf</code>, etc).</p>
 <p>Markdown is a lightweight plain-text language used to format text. Let’s look at the original description of markdown from John Gruber’s website, the creator of the markdown standard. Using the <code>rvest</code> package, we can programmatically scrape Gruber’s blog, extract HTML paragraph tags, and convert those tags to character vectors.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">markdown_blog &lt;-<span class="st"> </span></a>
@@ -140,8 +132,8 @@
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; [1] "character"</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/length.html">length</a></span>(state.name)</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; [1] 50</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(state.name, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; [1] "New Mexico" "Kansas"     "Delaware"</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(state.name, <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt; [1] "Minnesota" "Ohio"      "New York"</span></a></code></pre></div>
 <p>If we as a user want to use those state names as <em>text</em> in our markdown document we can use the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> function and tell <code>rmarkdown</code> to print the results of that function “as is” (rather than as code output).</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(state.name[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])</a></code></pre></div>
 <p>Alabama Alaska Arizona</p>
@@ -284,70 +276,93 @@
 <li>[ ] President signs</li>
 </ul>
 <p>Markdown tables are another extremely useful extension. The <code><a href="../reference/md_table.html">md_table()</a></code> functions wraps around the much more powerful <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable()</a></code> function, which allows data frames to be printed in a number of alternative formats. Printing data frames is a very typical use case for documenting the process of data science. With small summary tables like the one below, a markdown table is much more readable than the plain text tibble or data frame printed by default.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">mass &lt;-<span class="st"> </span>starwars <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(species) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(<span class="dt">n =</span> <span class="kw"><a href="https://dplyr.tidyverse.org/reference/n.html">n</a></span>(), <span class="dt">mass =</span> <span class="kw"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(mass, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>, mass <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span>(mass))</a></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(mass)</a>
-<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="co">#&gt; # A tibble: 8 x 3</span></a>
-<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="co">#&gt;   species      n  mass</span></a>
-<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="co">#&gt;   &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt;</span></a>
-<a class="sourceLine" id="cb21-5" data-line-number="5"><span class="co">#&gt; 1 Wookiee      2 124  </span></a>
-<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="co">#&gt; 2 Kaminoan     2  88  </span></a>
-<a class="sourceLine" id="cb21-7" data-line-number="7"><span class="co">#&gt; 3 Human       35  82.8</span></a>
-<a class="sourceLine" id="cb21-8" data-line-number="8"><span class="co">#&gt; 4 Zabrak       2  80  </span></a>
-<a class="sourceLine" id="cb21-9" data-line-number="9"><span class="co">#&gt; 5 Gungan       3  74  </span></a>
-<a class="sourceLine" id="cb21-10" data-line-number="10"><span class="co">#&gt; 6 Droid        5  69.8</span></a>
-<a class="sourceLine" id="cb21-11" data-line-number="11"><span class="co">#&gt; 7 Twi'lek      2  55  </span></a>
-<a class="sourceLine" id="cb21-12" data-line-number="12"><span class="co">#&gt; 8 Mirialan     2  53.1</span></a></code></pre></div>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw"><a href="../reference/md_table.html">md_table</a></span>(mass, <span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(state.x77))</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="co">#&gt;            Population Income Illiteracy Life Exp Murder HS Grad Frost   Area</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="co">#&gt; Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708</span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="co">#&gt; Alaska            365   6315        1.5    69.31   11.3    66.7   152 566432</span></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="co">#&gt; Arizona          2212   4530        1.8    70.55    7.8    58.1    15 113417</span></a>
+<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="co">#&gt; Arkansas         2110   3378        1.9    70.66   10.1    39.9    65  51945</span></a>
+<a class="sourceLine" id="cb20-7" data-line-number="7"><span class="co">#&gt; California      21198   5114        1.1    71.71   10.3    62.6    20 156361</span></a>
+<a class="sourceLine" id="cb20-8" data-line-number="8"><span class="co">#&gt; Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</span></a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw"><a href="../reference/md_table.html">md_table</a></span>(<span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(state.x77), <span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
 <table class="table">
 <thead><tr class="header">
-<th align="left">species</th>
-<th align="right">n</th>
-<th align="right">mass</th>
+<th align="left"></th>
+<th align="right">Population</th>
+<th align="right">Income</th>
+<th align="right">Illiteracy</th>
+<th align="right">Life Exp</th>
+<th align="right">Murder</th>
+<th align="right">HS Grad</th>
+<th align="right">Frost</th>
+<th align="right">Area</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">Wookiee</td>
-<td align="right">2</td>
-<td align="right">124.00</td>
+<td align="left">Alabama</td>
+<td align="right">3615</td>
+<td align="right">3624</td>
+<td align="right">2.1</td>
+<td align="right">69.05</td>
+<td align="right">15.1</td>
+<td align="right">41.3</td>
+<td align="right">20</td>
+<td align="right">50708</td>
 </tr>
 <tr class="even">
-<td align="left">Kaminoan</td>
-<td align="right">2</td>
-<td align="right">88.00</td>
+<td align="left">Alaska</td>
+<td align="right">365</td>
+<td align="right">6315</td>
+<td align="right">1.5</td>
+<td align="right">69.31</td>
+<td align="right">11.3</td>
+<td align="right">66.7</td>
+<td align="right">152</td>
+<td align="right">566432</td>
 </tr>
 <tr class="odd">
-<td align="left">Human</td>
-<td align="right">35</td>
-<td align="right">82.78</td>
+<td align="left">Arizona</td>
+<td align="right">2212</td>
+<td align="right">4530</td>
+<td align="right">1.8</td>
+<td align="right">70.55</td>
+<td align="right">7.8</td>
+<td align="right">58.1</td>
+<td align="right">15</td>
+<td align="right">113417</td>
 </tr>
 <tr class="even">
-<td align="left">Zabrak</td>
-<td align="right">2</td>
-<td align="right">80.00</td>
+<td align="left">Arkansas</td>
+<td align="right">2110</td>
+<td align="right">3378</td>
+<td align="right">1.9</td>
+<td align="right">70.66</td>
+<td align="right">10.1</td>
+<td align="right">39.9</td>
+<td align="right">65</td>
+<td align="right">51945</td>
 </tr>
 <tr class="odd">
-<td align="left">Gungan</td>
-<td align="right">3</td>
-<td align="right">74.00</td>
+<td align="left">California</td>
+<td align="right">21198</td>
+<td align="right">5114</td>
+<td align="right">1.1</td>
+<td align="right">71.71</td>
+<td align="right">10.3</td>
+<td align="right">62.6</td>
+<td align="right">20</td>
+<td align="right">156361</td>
 </tr>
 <tr class="even">
-<td align="left">Droid</td>
-<td align="right">5</td>
-<td align="right">69.75</td>
-</tr>
-<tr class="odd">
-<td align="left">Twi’lek</td>
-<td align="right">2</td>
-<td align="right">55.00</td>
-</tr>
-<tr class="even">
-<td align="left">Mirialan</td>
-<td align="right">2</td>
-<td align="right">53.10</td>
+<td align="left">Colorado</td>
+<td align="right">2541</td>
+<td align="right">4884</td>
+<td align="right">0.7</td>
+<td align="right">72.06</td>
+<td align="right">6.8</td>
+<td align="right">63.9</td>
+<td align="right">166</td>
+<td align="right">103766</td>
 </tr>
 </tbody>
 </table>
@@ -356,11 +371,11 @@
 <h2 class="hasAnchor">
 <a href="#inlines" class="anchor"></a>Inlines</h2>
 <p>You can also use <code>gluedown</code> to format R [inline code results][inline]. First, use R to calculate a result.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">rand &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(state.name, <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="co"># `r md_bold(rand)`</span></a>
-<a class="sourceLine" id="cb23-3" data-line-number="3">var &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/sample.html">sample</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(starwars), <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb23-4" data-line-number="4"><span class="co"># `r md_code(var)`</span></a></code></pre></div>
-<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>Ohio</strong> and the <code>eye_color</code> variable was randomly selected from the <code><a href="https://dplyr.tidyverse.org/reference/starwars.html">dplyr::starwars</a></code> dataframe. Calculating results and using those calculations in the body of a text document increases reproducability.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">rand &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(state.name, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="co"># `r md_bold(rand)`</span></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3">var &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span>(state.x77), <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb22-4" data-line-number="4"><span class="co"># `r md_code(var)`</span></a></code></pre></div>
+<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>West Virginia</strong> and the <code>Murder</code> variable was randomly selected from the <code>state.x77</code> dataframe. Calculating results and using those calculations in the body of a text document increases reproducability.</p>
 <p>In a <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3174372/">meta-study of psychology journals</a>, researchers found that “around 15% of the articles contained at least one statistical conclusion that proved, upon recalculation, to be incorrect.” These errors can be mitigated by using inline printing of results like we did above. With the <code>gluedown</code> package, programmers can <strong>emphasize</strong> those results without worry.</p>
 </div>
   </div>

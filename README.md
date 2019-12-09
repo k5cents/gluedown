@@ -17,23 +17,23 @@ coverage](https://img.shields.io/codecov/c/github/kiernann/gluedown/master.svg)]
 <!-- badges: end -->
 
 The goal of `gluedown` is to ease the transition from R’s powerful
-vectors to formatted markdown text. The functions use
+vectors to formatted markdown text. The package uses
 [`glue()`](https://github.com/tidyverse/glue) to wrap character vectors
-in valid markdown syntax. With the
-[`knitr`](https://github.com/yihui/knitr) package, users can print the
-formatted vectors to the body of a markdown document.
+in markdown syntax. With the [`knitr`](https://github.com/yihui/knitr)
+package, users can print the formatted vectors directly to the body of a
+markdown document.
 
 ## Installation
 
-Install the released version of usethis from
+Install the release version from
 [CRAN](https://cran.r-project.org/package=gluedown):
 
 ``` r
 install.packages("gluedown")
 ```
 
-Or install the development version from
-[GitHub](https://github.com/kiernann/gluedown) with:
+To install the development version from
+[GitHub](https://github.com/kiernann/gluedown):
 
 ``` r
 # install.packages("remotes")
@@ -42,12 +42,12 @@ remotes::install_github("kiernann/gluedown")
 
 ## Usage
 
-Use the `results='asis'` chunk option to print the formatted text from a
-code chunk to the body of a document.
+Use the `results='asis'` chunk option to print the formatted output from
+a code chunk to the body of a document.
 
 ``` r
 library(gluedown)
-library(tidyverse)
+library(stringr)
 library(rvest)
 ```
 
@@ -75,9 +75,8 @@ md_bullet(inlines)
 
 ### Pipes
 
-All functions are designed to fit within the tidyverse ecosystem by
-working with
-[pipes](https://magrittr.tidyverse.org/reference/pipe.html).
+All functions are designed to fit within the tidyverse ecosystem and
+work with [pipes](https://magrittr.tidyverse.org/reference/pipe.html).
 
 ``` r
 read_html("https://w.wiki/A58") %>% 
@@ -121,8 +120,8 @@ abb <- state.abb[match(name, state.name)]
 # `r md_italic(abb)`
 ```
 
-In this case, our randomly selected state is **Tennessee**, which has
-the abbreviation *TN*.
+In this case, our randomly selected state is **Louisiana**, which has
+the abbreviation *LA*.
 
 ## Contribute
 

@@ -21,7 +21,6 @@ library(gluedown)
 library(stringr)
 library(rvest)
 library(glue)
-library(dplyr)
 ```
 
 In literate programming, the typical paradigm of source code is reversed;
@@ -269,20 +268,12 @@ data frames is a very typical use case for documenting the process of data
 science. With small summary tables like the one below, a markdown table is much
 more readable than the plain text tibble or data frame printed by default.
 
-```{r summary_mass}
-mass <- starwars %>%
-  group_by(species) %>%
-  summarise(n = n(), mass = mean(mass, na.rm = TRUE)) %>%
-  filter(n > 1, mass > 50) %>% 
-  arrange(desc(mass))
-```
-
 ```{r print_mass}
-print(mass)
+print(head(state.x77))
 ```
 
 ```{r table_mass, results='asis'}
-md_table(mass, digits = 2)
+md_table(head(state.x77), digits = 2)
 ```
 
 ## Inlines
@@ -293,14 +284,14 @@ use R to calculate a result.
 ```{r ex_inline}
 rand <- sample(state.name, 1)
 # `r md_bold(rand)`
-var <- sample(names(starwars), 1)
+var <- sample(colnames(state.x77), 1)
 # `r md_code(var)`
 ```
 
 Then, you can easily print that result in the middle of regular text with
 markdown formatting. In this case, our randomly selected state is... 
 `r md_bold(rand)` and the `r md_code(var)` variable was randomly selected from
-the `dplyr::starwars` dataframe. Calculating results and using those
+the `state.x77` dataframe. Calculating results and using those
 calculations in the body of a text document increases reproducability. 
 
 In a [meta-study of psychology journals][pmc], researchers found that "around

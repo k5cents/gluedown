@@ -21,7 +21,6 @@ knitr::opts_chunk$set(
 library(gluedown)
 library(stringr)
 library(rvest)
-library(dplyr)
 ```
 
 In this vignette, we will explore how the functions in `gluedown` enable users
@@ -341,18 +340,18 @@ presenting data created using R in a format that's more readable than a
 plain-text data frame (or tibble) printout.
 
 ```{r message=FALSE, warning=FALSE}
-band <- left_join(band_members, band_instruments)
-print(band)
+states <- head(state.x77)
+print(states)
 ```
 
 ```{r}
 options(knitr.kable.NA = "")
-md_table(band, align = "c")
+md_table(states, align = "c")
 ```
 
 ```{r echo=FALSE, results='asis'}
 options(knitr.kable.NA = "")
-md_table(band, align = "c")
+md_table(states, align = "c")
 ```
 
 ## 5 Container Blocks

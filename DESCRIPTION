@@ -25,7 +25,6 @@ Imports:
 Suggests: 
     covr (>= 3.3.2),
     dplyr (>= 0.8.3),
-    httr (>= 1.4.1),
     rmarkdown (>= 1.16),
     rvest (>= 0.3.2),
     spelling (>= 2.1),

@@ -218,19 +218,6 @@ command <- "sudo apt install r-base-dev"
 md_fence(paste("$", command), char = "~", info = "bash")
 ```
 
-Or maybe we simply want to display some preformatted text that only works in a
-monospace font like that which is used in code blocks.
-
-```{r indent_block, results='asis'}
-cal <- system2("cal", stdout = TRUE)
-md_indent(cal)
-```
-
-```{r print_block, results='asis'}
-cal <- system2("cal", stdout = TRUE)
-cat(cal, sep = "\n")
-```
-
 ## Pipes
 
 The package has been designed to fit well in a traditional R workflow so users

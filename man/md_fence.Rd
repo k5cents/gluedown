@@ -23,7 +23,7 @@ A character vector wrapped on either side by code fences.
 \description{
 Turn a character vector of lines into a single code block with lines
 bookended with a code fence of backticks or tildes. This markdown leaf block
-can be rendered as HTML \code{<code>} tags inside \code{<pre>} tags.
+can be rendered as HTML \verb{<code>} tags inside \verb{<pre>} tags.
 }
 \details{
 A code fence is a sequence of at least three consecutive backtick characters
@@ -53,10 +53,15 @@ md_fence(deparse(sd))
 md_fence(c("library(dplyr)", "starwars \%>\%", "  filter(species == 'Droid')"))
 }
 \seealso{
-Other leaf block functions: \code{\link{md_blank}},
-  \code{\link{md_chunk}}, \code{\link{md_heading}},
-  \code{\link{md_indent}}, \code{\link{md_paragraph}},
-  \code{\link{md_reference}}, \code{\link{md_rule}},
-  \code{\link{md_setext}}, \code{\link{md_table}}
+Other leaf block functions: 
+\code{\link{md_blank}()},
+\code{\link{md_chunk}()},
+\code{\link{md_heading}()},
+\code{\link{md_indent}()},
+\code{\link{md_paragraph}()},
+\code{\link{md_reference}()},
+\code{\link{md_rule}()},
+\code{\link{md_setext}()},
+\code{\link{md_table}()}
 }
 \concept{leaf block functions}

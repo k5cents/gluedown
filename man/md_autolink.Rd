@@ -14,7 +14,7 @@ A \code{glue} vector of length equal to \code{x}.
 }
 \description{
 Take a character vector and wrap each element in \code{<} and \code{>} to return a glue
-vector of autolink text. This inline is rendered as the \code{<href>} HTML tag.
+vector of autolink text. This inline is rendered as the \verb{<href>} HTML tag.
 }
 \details{
 Autolinks are absolute URIs and email addresses inside \code{<} and \code{>}. They are
@@ -26,7 +26,7 @@ It is parsed as a link to the URI, with the URI as the link’s label.
 An absolute URI, for these purposes, consists of a scheme followed by a colon
 (\code{:}) followed by zero or more characters other than ASCII whitespace and
 control characters, \code{<}, and \code{>}. If the URI includes these characters, they
-must be percent-encoded (e.g. \code{\%20} for a space).
+must be percent-encoded (e.g. \verb{\%20} for a space).
 
 For purposes of this spec, a scheme is any sequence of 2–32 characters
 beginning with an ASCII letter and followed by any combination of ASCII
@@ -36,12 +36,19 @@ letters, digits, or the symbols plus (”+”), period (”.”), or hyphen (”
 md_autolink("http://foo.bar.baz")
 }
 \seealso{
-Other inline functions: \code{\link{md_bold}},
-  \code{\link{md_code}}, \code{\link{md_convert}},
-  \code{\link{md_disallow}}, \code{\link{md_escape}},
-  \code{\link{md_hardline}}, \code{\link{md_image}},
-  \code{\link{md_issue}}, \code{\link{md_italic}},
-  \code{\link{md_link}}, \code{\link{md_softline}},
-  \code{\link{md_strike}}, \code{\link{md_text}}
+Other inline functions: 
+\code{\link{md_bold}()},
+\code{\link{md_code}()},
+\code{\link{md_convert}()},
+\code{\link{md_disallow}()},
+\code{\link{md_escape}()},
+\code{\link{md_hardline}()},
+\code{\link{md_image}()},
+\code{\link{md_issue}()},
+\code{\link{md_italic}()},
+\code{\link{md_link}()},
+\code{\link{md_softline}()},
+\code{\link{md_strike}()},
+\code{\link{md_text}()}
 }
 \concept{inline functions}

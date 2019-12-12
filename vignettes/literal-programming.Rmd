@@ -21,15 +21,15 @@ library(gluedown)
 library(stringr)
 library(rvest)
 library(glue)
-library(dplyr)
 ```
 
 In literate programming, the typical paradigm of source code is reversed;
-instead of walls of code with the occasional comment, the user writes human
+instead of a wall of code with the occasional comment, the user writes _human_
 readable text (like this paragraph) with source code interspersed. In the R
 language, this is primarily done with the [`rmarkdown`][rmd] package, which
-takes a plaint text special `.Rmd` file containing code "chunks" and executes
-that code when converting to some other format (`.md`, `.html`, `.pdf`, etc).
+takes a plaint text _R_ markdown file (`.Rmd`) containing code "chunks" and
+executes that code when converting to a regular markdown file (`.md`) and then
+possibly some other format (`.html`, `.pdf`, etc).
 
 [rmd]: https://rmarkdown.rstudio.com/
 
@@ -60,8 +60,8 @@ md_quote(markdown_blog[6])
 ```
 
 This entire vignette was written in markdown and converted to HTML using 
-[pandoc][pandoc]. However, as you may have noticed, I haven't exactly been
-conforming to this original desire for markdown to be readable as is. I didn't
+[pandoc][pandoc]. However, as you may have noticed, we haven't exactly been
+conforming to this original desire for markdown to be readable as is. We didn't
 copy the text from his blog and past it as text into this vignette. This is
 where the `gluedown` package comes in.
 
@@ -69,16 +69,21 @@ where the `gluedown` package comes in.
 
 The `gluedown` package helps ease the transition between the incredibly powerful
 vector support in R and the readability of markdown. Since this vignette was
-written in _R_ Markdown, I am able to use the power of packages like `rvest`
-to collect, process, or analyze some kind of data and then transition that 
-result to the human readable markdown format. The `.Rmd` file containing source
-code is a programming environment, the `.md` file created by `rmarkdown` is
-a human-readable plain text version of that code _and_ findings, and the `.html`
-format of this vignette created by `pandoc` is the final presentation format.
+written in _R_ Markdown (`.Rmd`), we are able to (1) use the power of packages
+like `rvest` to collect, process, and/or analyze some kind of data and then (2)
+transition that result to the human readable markdown format.
 
-In the rest of this vignette, I will demonstrate some of the various use cases
-for `gluedown`. We will see how easy it is to transition between R vectors
-and readable results in markdown/HTML.
+When writing this vignette, _three_ kinds of files are used.
+
+1. The `.Rmd` file containing source code is a programming environment
+2. The `.md` file created by `rmarkdown` is a human-readable plain text version
+of that input code also containing the output text.
+3. The `.html` format of this vignette created by `pandoc` is the final
+presentation format.
+
+In the rest of this vignette, we will see some of the various use cases for
+`gluedown`. We will see how easy it is to transition between R vectors and
+readable results in markdown/HTML.
 
 ## Vector Lists
 
@@ -108,8 +113,8 @@ little to separate them on new lines.
 cat(state.name[1:3], sep = "\n\n")
 ```
 
-This is more readable, but really just prints as a couple lines of the document.
-With some more work, we can use `cat()` to print an ordered list.
+This is more readable, but with some more work, we can use `cat()` to print an
+ordered list.
 
 ```{r cat_order, results='asis'}
 cat(paste0(1:3, ". ", state.name[1:3]), sep = "\n")
@@ -191,7 +196,7 @@ is an example of a leaf block.
 md_rule(char = "*", n = 80)
 ```
 
-Code blocks are another type of leaf block. The code I've been writing so far
+Code blocks are another type of leaf block. The code we've been writing so far
 is contained within `rmarkdown` _chunks_, which execute the code within. By
 default, those code chunks are then displayed as regular code blocks in the
 intermediary `.md` file. Sometimes we might want to use code blocks to display
@@ -212,19 +217,6 @@ command <- "sudo apt install r-base-dev"
 md_fence(paste("$", command), char = "~", info = "bash")
 ```
 
-Or maybe we simply want to display some preformatted text that only works in a
-monospace font like that which is used in code blocks.
-
-```{r indent_block, results='asis'}
-cat <- c(
-  " -------------- ", "Gluedown rules!" ," --------------",
-  "    \\", "     \\", "      \\", "         /\\_/\\",
-  "        ( o.o )", "         > ^ <"
-)
-
-md_indent(cat)
-```
-
 ## Pipes
 
 The package has been designed to fit well in a traditional R workflow so users
@@ -232,7 +224,7 @@ can seamlessly create content with their code and display that content with
 `gluedown`. In that spirit, all functions are designed to fit within the
 tidyverse ecosystem by working with [pipes][pipe]. Pipes allow users to pass
 the results of one function into the beginning of the next. By ending this
-"pipeline" with `md_quote()`, chain together five coding steps.
+"pipeline" with `md_quote()`, we chain together five coding steps:
 
 1. Read the HTML text of a Wikipedia page
 1. Extract the first `<blockquote>` tag
@@ -256,7 +248,8 @@ The package primarily uses [GitHub Flavored Markdown][gfm] (GFM), a
 site-specific version of the [CommonMark specification][cm], an unambiguous
 implementation of John Gruber's [original Markdown][df]. With this flavor, some
 useful extensions like [task lists][task] are supported on GitHub. Elsewhere,
-like this HTML vignette, a task list will just render as a bullet list.
+like this HTML vignette, a task list will just render as a bullet list. You can
+learn more about how GFM us implemented in this package's other vignette.
 
 ```{r ex_task, results='asis'}
 legislation <- c("Houses passes", "Senate concurs", "President signs")
@@ -275,20 +268,12 @@ data frames is a very typical use case for documenting the process of data
 science. With small summary tables like the one below, a markdown table is much
 more readable than the plain text tibble or data frame printed by default.
 
-```{r summary_mass}
-mass <- starwars %>%
-  group_by(species) %>%
-  summarise(n = n(), mass = mean(mass, na.rm = TRUE)) %>%
-  filter(n > 1, mass > 50) %>% 
-  arrange(desc(mass))
-```
-
 ```{r print_mass}
-print(mass)
+print(head(state.x77))
 ```
 
 ```{r table_mass, results='asis'}
-md_table(mass, digits = 2)
+md_table(head(state.x77), digits = 2)
 ```
 
 ## Inlines
@@ -299,14 +284,14 @@ use R to calculate a result.
 ```{r ex_inline}
 rand <- sample(state.name, 1)
 # `r md_bold(rand)`
-var <- sample(names(starwars), 1)
+var <- sample(colnames(state.x77), 1)
 # `r md_code(var)`
 ```
 
 Then, you can easily print that result in the middle of regular text with
 markdown formatting. In this case, our randomly selected state is... 
 `r md_bold(rand)` and the `r md_code(var)` variable was randomly selected from
-the `dplyr::starwars` dataframe. Calculating results and using those
+the `state.x77` dataframe. Calculating results and using those
 calculations in the body of a text document increases reproducability. 
 
 In a [meta-study of psychology journals][pmc], researchers found that "around

@@ -17,8 +17,8 @@ A \code{glue} vector with length equal to \code{x}.
 \description{
 take a character vector and return a glue vector of valid bullet list items.
 When printed together, these bullet list items create a bullet list. This
-container block is rendered as the \code{<ul>} HTML tag, with each element of the
-vector creating a separate \code{<li>} tag.
+container block is rendered as the \verb{<ul>} HTML tag, with each element of the
+vector creating a separate \verb{<li>} tag.
 }
 \details{
 A list is a sequence of one or more list items of the same type. The list
@@ -33,8 +33,10 @@ md_bullet(state.name[1:5])
 md_bullet(sample(state.name, 5), marker = "+")
 }
 \seealso{
-Other container block functions: \code{\link{md_list}},
-  \code{\link{md_order}}, \code{\link{md_quote}},
-  \code{\link{md_task}}
+Other container block functions: 
+\code{\link{md_list}()},
+\code{\link{md_order}()},
+\code{\link{md_quote}()},
+\code{\link{md_task}()}
 }
 \concept{container block functions}

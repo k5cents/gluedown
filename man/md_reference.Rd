@@ -21,7 +21,7 @@ with elements the concatenated arguments.
 Take character vectors of link texts, link destinations, and optional titles
 and return single glue vector of valid markdown link references. This
 markdown leaf block then uses the \code{label} placed \emph{elsewhere} in a markdown
-document to render \code{<href>} HTML tags.
+document to render \verb{<href>} HTML tags.
 }
 \details{
 A full reference link (6.6) consists of a link text immediately followed by a
@@ -45,10 +45,15 @@ md_reference("tv", "https://www.tidyverse.org/", "tidyverse")
 md_reference(label = 1:2, url = c("https://one.org", "https://two.com"))
 }
 \seealso{
-Other leaf block functions: \code{\link{md_blank}},
-  \code{\link{md_chunk}}, \code{\link{md_fence}},
-  \code{\link{md_heading}}, \code{\link{md_indent}},
-  \code{\link{md_paragraph}}, \code{\link{md_rule}},
-  \code{\link{md_setext}}, \code{\link{md_table}}
+Other leaf block functions: 
+\code{\link{md_blank}()},
+\code{\link{md_chunk}()},
+\code{\link{md_fence}()},
+\code{\link{md_heading}()},
+\code{\link{md_indent}()},
+\code{\link{md_paragraph}()},
+\code{\link{md_rule}()},
+\code{\link{md_setext}()},
+\code{\link{md_table}()}
 }
 \concept{leaf block functions}

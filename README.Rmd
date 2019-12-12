@@ -24,19 +24,19 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of `gluedown` is to ease the transition from R's powerful vectors to
-formatted markdown text. The functions use [`glue()`][glue] to wrap character
-vectors in valid markdown syntax. With the [`knitr`][knitr] package, users can
-print the formatted vectors to the body of a markdown document.
+formatted markdown text. The package uses [`glue()`][glue] to wrap character
+vectors in markdown syntax. With the [`knitr`][knitr] package, users can print
+the formatted vectors directly to the body of a markdown document.
 
 ## Installation
 
-Install the released version of usethis from [CRAN][cran]:
+Install the release version from [CRAN][cran]:
 
 ```{r release, eval=FALSE}
 install.packages("gluedown")
 ```
 
-Or install the development version from [GitHub][gh] with:
+To install the development version from [GitHub][gh]:
 
 ```{r develop, eval=FALSE}
 # install.packages("remotes")
@@ -45,12 +45,12 @@ remotes::install_github("kiernann/gluedown")
 
 ## Usage
 
-Use the `results='asis'` chunk option to print the formatted text from a code
+Use the `results='asis'` chunk option to print the formatted output from a code
 chunk to the body of a document.
 
 ```{r prepare, warning=FALSE, message=FALSE}
 library(gluedown)
-library(tidyverse)
+library(stringr)
 library(rvest)
 ```
 
@@ -71,7 +71,7 @@ md_bullet(inlines)
 
 ### Pipes
 
-All functions are designed to fit within the tidyverse ecosystem by working with
+All functions are designed to fit within the tidyverse ecosystem and work with
 [pipes][pipe].
 
 ```{r ex_quote, results='asis'}
@@ -121,7 +121,7 @@ to abide by its terms.
 [trav_link]: https://travis-ci.org/kiernann/gluedown
 [cov_badge]: https://img.shields.io/codecov/c/github/kiernann/gluedown/master.svg
 [cov_link]: https://codecov.io/gh/kiernann/gluedown?branch=master'
-[dl_badge]: http://cranlogs.r-pkg.org/badges/grand-total/gluedown
+[dl_badge]: https://cranlogs.r-pkg.org/badges/grand-total/gluedown
 [coc]: https://kiernann.com/gluedown/CODE_OF_CONDUCT.html
 [cran]: https://cran.r-project.org/package=gluedown
 [gfm]: https://github.github.com/gfm/

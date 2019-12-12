@@ -16,7 +16,7 @@ element.
 \description{
 Take a character vector and prepend each element in a greater-than symbol to
 create a glue vector of block quote markdown text. This inline is rendered as
-a \code{<blockquote>} HTML tag.
+a \verb{<blockquote>} HTML tag.
 }
 \details{
 A block quote marker consists of 0-3 spaces of initial indent, plus (a) the
@@ -46,8 +46,10 @@ md_quote("Give me liberty, or give me death!")
 md_quote(stringr::sentences[1:3])
 }
 \seealso{
-Other container block functions: \code{\link{md_bullet}},
-  \code{\link{md_list}}, \code{\link{md_order}},
-  \code{\link{md_task}}
+Other container block functions: 
+\code{\link{md_bullet}()},
+\code{\link{md_list}()},
+\code{\link{md_order}()},
+\code{\link{md_task}()}
 }
 \concept{container block functions}

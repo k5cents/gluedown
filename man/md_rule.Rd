@@ -7,7 +7,7 @@
 md_rule(char = c("*", "-", "_"), n = 3, space = FALSE)
 }
 \arguments{
-\item{char}{The type of rule; either: \code{-}, \code{_}, or \code{*}. Defaults to \code{*}.}
+\item{char}{The type of rule; either: \code{-}, \verb{_}, or \code{*}. Defaults to \code{*}.}
 
 \item{n}{The width of the rule; an integer indicating number of times to
 repeat each character. Defaults to the minimum of 3.}
@@ -20,11 +20,11 @@ A repeated-character \code{glue} vector with length 1.
 }
 \description{
 Create a glue vector of characters used to represent a \emph{thematic break}. This
-markdown leaf block is rendered as the \code{<hr>} HTML tag.
+markdown leaf block is rendered as the \verb{<hr>} HTML tag.
 }
 \details{
 A line consisting of 0-3 spaces of indentation, followed by a sequence of
-three or more matching \code{-}, \code{_}, or \code{*} characters, each followed optionally
+three or more matching \code{-}, \verb{_}, or \code{*} characters, each followed optionally
 by any number of spaces or tabs, forms a thematic break.
 }
 \examples{
@@ -34,10 +34,15 @@ md_rule(n = 10)
 md_rule(space = TRUE)
 }
 \seealso{
-Other leaf block functions: \code{\link{md_blank}},
-  \code{\link{md_chunk}}, \code{\link{md_fence}},
-  \code{\link{md_heading}}, \code{\link{md_indent}},
-  \code{\link{md_paragraph}}, \code{\link{md_reference}},
-  \code{\link{md_setext}}, \code{\link{md_table}}
+Other leaf block functions: 
+\code{\link{md_blank}()},
+\code{\link{md_chunk}()},
+\code{\link{md_fence}()},
+\code{\link{md_heading}()},
+\code{\link{md_indent}()},
+\code{\link{md_paragraph}()},
+\code{\link{md_reference}()},
+\code{\link{md_setext}()},
+\code{\link{md_table}()}
 }
 \concept{leaf block functions}

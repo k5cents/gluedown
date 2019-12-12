@@ -220,19 +220,30 @@ escaped in HTML output).
 
 Markdown rendering engines (like the one used to convert this `.Rmd` document
 to `.md` and then to `.html`) allow users to write valid HTML code alongside
-regular markdown text. This can be useful with R functions like those from
-the `rvest` package, which reads web pages.
+regular markdown text.
 
 ```{r}
-read_html("https://example.com/") %>% 
-  html_nodes("p") %>%
-  md_text()
+lines <- c(
+  "<table><tr><td>",
+  "<pre>",
+  "**Hello**,",
+  "_world_.",
+  "</pre>",
+  " </td></tr></table>"
+)
+md_text(lines)
 ```
 
 ```{r echo=FALSE, results='asis'}
-read_html("https://example.com/") %>% 
-  html_nodes("p") %>%
-  md_text()
+lines <- c(
+  "<table><tr><td>",
+  "<pre>",
+  "**Hello**,",
+  "_world_.",
+  "</pre>",
+  " </td></tr></table>"
+)
+md_text(lines)
 ```
 
 ### 4.7 Link reference definitions
@@ -561,6 +572,46 @@ md_image("https://www.r-project.org/Rlogo.png", alt = "R logo")
 ```{r echo=FALSE, results='asis'}
 md_image("https://www.r-project.org/Rlogo.png", alt = "R logo")
 ```
+
+### 6.11 Disallowed Raw HTML (extension)
+
+> GFM enables the tagfilter extension, where the following HTML tags will be
+filtered when rendering HTML output:
+> 
+> * `<title>`
+> * `<textarea>`
+> * `<style>`
+> * `<xmp>`
+> * `<iframe>`
+> * `<noembed>`
+> * `<noframes>`
+> * `<script>`
+> * `<plaintext>`
+>
+> Filtering is done by replacing the leading < with the entity &lt;. These tags
+are chosen in particular as they change how HTML is interpreted in a way unique
+to them (i.e. nested HTML is interpreted differently), and this is usually
+undesireable in the context of other rendered Markdown content.
+
+```{r}
+lines <- c(
+  "<blockquote>",
+  "  <xmp> is disallowed.  <XMP> is also disallowed.",
+  "</blockquote>"
+)
+md_disallow(lines)
+```
+
+```{r echo=FALSE, results='asis'}
+lines <- c(
+  "<blockquote>",
+  "  <xmp> is disallowed.  <XMP> is also disallowed.",
+  "</blockquote>"
+)
+md_disallow(lines)
+```
+
+All other HTML tags are left untouched.
 
 ### 6.12 - 6.13 Line breaks
 

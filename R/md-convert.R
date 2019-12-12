@@ -18,14 +18,17 @@
 #' @examples
 #' md_convert(x = md_bold("test"))
 #' @importFrom glue as_glue
-#' @importFrom markdown markdownToHTML
 #' @export
 md_convert <- function(x, frag = TRUE, disallow = TRUE) {
-  html <- glue::as_glue(markdown::markdownToHTML(text = x, fragment.only = frag))
-  if (disallow) {
-    md_disallow(html)
+  if (!requireNamespace("markdown", quietly = TRUE)) {
+    stop("Package 'markdown' needed for this function to work.")
   } else {
-    return(html)
+    html <- glue::as_glue(markdown::markdownToHTML(text = x, fragment.only = frag))
+    if (disallow) {
+      md_disallow(html)
+    } else {
+      return(html)
+    }
   }
 }
 

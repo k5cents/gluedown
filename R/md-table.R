@@ -29,10 +29,27 @@
 #' @examples
 #' md_table(mtcars)
 #' md_table(data.frame(x = LETTERS[1:3], y = 1:3), align = c("cc"))
-#' @importFrom knitr kable
 #' @importFrom glue glue_collapse
 #' @export
 md_table <- function(x, ...) {
-  table <- knitr::kable(x, format = "markdown", ...)
+  if (requireNamespace("knitr", quietly = TRUE)) {
+    table <- knitr::kable(x, format = "markdown", ...)
+  } else {
+    x <- as.matrix(x)
+    x <- rbind(colnames(x), x)
+    x <- cbind(rownames(x), x)
+    x[is.na(x)] <- "NA"
+    if (nrow(x) >= 2) {
+      x <- apply(x, 2, function(z) sprintf(glue::glue("%-{max(nchar(z))}s"), z))
+    }
+    s <- strrep("-", apply(x, 2, function(z) max(nchar(z))))
+    if (nrow(x) >= 2) {
+      x <- rbind(x[1, ], s, x[2:nrow(x), ])
+    } else {
+      x <- rbind(x[1, ], s)
+    }
+    x <- cbind("", x, "")
+    table <- trimws(apply(x, 1, paste, collapse = " | "))
+  }
   glue::glue_collapse(table, sep = "\n")
 }

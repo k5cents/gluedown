@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9002</span>
       </span>
     </div>
 
@@ -253,19 +253,30 @@
 <blockquote>
 <p>An HTML block is a group of lines that is treated as raw HTML (and will not be escaped in HTML output).</p>
 </blockquote>
-<p>Markdown rendering engines (like the one used to convert this <code>.Rmd</code> document to <code>.md</code> and then to <code>.html</code>) allow users to write valid HTML code alongside regular markdown text. This can be useful with R functions like those from the <code>rvest</code> package, which reads web pages.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">read_html</span>(<span class="st">"https://example.com/"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://rvest.tidyverse.org/reference/html_nodes.html">html_nodes</a></span>(<span class="st">"p"</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/md_text.html">md_text</a></span>()</a>
-<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="co">#&gt; &lt;p&gt;This domain is for use in illustrative examples in documents. You may use this</span></a>
-<a class="sourceLine" id="cb17-5" data-line-number="5"><span class="co">#&gt;     domain in literature without prior coordination or asking for permission.&lt;/p&gt;</span></a>
-<a class="sourceLine" id="cb17-6" data-line-number="6"><span class="co">#&gt; &lt;p&gt;&lt;a href="https://www.iana.org/domains/example"&gt;More information...&lt;/a&gt;&lt;/p&gt;</span></a></code></pre></div>
-<p>
-This domain is for use in illustrative examples in documents. You may use this domain in literature without prior coordination or asking for permission.
-</p>
-<p>
-<a href="https://www.iana.org/domains/example">More information…</a>
-</p>
+<p>Markdown rendering engines (like the one used to convert this <code>.Rmd</code> document to <code>.md</code> and then to <code>.html</code>) allow users to write valid HTML code alongside regular markdown text.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">lines &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">  <span class="st">"&lt;table&gt;&lt;tr&gt;&lt;td&gt;"</span>,</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">  <span class="st">"&lt;pre&gt;"</span>,</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">  <span class="st">"**Hello**,"</span>,</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">  <span class="st">"_world_."</span>,</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">  <span class="st">"&lt;/pre&gt;"</span>,</a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">  <span class="st">" &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"</span></a>
+<a class="sourceLine" id="cb17-8" data-line-number="8">)</a>
+<a class="sourceLine" id="cb17-9" data-line-number="9"><span class="kw"><a href="../reference/md_text.html">md_text</a></span>(lines)</a>
+<a class="sourceLine" id="cb17-10" data-line-number="10"><span class="co">#&gt; &lt;table&gt;&lt;tr&gt;&lt;td&gt;</span></a>
+<a class="sourceLine" id="cb17-11" data-line-number="11"><span class="co">#&gt; &lt;pre&gt;</span></a>
+<a class="sourceLine" id="cb17-12" data-line-number="12"><span class="co">#&gt; **Hello**,</span></a>
+<a class="sourceLine" id="cb17-13" data-line-number="13"><span class="co">#&gt; _world_.</span></a>
+<a class="sourceLine" id="cb17-14" data-line-number="14"><span class="co">#&gt; &lt;/pre&gt;</span></a>
+<a class="sourceLine" id="cb17-15" data-line-number="15"><span class="co">#&gt;  &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span></a></code></pre></div>
+<table class="table"><tr>
+<td>
+<pre>
+**Hello**,
+_world_.
+</pre>
+</td>
+</tr></table>
 </div>
 <div id="link-reference-definitions" class="section level3">
 <h3 class="hasAnchor">
@@ -292,20 +303,20 @@ This domain is for use in illustrative examples in documents. You may use this d
 <p>In section 6.12 and 6.13 you can compare the output of <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code> with the other line break functions.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">sentences &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(stringr<span class="op">::</span>sentences, <span class="dt">size =</span> <span class="dv">5</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw"><a href="../reference/md_paragraph.html">md_paragraph</a></span>(sentences)</a>
-<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="co">#&gt; The child almost hurt the small dog.</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="co">#&gt; There the flood mark is ten inches.</span></a>
 <a class="sourceLine" id="cb21-3" data-line-number="3"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="co">#&gt; Steam hissed from the broken valve.</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="co">#&gt; A thing of small note can cause despair.</span></a>
 <a class="sourceLine" id="cb21-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="co">#&gt; The cleat sank deeply into the soft turf.</span></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="co">#&gt; The gold vase is both rare and costly.</span></a>
 <a class="sourceLine" id="cb21-7" data-line-number="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb21-8" data-line-number="8"><span class="co">#&gt; We frown when events take a bad turn.</span></a>
+<a class="sourceLine" id="cb21-8" data-line-number="8"><span class="co">#&gt; Farmers came in to thresh the oat crop.</span></a>
 <a class="sourceLine" id="cb21-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb21-10" data-line-number="10"><span class="co">#&gt; A pound of sugar costs more than eggs.</span></a></code></pre></div>
-<p>The child almost hurt the small dog.</p>
-<p>Steam hissed from the broken valve.</p>
-<p>The cleat sank deeply into the soft turf.</p>
-<p>We frown when events take a bad turn.</p>
-<p>A pound of sugar costs more than eggs.</p>
+<a class="sourceLine" id="cb21-10" data-line-number="10"><span class="co">#&gt; We like to see clear weather.</span></a></code></pre></div>
+<p>There the flood mark is ten inches.</p>
+<p>A thing of small note can cause despair.</p>
+<p>The gold vase is both rare and costly.</p>
+<p>Farmers came in to thresh the oat crop.</p>
+<p>We like to see clear weather.</p>
 </div>
 <div id="blank-lines" class="section level3">
 <h3 class="hasAnchor">
@@ -452,25 +463,25 @@ This domain is for use in illustrative examples in documents. You may use this d
 <p>We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.</p>
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw"><a href="../reference/md_quote.html">md_quote</a></span>(sentences)</a>
-<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="co">#&gt; &gt; The child almost hurt the small dog.</span></a>
-<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="co">#&gt; &gt; Steam hissed from the broken valve.</span></a>
-<a class="sourceLine" id="cb26-4" data-line-number="4"><span class="co">#&gt; &gt; The cleat sank deeply into the soft turf.</span></a>
-<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="co">#&gt; &gt; We frown when events take a bad turn.</span></a>
-<a class="sourceLine" id="cb26-6" data-line-number="6"><span class="co">#&gt; &gt; A pound of sugar costs more than eggs.</span></a></code></pre></div>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="co">#&gt; &gt; There the flood mark is ten inches.</span></a>
+<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="co">#&gt; &gt; A thing of small note can cause despair.</span></a>
+<a class="sourceLine" id="cb26-4" data-line-number="4"><span class="co">#&gt; &gt; The gold vase is both rare and costly.</span></a>
+<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="co">#&gt; &gt; Farmers came in to thresh the oat crop.</span></a>
+<a class="sourceLine" id="cb26-6" data-line-number="6"><span class="co">#&gt; &gt; We like to see clear weather.</span></a></code></pre></div>
 <blockquote>
-<p>The child almost hurt the small dog.</p>
+<p>There the flood mark is ten inches.</p>
 </blockquote>
 <blockquote>
-<p>Steam hissed from the broken valve.</p>
+<p>A thing of small note can cause despair.</p>
 </blockquote>
 <blockquote>
-<p>The cleat sank deeply into the soft turf.</p>
+<p>The gold vase is both rare and costly.</p>
 </blockquote>
 <blockquote>
-<p>We frown when events take a bad turn.</p>
+<p>Farmers came in to thresh the oat crop.</p>
 </blockquote>
 <blockquote>
-<p>A pound of sugar costs more than eggs.</p>
+<p>We like to see clear weather.</p>
 </blockquote>
 </div>
 <div id="list-items" class="section level3">
@@ -495,17 +506,17 @@ This domain is for use in illustrative examples in documents. You may use this d
 </blockquote>
 <p>Markdown extensions like this one are optionally supported on different venues. On GitHub (in <code>README.md</code> files, issues, or comments, etc.) these tasks list are rendered as check boxes, sometimes even interactable. On other venues, like this very HTML vignette, these check boxes just render are bullet lists with weird bracket boxes on each line.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw"><a href="../reference/md_task.html">md_task</a></span>(sentences, <span class="dt">check =</span> <span class="dv">3</span><span class="op">:</span><span class="dv">4</span>)</a>
-<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="co">#&gt; * [ ] The child almost hurt the small dog.</span></a>
-<a class="sourceLine" id="cb27-3" data-line-number="3"><span class="co">#&gt; * [ ] Steam hissed from the broken valve.</span></a>
-<a class="sourceLine" id="cb27-4" data-line-number="4"><span class="co">#&gt; * [x] The cleat sank deeply into the soft turf.</span></a>
-<a class="sourceLine" id="cb27-5" data-line-number="5"><span class="co">#&gt; * [x] We frown when events take a bad turn.</span></a>
-<a class="sourceLine" id="cb27-6" data-line-number="6"><span class="co">#&gt; * [ ] A pound of sugar costs more than eggs.</span></a></code></pre></div>
+<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="co">#&gt; * [ ] There the flood mark is ten inches.</span></a>
+<a class="sourceLine" id="cb27-3" data-line-number="3"><span class="co">#&gt; * [ ] A thing of small note can cause despair.</span></a>
+<a class="sourceLine" id="cb27-4" data-line-number="4"><span class="co">#&gt; * [x] The gold vase is both rare and costly.</span></a>
+<a class="sourceLine" id="cb27-5" data-line-number="5"><span class="co">#&gt; * [x] Farmers came in to thresh the oat crop.</span></a>
+<a class="sourceLine" id="cb27-6" data-line-number="6"><span class="co">#&gt; * [ ] We like to see clear weather.</span></a></code></pre></div>
 <ul>
-<li>[ ] The child almost hurt the small dog.</li>
-<li>[ ] Steam hissed from the broken valve.</li>
-<li>[x] The cleat sank deeply into the soft turf.</li>
-<li>[x] We frown when events take a bad turn.</li>
-<li>[ ] A pound of sugar costs more than eggs.</li>
+<li>[ ] There the flood mark is ten inches.</li>
+<li>[ ] A thing of small note can cause despair.</li>
+<li>[x] The gold vase is both rare and costly.</li>
+<li>[x] Farmers came in to thresh the oat crop.</li>
+<li>[ ] We like to see clear weather.</li>
 </ul>
 </div>
 <div id="lists" class="section level3">
@@ -520,40 +531,40 @@ This domain is for use in illustrative examples in documents. You may use this d
 <p>The <code><a href="../reference/md_order.html">md_order()</a></code> and <code><a href="../reference/md_bullet.html">md_bullet()</a></code> functions let users display character vectors as list blocks. The functions let users adjust the which list item markets are used, but all the options are rendered as the same <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> tags in the rendered <code>.html</code> file.</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">states &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(state.name, <span class="dt">size =</span> <span class="dv">3</span>)</a></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw"><a href="../reference/md_bullet.html">md_bullet</a></span>(states)</a>
-<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="co">#&gt; * Idaho</span></a>
-<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="co">#&gt; * Minnesota</span></a>
-<a class="sourceLine" id="cb29-4" data-line-number="4"><span class="co">#&gt; * West Virginia</span></a></code></pre></div>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="co">#&gt; * New York</span></a>
+<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="co">#&gt; * Nevada</span></a>
+<a class="sourceLine" id="cb29-4" data-line-number="4"><span class="co">#&gt; * Rhode Island</span></a></code></pre></div>
 <ul>
-<li>Idaho</li>
-<li>Minnesota</li>
-<li>West Virginia</li>
+<li>New York</li>
+<li>Nevada</li>
+<li>Rhode Island</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw"><a href="../reference/md_bullet.html">md_bullet</a></span>(states, <span class="dt">marker =</span> <span class="st">"+"</span>)</a>
-<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="co">#&gt; + Idaho</span></a>
-<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="co">#&gt; + Minnesota</span></a>
-<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="co">#&gt; + West Virginia</span></a></code></pre></div>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="co">#&gt; + New York</span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="co">#&gt; + Nevada</span></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="co">#&gt; + Rhode Island</span></a></code></pre></div>
 <ul>
-<li>Idaho</li>
-<li>Minnesota</li>
-<li>West Virginia</li>
+<li>New York</li>
+<li>Nevada</li>
+<li>Rhode Island</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw"><a href="../reference/md_order.html">md_order</a></span>(states)</a>
-<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="co">#&gt; 1. Idaho</span></a>
-<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="co">#&gt; 2. Minnesota</span></a>
-<a class="sourceLine" id="cb31-4" data-line-number="4"><span class="co">#&gt; 3. West Virginia</span></a></code></pre></div>
+<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="co">#&gt; 1. New York</span></a>
+<a class="sourceLine" id="cb31-3" data-line-number="3"><span class="co">#&gt; 2. Nevada</span></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4"><span class="co">#&gt; 3. Rhode Island</span></a></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Idaho</li>
-<li>Minnesota</li>
-<li>West Virginia</li>
+<li>New York</li>
+<li>Nevada</li>
+<li>Rhode Island</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw"><a href="../reference/md_order.html">md_order</a></span>(states, <span class="dt">seq =</span> <span class="ot">FALSE</span>, <span class="dt">marker =</span> <span class="st">")"</span>)</a>
-<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="co">#&gt; 1) Idaho</span></a>
-<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="co">#&gt; 1) Minnesota</span></a>
-<a class="sourceLine" id="cb32-4" data-line-number="4"><span class="co">#&gt; 1) West Virginia</span></a></code></pre></div>
+<a class="sourceLine" id="cb32-2" data-line-number="2"><span class="co">#&gt; 1) New York</span></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="co">#&gt; 1) Nevada</span></a>
+<a class="sourceLine" id="cb32-4" data-line-number="4"><span class="co">#&gt; 1) Rhode Island</span></a></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Idaho</li>
-<li>Minnesota</li>
-<li>West Virginia</li>
+<li>New York</li>
+<li>Nevada</li>
+<li>Rhode Island</li>
 </ol>
 </div>
 </div>
@@ -615,6 +626,38 @@ This domain is for use in illustrative examples in documents. You may use this d
 <img src="https://www.r-project.org/Rlogo.png" alt="R logo"><p class="caption">R logo</p>
 </div>
 </div>
+<div id="disallowed-raw-html-extension" class="section level3">
+<h3 class="hasAnchor">
+<a href="#disallowed-raw-html-extension" class="anchor"></a>6.11 Disallowed Raw HTML (extension)</h3>
+<blockquote>
+<p>GFM enables the tagfilter extension, where the following HTML tags will be filtered when rendering HTML output:</p>
+<ul>
+<li><code>&lt;title&gt;</code></li>
+<li><code>&lt;textarea&gt;</code></li>
+<li><code>&lt;style&gt;</code></li>
+<li><code>&lt;xmp&gt;</code></li>
+<li><code>&lt;iframe&gt;</code></li>
+<li><code>&lt;noembed&gt;</code></li>
+<li><code>&lt;noframes&gt;</code></li>
+<li><code>&lt;script&gt;</code></li>
+<li><code>&lt;plaintext&gt;</code></li>
+</ul>
+<p>Filtering is done by replacing the leading &lt; with the entity &lt;. These tags are chosen in particular as they change how HTML is interpreted in a way unique to them (i.e. nested HTML is interpreted differently), and this is usually undesireable in the context of other rendered Markdown content.</p>
+</blockquote>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">lines &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
+<a class="sourceLine" id="cb37-2" data-line-number="2">  <span class="st">"&lt;blockquote&gt;"</span>,</a>
+<a class="sourceLine" id="cb37-3" data-line-number="3">  <span class="st">"  &lt;xmp&gt; is disallowed.  &lt;XMP&gt; is also disallowed."</span>,</a>
+<a class="sourceLine" id="cb37-4" data-line-number="4">  <span class="st">"&lt;/blockquote&gt;"</span></a>
+<a class="sourceLine" id="cb37-5" data-line-number="5">)</a>
+<a class="sourceLine" id="cb37-6" data-line-number="6"><span class="kw"><a href="../reference/md_disallow.html">md_disallow</a></span>(lines)</a>
+<a class="sourceLine" id="cb37-7" data-line-number="7"><span class="co">#&gt; &lt;blockquote&gt;</span></a>
+<a class="sourceLine" id="cb37-8" data-line-number="8"><span class="co">#&gt;   &amp;lt;xmp&gt; is disallowed.  &amp;lt;XMP&gt; is also disallowed.</span></a>
+<a class="sourceLine" id="cb37-9" data-line-number="9"><span class="co">#&gt; &lt;/blockquote&gt;</span></a></code></pre></div>
+<blockquote>
+&lt;xmp&gt; is disallowed. &lt;XMP&gt; is also disallowed.
+</blockquote>
+<p>All other HTML tags are left untouched.</p>
+</div>
 <div id="line-breaks" class="section level3">
 <h3 class="hasAnchor">
 <a href="#line-breaks" class="anchor"></a>6.12 - 6.13 Line breaks</h3>
@@ -622,47 +665,47 @@ This domain is for use in illustrative examples in documents. You may use this d
 <blockquote>
 <p>A line break (not in a code span or HTML tag) that is preceded by two or more spaces and does not occur at the end of a block is parsed as a hard line break (rendered in HTML as a <code>&lt;br /&gt;</code> tag):</p>
 </blockquote>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co"># 6.12 Hard line breaks</span></a>
-<a class="sourceLine" id="cb37-2" data-line-number="2"><span class="kw"><a href="../reference/md_hardline.html">md_hardline</a></span>(sentences)</a>
-<a class="sourceLine" id="cb37-3" data-line-number="3"><span class="co">#&gt; The child almost hurt the small dog.  </span></a>
-<a class="sourceLine" id="cb37-4" data-line-number="4"><span class="co">#&gt; Steam hissed from the broken valve.  </span></a>
-<a class="sourceLine" id="cb37-5" data-line-number="5"><span class="co">#&gt; The cleat sank deeply into the soft turf.  </span></a>
-<a class="sourceLine" id="cb37-6" data-line-number="6"><span class="co">#&gt; We frown when events take a bad turn.  </span></a>
-<a class="sourceLine" id="cb37-7" data-line-number="7"><span class="co">#&gt; A pound of sugar costs more than eggs.</span></a></code></pre></div>
-<p>The child almost hurt the small dog.<br>
-Steam hissed from the broken valve.<br>
-The cleat sank deeply into the soft turf.<br>
-We frown when events take a bad turn.<br>
-A pound of sugar costs more than eggs.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co"># 6.12 Hard line breaks</span></a>
+<a class="sourceLine" id="cb38-2" data-line-number="2"><span class="kw"><a href="../reference/md_hardline.html">md_hardline</a></span>(sentences)</a>
+<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="co">#&gt; There the flood mark is ten inches.  </span></a>
+<a class="sourceLine" id="cb38-4" data-line-number="4"><span class="co">#&gt; A thing of small note can cause despair.  </span></a>
+<a class="sourceLine" id="cb38-5" data-line-number="5"><span class="co">#&gt; The gold vase is both rare and costly.  </span></a>
+<a class="sourceLine" id="cb38-6" data-line-number="6"><span class="co">#&gt; Farmers came in to thresh the oat crop.  </span></a>
+<a class="sourceLine" id="cb38-7" data-line-number="7"><span class="co">#&gt; We like to see clear weather.</span></a></code></pre></div>
+<p>There the flood mark is ten inches.<br>
+A thing of small note can cause despair.<br>
+The gold vase is both rare and costly.<br>
+Farmers came in to thresh the oat crop.<br>
+We like to see clear weather.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not preceded by two or more spaces or a backslash is parsed as a softbreak. (A softbreak may be rendered in HTML either as a line ending or as a space. The result will be the same in browsers. In the examples here, a line ending will be used.)</p>
 </blockquote>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co"># 6.13 Soft line breaks</span></a>
-<a class="sourceLine" id="cb38-2" data-line-number="2"><span class="kw"><a href="../reference/md_softline.html">md_softline</a></span>(sentences)</a>
-<a class="sourceLine" id="cb38-3" data-line-number="3"><span class="co">#&gt; The child almost hurt the small dog.</span></a>
-<a class="sourceLine" id="cb38-4" data-line-number="4"><span class="co">#&gt; Steam hissed from the broken valve.</span></a>
-<a class="sourceLine" id="cb38-5" data-line-number="5"><span class="co">#&gt; The cleat sank deeply into the soft turf.</span></a>
-<a class="sourceLine" id="cb38-6" data-line-number="6"><span class="co">#&gt; We frown when events take a bad turn.</span></a>
-<a class="sourceLine" id="cb38-7" data-line-number="7"><span class="co">#&gt; A pound of sugar costs more than eggs.</span></a></code></pre></div>
-<p>The child almost hurt the small dog. Steam hissed from the broken valve. The cleat sank deeply into the soft turf. We frown when events take a bad turn. A pound of sugar costs more than eggs.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="co"># 6.13 Soft line breaks</span></a>
+<a class="sourceLine" id="cb39-2" data-line-number="2"><span class="kw"><a href="../reference/md_softline.html">md_softline</a></span>(sentences)</a>
+<a class="sourceLine" id="cb39-3" data-line-number="3"><span class="co">#&gt; There the flood mark is ten inches.</span></a>
+<a class="sourceLine" id="cb39-4" data-line-number="4"><span class="co">#&gt; A thing of small note can cause despair.</span></a>
+<a class="sourceLine" id="cb39-5" data-line-number="5"><span class="co">#&gt; The gold vase is both rare and costly.</span></a>
+<a class="sourceLine" id="cb39-6" data-line-number="6"><span class="co">#&gt; Farmers came in to thresh the oat crop.</span></a>
+<a class="sourceLine" id="cb39-7" data-line-number="7"><span class="co">#&gt; We like to see clear weather.</span></a></code></pre></div>
+<p>There the flood mark is ten inches. A thing of small note can cause despair. The gold vase is both rare and costly. Farmers came in to thresh the oat crop. We like to see clear weather.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw"><a href="../reference/md_paragraph.html">md_paragraph</a></span>(sentences)</a>
-<a class="sourceLine" id="cb39-2" data-line-number="2"><span class="co">#&gt; The child almost hurt the small dog.</span></a>
-<a class="sourceLine" id="cb39-3" data-line-number="3"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb39-4" data-line-number="4"><span class="co">#&gt; Steam hissed from the broken valve.</span></a>
-<a class="sourceLine" id="cb39-5" data-line-number="5"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb39-6" data-line-number="6"><span class="co">#&gt; The cleat sank deeply into the soft turf.</span></a>
-<a class="sourceLine" id="cb39-7" data-line-number="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb39-8" data-line-number="8"><span class="co">#&gt; We frown when events take a bad turn.</span></a>
-<a class="sourceLine" id="cb39-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb39-10" data-line-number="10"><span class="co">#&gt; A pound of sugar costs more than eggs.</span></a></code></pre></div>
-<p>The child almost hurt the small dog.</p>
-<p>Steam hissed from the broken valve.</p>
-<p>The cleat sank deeply into the soft turf.</p>
-<p>We frown when events take a bad turn.</p>
-<p>A pound of sugar costs more than eggs.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="kw"><a href="../reference/md_paragraph.html">md_paragraph</a></span>(sentences)</a>
+<a class="sourceLine" id="cb40-2" data-line-number="2"><span class="co">#&gt; There the flood mark is ten inches.</span></a>
+<a class="sourceLine" id="cb40-3" data-line-number="3"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb40-4" data-line-number="4"><span class="co">#&gt; A thing of small note can cause despair.</span></a>
+<a class="sourceLine" id="cb40-5" data-line-number="5"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb40-6" data-line-number="6"><span class="co">#&gt; The gold vase is both rare and costly.</span></a>
+<a class="sourceLine" id="cb40-7" data-line-number="7"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb40-8" data-line-number="8"><span class="co">#&gt; Farmers came in to thresh the oat crop.</span></a>
+<a class="sourceLine" id="cb40-9" data-line-number="9"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb40-10" data-line-number="10"><span class="co">#&gt; We like to see clear weather.</span></a></code></pre></div>
+<p>There the flood mark is ten inches.</p>
+<p>A thing of small note can cause despair.</p>
+<p>The gold vase is both rare and costly.</p>
+<p>Farmers came in to thresh the oat crop.</p>
+<p>We like to see clear weather.</p>
 </div>
 <div id="textual-content" class="section level3">
 <h3 class="hasAnchor">
@@ -671,31 +714,30 @@ A pound of sugar costs more than eggs.</p>
 <p>Any characters not given an interpretation by the above rules will be parsed as plain textual content.</p>
 </blockquote>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function is a catch-all wrapper around <code><a href="https://rdrr.io/pkg/glue/man/as_glue.html">glue::as_glue()</a></code> with simply converts any character string into a <code>glue</code> object, which when used in an <code>.Rmd.</code> document alongside the <code>results='asis'</code> allows users to simply print text to the body of the document.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="co"># 6.14 Textual content</span></a>
-<a class="sourceLine" id="cb40-2" data-line-number="2"><span class="kw"><a href="../reference/md_text.html">md_text</a></span>(sentences)</a>
-<a class="sourceLine" id="cb40-3" data-line-number="3"><span class="co">#&gt; The child almost hurt the small dog.</span></a>
-<a class="sourceLine" id="cb40-4" data-line-number="4"><span class="co">#&gt; Steam hissed from the broken valve.</span></a>
-<a class="sourceLine" id="cb40-5" data-line-number="5"><span class="co">#&gt; The cleat sank deeply into the soft turf.</span></a>
-<a class="sourceLine" id="cb40-6" data-line-number="6"><span class="co">#&gt; We frown when events take a bad turn.</span></a>
-<a class="sourceLine" id="cb40-7" data-line-number="7"><span class="co">#&gt; A pound of sugar costs more than eggs.</span></a></code></pre></div>
-<p>The child almost hurt the small dog. Steam hissed from the broken valve. The cleat sank deeply into the soft turf. We frown when events take a bad turn. A pound of sugar costs more than eggs.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="co"># 6.14 Textual content</span></a>
+<a class="sourceLine" id="cb41-2" data-line-number="2"><span class="kw"><a href="../reference/md_text.html">md_text</a></span>(sentences)</a>
+<a class="sourceLine" id="cb41-3" data-line-number="3"><span class="co">#&gt; There the flood mark is ten inches.</span></a>
+<a class="sourceLine" id="cb41-4" data-line-number="4"><span class="co">#&gt; A thing of small note can cause despair.</span></a>
+<a class="sourceLine" id="cb41-5" data-line-number="5"><span class="co">#&gt; The gold vase is both rare and costly.</span></a>
+<a class="sourceLine" id="cb41-6" data-line-number="6"><span class="co">#&gt; Farmers came in to thresh the oat crop.</span></a>
+<a class="sourceLine" id="cb41-7" data-line-number="7"><span class="co">#&gt; We like to see clear weather.</span></a></code></pre></div>
+<p>There the flood mark is ten inches. A thing of small note can cause despair. The gold vase is both rare and costly. Farmers came in to thresh the oat crop. We like to see clear weather.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(sentences)</a>
-<a class="sourceLine" id="cb41-2" data-line-number="2"><span class="co">#&gt; [1] "The child almost hurt the small dog."     </span></a>
-<a class="sourceLine" id="cb41-3" data-line-number="3"><span class="co">#&gt; [2] "Steam hissed from the broken valve."      </span></a>
-<a class="sourceLine" id="cb41-4" data-line-number="4"><span class="co">#&gt; [3] "The cleat sank deeply into the soft turf."</span></a>
-<a class="sourceLine" id="cb41-5" data-line-number="5"><span class="co">#&gt; [4] "We frown when events take a bad turn."    </span></a>
-<a class="sourceLine" id="cb41-6" data-line-number="6"><span class="co">#&gt; [5] "A pound of sugar costs more than eggs."</span></a></code></pre></div>
-<p>[1] “The child almost hurt the small dog.”<br>
-[2] “Steam hissed from the broken valve.”<br>
-[3] “The cleat sank deeply into the soft turf.” [4] “We frown when events take a bad turn.”<br>
-[5] “A pound of sugar costs more than eggs.”</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(sentences)</a>
+<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="co">#&gt; [1] "There the flood mark is ten inches."     </span></a>
+<a class="sourceLine" id="cb42-3" data-line-number="3"><span class="co">#&gt; [2] "A thing of small note can cause despair."</span></a>
+<a class="sourceLine" id="cb42-4" data-line-number="4"><span class="co">#&gt; [3] "The gold vase is both rare and costly."  </span></a>
+<a class="sourceLine" id="cb42-5" data-line-number="5"><span class="co">#&gt; [4] "Farmers came in to thresh the oat crop." </span></a>
+<a class="sourceLine" id="cb42-6" data-line-number="6"><span class="co">#&gt; [5] "We like to see clear weather."</span></a></code></pre></div>
+<p>[1] “There the flood mark is ten inches.”<br>
+[2] “A thing of small note can cause despair.” [3] “The gold vase is both rare and costly.”<br>
+[4] “Farmers came in to thresh the oat crop.” [5] “We like to see clear weather.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the <code>glue</code> S3 class. This class works in the same way as the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> functions.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(sentences)</a>
-<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="co">#&gt; The child almost hurt the small dog. Steam hissed from the broken valve. The cleat sank deeply into the soft turf. We frown when events take a bad turn. A pound of sugar costs more than eggs.</span></a></code></pre></div>
-<p>The child almost hurt the small dog. Steam hissed from the broken valve. The cleat sank deeply into the soft turf. We frown when events take a bad turn. A pound of sugar costs more than eggs.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(sentences)</a>
+<a class="sourceLine" id="cb43-2" data-line-number="2"><span class="co">#&gt; There the flood mark is ten inches. A thing of small note can cause despair. The gold vase is both rare and costly. Farmers came in to thresh the oat crop. We like to see clear weather.</span></a></code></pre></div>
+<p>There the flood mark is ten inches. A thing of small note can cause despair. The gold vase is both rare and costly. Farmers came in to thresh the oat crop. We like to see clear weather.</p>
 </div>
 </div>
   </div>

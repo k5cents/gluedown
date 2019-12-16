@@ -36,7 +36,7 @@ Install the release version from [CRAN][cran]:
 install.packages("gluedown")
 ```
 
-To install the development version from [GitHub][gh]:
+Install the development version from [GitHub][gh]:
 
 ```{r develop, eval=FALSE}
 # install.packages("remotes")
@@ -45,13 +45,23 @@ remotes::install_github("kiernann/gluedown")
 
 ## Usage
 
-Use the `results='asis'` chunk option to print the formatted output from a code
-chunk to the body of a document.
-
 ```{r prepare, warning=FALSE, message=FALSE}
 library(gluedown)
 library(stringr)
 library(rvest)
+```
+
+Use the `results='asis'` chunk option to print the formatted output to the body
+of a document.
+
+````markdown
+`r ''````{r results='asis'}
+md_order(x = c("Legislative", "Executive", "Judicial"))
+```
+````
+
+```{r asis, results='asis', echo=FALSE}
+md_order(x = c("Legislative", "Executive", "Judicial"))
 ```
 
 ### Lists
@@ -69,29 +79,6 @@ inlines <- c(
 md_bullet(inlines)
 ```
 
-### Pipes
-
-All functions are designed to fit within the tidyverse ecosystem and work with
-[pipes][pipe].
-
-```{r ex_quote, results='asis'}
-read_html("https://w.wiki/A58") %>% 
-  html_node("blockquote") %>% 
-  html_text(trim = TRUE) %>% 
-  str_remove("\\[(.*)\\]") %>% 
-  md_quote()
-```
-
-### Extensions
-
-The package primarily uses [GitHub Flavored Markdown][gfm], with support 
-for useful extensions like [task lists][task].
-
-```{r task_list, results='asis'}
-legislation <- c("Houses passes", "Senate concurs", "President signs")
-md_task(legislation, check = 1:2)
-```
-
 ### Inline
 
 You can also use `gluedown` to format R [inline code results][inline].
@@ -105,6 +92,29 @@ abb <- state.abb[match(name, state.name)]
 
 In this case, our randomly selected state is  `r md_bold(name)`, which has the 
 abbreviation `r md_italic(abb)`.
+
+### Pipes
+
+All functions are designed to fit within the tidyverse ecosystem and work with
+[pipes][pipe].
+
+```{r ex_quote, results='asis'}
+read_html("https://w.wiki/A58") %>% 
+  html_node("blockquote") %>% 
+  html_text(trim = TRUE) %>% 
+  str_remove("\\[.*\\]") %>% 
+  md_quote()
+```
+
+### Extensions
+
+The package primarily uses [GitHub Flavored Markdown][gfm], with support 
+for useful extensions like [task lists][task].
+
+```{r task_list, results='asis'}
+legislation <- c("Houses passes", "Senate concurs", "President signs")
+md_task(legislation, check = 1:2)
+```
 
 ## Contribute
 

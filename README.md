@@ -32,7 +32,7 @@ Install the release version from
 install.packages("gluedown")
 ```
 
-To install the development version from
+Install the development version from
 [GitHub](https://github.com/kiernann/gluedown):
 
 ``` r
@@ -42,14 +42,24 @@ remotes::install_github("kiernann/gluedown")
 
 ## Usage
 
-Use the `results='asis'` chunk option to print the formatted output from
-a code chunk to the body of a document.
-
 ``` r
 library(gluedown)
 library(stringr)
 library(rvest)
 ```
+
+Use the `results='asis'` chunk option to print the formatted output to
+the body of a document.
+
+```` markdown
+```{r results='asis'}
+md_order(x = c("Legislative", "Executive", "Judicial"))
+```
+````
+
+1.  Legislative
+2.  Executive
+3.  Judicial
 
 ### Lists
 
@@ -73,6 +83,21 @@ md_bullet(inlines)
   - *Arkansas*
   - ~~California~~
 
+### Inline
+
+You can also use `gluedown` to format R [inline code
+results](https://rmarkdown.rstudio.com/lesson-4.html).
+
+``` r
+name <- sample(state.name, size = 1)
+abb <- state.abb[match(name, state.name)]
+# `r md_bold(name)`
+# `r md_italic(abb)`
+```
+
+In this case, our randomly selected state is **Alaska**, which has the
+abbreviation *AK*.
+
 ### Pipes
 
 All functions are designed to fit within the tidyverse ecosystem and
@@ -82,7 +107,7 @@ work with [pipes](https://magrittr.tidyverse.org/reference/pipe.html).
 read_html("https://w.wiki/A58") %>% 
   html_node("blockquote") %>% 
   html_text(trim = TRUE) %>% 
-  str_remove("\\[(.*)\\]") %>% 
+  str_remove("\\[.*\\]") %>% 
   md_quote()
 ```
 
@@ -104,24 +129,9 @@ legislation <- c("Houses passes", "Senate concurs", "President signs")
 md_task(legislation, check = 1:2)
 ```
 
-  - [x] Houses passes
-  - [x] Senate concurs
-  - [ ] President signs
-
-### Inline
-
-You can also use `gluedown` to format R [inline code
-results](https://rmarkdown.rstudio.com/lesson-4.html).
-
-``` r
-name <- sample(state.name, size = 1)
-abb <- state.abb[match(name, state.name)]
-# `r md_bold(name)`
-# `r md_italic(abb)`
-```
-
-In this case, our randomly selected state is **Virginia**, which has the
-abbreviation *VA*.
+  - \[x\] Houses passes
+  - \[x\] Senate concurs
+  - \[ \] President signs
 
 ## Contribute
 

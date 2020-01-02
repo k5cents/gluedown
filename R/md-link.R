@@ -22,21 +22,31 @@
 #' enclosing `<...>` if present, with backslash-escapes in effect as described
 #' above. The link’s title consists of the link title, excluding its enclosing
 #' delimiters, with backslash-escapes in effect as described above.
-#' @param text The character vector to be displayed as hyperlinked text.
+#' @param x either: (1) A _named_ vector, with names set to the hyperlink text
+#'     and text set to the accompanying URL; or (2) a simple character vector
+#'     of text with another vector of URLs passed to the `url` argument.
 #' @param url The URL to lead to.
 #' @param title The optional title of the link.
 #' @return A `glue` vector of collapsed display text and associated URLs.
 #' @family inline functions
 #' @examples
 #' md_link("tidyverse", "https://www.tidyverse.org/")
-#' md_link(c("R Project", "CRAN"), c("https://www.r-project.org/", "https://cran.r-project.org/"))
+#' md_link(c(CRAN = "https://cran.r-project.org/"))
 #' @importFrom glue glue
 #' @export
-md_link <- function(text, url, title = NULL) {
-  if (!is.null(title)) {
-    glue::glue("[{text}]({url} \"{title}\")")
+md_link <- function(x, url = NULL, title = NULL) {
+  if (is.null(title)) {
+    if (!is.null(names(x)) & is.null(url)) {
+      glue::glue("[{names(x)}]({x})")
+    } else {
+      glue::glue("[{x}]({url})")
+    }
   } else {
-    glue::glue("[{text}]({url})")
+    if (!is.null(names(x) & is.null(url))) {
+      glue::glue("[{names(x)}]({x} \"{title}\")")
+    } else {
+      glue::glue("[{x}]({url} \"{title}\")")
+    }
   }
 }
 

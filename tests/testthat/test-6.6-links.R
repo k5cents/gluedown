@@ -31,6 +31,16 @@ test_that("md_link can create a valid <href> tag (ex. 493)", {
     expect_equal("title")
 })
 
+test_that("md_link can create <href> tags with a named vector", {
+  lines <- md_link(x = c("/url" = "link"), title = "title")
+  lines %>%
+    md_convert() %>%
+    read_html() %>%
+    html_node("a") %>%
+    html_text(trim = TRUE) %>%
+    expect_equal("link")
+})
+
 test_that("md_link can create a valid <href> without title (ex. 494)", {
   # https://github.github.com/gfm/#example-494
   lines <- md_link("link", "/url")

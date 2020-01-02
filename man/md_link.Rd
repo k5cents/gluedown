@@ -4,10 +4,12 @@
 \alias{md_link}
 \title{Markdown inline link (6.6)}
 \usage{
-md_link(text, url, title = NULL)
+md_link(x, url = NULL, title = NULL)
 }
 \arguments{
-\item{text}{The character vector to be displayed as hyperlinked text.}
+\item{x}{either: (1) A \emph{named} vector, with names set to the hyperlink text
+and text set to the accompanying URL; or (2) a simple character vector
+of text with another vector of URLs passed to the \code{url} argument.}
 
 \item{url}{The URL to lead to.}
 
@@ -42,7 +44,7 @@ delimiters, with backslash-escapes in effect as described above.
 }
 \examples{
 md_link("tidyverse", "https://www.tidyverse.org/")
-md_link(c("R Project", "CRAN"), c("https://www.r-project.org/", "https://cran.r-project.org/"))
+md_link(c(CRAN = "https://cran.r-project.org/"))
 }
 \seealso{
 Other inline functions: 

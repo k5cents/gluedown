@@ -131,15 +131,20 @@
 <div id="lists" class="section level3">
 <h3 class="hasAnchor">
 <a href="#lists" class="anchor"></a>Lists</h3>
-<p>Printing vectors as markdown lists was the initial inspiration for the package.</p>
+<p>Printing vectors as markdown lists was the initial inspiration for the package. Here, we use five different functions to create five elements of a new vector.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">inlines &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="kw"><a href="reference/md_bold.html">md_bold</a></span>(<span class="st">"Alabama"</span>),</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3">  <span class="kw"><a href="reference/md_code.html">md_code</a></span>(<span class="st">"Alaska"</span>),</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="kw"><a href="reference/md_link.html">md_link</a></span>(<span class="st">"Arizona"</span>, <span class="st">"https://az.gov"</span>),</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">  <span class="kw"><a href="reference/md_link.html">md_link</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Arizona"</span> =<span class="st"> "https://az.gov"</span>)),</a>
 <a class="sourceLine" id="cb5-5" data-line-number="5">  <span class="kw"><a href="reference/md_italic.html">md_italic</a></span>(<span class="st">"Arkansas"</span>),</a>
 <a class="sourceLine" id="cb5-6" data-line-number="6">  <span class="kw"><a href="reference/md_strike.html">md_strike</a></span>(<span class="st">"California"</span>)</a>
 <a class="sourceLine" id="cb5-7" data-line-number="7">)</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="kw"><a href="reference/md_bullet.html">md_bullet</a></span>(inlines)</a></code></pre></div>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(inlines)</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; [1] "**Alabama**"               "`Alaska`"                 </span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt; [3] "[Arizona](https://az.gov)" "_Arkansas_"               </span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt; [5] "~~California~~"</span></a></code></pre></div>
+<p>Then we can print that new vector as a list, including the inline formatting.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="reference/md_bullet.html">md_bullet</a></span>(inlines)</a></code></pre></div>
 <ul>
 <li><strong>Alabama</strong></li>
 <li><code>Alaska</code></li>
@@ -152,21 +157,21 @@
 <h3 class="hasAnchor">
 <a href="#inline" class="anchor"></a>Inline</h3>
 <p>You can also use <code>gluedown</code> to format R <a href="https://rmarkdown.rstudio.com/lesson-4.html">inline code results</a>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">name &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(state.name, <span class="dt">size =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">abb &lt;-<span class="st"> </span>state.abb[<span class="kw"><a href="https://rdrr.io/r/base/match.html">match</a></span>(name, state.name)]</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># `r md_bold(name)`</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># `r md_italic(abb)`</span></a></code></pre></div>
-<p>In this case, our randomly selected state is <strong>Alaska</strong>, which has the abbreviation <em>AK</em>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">name &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/sample.html">sample</a></span>(state.name, <span class="dt">size =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">abb &lt;-<span class="st"> </span>state.abb[<span class="kw"><a href="https://rdrr.io/r/base/match.html">match</a></span>(name, state.name)]</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># `r md_bold(name)`</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co"># `r md_italic(abb)`</span></a></code></pre></div>
+<p>In this case, our randomly selected state is <strong>Indiana</strong>, which has the abbreviation <em>IN</em>.</p>
 </div>
 <div id="pipes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#pipes" class="anchor"></a>Pipes</h3>
 <p>All functions are designed to fit within the tidyverse ecosystem and work with <a href="https://magrittr.tidyverse.org/reference/pipe.html">pipes</a>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">read_html</span>(<span class="st">"https://w.wiki/A58"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://rvest.tidyverse.org/reference/html_nodes.html">html_node</a></span>(<span class="st">"blockquote"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://rvest.tidyverse.org/reference/html_text.html">html_text</a></span>(<span class="dt">trim =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">[.*</span><span class="ch">\\</span><span class="st">]"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/md_quote.html">md_quote</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">read_html</span>(<span class="st">"https://w.wiki/A58"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://rvest.tidyverse.org/reference/html_nodes.html">html_node</a></span>(<span class="st">"blockquote"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://rvest.tidyverse.org/reference/html_text.html">html_text</a></span>(<span class="dt">trim =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span>(<span class="st">"</span><span class="ch">\\</span><span class="st">[.*</span><span class="ch">\\</span><span class="st">]"</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="reference/md_quote.html">md_quote</a></span>()</a></code></pre></div>
 <blockquote>
 <p>We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.</p>
 </blockquote>
@@ -175,8 +180,8 @@
 <h3 class="hasAnchor">
 <a href="#extensions" class="anchor"></a>Extensions</h3>
 <p>The package primarily uses <a href="https://github.github.com/gfm/">GitHub Flavored Markdown</a>, with support for useful extensions like <a href="https://help.github.com/en/articles/about-task-lists">task lists</a>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">legislation &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Houses passes"</span>, <span class="st">"Senate concurs"</span>, <span class="st">"President signs"</span>)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw"><a href="reference/md_task.html">md_task</a></span>(legislation, <span class="dt">check =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">legislation &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"Houses passes"</span>, <span class="st">"Senate concurs"</span>, <span class="st">"President signs"</span>)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw"><a href="reference/md_task.html">md_task</a></span>(legislation, <span class="dt">check =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>)</a></code></pre></div>
 <ul>
 <li>[x] Houses passes</li>
 <li>[x] Senate concurs</li>

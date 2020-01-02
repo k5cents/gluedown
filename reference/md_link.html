@@ -144,14 +144,16 @@ and return single glue vector of valid markdown inline links. This inline is
 rendered as the <code>&lt;href&gt;</code> HTML tag.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_link</span>(<span class='no'>text</span>, <span class='no'>url</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>md_link</span>(<span class='no'>x</span>, <span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>text</th>
-      <td><p>The character vector to be displayed as hyperlinked text.</p></td>
+      <th>x</th>
+      <td><p>either: (1) A <em>named</em> vector, with names set to the hyperlink text
+and elements set to the accompanying URL; or (2) a simple character
+vector of text with another vector of URLs passed to the <code>url</code> argument.</p></td>
     </tr>
     <tr>
       <th>url</th>
@@ -201,8 +203,7 @@ delimiters, with backslash-escapes in effect as described above.</p>
 <code><a href='md_text.html'>md_text</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_link</span>(<span class='st'>"tidyverse"</span>, <span class='st'>"https://www.tidyverse.org/"</span>)</div><div class='output co'>#&gt; [tidyverse](https://www.tidyverse.org/)</div><div class='input'><span class='fu'>md_link</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"R Project"</span>, <span class='st'>"CRAN"</span>), <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"https://www.r-project.org/"</span>, <span class='st'>"https://cran.r-project.org/"</span>))</div><div class='output co'>#&gt; [R Project](https://www.r-project.org/)
-#&gt; [CRAN](https://cran.r-project.org/)</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>md_link</span>(<span class='st'>"tidyverse"</span>, <span class='st'>"https://www.tidyverse.org/"</span>)</div><div class='output co'>#&gt; [tidyverse](https://www.tidyverse.org/)</div><div class='input'><span class='fu'>md_link</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>CRAN</span> <span class='kw'>=</span> <span class='st'>"https://cran.r-project.org/"</span>))</div><div class='output co'>#&gt; [CRAN](https://cran.r-project.org/)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

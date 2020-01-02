@@ -64,16 +64,27 @@ md_order(x = c("Legislative", "Executive", "Judicial"))
 ### Lists
 
 Printing vectors as markdown lists was the initial inspiration for the
-package.
+package. Here, we use five different functions to create five elements
+of a new vector.
 
 ``` r
 inlines <- c(
   md_bold("Alabama"),
   md_code("Alaska"),
-  md_link("Arizona", "https://az.gov"),
+  md_link(c("Arizona" = "https://az.gov")),
   md_italic("Arkansas"),
   md_strike("California")
 )
+print(inlines)
+#> [1] "**Alabama**"               "`Alaska`"                 
+#> [3] "[Arizona](https://az.gov)" "_Arkansas_"               
+#> [5] "~~California~~"
+```
+
+Then we can print that new vector as a list, including the inline
+formatting.
+
+``` r
 md_bullet(inlines)
 ```
 
@@ -95,8 +106,8 @@ abb <- state.abb[match(name, state.name)]
 # `r md_italic(abb)`
 ```
 
-In this case, our randomly selected state is **Alaska**, which has the
-abbreviation *AK*.
+In this case, our randomly selected state is **Indiana**, which has the
+abbreviation *IN*.
 
 ### Pipes
 
@@ -129,9 +140,9 @@ legislation <- c("Houses passes", "Senate concurs", "President signs")
 md_task(legislation, check = 1:2)
 ```
 
-  - \[x\] Houses passes
-  - \[x\] Senate concurs
-  - \[ \] President signs
+  - [x] Houses passes
+  - [x] Senate concurs
+  - [ ] President signs
 
 ## Contribute
 

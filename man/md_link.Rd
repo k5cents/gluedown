@@ -8,8 +8,8 @@ md_link(x, url = NULL, title = NULL)
 }
 \arguments{
 \item{x}{either: (1) A \emph{named} vector, with names set to the hyperlink text
-and text set to the accompanying URL; or (2) a simple character vector
-of text with another vector of URLs passed to the \code{url} argument.}
+and elements set to the accompanying URL; or (2) a simple character
+vector of text with another vector of URLs passed to the \code{url} argument.}
 
 \item{url}{The URL to lead to.}
 

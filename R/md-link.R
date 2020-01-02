@@ -23,8 +23,8 @@
 #' above. The link’s title consists of the link title, excluding its enclosing
 #' delimiters, with backslash-escapes in effect as described above.
 #' @param x either: (1) A _named_ vector, with names set to the hyperlink text
-#'     and text set to the accompanying URL; or (2) a simple character vector
-#'     of text with another vector of URLs passed to the `url` argument.
+#'     and elements set to the accompanying URL; or (2) a simple character
+#'     vector of text with another vector of URLs passed to the `url` argument.
 #' @param url The URL to lead to.
 #' @param title The optional title of the link.
 #' @return A `glue` vector of collapsed display text and associated URLs.
@@ -42,7 +42,7 @@ md_link <- function(x, url = NULL, title = NULL) {
       glue::glue("[{x}]({url})")
     }
   } else {
-    if (!is.null(names(x) & is.null(url))) {
+    if (!is.null(names(x)) & is.null(url)) {
       glue::glue("[{names(x)}]({x} \"{title}\")")
     } else {
       glue::glue("[{x}]({url} \"{title}\")")

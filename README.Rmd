@@ -67,15 +67,22 @@ md_order(x = c("Legislative", "Executive", "Judicial"))
 ### Lists
 
 Printing vectors as markdown lists was the initial inspiration for the package.
+Here, we use five different functions to create five elements of a new vector.
 
-```{r ex_others, results='asis'}
+```{r vector}
 inlines <- c(
   md_bold("Alabama"),
   md_code("Alaska"),
-  md_link("Arizona", "https://az.gov"),
+  md_link(c("Arizona" = "https://az.gov")),
   md_italic("Arkansas"),
   md_strike("California")
 )
+print(inlines)
+```
+
+Then we can print that new vector as a list, including the inline formatting.
+
+```{r bullets, results='asis'}
 md_bullet(inlines)
 ```
 
@@ -83,7 +90,7 @@ md_bullet(inlines)
 
 You can also use `gluedown` to format R [inline code results][inline].
 
-```{r ex_inline}
+```{r inline}
 name <- sample(state.name, size = 1)
 abb <- state.abb[match(name, state.name)]
 # `r md_bold(name)`
@@ -98,7 +105,7 @@ abbreviation `r md_italic(abb)`.
 All functions are designed to fit within the tidyverse ecosystem and work with
 [pipes][pipe].
 
-```{r ex_quote, results='asis'}
+```{r pipe, results='asis'}
 read_html("https://w.wiki/A58") %>% 
   html_node("blockquote") %>% 
   html_text(trim = TRUE) %>% 
@@ -111,7 +118,7 @@ read_html("https://w.wiki/A58") %>%
 The package primarily uses [GitHub Flavored Markdown][gfm], with support 
 for useful extensions like [task lists][task].
 
-```{r task_list, results='asis'}
+```{r extension, results='asis'}
 legislation <- c("Houses passes", "Senate concurs", "President signs")
 md_task(legislation, check = 1:2)
 ```

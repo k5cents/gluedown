@@ -1,6 +1,6 @@
 Package: gluedown
 Title: Wrap Vectors in Markdown Formatting
-Version: 1.0.1.9002
+Version: 1.0.2
 Authors@R: 
     person(given = "Kiernan",
            family = "Nicholls",
@@ -14,7 +14,8 @@ Description: Ease the transition between R vectors and markdown
     the unambiguous CommonMark specification by John MacFarlane (2019)
     <https://spec.commonmark.org/>.
 License: GPL-3
-URL: https://kiernann.com/gluedown/, https://github.com/kiernann/gluedown/
+URL: https://kiernann.com/gluedown/,
+    https://github.com/kiernann/gluedown/
 BugReports: https://github.com/kiernann/gluedown/issues
 Depends: 
     R (>= 3.3)

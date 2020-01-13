@@ -11,17 +11,4 @@
 
 ## Resubmission
 
-Solves CRAN check issues when installing `knitr` (pandoc) and `stringi`.
-
-* Depends on R >= 3.3
-* No longer imports:
-  * `stringr`
-  * `knitr`
-* Now suggests:
-  * `httr`
-* No longer suggests:
-  * `dplyr`
-  * `httr`
-* Removes functions:
-  * `md_define()`
-  * `map_md()`
+No longer imports `markdown` or `knitr`, now provides fallbacks and warnings.

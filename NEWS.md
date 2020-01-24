@@ -1,5 +1,9 @@
 # gluedown (development version)
 
+* Use `goodpractices::gp()` to fix a few issues:
+    1. Trim all lines to under 80 character width.
+    2. Use `vapply()` over `sapply()` in `md_setext()`.
+
 # gluedown 1.0.2
 
 * Suggest `markdown` dependency and warn for `md_convert()` (#22).

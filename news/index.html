@@ -76,7 +76,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9001</span>
       </span>
     </div>
 
@@ -138,6 +138,14 @@
 <h1 class="page-header">
 <a href="#gluedown-development-version" class="anchor"></a>gluedown (development version)<small> Unreleased </small>
 </h1>
+<ul>
+<li>Use <code>goodpractices::gp()</code> to fix a few issues:
+<ol>
+<li>Trim all lines to under 80 character width.</li>
+<li>Use <code><a href="https://rdrr.io/r/base/lapply.html">vapply()</a></code> over <code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code> in <code><a href="../reference/md_setext.html">md_setext()</a></code>.</li>
+</ol>
+</li>
+</ul>
 </div>
     <div id="gluedown-1-0-2" class="section level1">
 <h1 class="page-header">

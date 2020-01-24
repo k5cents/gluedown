@@ -23,11 +23,11 @@ md_convert <- function(x, frag = TRUE, disallow = TRUE) {
   if (!requireNamespace("markdown", quietly = TRUE)) {
     stop("Package 'markdown' needed for this function to work.")
   } else {
-    html <- glue::as_glue(markdown::markdownToHTML(text = x, fragment.only = frag))
+    html <- markdown::markdownToHTML(text = x, fragment.only = frag)
     if (disallow) {
       md_disallow(html)
     } else {
-      return(html)
+      glue::as_glue(html)
     }
   }
 }

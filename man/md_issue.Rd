@@ -20,7 +20,7 @@ vector of valid GitHub issue autolinks (username/repo#issue).
 }
 \details{
 Within conversations on GitHub, references to issues and pull requests are
-\href{https://help.github.com/en/github/writing-on-github/autolinked-references-and-urls#issues-and-pull-requests}{automatically converted to shortened links}.
+\href{https://git.io/Jvtb9}{automatically converted to shortened links}.
 }
 \examples{
 md_issue("kiernann/gluedown", 1:5)

@@ -23,30 +23,29 @@
 #' above. The link’s title consists of the link title, excluding its enclosing
 #' delimiters, with backslash-escapes in effect as described above.
 #' @param x either: (1) A _named_ vector, with names set to the hyperlink text
-#'     and elements set to the accompanying URL; or (2) a simple character
-#'     vector of text with another vector of URLs passed to the `url` argument.
+#'   and elements set to the accompanying URL; or (2) a simple character vector
+#'   of text with another vector of URLs passed to the `url` argument.
 #' @param url The URL to lead to.
 #' @param title The optional title of the link.
+#' @param ... A sequence of `text = "/url"` named vector pairs. If any such
+#'   pairs are provided, `.name` will be considered `TRUE`.
+#' @param .name logical; if `TRUE`, the pairs in `...` will be used instead of
+#'   any values supplied to `x` and `url`.
 #' @return A `glue` vector of collapsed display text and associated URLs.
 #' @family inline functions
 #' @examples
-#' md_link("tidyverse", "https://www.tidyverse.org/")
-#' md_link(c(CRAN = "https://cran.r-project.org/"))
+#' md_link(1:5, glue("https://{state.abb[1:5]}.gov"), state.name[1:5])
+#' md_link(CRAN = "https://cran.r-project.org/")
 #' @importFrom glue glue
 #' @export
-md_link <- function(x, url = NULL, title = NULL) {
-  if (is.null(title)) {
-    if (!is.null(names(x)) & is.null(url)) {
-      glue::glue("[{names(x)}]({x})")
-    } else {
-      glue::glue("[{x}]({url})")
-    }
+md_link <- function(text, url, title = NULL, ..., .name = FALSE) {
+  x <- unlist(list(...))
+  if (!is.null(x) | .name) {
+    glue::glue("[{names(x)}]({unlist(x)})")
+  } else if (!is.null(title)) {
+    glue::glue("[{text}]({url} \"{title}\")")
   } else {
-    if (!is.null(names(x)) & is.null(url)) {
-      glue::glue("[{names(x)}]({x} \"{title}\")")
-    } else {
-      glue::glue("[{x}]({url} \"{title}\")")
-    }
+    glue::glue("[{text}]({url})")
   }
 }
 
@@ -55,7 +54,8 @@ md_link <- function(x, url = NULL, title = NULL) {
 #'
 #' Take character vectors of alternative text, image link destinations, and
 #' optional titles and return single glue vector of valid markdown inline image
-#' links. This inline is rendered as the `<img>` HTML tag.
+#' links. This inline is rendered as the `<img>` HTML tag. Note that the
+#' expected arguments of `md_image()` are reversed from `md_link()`
 #'
 #' @details
 #' Syntax for images is like the syntax for links, with one difference. Instead
@@ -64,24 +64,84 @@ md_link <- function(x, url = NULL, title = NULL) {
 #' rather than `[`, and (b) an image description may contain links. An image
 #' description has inline elements as its contents. When an image is rendered to
 #' HTML, this is standardly used as the image’s `alt` attribute.
-#' @param alt A character vector of
-#'    [alternative text](https://en.wikipedia.org/wiki/Alt_attribute) that can
-#'    be used to refer to an image.
 #' @param url A character vector of link destination (URL) strings.
+#' @param alt A character vector of [alternative text](https://w.wiki/GHn) that
+#'   can be used to refer to an image.
 #' @param title The optional title of the link.
+#' @param ... A sequence of `text = "/url"` named vector pairs. If any such
+#'   pairs are provided, `.name` will be considered `TRUE`.
+#' @param .name logical; if `TRUE`, the pairs in `...` will be used instead of
+#'   any values supplied to `x` and `url`.
+#' @return A `glue` vector of collapsed display text and associated URLs.
 #' @return A `glue` vector of collapsed alternative text and associated URLs.
 #' @family inline functions
 #' @examples
 #' if (file.exists("man/figures/logo.png")) md_image("man/figures/logo.png")
 #' md_image("http://hexb.in/hexagons/eff.png")
-#' md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker")
+#' md_image(EFF = "http://hexb.in/hexagons/eff.png")
 #' md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker", "Logo")
 #' @importFrom glue glue
 #' @export
-md_image <- function(url, alt = "", title = NULL) {
-  if (!is.null(title)) {
+md_image <- function(url, alt = "", title = NULL, ..., .name = FALSE) {
+  x <- unlist(list(...))
+  if (!is.null(x) | .name) {
+    if (is.null(names(x))) {
+      glue::glue("![]({unlist(x)})")
+    } else {
+      glue::glue("![{names(x)}]({unlist(x)})")
+    }
+  } else if (!is.null(title)) {
     glue::glue("![{alt}]({url} \"{title}\")")
   } else {
     glue::glue("![{alt}]({url})")
+  }
+}
+
+#' Markdown link reference
+#'
+#' Take character vectors of link texts, link destinations, and optional titles
+#' and return single glue vector of valid markdown link references. This
+#' markdown leaf block then uses the `label` placed _elsewhere_ in a markdown
+#' document to render `<href>` HTML tags.
+#'
+#' @details
+#' A full reference link (6.6) consists of a link text immediately followed by a
+#' link label that matches a link reference definition elsewhere in the
+#' document...
+#'
+#' A link reference definition consists of a link label, indented up to three
+#' spaces, followed by a colon (`:`), optional whitespace (including up to one
+#' line ending), a link destination, optional whitespace (including up to one
+#' line ending), and an optional link title, which if it is present must be
+#' separated from the link destination by whitespace. No further non-whitespace
+#' characters may occur on the line.
+#'
+#' A link reference definition does not correspond to a structural element of a
+#' document. Instead, it defines a label which can be used in reference links
+#' and reference-style images elsewhere in the document. Link reference
+#' definitions can come either before or after the links that use them.
+#' @param label A link label that is referenced elsewhere in the document.
+#' @param url The URL to hyperlink the referenced text with.
+#' @param title An _optional_ link title; defaults to `NULL`.
+#' @param ... A sequence of `text = "/url"` named vector pairs. If any such
+#'   pairs are provided, `.name` will be considered `TRUE`.
+#' @param .name logical; if `TRUE`, the pairs in `...` will be used instead of
+#'   any values supplied to `x` and `url`.
+#' @return A single `glue` vector of length equal to that of `label` and `url`,
+#'   with elements the concatenated arguments.
+#' @family leaf block functions
+#' @examples
+#' md_reference(CRAN = "https://cran.r-project.org/")
+#' md_reference("tv", "https://www.tidyverse.org/", title = "tidyverse")
+#' md_reference(label = 1:2, url = c("https://one.org", "https://two.com"))
+#' @export
+md_reference <- function(label, url, title = NULL, ..., .name = FALSE) {
+  x <- unlist(list(...))
+  if (!is.null(x) | .name) {
+    glue::glue("[{names(x)}]: {unlist(x)}")
+  } else if (!is.null(title)) {
+    glue::glue("[{label}]: {url}")
+  } else {
+    glue::glue("[{label}]: {url} \"{title}\"")
   }
 }

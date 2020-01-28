@@ -1,5 +1,6 @@
 # gluedown (development version)
 
+* Try using clean `...` support in `md_link()` and `md_image()`
 * Use `goodpractices::gp()` to fix a few issues:
     1. Trim all lines to under 80 character width.
     2. Use `vapply()` over `sapply()` in `md_setext()`.

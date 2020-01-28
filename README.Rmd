@@ -73,7 +73,7 @@ Here, we use five different functions to create five elements of a new vector.
 inlines <- c(
   md_bold("Alabama"),
   md_code("Alaska"),
-  md_link(c("Arizona" = "https://az.gov")),
+  md_link("Arizona" = "https://az.gov"),
   md_italic("Arkansas"),
   md_strike("California")
 )

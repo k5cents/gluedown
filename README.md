@@ -71,7 +71,7 @@ of a new vector.
 inlines <- c(
   md_bold("Alabama"),
   md_code("Alaska"),
-  md_link(c("Arizona" = "https://az.gov")),
+  md_link("Arizona" = "https://az.gov"),
   md_italic("Arkansas"),
   md_strike("California")
 )
@@ -106,8 +106,8 @@ abb <- state.abb[match(name, state.name)]
 # `r md_italic(abb)`
 ```
 
-In this case, our randomly selected state is **Indiana**, which has the
-abbreviation *IN*.
+In this case, our randomly selected state is **Utah**, which has the
+abbreviation *UT*.
 
 ### Pipes
 

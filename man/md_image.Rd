@@ -4,24 +4,32 @@
 \alias{md_image}
 \title{Markdown image links}
 \usage{
-md_image(url, alt = "", title = NULL)
+md_image(url, alt = "", title = NULL, ..., .name = FALSE)
 }
 \arguments{
 \item{url}{A character vector of link destination (URL) strings.}
 
-\item{alt}{A character vector of
-\href{https://en.wikipedia.org/wiki/Alt_attribute}{alternative text} that can
-be used to refer to an image.}
+\item{alt}{A character vector of \href{https://w.wiki/GHn}{alternative text} that
+can be used to refer to an image.}
 
 \item{title}{The optional title of the link.}
+
+\item{...}{A sequence of \code{text = "/url"} named vector pairs. If any such
+pairs are provided, \code{.name} will be considered \code{TRUE}.}
+
+\item{.name}{logical; if \code{TRUE}, the pairs in \code{...} will be used instead of
+any values supplied to \code{x} and \code{url}.}
 }
 \value{
+A \code{glue} vector of collapsed display text and associated URLs.
+
 A \code{glue} vector of collapsed alternative text and associated URLs.
 }
 \description{
 Take character vectors of alternative text, image link destinations, and
 optional titles and return single glue vector of valid markdown inline image
-links. This inline is rendered as the \verb{<img>} HTML tag.
+links. This inline is rendered as the \verb{<img>} HTML tag. Note that the
+expected arguments of \code{md_image()} are reversed from \code{md_link()}
 }
 \details{
 Syntax for images is like the syntax for links, with one difference. Instead
@@ -34,7 +42,7 @@ HTML, this is standardly used as the image’s \code{alt} attribute.
 \examples{
 if (file.exists("man/figures/logo.png")) md_image("man/figures/logo.png")
 md_image("http://hexb.in/hexagons/eff.png")
-md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker")
+md_image(EFF = "http://hexb.in/hexagons/eff.png")
 md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker", "Logo")
 }
 \seealso{

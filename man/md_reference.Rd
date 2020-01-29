@@ -48,7 +48,7 @@ definitions can come either before or after the links that use them.
 }
 \examples{
 md_reference(CRAN = "https://cran.r-project.org/")
-md_reference("tv", "https://www.tidyverse.org/", "tidyverse")
+md_reference("tv", "https://www.tidyverse.org/", title = "tidyverse")
 md_reference(label = 1:2, url = c("https://one.org", "https://two.com"))
 }
 \seealso{

@@ -35,7 +35,7 @@ test_that("md_reference creates a simple <href> tag (ex. 161)", {
 
 test_that("md_reference may omit the title (ex. 166)", {
   # https://github.github.com/gfm/#example-166
-  ref <- md_reference("foo", "\n/url")
+  ref <- md_reference("foo" = "\n/url")
   lines <- md_paragraph(ref, "[foo]")
   node <- md_convert(lines) %>% find_nodes("a") %>% html_attr("href")
   expect_equal(node, "/url")
@@ -51,13 +51,13 @@ test_that("md_reference may not omit a link destination (ex. 168)", {
 test_that("md_reference can use angled link destination (ex. 169)", {
   skip("This render is not supported by markdown::markdownToHTML()")
   # https://github.github.com/gfm/#example-169
-  ref <- md_reference("foo", "<>")
+  ref <- md_reference("foo" = "<>")
   lines <- md_paragraph(ref, "[foo]")
   node <- md_convert(lines) %>% find_nodes("a") %>% html_attr("href")
   expect_equal(node, "/url")
 })
 
 test_that("md_refernce alone contributes nothing (ex. 176)", {
-  node <- md_reference("foo", "/url") %>% md_convert()
+  node <- md_reference("foo" = "/url") %>% md_convert()
   expect_nchar(node, 0)
 })

@@ -7,17 +7,15 @@
 md_label(text, label, ..., .name = FALSE)
 }
 \arguments{
+\item{text}{The text in the document to be hyperlinked.}
+
 \item{label}{A link label that is referenced elsewhere in the document.}
 
-\item{...}{A sequence of \code{text = "/url"} named vector pairs. If any such
+\item{...}{A sequence of \code{label = "text"} named vector pairs. If any such
 pairs are provided, \code{.name} will be considered \code{TRUE}.}
 
 \item{.name}{logical; if \code{TRUE}, the pairs in \code{...} will be used instead of
 any values supplied to \code{x} and \code{url}.}
-
-\item{url}{The URL to hyperlink the referenced text with.}
-
-\item{title}{An \emph{optional} link title; defaults to \code{NULL}.}
 }
 \value{
 A single \code{glue} vector of length equal to that of \code{label} and \code{url},

@@ -14,7 +14,7 @@ can be used to refer to an image.}
 
 \item{title}{The optional title of the link.}
 
-\item{...}{A sequence of \code{text = "/url"} named vector pairs. If any such
+\item{...}{A sequence of \code{alt = "/url"} named vector pairs. If any such
 pairs are provided, \code{.name} will be considered \code{TRUE}.}
 
 \item{.name}{logical; if \code{TRUE}, the pairs in \code{...} will be used instead of

@@ -119,17 +119,22 @@ test_that("md_reference can create an <href> tag (ex. 535)", {
     expect_equal("title")
 })
 
-test_that("md_reference can create an <href> tag without title (ex. 535)", {
+test_that("md_label and md_reference can create an <href> tag (ex. 535)", {
   # https://github.github.com/gfm/#example-535
-  lines <- md_reference(bar = "/url")
-  md_paragraph("[foo][bar]", lines) %>%
+  md_paragraph(
+    md_label(bar = "foo"),
+    md_reference(bar = "/url")
+  ) %>%
     md_convert() %>%
     read_html() %>%
     html_node("p") %>%
     html_node("a") %>%
     html_text(trim = TRUE) %>%
     expect_equal("foo")
-  md_paragraph("[foo][bar]", lines) %>%
+  md_paragraph(
+    md_label(bar = "foo"),
+    md_reference(bar = "/url")
+  ) %>%
     md_convert() %>%
     read_html() %>%
     html_node("p") %>%
@@ -137,3 +142,28 @@ test_that("md_reference can create an <href> tag without title (ex. 535)", {
     html_attr("href") %>%
     expect_equal("/url")
 })
+
+test_that("md_label and md_reference can create an <href> tag (ex. 535)", {
+  # https://github.github.com/gfm/#example-535
+  md_paragraph(
+    md_label("foo", "bar"),
+    md_reference("bar", "/url")
+  ) %>%
+    md_convert() %>%
+    read_html() %>%
+    html_node("p") %>%
+    html_node("a") %>%
+    html_text(trim = TRUE) %>%
+    expect_equal("foo")
+  md_paragraph(
+    md_label("foo", "bar"),
+    md_reference("bar", "/url")
+  ) %>%
+    md_convert() %>%
+    read_html() %>%
+    html_node("p") %>%
+    html_node("a") %>%
+    html_attr("href") %>%
+    expect_equal("/url")
+})
+

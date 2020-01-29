@@ -22,10 +22,9 @@
 #' enclosing `<...>` if present, with backslash-escapes in effect as described
 #' above. The link’s title consists of the link title, excluding its enclosing
 #' delimiters, with backslash-escapes in effect as described above.
-#' @param x either: (1) A _named_ vector, with names set to the hyperlink text
-#'   and elements set to the accompanying URL; or (2) a simple character vector
-#'   of text with another vector of URLs passed to the `url` argument.
-#' @param url The URL to lead to.
+#' @param text A character vector of text with another vector of URLs passed to
+#'   the `url` argument.
+#' @param url A character vector of URLs.
 #' @param title The optional title of the link.
 #' @param ... A sequence of `text = "/url"` named vector pairs. If any such
 #'   pairs are provided, `.name` will be considered `TRUE`.
@@ -34,7 +33,7 @@
 #' @return A `glue` vector of collapsed display text and associated URLs.
 #' @family inline functions
 #' @examples
-#' md_link(1:5, glue("https://{glue::state.abb[1:5]}.gov"), state.name[1:5])
+#' md_link(1:5, glue::glue("https://{state.abb[1:5]}.gov"), state.name[1:5])
 #' md_link(CRAN = "https://cran.r-project.org/")
 #' @importFrom glue glue
 #' @export
@@ -68,7 +67,7 @@ md_link <- function(text, url, title = NULL, ..., .name = FALSE) {
 #' @param alt A character vector of [alternative text](https://w.wiki/GHn) that
 #'   can be used to refer to an image.
 #' @param title The optional title of the link.
-#' @param ... A sequence of `text = "/url"` named vector pairs. If any such
+#' @param ... A sequence of `alt = "/url"` named vector pairs. If any such
 #'   pairs are provided, `.name` will be considered `TRUE`.
 #' @param .name logical; if `TRUE`, the pairs in `...` will be used instead of
 #'   any values supplied to `x` and `url`.
@@ -106,10 +105,9 @@ md_image <- function(url, alt = "", title = NULL, ..., .name = FALSE) {
 #' A link label begins with a left bracket (`[`) and ends with the first right
 #' bracket (`]`) that is not backslash-escaped. Between these brackets there
 #' must be at least one non-whitespace character.
+#' @param text The text in the document to be hyperlinked.
 #' @param label A link label that is referenced elsewhere in the document.
-#' @param url The URL to hyperlink the referenced text with.
-#' @param title An _optional_ link title; defaults to `NULL`.
-#' @param ... A sequence of `text = "/url"` named vector pairs. If any such
+#' @param ... A sequence of `label = "text"` named vector pairs. If any such
 #'   pairs are provided, `.name` will be considered `TRUE`.
 #' @param .name logical; if `TRUE`, the pairs in `...` will be used instead of
 #'   any values supplied to `x` and `url`.
@@ -124,7 +122,7 @@ md_label <- function(text, label, ..., .name = FALSE) {
   x <- unlist(list(...))
   if (!is.null(x) | .name) {
     glue::glue("[{unlist(x)}][{names(x)}]")
-  } else if (!is.null(title)) {
+  } else {
     glue::glue("[{text}][{label}]")
   }
 }
@@ -155,7 +153,7 @@ md_label <- function(text, label, ..., .name = FALSE) {
 #' @param label A link label that is referenced elsewhere in the document.
 #' @param url The URL to hyperlink the referenced text with.
 #' @param title An _optional_ link title; defaults to `NULL`.
-#' @param ... A sequence of `text = "/url"` named vector pairs. If any such
+#' @param ... A sequence of `label = "/url"` named vector pairs. If any such
 #'   pairs are provided, `.name` will be considered `TRUE`.
 #' @param .name logical; if `TRUE`, the pairs in `...` will be used instead of
 #'   any values supplied to `x` and `url`.

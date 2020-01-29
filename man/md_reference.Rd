@@ -13,7 +13,7 @@ md_reference(label, url, title = NULL, ..., .name = FALSE)
 
 \item{title}{An \emph{optional} link title; defaults to \code{NULL}.}
 
-\item{...}{A sequence of \code{text = "/url"} named vector pairs. If any such
+\item{...}{A sequence of \code{label = "/url"} named vector pairs. If any such
 pairs are provided, \code{.name} will be considered \code{TRUE}.}
 
 \item{.name}{logical; if \code{TRUE}, the pairs in \code{...} will be used instead of

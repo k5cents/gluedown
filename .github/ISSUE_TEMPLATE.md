@@ -7,7 +7,7 @@ Please include a minimal reproducible example (AKA a reprex). If you've never he
 Brief description of the problem
 
 ```r
-reprex({
+reprex::reprex({
   #+ setup, echo=FALSE
   knitr::opts_chunk$set(results = 'asis')
 

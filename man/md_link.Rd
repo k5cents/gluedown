@@ -49,7 +49,7 @@ above. The link’s title consists of the link title, excluding its enclosing
 delimiters, with backslash-escapes in effect as described above.
 }
 \examples{
-md_link(1:5, glue("https://{state.abb[1:5]}.gov"), state.name[1:5])
+md_link(1:5, glue("https://{glue::state.abb[1:5]}.gov"), state.name[1:5])
 md_link(CRAN = "https://cran.r-project.org/")
 }
 \seealso{

@@ -48,8 +48,8 @@ definitions can come either before or after the links that use them.
 }
 \examples{
 md_reference(CRAN = "https://cran.r-project.org/")
-md_reference("tv", "https://www.tidyverse.org/", title = "tidyverse")
 md_reference(label = 1:2, url = c("https://one.org", "https://two.com"))
+md_reference("tv", "https://www.tidyverse.org/", title = "tidyverse")
 }
 \seealso{
 Other leaf block functions: 
@@ -58,6 +58,7 @@ Other leaf block functions:
 \code{\link{md_fence}()},
 \code{\link{md_heading}()},
 \code{\link{md_indent}()},
+\code{\link{md_label}()},
 \code{\link{md_paragraph}()},
 \code{\link{md_rule}()},
 \code{\link{md_setext}()},

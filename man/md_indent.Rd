@@ -38,6 +38,7 @@ Other leaf block functions:
 \code{\link{md_chunk}()},
 \code{\link{md_fence}()},
 \code{\link{md_heading}()},
+\code{\link{md_label}()},
 \code{\link{md_paragraph}()},
 \code{\link{md_reference}()},
 \code{\link{md_rule}()},

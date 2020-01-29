@@ -33,6 +33,7 @@ Other leaf block functions:
 \code{\link{md_fence}()},
 \code{\link{md_heading}()},
 \code{\link{md_indent}()},
+\code{\link{md_label}()},
 \code{\link{md_reference}()},
 \code{\link{md_rule}()},
 \code{\link{md_setext}()},

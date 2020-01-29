@@ -97,6 +97,38 @@ md_image <- function(url, alt = "", title = NULL, ..., .name = FALSE) {
   }
 }
 
+#' Markdown link label
+#'
+#' Create the link labels that can latter be refered to with a link reference
+#' from [md_reference()].
+#'
+#' @details
+#' A link label begins with a left bracket (`[`) and ends with the first right
+#' bracket (`]`) that is not backslash-escaped. Between these brackets there
+#' must be at least one non-whitespace character.
+#' @param label A link label that is referenced elsewhere in the document.
+#' @param url The URL to hyperlink the referenced text with.
+#' @param title An _optional_ link title; defaults to `NULL`.
+#' @param ... A sequence of `text = "/url"` named vector pairs. If any such
+#'   pairs are provided, `.name` will be considered `TRUE`.
+#' @param .name logical; if `TRUE`, the pairs in `...` will be used instead of
+#'   any values supplied to `x` and `url`.
+#' @return A single `glue` vector of length equal to that of `label` and `url`,
+#'   with elements the concatenated arguments.
+#' @family leaf block functions
+#' @examples
+#' md_label(CRAN = "The CRAN website")
+#' md_label(text = c("one", "two"), label = 1:2)
+#' @export
+md_label <- function(text, label, ..., .name = FALSE) {
+  x <- unlist(list(...))
+  if (!is.null(x) | .name) {
+    glue::glue("[{unlist(x)}][{names(x)}]")
+  } else if (!is.null(title)) {
+    glue::glue("[{text}][{label}]")
+  }
+}
+
 #' Markdown link reference
 #'
 #' Take character vectors of link texts, link destinations, and optional titles
@@ -132,16 +164,16 @@ md_image <- function(url, alt = "", title = NULL, ..., .name = FALSE) {
 #' @family leaf block functions
 #' @examples
 #' md_reference(CRAN = "https://cran.r-project.org/")
-#' md_reference("tv", "https://www.tidyverse.org/", title = "tidyverse")
 #' md_reference(label = 1:2, url = c("https://one.org", "https://two.com"))
+#' md_reference("tv", "https://www.tidyverse.org/", title = "tidyverse")
 #' @export
 md_reference <- function(label, url, title = NULL, ..., .name = FALSE) {
   x <- unlist(list(...))
   if (!is.null(x) | .name) {
     glue::glue("[{names(x)}]: {unlist(x)}")
   } else if (!is.null(title)) {
-    glue::glue("[{label}]: {url}")
-  } else {
     glue::glue("[{label}]: {url} \"{title}\"")
+  } else {
+    glue::glue("[{label}]: {url}")
   }
 }

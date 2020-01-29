@@ -80,7 +80,7 @@ document to render &amp;lt;href&amp;gt; HTML tags." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9003</span>
       </span>
     </div>
 
@@ -135,7 +135,7 @@ document to render &amp;lt;href&amp;gt; HTML tags." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Markdown link reference</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-reference.R'><code>R/md-reference.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-link.R'><code>R/md-link.R</code></a></small>
     <div class="hidden name"><code>md_reference.Rd</code></div>
     </div>
 
@@ -146,7 +146,7 @@ markdown leaf block then uses the <code>label</code> placed <em>elsewhere</em> i
 document to render <code>&lt;href&gt;</code> HTML tags.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_reference</span>(<span class='no'>label</span>, <span class='no'>url</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>md_reference</span>(<span class='no'>label</span>, <span class='no'>url</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='kw'>.name</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -162,6 +162,16 @@ document to render <code>&lt;href&gt;</code> HTML tags.</p>
     <tr>
       <th>title</th>
       <td><p>An <em>optional</em> link title; defaults to <code>NULL</code>.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>A sequence of <code>label = "/url"</code> named vector pairs. If any such
+pairs are provided, <code>.name</code> will be considered <code>TRUE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>.name</th>
+      <td><p>logical; if <code>TRUE</code>, the pairs in <code>...</code> will be used instead of
+any values supplied to <code>x</code> and <code>url</code>.</p></td>
     </tr>
     </table>
 
@@ -192,14 +202,15 @@ definitions can come either before or after the links that use them.</p>
 <code><a href='md_fence.html'>md_fence</a>()</code>,
 <code><a href='md_heading.html'>md_heading</a>()</code>,
 <code><a href='md_indent.html'>md_indent</a>()</code>,
+<code><a href='md_label.html'>md_label</a>()</code>,
 <code><a href='md_paragraph.html'>md_paragraph</a>()</code>,
 <code><a href='md_rule.html'>md_rule</a>()</code>,
 <code><a href='md_setext.html'>md_setext</a>()</code>,
 <code><a href='md_table.html'>md_table</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_reference</span>(<span class='st'>"tv"</span>, <span class='st'>"https://www.tidyverse.org/"</span>, <span class='st'>"tidyverse"</span>)</div><div class='output co'>#&gt; [tv]: https://www.tidyverse.org/ "tidyverse"</div><div class='input'><span class='fu'>md_reference</span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>2</span>, <span class='kw'>url</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"https://one.org"</span>, <span class='st'>"https://two.com"</span>))</div><div class='output co'>#&gt; [1]: https://one.org
-#&gt; [2]: https://two.com</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>md_reference</span>(<span class='kw'>CRAN</span> <span class='kw'>=</span> <span class='st'>"https://cran.r-project.org/"</span>)</div><div class='output co'>#&gt; [CRAN]: https://cran.r-project.org/</div><div class='input'><span class='fu'>md_reference</span>(<span class='kw'>label</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>2</span>, <span class='kw'>url</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"https://one.org"</span>, <span class='st'>"https://two.com"</span>))</div><div class='output co'>#&gt; [1]: https://one.org
+#&gt; [2]: https://two.com</div><div class='input'><span class='fu'>md_reference</span>(<span class='st'>"tv"</span>, <span class='st'>"https://www.tidyverse.org/"</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='st'>"tidyverse"</span>)</div><div class='output co'>#&gt; [tv]: https://www.tidyverse.org/ "tidyverse"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

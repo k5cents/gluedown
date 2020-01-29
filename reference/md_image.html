@@ -45,7 +45,8 @@
 <meta property="og:title" content="Markdown image links — md_image" />
 <meta property="og:description" content="Take character vectors of alternative text, image link destinations, and
 optional titles and return single glue vector of valid markdown inline image
-links. This inline is rendered as the &amp;lt;img&amp;gt; HTML tag." />
+links. This inline is rendered as the &amp;lt;img&amp;gt; HTML tag. Note that the
+expected arguments of md_image() are reversed from md_link()" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -79,7 +80,7 @@ links. This inline is rendered as the &amp;lt;img&amp;gt; HTML tag." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9003</span>
       </span>
     </div>
 
@@ -141,10 +142,11 @@ links. This inline is rendered as the &amp;lt;img&amp;gt; HTML tag." />
     <div class="ref-description">
     <p>Take character vectors of alternative text, image link destinations, and
 optional titles and return single glue vector of valid markdown inline image
-links. This inline is rendered as the <code>&lt;img&gt;</code> HTML tag.</p>
+links. This inline is rendered as the <code>&lt;img&gt;</code> HTML tag. Note that the
+expected arguments of <code>md_image()</code> are reversed from <code><a href='md_link.html'>md_link()</a></code></p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_image</span>(<span class='no'>url</span>, <span class='kw'>alt</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>md_image</span>(<span class='no'>url</span>, <span class='kw'>alt</span> <span class='kw'>=</span> <span class='st'>""</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='kw'>.name</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,19 +157,29 @@ links. This inline is rendered as the <code>&lt;img&gt;</code> HTML tag.</p>
     </tr>
     <tr>
       <th>alt</th>
-      <td><p>A character vector of
-<a href='https://en.wikipedia.org/wiki/Alt_attribute'>alternative text</a> that can
-be used to refer to an image.</p></td>
+      <td><p>A character vector of <a href='https://w.wiki/GHn'>alternative text</a> that
+can be used to refer to an image.</p></td>
     </tr>
     <tr>
       <th>title</th>
       <td><p>The optional title of the link.</p></td>
     </tr>
+    <tr>
+      <th>...</th>
+      <td><p>A sequence of <code>alt = "/url"</code> named vector pairs. If any such
+pairs are provided, <code>.name</code> will be considered <code>TRUE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>.name</th>
+      <td><p>logical; if <code>TRUE</code>, the pairs in <code>...</code> will be used instead of
+any values supplied to <code>x</code> and <code>url</code>.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code>glue</code> vector of collapsed alternative text and associated URLs.</p>
+    <p>A <code>glue</code> vector of collapsed display text and associated URLs.</p>
+<p>A <code>glue</code> vector of collapsed alternative text and associated URLs.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Syntax for images is like the syntax for links, with one difference. Instead
@@ -195,7 +207,7 @@ HTML, this is standardly used as the image’s <code>alt</code> attribute.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.exists</a></span>(<span class='st'>"man/figures/logo.png"</span>)) <span class='fu'>md_image</span>(<span class='st'>"man/figures/logo.png"</span>)
-<span class='fu'>md_image</span>(<span class='st'>"http://hexb.in/hexagons/eff.png"</span>)</div><div class='output co'>#&gt; ![](http://hexb.in/hexagons/eff.png)</div><div class='input'><span class='fu'>md_image</span>(<span class='st'>"http://hexb.in/hexagons/eff.png"</span>, <span class='st'>"EFF Hex Sticker"</span>)</div><div class='output co'>#&gt; ![EFF Hex Sticker](http://hexb.in/hexagons/eff.png)</div><div class='input'><span class='fu'>md_image</span>(<span class='st'>"http://hexb.in/hexagons/eff.png"</span>, <span class='st'>"EFF Hex Sticker"</span>, <span class='st'>"Logo"</span>)</div><div class='output co'>#&gt; ![EFF Hex Sticker](http://hexb.in/hexagons/eff.png "Logo")</div></pre>
+<span class='fu'>md_image</span>(<span class='st'>"http://hexb.in/hexagons/eff.png"</span>)</div><div class='output co'>#&gt; ![](http://hexb.in/hexagons/eff.png)</div><div class='input'><span class='fu'>md_image</span>(<span class='kw'>EFF</span> <span class='kw'>=</span> <span class='st'>"http://hexb.in/hexagons/eff.png"</span>)</div><div class='output co'>#&gt; ![EFF](http://hexb.in/hexagons/eff.png)</div><div class='input'><span class='fu'>md_image</span>(<span class='st'>"http://hexb.in/hexagons/eff.png"</span>, <span class='st'>"EFF Hex Sticker"</span>, <span class='st'>"Logo"</span>)</div><div class='output co'>#&gt; ![EFF Hex Sticker](http://hexb.in/hexagons/eff.png "Logo")</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

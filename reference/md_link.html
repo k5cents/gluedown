@@ -79,7 +79,7 @@ rendered as the &amp;lt;href&amp;gt; HTML tag." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9003</span>
       </span>
     </div>
 
@@ -144,24 +144,33 @@ and return single glue vector of valid markdown inline links. This inline is
 rendered as the <code>&lt;href&gt;</code> HTML tag.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_link</span>(<span class='no'>x</span>, <span class='kw'>url</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>md_link</span>(<span class='no'>text</span>, <span class='no'>url</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='kw'>.name</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>either: (1) A <em>named</em> vector, with names set to the hyperlink text
-and elements set to the accompanying URL; or (2) a simple character
-vector of text with another vector of URLs passed to the <code>url</code> argument.</p></td>
+      <th>text</th>
+      <td><p>A character vector of text with another vector of URLs passed to
+the <code>url</code> argument.</p></td>
     </tr>
     <tr>
       <th>url</th>
-      <td><p>The URL to lead to.</p></td>
+      <td><p>A character vector of URLs.</p></td>
     </tr>
     <tr>
       <th>title</th>
       <td><p>The optional title of the link.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>A sequence of <code>text = "/url"</code> named vector pairs. If any such
+pairs are provided, <code>.name</code> will be considered <code>TRUE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>.name</th>
+      <td><p>logical; if <code>TRUE</code>, the pairs in <code>...</code> will be used instead of
+any values supplied to <code>x</code> and <code>url</code>.</p></td>
     </tr>
     </table>
 
@@ -203,7 +212,11 @@ delimiters, with backslash-escapes in effect as described above.</p>
 <code><a href='md_text.html'>md_text</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_link</span>(<span class='st'>"tidyverse"</span>, <span class='st'>"https://www.tidyverse.org/"</span>)</div><div class='output co'>#&gt; [tidyverse](https://www.tidyverse.org/)</div><div class='input'><span class='fu'>md_link</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>CRAN</span> <span class='kw'>=</span> <span class='st'>"https://cran.r-project.org/"</span>))</div><div class='output co'>#&gt; [CRAN](https://cran.r-project.org/)</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>md_link</span>(<span class='fl'>1</span>:<span class='fl'>5</span>, <span class='kw pkg'>glue</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/glue/man/glue.html'>glue</a></span>(<span class='st'>"https://{state.abb[1:5]}.gov"</span>), <span class='no'>state.name</span>[<span class='fl'>1</span>:<span class='fl'>5</span>])</div><div class='output co'>#&gt; [1](https://AL.gov "Alabama")
+#&gt; [2](https://AK.gov "Alaska")
+#&gt; [3](https://AZ.gov "Arizona")
+#&gt; [4](https://AR.gov "Arkansas")
+#&gt; [5](https://CA.gov "California")</div><div class='input'><span class='fu'>md_link</span>(<span class='kw'>CRAN</span> <span class='kw'>=</span> <span class='st'>"https://cran.r-project.org/"</span>)</div><div class='output co'>#&gt; [CRAN](https://cran.r-project.org/)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

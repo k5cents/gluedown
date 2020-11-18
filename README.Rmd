@@ -18,9 +18,9 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Lifecycle: experimental][life_badge]][life_link]
 [![CRAN status][cran_badge]][cran_link]
-[![Travis build status][trav_badge]][trav_link]
-[![Codecov test coverage][cov_badge]][cov_link]
 ![Downloads][dl_badge]
+[![Codecov test coverage][cov_badge]][cov_link]
+[![R build status][ga_badge]][ga_link]
 <!-- badges: end -->
 
 The goal of `gluedown` is to ease the transition from R's powerful vectors to
@@ -36,7 +36,7 @@ Install the release version from [CRAN][cran]:
 install.packages("gluedown")
 ```
 
-Install the development version from [GitHub][gh]:
+The development version can be installed from [GitHub] [GitHub][gh]:
 
 ```{r develop, eval=FALSE}
 # install.packages("remotes")
@@ -134,8 +134,8 @@ to abide by its terms.
 [life_link]: https://www.tidyverse.org/lifecycle/#maturing
 [cran_badge]: https://www.r-pkg.org/badges/version/gluedown
 [cran_link]: https://CRAN.R-project.org/package=gluedown
-[trav_badge]: https://travis-ci.org/kiernann/gluedown.svg?branch=master
-[trav_link]: https://travis-ci.org/kiernann/gluedown
+[ga_badge]: https://github.com/kiernann/gluedown/workflows/R-CMD-check/badge.svg
+[ga_link]: https://github.com/kiernann/gluedown/actions
 [cov_badge]: https://img.shields.io/codecov/c/github/kiernann/gluedown/master.svg
 [cov_link]: https://codecov.io/gh/kiernann/gluedown?branch=master'
 [dl_badge]: https://cranlogs.r-pkg.org/badges/grand-total/gluedown

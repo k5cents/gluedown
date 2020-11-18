@@ -1,7 +1,8 @@
-pandoc: '2.2'
-pkgdown: 1.4.1
+pandoc: 2.7.3
+pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   github-spec: github-spec.html
   literal-programming: literal-programming.html
+last_built: 2020-11-18T21:25Z
 

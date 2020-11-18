@@ -17,23 +17,27 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -44,7 +48,6 @@
 
 <meta property="og:title" content="Changelog" />
 <meta property="og:image" content="/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -62,7 +65,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -112,7 +115,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/kiernann/gluedown">
+  <a href="https://github.com/kiernann/gluedown/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -130,12 +133,12 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
+      <h1 data-toc-skip>Changelog <small></small></h1>
       <small>Source: <a href='https://github.com/kiernann/gluedown/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
     <div id="gluedown-development-version" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="development version">
 <a href="#gluedown-development-version" class="anchor"></a>gluedown (development version)<small> Unreleased </small>
 </h1>
 <ul>
@@ -150,9 +153,9 @@
 </li>
 </ul>
 </div>
-    <div id="gluedown-1-0-2" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-1-0-2" class="anchor"></a>gluedown 1.0.2<small> 2020-01-14 </small>
+    <div id="gluedown-102" class="section level1">
+<h1 class="page-header" data-toc-text="1.0.2">
+<a href="#gluedown-102" class="anchor"></a>gluedown 1.0.2<small> 2020-01-14 </small>
 </h1>
 <ul>
 <li>Suggest <code>markdown</code> dependency and warn for <code><a href="../reference/md_convert.html">md_convert()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/22'>#22</a>).</li>
@@ -160,9 +163,9 @@
 <li>Enable named vector support for <code><a href="../reference/md_link.html">md_link()</a></code>.</li>
 </ul>
 </div>
-    <div id="gluedown-1-0-1" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-1-0-1" class="anchor"></a>gluedown 1.0.1<small> 2019-12-09 </small>
+    <div id="gluedown-101" class="section level1">
+<h1 class="page-header" data-toc-text="1.0.1">
+<a href="#gluedown-101" class="anchor"></a>gluedown 1.0.1<small> 2019-12-09 </small>
 </h1>
 <ul>
 <li>Remove <code>md_define()</code> to avoid pandoc issue (<a href='https://github.com/kiernann/gluedown/issues/16'>#16</a>, <a href='https://github.com/kiernann/gluedown/issues/17'>#17</a>).</li>
@@ -174,80 +177,80 @@
 <li>Improve vignettes.</li>
 </ul>
 </div>
-    <div id="gluedown-1-0-0" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-1-0-0" class="anchor"></a>gluedown 1.0.0<small> 2019-11-28 </small>
+    <div id="gluedown-100" class="section level1">
+<h1 class="page-header" data-toc-text="1.0.0">
+<a href="#gluedown-100" class="anchor"></a>gluedown 1.0.0<small> 2019-11-28 </small>
 </h1>
 <ul>
 <li>Remove <code>readr::read_lines()</code> from docs.</li>
 <li>Cite CommonMark author in <code>DESCRIPTION</code>.</li>
-<li>Remove the <code>%&gt;%</code> utility and magrittr package.</li>
+<li>Remove the <code><a href="https://stringr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> utility and magrittr package.</li>
 <li>Remove all <code>/docs</code> and move to <code>gh-pages</code> branch.</li>
 <li>Re-submit to CRAN.</li>
 </ul>
 </div>
-    <div id="gluedown-0-4-4" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-4-4" class="anchor"></a>gluedown 0.4.4<small> Unreleased </small>
+    <div id="gluedown-044" class="section level1">
+<h1 class="page-header" data-toc-text="0.4.4">
+<a href="#gluedown-044" class="anchor"></a>gluedown 0.4.4<small> Unreleased </small>
 </h1>
 <ul>
-<li>Replace <code>emphasize_at()</code> with <code>map_md()</code>, which now uses <code>str_split(simplify = TRUE)</code> and <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code> instead of <code><a href="https://purrr.tidyverse.org/reference/map_if.html">purrr::map_at()</a></code>.</li>
+<li>Replace <code>emphasize_at()</code> with <code>map_md()</code>, which now uses <code><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split(simplify = TRUE)</a></code> and <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code> instead of <code><a href="https://purrr.tidyverse.org/reference/map_if.html">purrr::map_at()</a></code>.</li>
 </ul>
 </div>
-    <div id="gluedown-0-4-3" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-4-3" class="anchor"></a>gluedown 0.4.3<small> Unreleased </small>
+    <div id="gluedown-043" class="section level1">
+<h1 class="page-header" data-toc-text="0.4.3">
+<a href="#gluedown-043" class="anchor"></a>gluedown 0.4.3<small> Unreleased </small>
 </h1>
 <ul>
 <li>Add vignette walking through all the features of GFM.</li>
 </ul>
 </div>
-    <div id="gluedown-0-4-2" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-4-2" class="anchor"></a>gluedown 0.4.2<small> Unreleased </small>
+    <div id="gluedown-042" class="section level1">
+<h1 class="page-header" data-toc-text="0.4.2">
+<a href="#gluedown-042" class="anchor"></a>gluedown 0.4.2<small> Unreleased </small>
 </h1>
 <ul>
 <li>Create <code><a href="../reference/md_disallow.html">md_disallow()</a></code> and add to <code><a href="../reference/md_convert.html">md_convert()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/10'>#10</a>).</li>
-<li>Create <code><a href="../reference/md_text.html">md_text()</a></code> wrapper for <code><a href="https://rdrr.io/pkg/glue/man/as_glue.html">glue::as_glue()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/10'>#10</a>).</li>
+<li>Create <code><a href="../reference/md_text.html">md_text()</a></code> wrapper for <code><a href="https://glue.tidyverse.org/reference/as_glue.html">glue::as_glue()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/10'>#10</a>).</li>
 <li>Create <code><a href="../reference/md_blank.html">md_blank()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/10'>#10</a>).</li>
 </ul>
 </div>
-    <div id="gluedown-0-4-1" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-4-1" class="anchor"></a>gluedown 0.4.1<small> Unreleased </small>
+    <div id="gluedown-041" class="section level1">
+<h1 class="page-header" data-toc-text="0.4.1">
+<a href="#gluedown-041" class="anchor"></a>gluedown 0.4.1<small> Unreleased </small>
 </h1>
 <ul>
 <li>Cover all errors in <code><a href="../reference/md_rule.html">md_rule()</a></code> and <code><a href="../reference/md_chunk.html">md_chunk()</a></code>, brings coverage to 100%.</li>
 </ul>
 </div>
-    <div id="gluedown-0-4-0" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-4-0" class="anchor"></a>gluedown 0.4.0<small> Unreleased </small>
+    <div id="gluedown-040" class="section level1">
+<h1 class="page-header" data-toc-text="0.4.0">
+<a href="#gluedown-040" class="anchor"></a>gluedown 0.4.0<small> Unreleased </small>
 </h1>
 <ul>
 <li>Add back all the tests from the GFM spec (<a href='https://github.com/kiernann/gluedown/issues/13'>#13</a>).</li>
 <li>Create <code><a href="../reference/md_autolink.html">md_autolink()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/10'>#10</a>).</li>
 </ul>
 </div>
-    <div id="gluedown-0-3-3" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-3-3" class="anchor"></a>gluedown 0.3.3<small> Unreleased </small>
+    <div id="gluedown-033" class="section level1">
+<h1 class="page-header" data-toc-text="0.3.3">
+<a href="#gluedown-033" class="anchor"></a>gluedown 0.3.3<small> Unreleased </small>
 </h1>
 <ul>
 <li>Add and remove tests from the GFM spec (<a href='https://github.com/kiernann/gluedown/issues/13'>#13</a>).</li>
 </ul>
 </div>
-    <div id="gluedown-0-3-2" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-3-2" class="anchor"></a>gluedown 0.3.2<small> Unreleased </small>
+    <div id="gluedown-032" class="section level1">
+<h1 class="page-header" data-toc-text="0.3.2">
+<a href="#gluedown-032" class="anchor"></a>gluedown 0.3.2<small> Unreleased </small>
 </h1>
 <ul>
 <li>Use <code>...</code> in <code><a href="../reference/md_hardline.html">md_hardline()</a></code>, <code><a href="../reference/md_softline.html">md_softline()</a></code>, and <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code>.</li>
 </ul>
 </div>
-    <div id="gluedown-0-3-1" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-3-1" class="anchor"></a>gluedown 0.3.1<small> Unreleased </small>
+    <div id="gluedown-031" class="section level1">
+<h1 class="page-header" data-toc-text="0.3.1">
+<a href="#gluedown-031" class="anchor"></a>gluedown 0.3.1<small> Unreleased </small>
 </h1>
 <ul>
 <li>Rename <code>md-break.R</code> to <code>md-rule.R</code>
@@ -257,43 +260,43 @@
 <li>Implement optional custom underline width in <code><a href="../reference/md_setext.html">md_setext()</a></code>.</li>
 </ul>
 </div>
-    <div id="gluedown-0-3-0" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-3-0" class="anchor"></a>gluedown 0.3.0<small> Unreleased </small>
+    <div id="gluedown-030" class="section level1">
+<h1 class="page-header" data-toc-text="0.3.0">
+<a href="#gluedown-030" class="anchor"></a>gluedown 0.3.0<small> Unreleased </small>
 </h1>
 <ul>
 <li>Create <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code> and <code><a href="../reference/md_softline.html">md_softline()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/10'>#10</a>).</li>
 </ul>
 </div>
-    <div id="gluedown-0-2-3" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-2-3" class="anchor"></a>gluedown 0.2.3<small> Unreleased </small>
+    <div id="gluedown-023" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.3">
+<a href="#gluedown-023" class="anchor"></a>gluedown 0.2.3<small> Unreleased </small>
 </h1>
 <ul>
 <li>Rewrite function descriptions with consistent language.</li>
 </ul>
 </div>
-    <div id="gluedown-0-2-2" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-2-2" class="anchor"></a>gluedown 0.2.2<small> Unreleased </small>
+    <div id="gluedown-022" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.2">
+<a href="#gluedown-022" class="anchor"></a>gluedown 0.2.2<small> Unreleased </small>
 </h1>
 <ul>
 <li>Check if <code><a href="https://rdrr.io/r/base/any.html">any()</a></code> number in <code><a href="../reference/md_issue.html">md_issue()</a></code> can’t be coerced to numeric.</li>
 </ul>
 </div>
-    <div id="gluedown-0-2-1" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-2-1" class="anchor"></a>gluedown 0.2.1<small> Unreleased </small>
+    <div id="gluedown-021" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.1">
+<a href="#gluedown-021" class="anchor"></a>gluedown 0.2.1<small> Unreleased </small>
 </h1>
 <ul>
-<li>Return glued <code><a href="../reference/md_convert.html">md_convert()</a></code> output with <code><a href="https://rdrr.io/pkg/glue/man/as_glue.html">glue::as_glue()</a></code>.</li>
+<li>Return glued <code><a href="../reference/md_convert.html">md_convert()</a></code> output with <code><a href="https://glue.tidyverse.org/reference/as_glue.html">glue::as_glue()</a></code>.</li>
 <li>Return glued <code>emphasize_at()</code> output.</li>
 <li>Add description of <code>kable</code> and <code>markdown</code> wrapping in <code>gluedown.R</code>.</li>
 </ul>
 </div>
-    <div id="gluedown-0-2-0" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-2-0" class="anchor"></a>gluedown 0.2.0<small> Unreleased </small>
+    <div id="gluedown-020" class="section level1">
+<h1 class="page-header" data-toc-text="0.2.0">
+<a href="#gluedown-020" class="anchor"></a>gluedown 0.2.0<small> Unreleased </small>
 </h1>
 <ul>
 <li>Update the documentation for block container functions.</li>
@@ -305,74 +308,51 @@
 <li>Create and delete <code>md_emoji()</code> (want the reverse, maybe).</li>
 </ul>
 </div>
-    <div id="gluedown-0-1-4" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-1-4" class="anchor"></a>gluedown 0.1.4<small> Unreleased </small>
+    <div id="gluedown-014" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.4">
+<a href="#gluedown-014" class="anchor"></a>gluedown 0.1.4<small> Unreleased </small>
 </h1>
 <ul>
 <li>Split <code><a href="../reference/md_chunk.html">md_chunk()</a></code> into <code><a href="../reference/md_indent.html">md_indent()</a></code> and <code><a href="../reference/md_fence.html">md_fence()</a></code>.</li>
-<li>Use <code><a href="https://rdrr.io/pkg/glue/man/glue_collapse.html">glue::glue_collapse()</a></code> in <code><a href="../reference/md_rule.html">md_rule()</a></code> and <code><a href="../reference/md_table.html">md_table()</a></code>.</li>
+<li>Use <code><a href="https://glue.tidyverse.org/reference/glue_collapse.html">glue::glue_collapse()</a></code> in <code><a href="../reference/md_rule.html">md_rule()</a></code> and <code><a href="../reference/md_table.html">md_table()</a></code>.</li>
 <li>Use <code><a href="https://stringr.tidyverse.org/reference/str_dup.html">stringr::str_dup()</a></code> in <code><a href="../reference/md_heading.html">md_heading()</a></code>, <code><a href="../reference/md_setext.html">md_setext()</a></code>, and <code><a href="../reference/md_rule.html">md_rule()</a></code>.</li>
 <li>Update unit tests for the new versions of leaf block functions.</li>
 <li>Update the documentation for leaf block functions.</li>
 </ul>
 </div>
-    <div id="gluedown-0-1-2" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-1-2" class="anchor"></a>gluedown 0.1.2<small> Unreleased </small>
+    <div id="gluedown-012" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.2">
+<a href="#gluedown-012" class="anchor"></a>gluedown 0.1.2<small> Unreleased </small>
 </h1>
 <ul>
 <li>Create <code><a href="../reference/md_hardline.html">md_hardline()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/10'>#10</a>).</li>
 </ul>
 </div>
-    <div id="gluedown-0-1-1" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-1-1" class="anchor"></a>gluedown 0.1.1<small> Unreleased </small>
+    <div id="gluedown-011" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.1">
+<a href="#gluedown-011" class="anchor"></a>gluedown 0.1.1<small> Unreleased </small>
 </h1>
 <ul>
 <li>Create <code><a href="../reference/md_setext.html">md_setext()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/10'>#10</a>).</li>
 <li>Add family documentation (<a href='https://github.com/kiernann/gluedown/issues/11'>#11</a>).</li>
 </ul>
 </div>
-    <div id="gluedown-0-1-0" class="section level1">
-<h1 class="page-header">
-<a href="#gluedown-0-1-0" class="anchor"></a>gluedown 0.1.0<small> Unreleased </small>
+    <div id="gluedown-010" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.0">
+<a href="#gluedown-010" class="anchor"></a>gluedown 0.1.0<small> Unreleased </small>
 </h1>
 <ul>
 <li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
-<li>Use <code><a href="https://rdrr.io/pkg/glue/man/glue.html">glue::glue()</a></code> everywhere over <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> w/ <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/8'>#8</a>).</li>
+<li>Use <code><a href="https://glue.tidyverse.org/reference/glue.html">glue::glue()</a></code> everywhere over <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> w/ <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/8'>#8</a>).</li>
 <li>Fully test every function argument (<em>coverage: 97%</em>) (<a href='https://github.com/kiernann/gluedown/issues/9'>#9</a>).</li>
 </ul>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#gluedown-development-version">development version</a></li>
-        <li><a href="#gluedown-1-0-2">1.0.2</a></li>
-        <li><a href="#gluedown-1-0-1">1.0.1</a></li>
-        <li><a href="#gluedown-1-0-0">1.0.0</a></li>
-        <li><a href="#gluedown-0-4-4">0.4.4</a></li>
-        <li><a href="#gluedown-0-4-3">0.4.3</a></li>
-        <li><a href="#gluedown-0-4-2">0.4.2</a></li>
-        <li><a href="#gluedown-0-4-1">0.4.1</a></li>
-        <li><a href="#gluedown-0-4-0">0.4.0</a></li>
-        <li><a href="#gluedown-0-3-3">0.3.3</a></li>
-        <li><a href="#gluedown-0-3-2">0.3.2</a></li>
-        <li><a href="#gluedown-0-3-1">0.3.1</a></li>
-        <li><a href="#gluedown-0-3-0">0.3.0</a></li>
-        <li><a href="#gluedown-0-2-3">0.2.3</a></li>
-        <li><a href="#gluedown-0-2-2">0.2.2</a></li>
-        <li><a href="#gluedown-0-2-1">0.2.1</a></li>
-        <li><a href="#gluedown-0-2-0">0.2.0</a></li>
-        <li><a href="#gluedown-0-1-4">0.1.4</a></li>
-        <li><a href="#gluedown-0-1-2">0.1.2</a></li>
-        <li><a href="#gluedown-0-1-1">0.1.1</a></li>
-        <li><a href="#gluedown-0-1-0">0.1.0</a></li>
-      </ul>
-    </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
@@ -384,7 +364,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

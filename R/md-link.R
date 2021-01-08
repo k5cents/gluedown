@@ -102,9 +102,9 @@ md_image <- function(url, alt = "", title = NULL, ..., .name = FALSE) {
 #' from [md_reference()].
 #'
 #' @details
-#' A link label begins with a left bracket (`[`) and ends with the first right
-#' bracket (`]`) that is not backslash-escaped. Between these brackets there
-#' must be at least one non-whitespace character.
+#' A link label begins with a left bracket and ends with the first right bracket
+#' that is not backslash-escaped. Between these brackets there must be at least
+#' one non-whitespace character.
 #' @param text The text in the document to be hyperlinked.
 #' @param label A link label that is referenced elsewhere in the document.
 #' @param ... A sequence of `label = "text"` named vector pairs. If any such

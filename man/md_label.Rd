@@ -22,15 +22,13 @@ A single \code{glue} vector of length equal to that of \code{label} and \code{ur
 with elements the concatenated arguments.
 }
 \description{
-Create the link labels that can latter be refered to with a link reference
+Create the link labels that can latter be referred to with a link reference
 from \code{\link[=md_reference]{md_reference()}}.
 }
 \details{
-A link label begins with a left bracket (\code{[}) and ends with the first right
-bracket (\verb{]}) that is not backslash-escaped. Between these brackets there
-must be at least one non-whitespace character.
-
-[\verb{) and ends with the first right bracket (}]: R:\%60)\%20and\%20ends\%20with\%20the\%20first\%20right\%0Abracket\%20(\%60
+A link label begins with a left bracket and ends with the first right bracket
+that is not backslash-escaped. Between these brackets there must be at least
+one non-whitespace character.
 }
 \examples{
 md_label(CRAN = "The CRAN website")

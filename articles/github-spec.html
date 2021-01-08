@@ -46,7 +46,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -75,7 +75,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/kiernann/gluedown/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -89,8 +89,7 @@
 
       
 
-      </header><script src="github-spec_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="github-spec_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="github-spec_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><script src="github-spec_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>GitHub Flavored Markdown</h1>
@@ -323,20 +322,20 @@ _world_.
 <code class="sourceCode R"><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Fasten two pins on each side.</span>
+<span class="co">#&gt; Wood is best for making toys and blocks.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The gold ring fits only a pierced ear.</span>
+<span class="co">#&gt; Schools for ladies teach charm and grace.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Shape the clay gently into block form.</span>
+<span class="co">#&gt; The lease ran out in sixteen weeks.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Throw out the used paper cup and plate.</span>
+<span class="co">#&gt; He wrote his name boldly at the top of tile sheet.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; They could laugh although they were sad.</span></code></pre></div>
-<p>Fasten two pins on each side.</p>
-<p>The gold ring fits only a pierced ear.</p>
-<p>Shape the clay gently into block form.</p>
-<p>Throw out the used paper cup and plate.</p>
-<p>They could laugh although they were sad.</p>
+<span class="co">#&gt; He ordered peach pie with ice cream.</span></code></pre></div>
+<p>Wood is best for making toys and blocks.</p>
+<p>Schools for ladies teach charm and grace.</p>
+<p>The lease ran out in sixteen weeks.</p>
+<p>He wrote his name boldly at the top of tile sheet.</p>
+<p>He ordered peach pie with ice cream.</p>
 </div>
 <div id="blank-lines" class="section level3">
 <h3 class="hasAnchor">
@@ -488,25 +487,25 @@ _world_.
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; &gt; Fasten two pins on each side.</span>
-<span class="co">#&gt; &gt; The gold ring fits only a pierced ear.</span>
-<span class="co">#&gt; &gt; Shape the clay gently into block form.</span>
-<span class="co">#&gt; &gt; Throw out the used paper cup and plate.</span>
-<span class="co">#&gt; &gt; They could laugh although they were sad.</span></code></pre></div>
+<span class="co">#&gt; &gt; Wood is best for making toys and blocks.</span>
+<span class="co">#&gt; &gt; Schools for ladies teach charm and grace.</span>
+<span class="co">#&gt; &gt; The lease ran out in sixteen weeks.</span>
+<span class="co">#&gt; &gt; He wrote his name boldly at the top of tile sheet.</span>
+<span class="co">#&gt; &gt; He ordered peach pie with ice cream.</span></code></pre></div>
 <blockquote>
-<p>Fasten two pins on each side.</p>
+<p>Wood is best for making toys and blocks.</p>
 </blockquote>
 <blockquote>
-<p>The gold ring fits only a pierced ear.</p>
+<p>Schools for ladies teach charm and grace.</p>
 </blockquote>
 <blockquote>
-<p>Shape the clay gently into block form.</p>
+<p>The lease ran out in sixteen weeks.</p>
 </blockquote>
 <blockquote>
-<p>Throw out the used paper cup and plate.</p>
+<p>He wrote his name boldly at the top of tile sheet.</p>
 </blockquote>
 <blockquote>
-<p>They could laugh although they were sad.</p>
+<p>He ordered peach pie with ice cream.</p>
 </blockquote>
 </div>
 <div id="list-items" class="section level3">
@@ -532,27 +531,27 @@ _world_.
 <p>Markdown extensions like this one are optionally supported on different venues. On GitHub (in <code>README.md</code> files, issues, or comments, etc.) these tasks list are rendered as check boxes, sometimes even interactable. On other venues, like this very HTML vignette, these check boxes just render are bullet lists with weird bracket boxes on each line.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>
-<span class="co">#&gt; * [ ] Fasten two pins on each side.</span>
-<span class="co">#&gt; * [ ] The gold ring fits only a pierced ear.</span>
-<span class="co">#&gt; * [x] Shape the clay gently into block form.</span>
-<span class="co">#&gt; * [x] Throw out the used paper cup and plate.</span>
-<span class="co">#&gt; * [ ] They could laugh although they were sad.</span></code></pre></div>
+<span class="co">#&gt; * [ ] Wood is best for making toys and blocks.</span>
+<span class="co">#&gt; * [ ] Schools for ladies teach charm and grace.</span>
+<span class="co">#&gt; * [x] The lease ran out in sixteen weeks.</span>
+<span class="co">#&gt; * [x] He wrote his name boldly at the top of tile sheet.</span>
+<span class="co">#&gt; * [ ] He ordered peach pie with ice cream.</span></code></pre></div>
 <ul>
 <li>
 <input type="checkbox" disabled>
-Fasten two pins on each side.</li>
+Wood is best for making toys and blocks.</li>
 <li>
 <input type="checkbox" disabled>
-The gold ring fits only a pierced ear.</li>
+Schools for ladies teach charm and grace.</li>
 <li>
 <input type="checkbox" disabled checked>
-Shape the clay gently into block form.</li>
+The lease ran out in sixteen weeks.</li>
 <li>
 <input type="checkbox" disabled checked>
-Throw out the used paper cup and plate.</li>
+He wrote his name boldly at the top of tile sheet.</li>
 <li>
 <input type="checkbox" disabled>
-They could laugh although they were sad.</li>
+He ordered peach pie with ice cream.</li>
 </ul>
 </div>
 <div id="lists" class="section level3">
@@ -569,43 +568,43 @@ They could laugh although they were sad.</li>
 <code class="sourceCode R"><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt; * Washington</span>
-<span class="co">#&gt; * Mississippi</span>
-<span class="co">#&gt; * Utah</span></code></pre></div>
+<span class="co">#&gt; * Virginia</span>
+<span class="co">#&gt; * Indiana</span>
+<span class="co">#&gt; * Alabama</span></code></pre></div>
 <ul>
-<li>Washington</li>
-<li>Mississippi</li>
-<li>Utah</li>
+<li>Virginia</li>
+<li>Indiana</li>
+<li>Alabama</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span>
-<span class="co">#&gt; + Washington</span>
-<span class="co">#&gt; + Mississippi</span>
-<span class="co">#&gt; + Utah</span></code></pre></div>
+<span class="co">#&gt; + Virginia</span>
+<span class="co">#&gt; + Indiana</span>
+<span class="co">#&gt; + Alabama</span></code></pre></div>
 <ul>
-<li>Washington</li>
-<li>Mississippi</li>
-<li>Utah</li>
+<li>Virginia</li>
+<li>Indiana</li>
+<li>Alabama</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt; 1. Washington</span>
-<span class="co">#&gt; 2. Mississippi</span>
-<span class="co">#&gt; 3. Utah</span></code></pre></div>
+<span class="co">#&gt; 1. Virginia</span>
+<span class="co">#&gt; 2. Indiana</span>
+<span class="co">#&gt; 3. Alabama</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Washington</li>
-<li>Mississippi</li>
-<li>Utah</li>
+<li>Virginia</li>
+<li>Indiana</li>
+<li>Alabama</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span>
-<span class="co">#&gt; 1) Washington</span>
-<span class="co">#&gt; 1) Mississippi</span>
-<span class="co">#&gt; 1) Utah</span></code></pre></div>
+<span class="co">#&gt; 1) Virginia</span>
+<span class="co">#&gt; 1) Indiana</span>
+<span class="co">#&gt; 1) Alabama</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Washington</li>
-<li>Mississippi</li>
-<li>Utah</li>
+<li>Virginia</li>
+<li>Indiana</li>
+<li>Alabama</li>
 </ol>
 </div>
 </div>
@@ -714,16 +713,16 @@ They could laugh although they were sad.</li>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.12 Hard line breaks</span>
 <span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Fasten two pins on each side.  </span>
-<span class="co">#&gt; The gold ring fits only a pierced ear.  </span>
-<span class="co">#&gt; Shape the clay gently into block form.  </span>
-<span class="co">#&gt; Throw out the used paper cup and plate.  </span>
-<span class="co">#&gt; They could laugh although they were sad.</span></code></pre></div>
-<p>Fasten two pins on each side.<br>
-The gold ring fits only a pierced ear.<br>
-Shape the clay gently into block form.<br>
-Throw out the used paper cup and plate.<br>
-They could laugh although they were sad.</p>
+<span class="co">#&gt; Wood is best for making toys and blocks.  </span>
+<span class="co">#&gt; Schools for ladies teach charm and grace.  </span>
+<span class="co">#&gt; The lease ran out in sixteen weeks.  </span>
+<span class="co">#&gt; He wrote his name boldly at the top of tile sheet.  </span>
+<span class="co">#&gt; He ordered peach pie with ice cream.</span></code></pre></div>
+<p>Wood is best for making toys and blocks.<br>
+Schools for ladies teach charm and grace.<br>
+The lease ran out in sixteen weeks.<br>
+He wrote his name boldly at the top of tile sheet.<br>
+He ordered peach pie with ice cream.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not preceded by two or more spaces or a backslash is parsed as a softbreak. (A softbreak may be rendered in HTML either as a line ending or as a space. The result will be the same in browsers. In the examples here, a line ending will be used.)</p>
@@ -731,30 +730,30 @@ They could laugh although they were sad.</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.13 Soft line breaks</span>
 <span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Fasten two pins on each side.</span>
-<span class="co">#&gt; The gold ring fits only a pierced ear.</span>
-<span class="co">#&gt; Shape the clay gently into block form.</span>
-<span class="co">#&gt; Throw out the used paper cup and plate.</span>
-<span class="co">#&gt; They could laugh although they were sad.</span></code></pre></div>
-<p>Fasten two pins on each side. The gold ring fits only a pierced ear. Shape the clay gently into block form. Throw out the used paper cup and plate. They could laugh although they were sad.</p>
+<span class="co">#&gt; Wood is best for making toys and blocks.</span>
+<span class="co">#&gt; Schools for ladies teach charm and grace.</span>
+<span class="co">#&gt; The lease ran out in sixteen weeks.</span>
+<span class="co">#&gt; He wrote his name boldly at the top of tile sheet.</span>
+<span class="co">#&gt; He ordered peach pie with ice cream.</span></code></pre></div>
+<p>Wood is best for making toys and blocks. Schools for ladies teach charm and grace. The lease ran out in sixteen weeks. He wrote his name boldly at the top of tile sheet. He ordered peach pie with ice cream.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Fasten two pins on each side.</span>
+<span class="co">#&gt; Wood is best for making toys and blocks.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The gold ring fits only a pierced ear.</span>
+<span class="co">#&gt; Schools for ladies teach charm and grace.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Shape the clay gently into block form.</span>
+<span class="co">#&gt; The lease ran out in sixteen weeks.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Throw out the used paper cup and plate.</span>
+<span class="co">#&gt; He wrote his name boldly at the top of tile sheet.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; They could laugh although they were sad.</span></code></pre></div>
-<p>Fasten two pins on each side.</p>
-<p>The gold ring fits only a pierced ear.</p>
-<p>Shape the clay gently into block form.</p>
-<p>Throw out the used paper cup and plate.</p>
-<p>They could laugh although they were sad.</p>
+<span class="co">#&gt; He ordered peach pie with ice cream.</span></code></pre></div>
+<p>Wood is best for making toys and blocks.</p>
+<p>Schools for ladies teach charm and grace.</p>
+<p>The lease ran out in sixteen weeks.</p>
+<p>He wrote his name boldly at the top of tile sheet.</p>
+<p>He ordered peach pie with ice cream.</p>
 </div>
 <div id="textual-content" class="section level3">
 <h3 class="hasAnchor">
@@ -766,31 +765,31 @@ They could laugh although they were sad.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.14 Textual content</span>
 <span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Fasten two pins on each side.</span>
-<span class="co">#&gt; The gold ring fits only a pierced ear.</span>
-<span class="co">#&gt; Shape the clay gently into block form.</span>
-<span class="co">#&gt; Throw out the used paper cup and plate.</span>
-<span class="co">#&gt; They could laugh although they were sad.</span></code></pre></div>
-<p>Fasten two pins on each side. The gold ring fits only a pierced ear. Shape the clay gently into block form. Throw out the used paper cup and plate. They could laugh although they were sad.</p>
+<span class="co">#&gt; Wood is best for making toys and blocks.</span>
+<span class="co">#&gt; Schools for ladies teach charm and grace.</span>
+<span class="co">#&gt; The lease ran out in sixteen weeks.</span>
+<span class="co">#&gt; He wrote his name boldly at the top of tile sheet.</span>
+<span class="co">#&gt; He ordered peach pie with ice cream.</span></code></pre></div>
+<p>Wood is best for making toys and blocks. Schools for ladies teach charm and grace. The lease ran out in sixteen weeks. He wrote his name boldly at the top of tile sheet. He ordered peach pie with ice cream.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Fasten two pins on each side."           </span>
-<span class="co">#&gt; [2] "The gold ring fits only a pierced ear."  </span>
-<span class="co">#&gt; [3] "Shape the clay gently into block form."  </span>
-<span class="co">#&gt; [4] "Throw out the used paper cup and plate." </span>
-<span class="co">#&gt; [5] "They could laugh although they were sad."</span></code></pre></div>
-<p>[1] “Fasten two pins on each side.”<br>
-[2] “The gold ring fits only a pierced ear.”<br>
-[3] “Shape the clay gently into block form.”<br>
-[4] “Throw out the used paper cup and plate.” [5] “They could laugh although they were sad.”</p>
+<span class="co">#&gt; [1] "Wood is best for making toys and blocks."          </span>
+<span class="co">#&gt; [2] "Schools for ladies teach charm and grace."         </span>
+<span class="co">#&gt; [3] "The lease ran out in sixteen weeks."               </span>
+<span class="co">#&gt; [4] "He wrote his name boldly at the top of tile sheet."</span>
+<span class="co">#&gt; [5] "He ordered peach pie with ice cream."</span></code></pre></div>
+<p>[1] “Wood is best for making toys and blocks.”<br>
+[2] “Schools for ladies teach charm and grace.”<br>
+[3] “The lease ran out in sixteen weeks.”<br>
+[4] “He wrote his name boldly at the top of tile sheet.” [5] “He ordered peach pie with ice cream.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the <code>glue</code> S3 class. This class works in the same way as the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Fasten two pins on each side. The gold ring fits only a pierced ear. Shape the clay gently into block form. Throw out the used paper cup and plate. They could laugh although they were sad.</span></code></pre></div>
-<p>Fasten two pins on each side. The gold ring fits only a pierced ear. Shape the clay gently into block form. Throw out the used paper cup and plate. They could laugh although they were sad.</p>
+<span class="co">#&gt; Wood is best for making toys and blocks. Schools for ladies teach charm and grace. The lease ran out in sixteen weeks. He wrote his name boldly at the top of tile sheet. He ordered peach pie with ice cream.</span></code></pre></div>
+<p>Wood is best for making toys and blocks. Schools for ladies teach charm and grace. The lease ran out in sixteen weeks. He wrote his name boldly at the top of tile sheet. He ordered peach pie with ice cream.</p>
 </div>
 </div>
   </div>

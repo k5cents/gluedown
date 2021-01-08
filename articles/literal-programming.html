@@ -46,7 +46,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -75,7 +75,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/kiernann/gluedown/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -89,8 +89,7 @@
 
       
 
-      </header><script src="literal-programming_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="literal-programming_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
-<script src="literal-programming_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
+      </header><script src="literal-programming_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Markdown Literal Programming</h1>
@@ -146,7 +145,7 @@
 <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">state.name</span><span class="op">)</span>
 <span class="co">#&gt; [1] 50</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">state.name</span>, <span class="fl">3</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Mississippi" "Washington"  "Idaho"</span></code></pre></div>
+<span class="co">#&gt; [1] "Mississippi" "Alabama"     "Michigan"</span></code></pre></div>
 <p>If we as a user want to use those state names as <em>text</em> in our markdown document we can use the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> function and tell <code>rmarkdown</code> to print the results of that function “as is” (rather than as code output).</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">state.name</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span></code></pre></div>
@@ -411,7 +410,7 @@ President signs</li>
 <span class="co"># `r md_bold(rand)`</span>
 <span class="va">var</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">state.x77</span><span class="op">)</span>, <span class="fl">1</span><span class="op">)</span>
 <span class="co"># `r md_code(var)`</span></code></pre></div>
-<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>Michigan</strong> and the <code>Life Exp</code> variable was randomly selected from the <code>state.x77</code> dataframe. Calculating results and using those calculations in the body of a text document increases reproducability.</p>
+<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>Rhode Island</strong> and the <code>Population</code> variable was randomly selected from the <code>state.x77</code> dataframe. Calculating results and using those calculations in the body of a text document increases reproducability.</p>
 <p>In a <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3174372/">meta-study of psychology journals</a>, researchers found that “around 15% of the articles contained at least one statistical conclusion that proved, upon recalculation, to be incorrect.” These errors can be mitigated by using inline printing of results like we did above. With the <code>gluedown</code> package, programmers can <strong>emphasize</strong> those results without worry.</p>
 </div>
   </div>

@@ -93,9 +93,7 @@ objects like lists and dataframes. The `state.name` vector built into base R
 is a character vector of all 50 state names.
 
 ```{r state.name}
-mode(state.name)
-length(state.name)
-sample(state.name, 3)
+str(state.name, vec.len = 3)
 ```
 
 If we as a user want to use those state names as _text_ in our markdown document
@@ -173,9 +171,7 @@ inlines <- c(
   md_strike(state.name[8])
 )
 
-mode(inlines)
-length(inlines)
-print(inlines)
+str(inlines, vec.len = 3)
 ```
 
 Using `md_bullet()` we will print that vector as a bullet point list container
@@ -234,10 +230,10 @@ the results of one function into the beginning of the next. By ending this
 
 ```{r blockquote, results='asis'}
 read_html("https://w.wiki/A58") %>% # 1
-  html_node("blockquote") %>% # 2
-  html_text(trim = TRUE) %>% # 3
-  str_remove("\\[(.*)\\]") %>% # 4
-  md_quote() # 5
+  html_node("blockquote") %>%       # 2
+  html_text(trim = TRUE) %>%        # 3
+  str_remove("\\[(.*)\\]") %>%      # 4
+  md_quote()                        # 5
 ```
 
 [pipe]: https://magrittr.tidyverse.org/reference/pipe.html
@@ -292,7 +288,7 @@ Then, you can easily print that result in the middle of regular text with
 markdown formatting. In this case, our randomly selected state is... 
 `r md_bold(rand)` and the `r md_code(var)` variable was randomly selected from
 the `state.x77` dataframe. Calculating results and using those
-calculations in the body of a text document increases reproducability. 
+calculations in the body of a text document increases reproducibility. 
 
 In a [meta-study of psychology journals][pmc], researchers found that "around
 15% of the articles contained at least one statistical conclusion that proved,

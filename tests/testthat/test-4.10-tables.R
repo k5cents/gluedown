@@ -34,7 +34,8 @@ test_that("md_table creates a single <table> tag (ex. 198)", {
     md_convert() %>%
     read_html() %>%
     html_node("table") %>%
-    html_table()
+    html_table() %>%
+    as.data.frame()
   expect_equal(node, df)
 })
 
@@ -49,6 +50,7 @@ test_that("md_table can create a table with no body (ex. 205)", {
     md_convert() %>%
     read_html() %>%
     html_node("table") %>%
-    html_table()
+    html_table() %>%
+    as.data.frame()
   expect_equal(node, df)
 })

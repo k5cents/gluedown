@@ -4,10 +4,6 @@ library(stringr)
 library(rvest)
 library(glue)
 
-expect_missing <- function(object) {
-  expect_true(is.na(object))
-}
-
 test_that("md_link can create a valid <href> tag (ex. 493)", {
   # https://github.github.com/gfm/#example-493
   lines <- md_link("link", "/url", "title")

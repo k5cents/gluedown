@@ -3,7 +3,7 @@ library(gluedown)
 library(rvest)
 library(glue)
 
-test_that("md_image creates a <img> tag (ex. 602)", {
+test_that("md_autolink creates a <a> tag (ex. 602)", {
   # https://github.github.com/gfm/#example-602
   url <- "http://foo.bar.baz"
   md_autolink(url) %>%

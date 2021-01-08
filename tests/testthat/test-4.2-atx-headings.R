@@ -3,21 +3,6 @@ library(gluedown)
 library(glue)
 library(rvest)
 
-find_nodes <- function(md, node) {
-  md %>%
-    md_convert() %>%
-    read_html() %>%
-    html_nodes(node)
-}
-
-expect_empty <- function(object) {
-  expect_true(length(object) == 0)
-}
-
-expect_full <- function(object) {
-  expect_true(length(object) != 0)
-}
-
 test_that("md_heading creates tags <h2> through <h6> (ex. 32)", {
   # https://github.github.com/gfm/#example-32
   lines <- md_heading("foo", 1:6)

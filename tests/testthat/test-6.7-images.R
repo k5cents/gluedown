@@ -4,10 +4,6 @@ library(stringr)
 library(rvest)
 library(glue)
 
-expect_missing <- function(object) {
-  expect_true(is.na(object))
-}
-
 test_that("md_image creates a <img> tag (ex. 580)", {
   # https://github.github.com/gfm/#example-580
   lines <- md_image("/url", "foo", "title")

@@ -98,7 +98,7 @@ md_image <- function(url, alt = "", title = NULL, ..., .name = FALSE) {
 
 #' Markdown link label
 #'
-#' Create the link labels that can latter be refered to with a link reference
+#' Create the link labels that can latter be referred to with a link reference
 #' from [md_reference()].
 #'
 #' @details

@@ -4,13 +4,6 @@ library(stringr)
 library(rvest)
 library(glue)
 
-expect_empty <- function(object) {
-  expect_true(length(object) == 0)
-}
-expect_full <- function(object) {
-  expect_true(length(object) != 0)
-}
-
 test_that("md_code creates a <code> tag (ex. 338)", {
   # https://github.github.com/gfm/#example-338
   md_code("foo") %>%

@@ -4,13 +4,6 @@ library(stringr)
 library(rvest)
 library(glue)
 
-expect_empty <- function(object) {
-  expect_true(length(object) == 0)
-}
-expect_full <- function(object) {
-  expect_true(length(object) != 0)
-}
-
 test_that("md_bullet creates an <ul> tag with vector text (ex. 281)", {
   # https://github.github.com/gfm/#example-281
   text <- c("foo", "bar")

@@ -3,21 +3,6 @@ library(gluedown)
 library(glue)
 library(rvest)
 
-find_nodes <- function(md, node) {
-  md %>%
-    md_convert() %>%
-    read_html() %>%
-    html_nodes(node)
-}
-
-expect_empty <- function(object) {
-  expect_true(length(object) == 0)
-}
-
-expect_full <- function(object) {
-  expect_true(length(object) != 0)
-}
-
 test_that("md_setext errors at levels greater than 2", {
   expect_error(md_setext("Foo", 3))
 })

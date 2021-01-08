@@ -4,18 +4,6 @@ library(stringr)
 library(rvest)
 library(glue)
 
-expect_empty <- function(object) {
-  expect_true(length(object) == 0)
-}
-
-expect_full <- function(object) {
-  expect_true(length(object) != 0)
-}
-
-expect_nchar <- function(object, n) {
-  expect_true(nchar(object) == n)
-}
-
 test_that("md_blank creates lines that are ignored (ex. 197)", {
   # https://github.github.com/gfm/#example-197
   lines <- md_softline(

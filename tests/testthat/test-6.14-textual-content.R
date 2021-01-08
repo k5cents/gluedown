@@ -4,7 +4,7 @@ library(rvest)
 library(glue)
 
 test_that("md_text creates a vector of glue class", {
-  md_text("foo") %>% expect_s3_class("glue")
+   expect_s3_class(md_text("foo"), "glue")
 })
 
 test_that("md_text creates plain textual content (ex. 671)", {

@@ -3,21 +3,6 @@ library(gluedown)
 library(glue)
 library(rvest)
 
-find_nodes <- function(md, node) {
-  md %>%
-    md_convert() %>%
-    read_html() %>%
-    html_nodes(node)
-}
-
-expect_empty <- function(object) {
-  expect_true(length(object) == 0)
-}
-
-expect_full <- function(object) {
-  expect_true(length(object) != 0)
-}
-
 test_that("md_rule creates <hr> tags (ex. 13)", {
   # https://github.github.com/gfm/#example-13
   node1 <- md_rule("*", 3) %>% find_nodes("hr")

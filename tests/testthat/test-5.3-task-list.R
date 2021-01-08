@@ -4,13 +4,6 @@ library(stringr)
 library(rvest)
 library(glue)
 
-expect_empty <- function(object) {
-  expect_true(length(object) == 0)
-}
-expect_full <- function(object) {
-  expect_true(length(object) != 0)
-}
-
 test_that("md_task creates an <ul> list with checks (ex. 279)", {
   # https://github.github.com/gfm/#example-279
   text <- c("foo", "bar")

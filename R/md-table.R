@@ -43,8 +43,10 @@ md_table <- function(x, ...) {
       x <- apply(x, 2, function(z) sprintf(glue::glue("%-{max(nchar(z))}s"), z))
     }
     s <- strrep("-", apply(x, 2, function(z) max(nchar(z))))
+    num_cols <- vapply(x, is.numeric, logical(1))
+    s <- gsub("^-", ":", s)
     if (nrow(x) >= 2) {
-      x <- rbind(x[1, ], s, x[2:nrow(x), ])
+      x <- rbind(x[1, ], unname(s), x[2:nrow(x), ])
     } else {
       x <- rbind(x[1, ], s)
     }

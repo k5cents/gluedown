@@ -131,7 +131,7 @@ to abide by its terms.
 
 <!-- links: start -->
 [life_badge]: https://img.shields.io/badge/lifecycle-maturing-blue.svg
-[life_link]: https://www.tidyverse.org/lifecycle/#maturing
+[life_link]: https://lifecycle.r-lib.org/articles/stages.html#maturing
 [cran_badge]: https://www.r-pkg.org/badges/version/gluedown
 [cran_link]: https://CRAN.R-project.org/package=gluedown
 [ga_badge]: https://github.com/kiernann/gluedown/workflows/R-CMD-check/badge.svg

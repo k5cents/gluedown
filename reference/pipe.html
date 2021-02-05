@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Markdown textual content — md_text • gluedown</title>
+<title>Pipe operator — %&gt;% • gluedown</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,9 +46,8 @@
 
 
 
-<meta property="og:title" content="Markdown textual content — md_text" />
-<meta property="og:description" content="Simple wrapper around glue::as_glue(). Take a character vector and return a
-glue vector." />
+<meta property="og:title" content="Pipe operator — %&gt;%" />
+<meta property="og:description" content="See magrittr::%&amp;gt;% for details." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -135,54 +134,19 @@ glue vector." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Markdown textual content</h1>
-    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/md-text.R'><code>R/md-text.R</code></a></small>
-    <div class="hidden name"><code>md_text.Rd</code></div>
+    <h1>Pipe operator</h1>
+    <small class="dont-index">Source: <a href='https://github.com/kiernann/gluedown/blob/master/R/utils.R'><code>R/utils.R</code></a></small>
+    <div class="hidden name"><code>pipe.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Simple wrapper around <code><a href='https://glue.tidyverse.org/reference/as_glue.html'>glue::as_glue()</a></code>. Take a character vector and return a
-glue vector.</p>
+    <p>See <code>magrittr::%&gt;%</code> for details.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>md_text</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='va'>lhs</span> <span class='op'>%&gt;%</span> <span class='va'>rhs</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>x</th>
-      <td><p>A character vector.</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code>glue</code> vector.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>Any characters not given an interpretation by the [other] rules will be
-parsed as plain textual content.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other inline functions: 
-<code><a href='md_autolink.html'>md_autolink</a>()</code>,
-<code><a href='md_bold.html'>md_bold</a>()</code>,
-<code><a href='md_code.html'>md_code</a>()</code>,
-<code><a href='md_convert.html'>md_convert</a>()</code>,
-<code><a href='md_disallow.html'>md_disallow</a>()</code>,
-<code><a href='md_escape.html'>md_escape</a>()</code>,
-<code><a href='md_hardline.html'>md_hardline</a>()</code>,
-<code><a href='md_image.html'>md_image</a>()</code>,
-<code><a href='md_issue.html'>md_issue</a>()</code>,
-<code><a href='md_italic.html'>md_italic</a>()</code>,
-<code><a href='md_link.html'>md_link</a>()</code>,
-<code><a href='md_softline.html'>md_softline</a>()</code>,
-<code><a href='md_strike.html'>md_strike</a>()</code></p></div>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>md_text</span><span class='op'>(</span><span class='st'>"foo"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; foo</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

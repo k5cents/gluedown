@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9003</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
       </span>
     </div>
 
@@ -140,12 +140,8 @@
 <a href="#vector-lists" class="anchor"></a>Vector Lists</h2>
 <p>Printing vectors as markdown lists was the initial inspiration for the package. In R, atomic vectors the fundamental object type that composes more complex objects like lists and dataframes. The <code>state.name</code> vector built into base R is a character vector of all 50 state names.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mode.html">mode</a></span><span class="op">(</span><span class="va">state.name</span><span class="op">)</span>
-<span class="co">#&gt; [1] "character"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">state.name</span><span class="op">)</span>
-<span class="co">#&gt; [1] 50</span>
-<span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">state.name</span>, <span class="fl">3</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Mississippi" "Alabama"     "Michigan"</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">state.name</span>, vec.len <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
+<span class="co">#&gt;  chr [1:50] "Alabama" "Alaska" "Arizona" ...</span></code></pre></div>
 <p>If we as a user want to use those state names as <em>text</em> in our markdown document we can use the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> function and tell <code>rmarkdown</code> to print the results of that function “as is” (rather than as code output).</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">state.name</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span></code></pre></div>
@@ -228,14 +224,8 @@
   <span class="fu"><a href="../reference/md_strike.html">md_strike</a></span><span class="op">(</span><span class="va">state.name</span><span class="op">[</span><span class="fl">8</span><span class="op">]</span><span class="op">)</span>
 <span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/mode.html">mode</a></span><span class="op">(</span><span class="va">inlines</span><span class="op">)</span>
-<span class="co">#&gt; [1] "character"</span>
-<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">inlines</span><span class="op">)</span>
-<span class="co">#&gt; [1] 5</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">inlines</span><span class="op">)</span>
-<span class="co">#&gt; [1] "**Arkansas**"                     "`California`"                    </span>
-<span class="co">#&gt; [3] "[Colorado](https://Colorado.gov)" "_Connecticut_"                   </span>
-<span class="co">#&gt; [5] "~~Delaware~~"</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">inlines</span>, vec.len <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
+<span class="co">#&gt;  chr [1:5] "**Arkansas**" "`California`" "[Colorado](https://Colorado.gov)" ...</span></code></pre></div>
 <p>Using <code><a href="../reference/md_bullet.html">md_bullet()</a></code> we will print that vector as a bullet point list container block and each list item will be rendered as a separate inline.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">inlines</span><span class="op">)</span></code></pre></div>
@@ -281,10 +271,10 @@
 </ol>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">read_html</span><span class="op">(</span><span class="st">"https://w.wiki/A58"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># 1</span>
-  <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_nodes.html">html_node</a></span><span class="op">(</span><span class="st">"blockquote"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># 2</span>
-  <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_text.html">html_text</a></span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># 3</span>
-  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span><span class="st">"\\[(.*)\\]"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># 4</span>
-  <span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># 5</span></code></pre></div>
+  <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_nodes.html">html_node</a></span><span class="op">(</span><span class="st">"blockquote"</span><span class="op">)</span> <span class="op">%&gt;%</span>       <span class="co"># 2</span>
+  <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_text.html">html_text</a></span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span>        <span class="co"># 3</span>
+  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span><span class="st">"\\[(.*)\\]"</span><span class="op">)</span> <span class="op">%&gt;%</span>      <span class="co"># 4</span>
+  <span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="op">)</span>                        <span class="co"># 5</span></code></pre></div>
 <blockquote>
 <p>We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.</p>
 </blockquote>
@@ -410,7 +400,7 @@ President signs</li>
 <span class="co"># `r md_bold(rand)`</span>
 <span class="va">var</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">state.x77</span><span class="op">)</span>, <span class="fl">1</span><span class="op">)</span>
 <span class="co"># `r md_code(var)`</span></code></pre></div>
-<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>Rhode Island</strong> and the <code>Population</code> variable was randomly selected from the <code>state.x77</code> dataframe. Calculating results and using those calculations in the body of a text document increases reproducability.</p>
+<p>Then, you can easily print that result in the middle of regular text with markdown formatting. In this case, our randomly selected state is… <strong>Pennsylvania</strong> and the <code>Area</code> variable was randomly selected from the <code>state.x77</code> dataframe. Calculating results and using those calculations in the body of a text document increases reproducibility.</p>
 <p>In a <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3174372/">meta-study of psychology journals</a>, researchers found that “around 15% of the articles contained at least one statistical conclusion that proved, upon recalculation, to be incorrect.” These errors can be mitigated by using inline printing of results like we did above. With the <code>gluedown</code> package, programmers can <strong>emphasize</strong> those results without worry.</p>
 </div>
   </div>

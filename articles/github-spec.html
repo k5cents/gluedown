@@ -322,20 +322,20 @@ _world_.
 <code class="sourceCode R"><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Quench your thirst, then eat the crackers.</span>
+<span class="co">#&gt; A thing of small note can cause despair.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; A pound of sugar costs more than eggs.</span>
+<span class="co">#&gt; The hat brim was wide and too droopy.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; It snowed, rained, and hailed the same morning.</span>
+<span class="co">#&gt; The red tape bound the smuggled food.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Split the log with a quick, sharp blow.</span>
+<span class="co">#&gt; He sent the boy on a short errand.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Cars and busses stalled in snow drifts.</span></code></pre></div>
+<span class="co">#&gt; Quench your thirst, then eat the crackers.</span></code></pre></div>
+<p>A thing of small note can cause despair.</p>
+<p>The hat brim was wide and too droopy.</p>
+<p>The red tape bound the smuggled food.</p>
+<p>He sent the boy on a short errand.</p>
 <p>Quench your thirst, then eat the crackers.</p>
-<p>A pound of sugar costs more than eggs.</p>
-<p>It snowed, rained, and hailed the same morning.</p>
-<p>Split the log with a quick, sharp blow.</p>
-<p>Cars and busses stalled in snow drifts.</p>
 </div>
 <div id="blank-lines" class="section level3">
 <h3 class="hasAnchor">
@@ -487,25 +487,25 @@ _world_.
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; &gt; Quench your thirst, then eat the crackers.</span>
-<span class="co">#&gt; &gt; A pound of sugar costs more than eggs.</span>
-<span class="co">#&gt; &gt; It snowed, rained, and hailed the same morning.</span>
-<span class="co">#&gt; &gt; Split the log with a quick, sharp blow.</span>
-<span class="co">#&gt; &gt; Cars and busses stalled in snow drifts.</span></code></pre></div>
+<span class="co">#&gt; &gt; A thing of small note can cause despair.</span>
+<span class="co">#&gt; &gt; The hat brim was wide and too droopy.</span>
+<span class="co">#&gt; &gt; The red tape bound the smuggled food.</span>
+<span class="co">#&gt; &gt; He sent the boy on a short errand.</span>
+<span class="co">#&gt; &gt; Quench your thirst, then eat the crackers.</span></code></pre></div>
+<blockquote>
+<p>A thing of small note can cause despair.</p>
+</blockquote>
+<blockquote>
+<p>The hat brim was wide and too droopy.</p>
+</blockquote>
+<blockquote>
+<p>The red tape bound the smuggled food.</p>
+</blockquote>
+<blockquote>
+<p>He sent the boy on a short errand.</p>
+</blockquote>
 <blockquote>
 <p>Quench your thirst, then eat the crackers.</p>
-</blockquote>
-<blockquote>
-<p>A pound of sugar costs more than eggs.</p>
-</blockquote>
-<blockquote>
-<p>It snowed, rained, and hailed the same morning.</p>
-</blockquote>
-<blockquote>
-<p>Split the log with a quick, sharp blow.</p>
-</blockquote>
-<blockquote>
-<p>Cars and busses stalled in snow drifts.</p>
 </blockquote>
 </div>
 <div id="list-items" class="section level3">
@@ -531,27 +531,27 @@ _world_.
 <p>Markdown extensions like this one are optionally supported on different venues. On GitHub (in <code>README.md</code> files, issues, or comments, etc.) these tasks list are rendered as check boxes, sometimes even interactable. On other venues, like this very HTML vignette, these check boxes just render are bullet lists with weird bracket boxes on each line.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>
-<span class="co">#&gt; * [ ] Quench your thirst, then eat the crackers.</span>
-<span class="co">#&gt; * [ ] A pound of sugar costs more than eggs.</span>
-<span class="co">#&gt; * [x] It snowed, rained, and hailed the same morning.</span>
-<span class="co">#&gt; * [x] Split the log with a quick, sharp blow.</span>
-<span class="co">#&gt; * [ ] Cars and busses stalled in snow drifts.</span></code></pre></div>
+<span class="co">#&gt; * [ ] A thing of small note can cause despair.</span>
+<span class="co">#&gt; * [ ] The hat brim was wide and too droopy.</span>
+<span class="co">#&gt; * [x] The red tape bound the smuggled food.</span>
+<span class="co">#&gt; * [x] He sent the boy on a short errand.</span>
+<span class="co">#&gt; * [ ] Quench your thirst, then eat the crackers.</span></code></pre></div>
 <ul>
 <li>
 <input type="checkbox" disabled>
+A thing of small note can cause despair.</li>
+<li>
+<input type="checkbox" disabled>
+The hat brim was wide and too droopy.</li>
+<li>
+<input type="checkbox" disabled checked>
+The red tape bound the smuggled food.</li>
+<li>
+<input type="checkbox" disabled checked>
+He sent the boy on a short errand.</li>
+<li>
+<input type="checkbox" disabled>
 Quench your thirst, then eat the crackers.</li>
-<li>
-<input type="checkbox" disabled>
-A pound of sugar costs more than eggs.</li>
-<li>
-<input type="checkbox" disabled checked>
-It snowed, rained, and hailed the same morning.</li>
-<li>
-<input type="checkbox" disabled checked>
-Split the log with a quick, sharp blow.</li>
-<li>
-<input type="checkbox" disabled>
-Cars and busses stalled in snow drifts.</li>
 </ul>
 </div>
 <div id="lists" class="section level3">
@@ -568,43 +568,43 @@ Cars and busses stalled in snow drifts.</li>
 <code class="sourceCode R"><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt; * Ohio</span>
-<span class="co">#&gt; * Vermont</span>
-<span class="co">#&gt; * Minnesota</span></code></pre></div>
+<span class="co">#&gt; * Illinois</span>
+<span class="co">#&gt; * Louisiana</span>
+<span class="co">#&gt; * Wisconsin</span></code></pre></div>
 <ul>
-<li>Ohio</li>
-<li>Vermont</li>
-<li>Minnesota</li>
+<li>Illinois</li>
+<li>Louisiana</li>
+<li>Wisconsin</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span>
-<span class="co">#&gt; + Ohio</span>
-<span class="co">#&gt; + Vermont</span>
-<span class="co">#&gt; + Minnesota</span></code></pre></div>
+<span class="co">#&gt; + Illinois</span>
+<span class="co">#&gt; + Louisiana</span>
+<span class="co">#&gt; + Wisconsin</span></code></pre></div>
 <ul>
-<li>Ohio</li>
-<li>Vermont</li>
-<li>Minnesota</li>
+<li>Illinois</li>
+<li>Louisiana</li>
+<li>Wisconsin</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt; 1. Ohio</span>
-<span class="co">#&gt; 2. Vermont</span>
-<span class="co">#&gt; 3. Minnesota</span></code></pre></div>
+<span class="co">#&gt; 1. Illinois</span>
+<span class="co">#&gt; 2. Louisiana</span>
+<span class="co">#&gt; 3. Wisconsin</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Ohio</li>
-<li>Vermont</li>
-<li>Minnesota</li>
+<li>Illinois</li>
+<li>Louisiana</li>
+<li>Wisconsin</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span>
-<span class="co">#&gt; 1) Ohio</span>
-<span class="co">#&gt; 1) Vermont</span>
-<span class="co">#&gt; 1) Minnesota</span></code></pre></div>
+<span class="co">#&gt; 1) Illinois</span>
+<span class="co">#&gt; 1) Louisiana</span>
+<span class="co">#&gt; 1) Wisconsin</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Ohio</li>
-<li>Vermont</li>
-<li>Minnesota</li>
+<li>Illinois</li>
+<li>Louisiana</li>
+<li>Wisconsin</li>
 </ol>
 </div>
 </div>
@@ -667,7 +667,7 @@ Cars and busses stalled in snow drifts.</li>
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_image.html">md_image</a></span><span class="op">(</span><span class="st">"https://www.r-project.org/Rlogo.png"</span>, alt <span class="op">=</span> <span class="st">"R logo"</span><span class="op">)</span>
 <span class="co">#&gt; ![R logo](https://www.r-project.org/Rlogo.png)</span></code></pre></div>
 <div class="figure">
-<img src="https://www.r-project.org/Rlogo.png" alt=""><p class="caption">R logo</p>
+<img src="../../../../../../private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmph4cYgP/file80a700e845b.png" alt=""><p class="caption">R logo</p>
 </div>
 </div>
 <div id="disallowed-raw-html-extension" class="section level3">
@@ -713,16 +713,16 @@ Cars and busses stalled in snow drifts.</li>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.12 Hard line breaks</span>
 <span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Quench your thirst, then eat the crackers.  </span>
-<span class="co">#&gt; A pound of sugar costs more than eggs.  </span>
-<span class="co">#&gt; It snowed, rained, and hailed the same morning.  </span>
-<span class="co">#&gt; Split the log with a quick, sharp blow.  </span>
-<span class="co">#&gt; Cars and busses stalled in snow drifts.</span></code></pre></div>
-<p>Quench your thirst, then eat the crackers.<br>
-A pound of sugar costs more than eggs.<br>
-It snowed, rained, and hailed the same morning.<br>
-Split the log with a quick, sharp blow.<br>
-Cars and busses stalled in snow drifts.</p>
+<span class="co">#&gt; A thing of small note can cause despair.  </span>
+<span class="co">#&gt; The hat brim was wide and too droopy.  </span>
+<span class="co">#&gt; The red tape bound the smuggled food.  </span>
+<span class="co">#&gt; He sent the boy on a short errand.  </span>
+<span class="co">#&gt; Quench your thirst, then eat the crackers.</span></code></pre></div>
+<p>A thing of small note can cause despair.<br>
+The hat brim was wide and too droopy.<br>
+The red tape bound the smuggled food.<br>
+He sent the boy on a short errand.<br>
+Quench your thirst, then eat the crackers.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not preceded by two or more spaces or a backslash is parsed as a softbreak. (A softbreak may be rendered in HTML either as a line ending or as a space. The result will be the same in browsers. In the examples here, a line ending will be used.)</p>
@@ -730,30 +730,30 @@ Cars and busses stalled in snow drifts.</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.13 Soft line breaks</span>
 <span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Quench your thirst, then eat the crackers.</span>
-<span class="co">#&gt; A pound of sugar costs more than eggs.</span>
-<span class="co">#&gt; It snowed, rained, and hailed the same morning.</span>
-<span class="co">#&gt; Split the log with a quick, sharp blow.</span>
-<span class="co">#&gt; Cars and busses stalled in snow drifts.</span></code></pre></div>
-<p>Quench your thirst, then eat the crackers. A pound of sugar costs more than eggs. It snowed, rained, and hailed the same morning. Split the log with a quick, sharp blow. Cars and busses stalled in snow drifts.</p>
+<span class="co">#&gt; A thing of small note can cause despair.</span>
+<span class="co">#&gt; The hat brim was wide and too droopy.</span>
+<span class="co">#&gt; The red tape bound the smuggled food.</span>
+<span class="co">#&gt; He sent the boy on a short errand.</span>
+<span class="co">#&gt; Quench your thirst, then eat the crackers.</span></code></pre></div>
+<p>A thing of small note can cause despair. The hat brim was wide and too droopy. The red tape bound the smuggled food. He sent the boy on a short errand. Quench your thirst, then eat the crackers.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Quench your thirst, then eat the crackers.</span>
+<span class="co">#&gt; A thing of small note can cause despair.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; A pound of sugar costs more than eggs.</span>
+<span class="co">#&gt; The hat brim was wide and too droopy.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; It snowed, rained, and hailed the same morning.</span>
+<span class="co">#&gt; The red tape bound the smuggled food.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Split the log with a quick, sharp blow.</span>
+<span class="co">#&gt; He sent the boy on a short errand.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Cars and busses stalled in snow drifts.</span></code></pre></div>
+<span class="co">#&gt; Quench your thirst, then eat the crackers.</span></code></pre></div>
+<p>A thing of small note can cause despair.</p>
+<p>The hat brim was wide and too droopy.</p>
+<p>The red tape bound the smuggled food.</p>
+<p>He sent the boy on a short errand.</p>
 <p>Quench your thirst, then eat the crackers.</p>
-<p>A pound of sugar costs more than eggs.</p>
-<p>It snowed, rained, and hailed the same morning.</p>
-<p>Split the log with a quick, sharp blow.</p>
-<p>Cars and busses stalled in snow drifts.</p>
 </div>
 <div id="textual-content" class="section level3">
 <h3 class="hasAnchor">
@@ -765,31 +765,32 @@ Cars and busses stalled in snow drifts.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.14 Textual content</span>
 <span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Quench your thirst, then eat the crackers.</span>
-<span class="co">#&gt; A pound of sugar costs more than eggs.</span>
-<span class="co">#&gt; It snowed, rained, and hailed the same morning.</span>
-<span class="co">#&gt; Split the log with a quick, sharp blow.</span>
-<span class="co">#&gt; Cars and busses stalled in snow drifts.</span></code></pre></div>
-<p>Quench your thirst, then eat the crackers. A pound of sugar costs more than eggs. It snowed, rained, and hailed the same morning. Split the log with a quick, sharp blow. Cars and busses stalled in snow drifts.</p>
+<span class="co">#&gt; A thing of small note can cause despair.</span>
+<span class="co">#&gt; The hat brim was wide and too droopy.</span>
+<span class="co">#&gt; The red tape bound the smuggled food.</span>
+<span class="co">#&gt; He sent the boy on a short errand.</span>
+<span class="co">#&gt; Quench your thirst, then eat the crackers.</span></code></pre></div>
+<p>A thing of small note can cause despair. The hat brim was wide and too droopy. The red tape bound the smuggled food. He sent the boy on a short errand. Quench your thirst, then eat the crackers.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Quench your thirst, then eat the crackers."     </span>
-<span class="co">#&gt; [2] "A pound of sugar costs more than eggs."         </span>
-<span class="co">#&gt; [3] "It snowed, rained, and hailed the same morning."</span>
-<span class="co">#&gt; [4] "Split the log with a quick, sharp blow."        </span>
-<span class="co">#&gt; [5] "Cars and busses stalled in snow drifts."</span></code></pre></div>
-<p>[1] “Quench your thirst, then eat the crackers.”<br>
-[2] “A pound of sugar costs more than eggs.”<br>
-[3] “It snowed, rained, and hailed the same morning.” [4] “Split the log with a quick, sharp blow.”<br>
-[5] “Cars and busses stalled in snow drifts.”</p>
+<span class="co">#&gt; [1] "A thing of small note can cause despair."  </span>
+<span class="co">#&gt; [2] "The hat brim was wide and too droopy."     </span>
+<span class="co">#&gt; [3] "The red tape bound the smuggled food."     </span>
+<span class="co">#&gt; [4] "He sent the boy on a short errand."        </span>
+<span class="co">#&gt; [5] "Quench your thirst, then eat the crackers."</span></code></pre></div>
+<p>[1] “A thing of small note can cause despair.”<br>
+[2] “The hat brim was wide and too droopy.”<br>
+[3] “The red tape bound the smuggled food.”<br>
+[4] “He sent the boy on a short errand.”<br>
+[5] “Quench your thirst, then eat the crackers.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the <code>glue</code> S3 class. This class works in the same way as the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Quench your thirst, then eat the crackers. A pound of sugar costs more than eggs. It snowed, rained, and hailed the same morning. Split the log with a quick, sharp blow. Cars and busses stalled in snow drifts.</span></code></pre></div>
-<p>Quench your thirst, then eat the crackers. A pound of sugar costs more than eggs. It snowed, rained, and hailed the same morning. Split the log with a quick, sharp blow. Cars and busses stalled in snow drifts.</p>
+<span class="co">#&gt; A thing of small note can cause despair. The hat brim was wide and too droopy. The red tape bound the smuggled food. He sent the boy on a short errand. Quench your thirst, then eat the crackers.</span></code></pre></div>
+<p>A thing of small note can cause despair. The hat brim was wide and too droopy. The red tape bound the smuggled food. He sent the boy on a short errand. Quench your thirst, then eat the crackers.</p>
 </div>
 </div>
   </div>

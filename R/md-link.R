@@ -64,8 +64,8 @@ md_link <- function(text, url, title = NULL, ..., .name = FALSE) {
 #' description has inline elements as its contents. When an image is rendered to
 #' HTML, this is standardly used as the image’s `alt` attribute.
 #' @param url A character vector of link destination (URL) strings.
-#' @param alt A character vector of [alternative text](https://w.wiki/GHn) that
-#'   can be used to refer to an image.
+#' @param alt A character vector of alternative text that can be used to refer
+#'   to an image.
 #' @param title The optional title of the link.
 #' @param ... A sequence of `alt = "/url"` named vector pairs. If any such
 #'   pairs are provided, `.name` will be considered `TRUE`.

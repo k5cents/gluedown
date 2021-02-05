@@ -9,8 +9,8 @@ md_image(url, alt = "", title = NULL, ..., .name = FALSE)
 \arguments{
 \item{url}{A character vector of link destination (URL) strings.}
 
-\item{alt}{A character vector of \href{https://w.wiki/GHn}{alternative text} that
-can be used to refer to an image.}
+\item{alt}{A character vector of alternative text that can be used to refer
+to an image.}
 
 \item{title}{The optional title of the link.}
 

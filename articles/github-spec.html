@@ -322,20 +322,20 @@ _world_.
 <code class="sourceCode R"><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The spot on the blotter was made by green ink.</span>
+<span class="co">#&gt; The smell of burned rags itches my nose.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Dig deep in the earth for pirate's gold.</span>
+<span class="co">#&gt; Farmers came in to thresh the oat crop.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; It takes heat to bring out the odor.</span>
+<span class="co">#&gt; The youth drove with zest, but little skill.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The work of the tailor is seen on each side.</span>
+<span class="co">#&gt; The box was thrown beside the parked truck.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The hostess taught the new maid to serve.</span></code></pre></div>
-<p>The spot on the blotter was made by green ink.</p>
-<p>Dig deep in the earth for pirate’s gold.</p>
-<p>It takes heat to bring out the odor.</p>
-<p>The work of the tailor is seen on each side.</p>
-<p>The hostess taught the new maid to serve.</p>
+<span class="co">#&gt; Seed is needed to plant the spring corn.</span></code></pre></div>
+<p>The smell of burned rags itches my nose.</p>
+<p>Farmers came in to thresh the oat crop.</p>
+<p>The youth drove with zest, but little skill.</p>
+<p>The box was thrown beside the parked truck.</p>
+<p>Seed is needed to plant the spring corn.</p>
 </div>
 <div id="blank-lines" class="section level3">
 <h3 class="hasAnchor">
@@ -487,25 +487,25 @@ _world_.
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; &gt; The spot on the blotter was made by green ink.</span>
-<span class="co">#&gt; &gt; Dig deep in the earth for pirate's gold.</span>
-<span class="co">#&gt; &gt; It takes heat to bring out the odor.</span>
-<span class="co">#&gt; &gt; The work of the tailor is seen on each side.</span>
-<span class="co">#&gt; &gt; The hostess taught the new maid to serve.</span></code></pre></div>
+<span class="co">#&gt; &gt; The smell of burned rags itches my nose.</span>
+<span class="co">#&gt; &gt; Farmers came in to thresh the oat crop.</span>
+<span class="co">#&gt; &gt; The youth drove with zest, but little skill.</span>
+<span class="co">#&gt; &gt; The box was thrown beside the parked truck.</span>
+<span class="co">#&gt; &gt; Seed is needed to plant the spring corn.</span></code></pre></div>
 <blockquote>
-<p>The spot on the blotter was made by green ink.</p>
+<p>The smell of burned rags itches my nose.</p>
 </blockquote>
 <blockquote>
-<p>Dig deep in the earth for pirate’s gold.</p>
+<p>Farmers came in to thresh the oat crop.</p>
 </blockquote>
 <blockquote>
-<p>It takes heat to bring out the odor.</p>
+<p>The youth drove with zest, but little skill.</p>
 </blockquote>
 <blockquote>
-<p>The work of the tailor is seen on each side.</p>
+<p>The box was thrown beside the parked truck.</p>
 </blockquote>
 <blockquote>
-<p>The hostess taught the new maid to serve.</p>
+<p>Seed is needed to plant the spring corn.</p>
 </blockquote>
 </div>
 <div id="list-items" class="section level3">
@@ -531,27 +531,27 @@ _world_.
 <p>Markdown extensions like this one are optionally supported on different venues. On GitHub (in <code>README.md</code> files, issues, or comments, etc.) these tasks list are rendered as check boxes, sometimes even interactable. On other venues, like this very HTML vignette, these check boxes just render are bullet lists with weird bracket boxes on each line.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>
-<span class="co">#&gt; * [ ] The spot on the blotter was made by green ink.</span>
-<span class="co">#&gt; * [ ] Dig deep in the earth for pirate's gold.</span>
-<span class="co">#&gt; * [x] It takes heat to bring out the odor.</span>
-<span class="co">#&gt; * [x] The work of the tailor is seen on each side.</span>
-<span class="co">#&gt; * [ ] The hostess taught the new maid to serve.</span></code></pre></div>
+<span class="co">#&gt; * [ ] The smell of burned rags itches my nose.</span>
+<span class="co">#&gt; * [ ] Farmers came in to thresh the oat crop.</span>
+<span class="co">#&gt; * [x] The youth drove with zest, but little skill.</span>
+<span class="co">#&gt; * [x] The box was thrown beside the parked truck.</span>
+<span class="co">#&gt; * [ ] Seed is needed to plant the spring corn.</span></code></pre></div>
 <ul>
 <li>
 <input type="checkbox" disabled>
-The spot on the blotter was made by green ink.</li>
+The smell of burned rags itches my nose.</li>
 <li>
 <input type="checkbox" disabled>
-Dig deep in the earth for pirate’s gold.</li>
+Farmers came in to thresh the oat crop.</li>
 <li>
 <input type="checkbox" disabled checked>
-It takes heat to bring out the odor.</li>
+The youth drove with zest, but little skill.</li>
 <li>
 <input type="checkbox" disabled checked>
-The work of the tailor is seen on each side.</li>
+The box was thrown beside the parked truck.</li>
 <li>
 <input type="checkbox" disabled>
-The hostess taught the new maid to serve.</li>
+Seed is needed to plant the spring corn.</li>
 </ul>
 </div>
 <div id="lists" class="section level3">
@@ -568,43 +568,43 @@ The hostess taught the new maid to serve.</li>
 <code class="sourceCode R"><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt; * North Carolina</span>
-<span class="co">#&gt; * South Dakota</span>
-<span class="co">#&gt; * Louisiana</span></code></pre></div>
+<span class="co">#&gt; * Washington</span>
+<span class="co">#&gt; * Pennsylvania</span>
+<span class="co">#&gt; * New Jersey</span></code></pre></div>
 <ul>
-<li>North Carolina</li>
-<li>South Dakota</li>
-<li>Louisiana</li>
+<li>Washington</li>
+<li>Pennsylvania</li>
+<li>New Jersey</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span>
-<span class="co">#&gt; + North Carolina</span>
-<span class="co">#&gt; + South Dakota</span>
-<span class="co">#&gt; + Louisiana</span></code></pre></div>
+<span class="co">#&gt; + Washington</span>
+<span class="co">#&gt; + Pennsylvania</span>
+<span class="co">#&gt; + New Jersey</span></code></pre></div>
 <ul>
-<li>North Carolina</li>
-<li>South Dakota</li>
-<li>Louisiana</li>
+<li>Washington</li>
+<li>Pennsylvania</li>
+<li>New Jersey</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt; 1. North Carolina</span>
-<span class="co">#&gt; 2. South Dakota</span>
-<span class="co">#&gt; 3. Louisiana</span></code></pre></div>
+<span class="co">#&gt; 1. Washington</span>
+<span class="co">#&gt; 2. Pennsylvania</span>
+<span class="co">#&gt; 3. New Jersey</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>North Carolina</li>
-<li>South Dakota</li>
-<li>Louisiana</li>
+<li>Washington</li>
+<li>Pennsylvania</li>
+<li>New Jersey</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span>
-<span class="co">#&gt; 1) North Carolina</span>
-<span class="co">#&gt; 1) South Dakota</span>
-<span class="co">#&gt; 1) Louisiana</span></code></pre></div>
+<span class="co">#&gt; 1) Washington</span>
+<span class="co">#&gt; 1) Pennsylvania</span>
+<span class="co">#&gt; 1) New Jersey</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>North Carolina</li>
-<li>South Dakota</li>
-<li>Louisiana</li>
+<li>Washington</li>
+<li>Pennsylvania</li>
+<li>New Jersey</li>
 </ol>
 </div>
 </div>
@@ -667,7 +667,7 @@ The hostess taught the new maid to serve.</li>
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_image.html">md_image</a></span><span class="op">(</span><span class="st">"https://www.r-project.org/Rlogo.png"</span>, alt <span class="op">=</span> <span class="st">"R logo"</span><span class="op">)</span>
 <span class="co">#&gt; ![R logo](https://www.r-project.org/Rlogo.png)</span></code></pre></div>
 <div class="figure">
-<img src="../../../../../../private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmptxgIG4/file84e4d905da1.png" alt=""><p class="caption">R logo</p>
+<img src="../../../../../../private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp6TSkaW/file7c48eb8b59.png" alt=""><p class="caption">R logo</p>
 </div>
 </div>
 <div id="disallowed-raw-html-extension" class="section level3">
@@ -713,16 +713,16 @@ The hostess taught the new maid to serve.</li>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.12 Hard line breaks</span>
 <span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The spot on the blotter was made by green ink.  </span>
-<span class="co">#&gt; Dig deep in the earth for pirate's gold.  </span>
-<span class="co">#&gt; It takes heat to bring out the odor.  </span>
-<span class="co">#&gt; The work of the tailor is seen on each side.  </span>
-<span class="co">#&gt; The hostess taught the new maid to serve.</span></code></pre></div>
-<p>The spot on the blotter was made by green ink.<br>
-Dig deep in the earth for pirate’s gold.<br>
-It takes heat to bring out the odor.<br>
-The work of the tailor is seen on each side.<br>
-The hostess taught the new maid to serve.</p>
+<span class="co">#&gt; The smell of burned rags itches my nose.  </span>
+<span class="co">#&gt; Farmers came in to thresh the oat crop.  </span>
+<span class="co">#&gt; The youth drove with zest, but little skill.  </span>
+<span class="co">#&gt; The box was thrown beside the parked truck.  </span>
+<span class="co">#&gt; Seed is needed to plant the spring corn.</span></code></pre></div>
+<p>The smell of burned rags itches my nose.<br>
+Farmers came in to thresh the oat crop.<br>
+The youth drove with zest, but little skill.<br>
+The box was thrown beside the parked truck.<br>
+Seed is needed to plant the spring corn.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not preceded by two or more spaces or a backslash is parsed as a softbreak. (A softbreak may be rendered in HTML either as a line ending or as a space. The result will be the same in browsers. In the examples here, a line ending will be used.)</p>
@@ -730,30 +730,30 @@ The hostess taught the new maid to serve.</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.13 Soft line breaks</span>
 <span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The spot on the blotter was made by green ink.</span>
-<span class="co">#&gt; Dig deep in the earth for pirate's gold.</span>
-<span class="co">#&gt; It takes heat to bring out the odor.</span>
-<span class="co">#&gt; The work of the tailor is seen on each side.</span>
-<span class="co">#&gt; The hostess taught the new maid to serve.</span></code></pre></div>
-<p>The spot on the blotter was made by green ink. Dig deep in the earth for pirate’s gold. It takes heat to bring out the odor. The work of the tailor is seen on each side. The hostess taught the new maid to serve.</p>
+<span class="co">#&gt; The smell of burned rags itches my nose.</span>
+<span class="co">#&gt; Farmers came in to thresh the oat crop.</span>
+<span class="co">#&gt; The youth drove with zest, but little skill.</span>
+<span class="co">#&gt; The box was thrown beside the parked truck.</span>
+<span class="co">#&gt; Seed is needed to plant the spring corn.</span></code></pre></div>
+<p>The smell of burned rags itches my nose. Farmers came in to thresh the oat crop. The youth drove with zest, but little skill. The box was thrown beside the parked truck. Seed is needed to plant the spring corn.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The spot on the blotter was made by green ink.</span>
+<span class="co">#&gt; The smell of burned rags itches my nose.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Dig deep in the earth for pirate's gold.</span>
+<span class="co">#&gt; Farmers came in to thresh the oat crop.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; It takes heat to bring out the odor.</span>
+<span class="co">#&gt; The youth drove with zest, but little skill.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The work of the tailor is seen on each side.</span>
+<span class="co">#&gt; The box was thrown beside the parked truck.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The hostess taught the new maid to serve.</span></code></pre></div>
-<p>The spot on the blotter was made by green ink.</p>
-<p>Dig deep in the earth for pirate’s gold.</p>
-<p>It takes heat to bring out the odor.</p>
-<p>The work of the tailor is seen on each side.</p>
-<p>The hostess taught the new maid to serve.</p>
+<span class="co">#&gt; Seed is needed to plant the spring corn.</span></code></pre></div>
+<p>The smell of burned rags itches my nose.</p>
+<p>Farmers came in to thresh the oat crop.</p>
+<p>The youth drove with zest, but little skill.</p>
+<p>The box was thrown beside the parked truck.</p>
+<p>Seed is needed to plant the spring corn.</p>
 </div>
 <div id="textual-content" class="section level3">
 <h3 class="hasAnchor">
@@ -765,31 +765,30 @@ The hostess taught the new maid to serve.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.14 Textual content</span>
 <span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The spot on the blotter was made by green ink.</span>
-<span class="co">#&gt; Dig deep in the earth for pirate's gold.</span>
-<span class="co">#&gt; It takes heat to bring out the odor.</span>
-<span class="co">#&gt; The work of the tailor is seen on each side.</span>
-<span class="co">#&gt; The hostess taught the new maid to serve.</span></code></pre></div>
-<p>The spot on the blotter was made by green ink. Dig deep in the earth for pirate’s gold. It takes heat to bring out the odor. The work of the tailor is seen on each side. The hostess taught the new maid to serve.</p>
+<span class="co">#&gt; The smell of burned rags itches my nose.</span>
+<span class="co">#&gt; Farmers came in to thresh the oat crop.</span>
+<span class="co">#&gt; The youth drove with zest, but little skill.</span>
+<span class="co">#&gt; The box was thrown beside the parked truck.</span>
+<span class="co">#&gt; Seed is needed to plant the spring corn.</span></code></pre></div>
+<p>The smell of burned rags itches my nose. Farmers came in to thresh the oat crop. The youth drove with zest, but little skill. The box was thrown beside the parked truck. Seed is needed to plant the spring corn.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; [1] "The spot on the blotter was made by green ink."</span>
-<span class="co">#&gt; [2] "Dig deep in the earth for pirate's gold."      </span>
-<span class="co">#&gt; [3] "It takes heat to bring out the odor."          </span>
-<span class="co">#&gt; [4] "The work of the tailor is seen on each side."  </span>
-<span class="co">#&gt; [5] "The hostess taught the new maid to serve."</span></code></pre></div>
-<p>[1] “The spot on the blotter was made by green ink.” [2] “Dig deep in the earth for pirate’s gold.”<br>
-[3] “It takes heat to bring out the odor.”<br>
-[4] “The work of the tailor is seen on each side.”<br>
-[5] “The hostess taught the new maid to serve.”</p>
+<span class="co">#&gt; [1] "The smell of burned rags itches my nose."    </span>
+<span class="co">#&gt; [2] "Farmers came in to thresh the oat crop."     </span>
+<span class="co">#&gt; [3] "The youth drove with zest, but little skill."</span>
+<span class="co">#&gt; [4] "The box was thrown beside the parked truck." </span>
+<span class="co">#&gt; [5] "Seed is needed to plant the spring corn."</span></code></pre></div>
+<p>[1] “The smell of burned rags itches my nose.”<br>
+[2] “Farmers came in to thresh the oat crop.”<br>
+[3] “The youth drove with zest, but little skill.” [4] “The box was thrown beside the parked truck.” [5] “Seed is needed to plant the spring corn.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the <code>glue</code> S3 class. This class works in the same way as the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The spot on the blotter was made by green ink. Dig deep in the earth for pirate's gold. It takes heat to bring out the odor. The work of the tailor is seen on each side. The hostess taught the new maid to serve.</span></code></pre></div>
-<p>The spot on the blotter was made by green ink. Dig deep in the earth for pirate’s gold. It takes heat to bring out the odor. The work of the tailor is seen on each side. The hostess taught the new maid to serve.</p>
+<span class="co">#&gt; The smell of burned rags itches my nose. Farmers came in to thresh the oat crop. The youth drove with zest, but little skill. The box was thrown beside the parked truck. Seed is needed to plant the spring corn.</span></code></pre></div>
+<p>The smell of burned rags itches my nose. Farmers came in to thresh the oat crop. The youth drove with zest, but little skill. The box was thrown beside the parked truck. Seed is needed to plant the spring corn.</p>
 </div>
 </div>
   </div>

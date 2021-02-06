@@ -6,6 +6,10 @@
 * Use `goodpractices::gp()` to fix a few issues:
     1. Trim all lines to under 80 character width.
     2. Use `vapply()` over `sapply()` in `md_setext()`.
+* The `md_link()` and `md_image()` functions have half-baked support for using
+named `...` arguments instead of the traditional vector arguments. This works
+well with a single link but not when trying to turn two lengthy vectors into
+multiple markdown links.
 
 # gluedown 1.0.2
 

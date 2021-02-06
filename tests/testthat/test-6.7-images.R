@@ -43,3 +43,19 @@ test_that("md_image creates a <img> tag without title (ex. 580)", {
     html_attr("alt") %>%
     expect_equal("foo")
 })
+
+test_that("md_image creates a <img> tag from named vector", {
+  lines <- md_image(foo = "/url")
+  lines %>%
+    md_convert() %>%
+    read_html() %>%
+    html_node("img") %>%
+    html_attr("src") %>%
+    expect_equal("/url")
+  lines %>%
+    md_convert() %>%
+    read_html() %>%
+    html_node("img") %>%
+    html_attr("alt") %>%
+    expect_equal("foo")
+})

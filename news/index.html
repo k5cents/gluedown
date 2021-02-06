@@ -144,15 +144,14 @@
 <ul>
 <li>Update <code><a href="../reference/md_table.html">md_table()</a></code> tests for rvest 1.0.0 release.</li>
 <li>Create <code><a href="../reference/md_label.html">md_label()</a></code> to use with <code><a href="../reference/md_reference.html">md_reference()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/25'>#25</a>).</li>
-<li>Try using clean <code>...</code> support in <code><a href="../reference/md_link.html">md_link()</a></code> and <code><a href="../reference/md_image.html">md_image()</a></code>
-</li>
+<li>Try using clean <code>...</code> support in <code><a href="../reference/md_link.html">md_link()</a></code> and <code><a href="../reference/md_image.html">md_image()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/26'>#26</a>).</li>
 <li>Use <code>goodpractices::gp()</code> to fix a few issues:
 <ol>
 <li>Trim all lines to under 80 character width.</li>
 <li>Use <code><a href="https://rdrr.io/r/base/lapply.html">vapply()</a></code> over <code><a href="https://rdrr.io/r/base/lapply.html">sapply()</a></code> in <code><a href="../reference/md_setext.html">md_setext()</a></code>.</li>
 </ol>
 </li>
-<li>The <code><a href="../reference/md_link.html">md_link()</a></code> and <code><a href="../reference/md_image.html">md_image()</a></code> functions have half-baked support for using named <code>...</code> arguments instead of the traditional vector arguments. This works well with a single link but not when trying to turn two lengthy vectors into multiple markdown links.</li>
+<li>The <code><a href="../reference/md_link.html">md_link()</a></code> and <code><a href="../reference/md_image.html">md_image()</a></code> functions have half-baked support for using named <code>...</code> arguments instead of the traditional vector arguments. This works well with a single link but not when trying to turn two lengthy vectors into multiple markdown links (<a href='https://github.com/kiernann/gluedown/issues/26'>#26</a>).</li>
 </ul>
 </div>
     <div id="gluedown-102" class="section level1">
@@ -162,7 +161,7 @@
 <ul>
 <li>Suggest <code>markdown</code> dependency and warn for <code><a href="../reference/md_convert.html">md_convert()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/22'>#22</a>).</li>
 <li>Suggest <code>knitr</code> dependency and write fallback for <code><a href="../reference/md_table.html">md_table()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/20'>#20</a>).</li>
-<li>Enable named vector support for <code><a href="../reference/md_link.html">md_link()</a></code>.</li>
+<li>Enable named vector support for <code><a href="../reference/md_link.html">md_link()</a></code> (<a href='https://github.com/kiernann/gluedown/issues/26'>#26</a>).</li>
 </ul>
 </div>
     <div id="gluedown-101" class="section level1">

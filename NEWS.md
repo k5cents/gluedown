@@ -2,20 +2,20 @@
 
 * Update `md_table()` tests for rvest 1.0.0 release.
 * Create `md_label()` to use with `md_reference()` (#25).
-* Try using clean `...` support in `md_link()` and `md_image()`
+* Try using clean `...` support in `md_link()` and `md_image()` (#26).
 * Use `goodpractices::gp()` to fix a few issues:
     1. Trim all lines to under 80 character width.
     2. Use `vapply()` over `sapply()` in `md_setext()`.
 * The `md_link()` and `md_image()` functions have half-baked support for using
 named `...` arguments instead of the traditional vector arguments. This works
 well with a single link but not when trying to turn two lengthy vectors into
-multiple markdown links.
+multiple markdown links (#26).
 
 # gluedown 1.0.2
 
 * Suggest `markdown` dependency and warn for `md_convert()` (#22).
 * Suggest `knitr` dependency and write fallback for `md_table()` (#20).
-* Enable named vector support for `md_link()`.
+* Enable named vector support for `md_link()` (#26).
 
 # gluedown 1.0.1
 

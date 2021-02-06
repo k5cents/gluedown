@@ -14,6 +14,12 @@ is_installed <- function(pkg) {
   isTRUE(requireNamespace(pkg, quietly = TRUE))
 }
 
+#' Check if the user has the 'knitr' package installed
+#' @export
+has_knitr <- function() {
+  is_installed(pkg = "knitr")
+}
+
 find_nodes <- function(md, node) {
   rvest::html_nodes(xml2::read_html(md_convert(md)), node)
 }

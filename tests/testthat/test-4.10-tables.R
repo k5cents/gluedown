@@ -35,3 +35,23 @@ test_that("md_table can create a table with no body (ex. 205)", {
     as.data.frame()
   expect_equal(node, df)
 })
+
+test_that("md_table works without knitr", {
+  df <- data.frame(
+    foo = "baz",
+    bar = "bim",
+    stringsAsFactors = FALSE
+  )
+  md <- mockr::with_mock(
+    .env = as.environment("package:gluedown"),
+    `has_knitr` = function() FALSE,
+    md_table(df)
+  )
+  node <- md %>%
+    md_convert() %>%
+    read_html() %>%
+    html_node("table") %>%
+    html_table() %>%
+    as.data.frame()
+  expect_equal(node, df)
+})

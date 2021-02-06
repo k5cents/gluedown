@@ -32,7 +32,7 @@
 #' @importFrom glue glue_collapse
 #' @export
 md_table <- function(x, ...) {
-  if (is_installed("knitr")) {
+  if (has_knitr()) {
     table <- knitr::kable(x, format = "markdown", ...)
   } else {
     x <- as.matrix(x)

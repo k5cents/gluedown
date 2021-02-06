@@ -2,6 +2,7 @@
 
 export("%>%")
 export(has_knitr)
+export(has_markdown)
 export(md_autolink)
 export(md_blank)
 export(md_bold)

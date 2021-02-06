@@ -2,9 +2,12 @@
 % Please edit documentation in R/utils.R
 \name{has_knitr}
 \alias{has_knitr}
+\alias{has_markdown}
 \title{Check if the user has the 'knitr' package installed}
 \usage{
 has_knitr()
+
+has_markdown()
 }
 \description{
 Check if the user has the 'knitr' package installed

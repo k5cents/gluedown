@@ -20,7 +20,7 @@
 #' @importFrom glue as_glue
 #' @export
 md_convert <- function(x, frag = TRUE, disallow = TRUE) {
-  if (!is_installed("markdown")) {
+  if (!has_markdown()) {
     stop("Package 'markdown' needed for this function to work.")
   } else {
     html <- markdown::markdownToHTML(text = x, fragment.only = frag)

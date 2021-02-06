@@ -66,3 +66,20 @@ test_that("md_chunk errors in the same was as underlying function", {
   x <- deparse(md_bold)
   expect_error(md_chunk(x, type = "indent", n = 3))
 })
+
+test_that("md_convert fails without markdown", {
+  mockr::with_mock(
+    .env = as.environment("package:gluedown"),
+    `has_markdown` = function() FALSE,
+    expect_error(md_convert("**bold**"))
+  )
+})
+
+test_that("md_convert works without dissalowing HTML", {
+  html <- md_convert("<title>Title</title>", disallow = FALSE)
+  html %>%
+    read_html() %>%
+    html_node("title") %>%
+    html_text() %>%
+    expect_equal("Title")
+})

@@ -20,6 +20,12 @@ has_knitr <- function() {
   is_installed(pkg = "knitr")
 }
 
+#' @rdname has_knitr
+#' @export
+has_markdown <- function() {
+  is_installed(pkg = "markdown")
+}
+
 find_nodes <- function(md, node) {
   rvest::html_nodes(xml2::read_html(md_convert(md)), node)
 }

@@ -28,6 +28,7 @@ Suggests:
     httr (>= 1.4.1),
     knitr (>= 1.25),
     markdown (>= 1.1),
+    mockr (>= 0.1),
     rmarkdown (>= 1.16),
     rvest (>= 0.3.2),
     spelling (>= 2.1),

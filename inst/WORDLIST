@@ -24,6 +24,7 @@ implementors
 inmutable
 interactable
 interpretable
+knitr
 magrittr
 pandoc
 pre
@@ -33,6 +34,7 @@ programmatically
 repo
 reproducibility
 rmarkdown
+rvest
 setext
 softbreak
 standardly

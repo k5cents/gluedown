@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
@@ -105,7 +105,7 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://kiernann.com/gluedown/">gluedown</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org">stringr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span></code></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span></code></pre></div>
 <p>In this vignette, we will explore how the functions in <code>gluedown</code> enable users to transition from R vectors to the kind of formatted markdown text used in the GitHub Flavored Markdown (GFM) specification. Functions like <code><a href="../reference/md_bullet.html">md_bullet()</a></code> and <code><a href="../reference/md_quote.html">md_quote()</a></code> may be used more often, but there are functions for practically every section of the GFM spec including, some of which have limited practical value (e.g., <code><a href="../reference/md_blank.html">md_blank()</a></code> and <code><a href="../reference/md_text.html">md_text()</a></code>).</p>
 <p>In each section of this vignette, the GFM spec is quoted first and followed by <code>gluedown</code> function usage. For each R code block containing <code>gluedown</code> usage, the raw text is shows as <code>#&gt;</code> comments followed by the rendered HTML version, which is printed using the <code>results='asis'</code> option of the <code>knitr</code> package. (To achieve this output, each block is actually repeated twice, with the code of the second result printing block hidden via <code>echo=FALSE</code>.)</p>
 <div id="blocks-and-inlines" class="section level2">
@@ -322,20 +322,20 @@ _world_.
 <code class="sourceCode R"><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The smell of burned rags itches my nose.</span>
+<span class="co">#&gt; A bowl of rice is free with chicken stew.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Farmers came in to thresh the oat crop.</span>
+<span class="co">#&gt; The box is held by a bright red snapper.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The youth drove with zest, but little skill.</span>
+<span class="co">#&gt; The soft cushion broke the man's fall.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The box was thrown beside the parked truck.</span>
+<span class="co">#&gt; The frosty air passed through the coat.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Seed is needed to plant the spring corn.</span></code></pre></div>
-<p>The smell of burned rags itches my nose.</p>
-<p>Farmers came in to thresh the oat crop.</p>
-<p>The youth drove with zest, but little skill.</p>
-<p>The box was thrown beside the parked truck.</p>
-<p>Seed is needed to plant the spring corn.</p>
+<span class="co">#&gt; They took their kids from the public school.</span></code></pre></div>
+<p>A bowl of rice is free with chicken stew.</p>
+<p>The box is held by a bright red snapper.</p>
+<p>The soft cushion broke the man’s fall.</p>
+<p>The frosty air passed through the coat.</p>
+<p>They took their kids from the public school.</p>
 </div>
 <div id="blank-lines" class="section level3">
 <h3 class="hasAnchor">
@@ -476,8 +476,8 @@ _world_.
 </blockquote>
 <p>I’ve been copy-pasting block quotes from the GFM spec in this vignette, but we can also use <code><a href="../reference/md_quote.html">md_quote()</a></code> to grammatically create or manipulate strings and print them as block quotes.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">read_html</span><span class="op">(</span><span class="st">"https://w.wiki/A58"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_nodes.html">html_node</a></span><span class="op">(</span><span class="st">"blockquote"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_html</a></span><span class="op">(</span><span class="st">"https://w.wiki/A58"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rvest.tidyverse.org/reference/rename.html">html_node</a></span><span class="op">(</span><span class="st">"blockquote"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_text.html">html_text</a></span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span><span class="st">"\\[(.*)\\]"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="op">)</span>
@@ -487,25 +487,25 @@ _world_.
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; &gt; The smell of burned rags itches my nose.</span>
-<span class="co">#&gt; &gt; Farmers came in to thresh the oat crop.</span>
-<span class="co">#&gt; &gt; The youth drove with zest, but little skill.</span>
-<span class="co">#&gt; &gt; The box was thrown beside the parked truck.</span>
-<span class="co">#&gt; &gt; Seed is needed to plant the spring corn.</span></code></pre></div>
+<span class="co">#&gt; &gt; A bowl of rice is free with chicken stew.</span>
+<span class="co">#&gt; &gt; The box is held by a bright red snapper.</span>
+<span class="co">#&gt; &gt; The soft cushion broke the man's fall.</span>
+<span class="co">#&gt; &gt; The frosty air passed through the coat.</span>
+<span class="co">#&gt; &gt; They took their kids from the public school.</span></code></pre></div>
 <blockquote>
-<p>The smell of burned rags itches my nose.</p>
+<p>A bowl of rice is free with chicken stew.</p>
 </blockquote>
 <blockquote>
-<p>Farmers came in to thresh the oat crop.</p>
+<p>The box is held by a bright red snapper.</p>
 </blockquote>
 <blockquote>
-<p>The youth drove with zest, but little skill.</p>
+<p>The soft cushion broke the man’s fall.</p>
 </blockquote>
 <blockquote>
-<p>The box was thrown beside the parked truck.</p>
+<p>The frosty air passed through the coat.</p>
 </blockquote>
 <blockquote>
-<p>Seed is needed to plant the spring corn.</p>
+<p>They took their kids from the public school.</p>
 </blockquote>
 </div>
 <div id="list-items" class="section level3">
@@ -531,27 +531,27 @@ _world_.
 <p>Markdown extensions like this one are optionally supported on different venues. On GitHub (in <code>README.md</code> files, issues, or comments, etc.) these tasks list are rendered as check boxes, sometimes even interactable. On other venues, like this very HTML vignette, these check boxes just render are bullet lists with weird bracket boxes on each line.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>
-<span class="co">#&gt; * [ ] The smell of burned rags itches my nose.</span>
-<span class="co">#&gt; * [ ] Farmers came in to thresh the oat crop.</span>
-<span class="co">#&gt; * [x] The youth drove with zest, but little skill.</span>
-<span class="co">#&gt; * [x] The box was thrown beside the parked truck.</span>
-<span class="co">#&gt; * [ ] Seed is needed to plant the spring corn.</span></code></pre></div>
+<span class="co">#&gt; * [ ] A bowl of rice is free with chicken stew.</span>
+<span class="co">#&gt; * [ ] The box is held by a bright red snapper.</span>
+<span class="co">#&gt; * [x] The soft cushion broke the man's fall.</span>
+<span class="co">#&gt; * [x] The frosty air passed through the coat.</span>
+<span class="co">#&gt; * [ ] They took their kids from the public school.</span></code></pre></div>
 <ul>
 <li>
 <input type="checkbox" disabled>
-The smell of burned rags itches my nose.</li>
+A bowl of rice is free with chicken stew.</li>
 <li>
 <input type="checkbox" disabled>
-Farmers came in to thresh the oat crop.</li>
+The box is held by a bright red snapper.</li>
 <li>
 <input type="checkbox" disabled checked>
-The youth drove with zest, but little skill.</li>
+The soft cushion broke the man’s fall.</li>
 <li>
 <input type="checkbox" disabled checked>
-The box was thrown beside the parked truck.</li>
+The frosty air passed through the coat.</li>
 <li>
 <input type="checkbox" disabled>
-Seed is needed to plant the spring corn.</li>
+They took their kids from the public school.</li>
 </ul>
 </div>
 <div id="lists" class="section level3">
@@ -568,43 +568,43 @@ Seed is needed to plant the spring corn.</li>
 <code class="sourceCode R"><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt; * Washington</span>
-<span class="co">#&gt; * Pennsylvania</span>
-<span class="co">#&gt; * New Jersey</span></code></pre></div>
+<span class="co">#&gt; * New Jersey</span>
+<span class="co">#&gt; * Alabama</span>
+<span class="co">#&gt; * Louisiana</span></code></pre></div>
 <ul>
-<li>Washington</li>
-<li>Pennsylvania</li>
 <li>New Jersey</li>
+<li>Alabama</li>
+<li>Louisiana</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span>
-<span class="co">#&gt; + Washington</span>
-<span class="co">#&gt; + Pennsylvania</span>
-<span class="co">#&gt; + New Jersey</span></code></pre></div>
+<span class="co">#&gt; + New Jersey</span>
+<span class="co">#&gt; + Alabama</span>
+<span class="co">#&gt; + Louisiana</span></code></pre></div>
 <ul>
-<li>Washington</li>
-<li>Pennsylvania</li>
 <li>New Jersey</li>
+<li>Alabama</li>
+<li>Louisiana</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt; 1. Washington</span>
-<span class="co">#&gt; 2. Pennsylvania</span>
-<span class="co">#&gt; 3. New Jersey</span></code></pre></div>
+<span class="co">#&gt; 1. New Jersey</span>
+<span class="co">#&gt; 2. Alabama</span>
+<span class="co">#&gt; 3. Louisiana</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Washington</li>
-<li>Pennsylvania</li>
 <li>New Jersey</li>
+<li>Alabama</li>
+<li>Louisiana</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span>
-<span class="co">#&gt; 1) Washington</span>
-<span class="co">#&gt; 1) Pennsylvania</span>
-<span class="co">#&gt; 1) New Jersey</span></code></pre></div>
+<span class="co">#&gt; 1) New Jersey</span>
+<span class="co">#&gt; 1) Alabama</span>
+<span class="co">#&gt; 1) Louisiana</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Washington</li>
-<li>Pennsylvania</li>
 <li>New Jersey</li>
+<li>Alabama</li>
+<li>Louisiana</li>
 </ol>
 </div>
 </div>
@@ -667,7 +667,7 @@ Seed is needed to plant the spring corn.</li>
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_image.html">md_image</a></span><span class="op">(</span><span class="st">"https://www.r-project.org/Rlogo.png"</span>, alt <span class="op">=</span> <span class="st">"R logo"</span><span class="op">)</span>
 <span class="co">#&gt; ![R logo](https://www.r-project.org/Rlogo.png)</span></code></pre></div>
 <div class="figure">
-<img src="../../../../../../private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp6TSkaW/file7c48eb8b59.png" alt=""><p class="caption">R logo</p>
+<img src="../../../../../../private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmph9Fl2b/file6c93a0d39e.png" alt=""><p class="caption">R logo</p>
 </div>
 </div>
 <div id="disallowed-raw-html-extension" class="section level3">
@@ -713,16 +713,16 @@ Seed is needed to plant the spring corn.</li>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.12 Hard line breaks</span>
 <span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The smell of burned rags itches my nose.  </span>
-<span class="co">#&gt; Farmers came in to thresh the oat crop.  </span>
-<span class="co">#&gt; The youth drove with zest, but little skill.  </span>
-<span class="co">#&gt; The box was thrown beside the parked truck.  </span>
-<span class="co">#&gt; Seed is needed to plant the spring corn.</span></code></pre></div>
-<p>The smell of burned rags itches my nose.<br>
-Farmers came in to thresh the oat crop.<br>
-The youth drove with zest, but little skill.<br>
-The box was thrown beside the parked truck.<br>
-Seed is needed to plant the spring corn.</p>
+<span class="co">#&gt; A bowl of rice is free with chicken stew.  </span>
+<span class="co">#&gt; The box is held by a bright red snapper.  </span>
+<span class="co">#&gt; The soft cushion broke the man's fall.  </span>
+<span class="co">#&gt; The frosty air passed through the coat.  </span>
+<span class="co">#&gt; They took their kids from the public school.</span></code></pre></div>
+<p>A bowl of rice is free with chicken stew.<br>
+The box is held by a bright red snapper.<br>
+The soft cushion broke the man’s fall.<br>
+The frosty air passed through the coat.<br>
+They took their kids from the public school.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not preceded by two or more spaces or a backslash is parsed as a softbreak. (A softbreak may be rendered in HTML either as a line ending or as a space. The result will be the same in browsers. In the examples here, a line ending will be used.)</p>
@@ -730,30 +730,30 @@ Seed is needed to plant the spring corn.</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.13 Soft line breaks</span>
 <span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The smell of burned rags itches my nose.</span>
-<span class="co">#&gt; Farmers came in to thresh the oat crop.</span>
-<span class="co">#&gt; The youth drove with zest, but little skill.</span>
-<span class="co">#&gt; The box was thrown beside the parked truck.</span>
-<span class="co">#&gt; Seed is needed to plant the spring corn.</span></code></pre></div>
-<p>The smell of burned rags itches my nose. Farmers came in to thresh the oat crop. The youth drove with zest, but little skill. The box was thrown beside the parked truck. Seed is needed to plant the spring corn.</p>
+<span class="co">#&gt; A bowl of rice is free with chicken stew.</span>
+<span class="co">#&gt; The box is held by a bright red snapper.</span>
+<span class="co">#&gt; The soft cushion broke the man's fall.</span>
+<span class="co">#&gt; The frosty air passed through the coat.</span>
+<span class="co">#&gt; They took their kids from the public school.</span></code></pre></div>
+<p>A bowl of rice is free with chicken stew. The box is held by a bright red snapper. The soft cushion broke the man’s fall. The frosty air passed through the coat. They took their kids from the public school.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The smell of burned rags itches my nose.</span>
+<span class="co">#&gt; A bowl of rice is free with chicken stew.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Farmers came in to thresh the oat crop.</span>
+<span class="co">#&gt; The box is held by a bright red snapper.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The youth drove with zest, but little skill.</span>
+<span class="co">#&gt; The soft cushion broke the man's fall.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The box was thrown beside the parked truck.</span>
+<span class="co">#&gt; The frosty air passed through the coat.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Seed is needed to plant the spring corn.</span></code></pre></div>
-<p>The smell of burned rags itches my nose.</p>
-<p>Farmers came in to thresh the oat crop.</p>
-<p>The youth drove with zest, but little skill.</p>
-<p>The box was thrown beside the parked truck.</p>
-<p>Seed is needed to plant the spring corn.</p>
+<span class="co">#&gt; They took their kids from the public school.</span></code></pre></div>
+<p>A bowl of rice is free with chicken stew.</p>
+<p>The box is held by a bright red snapper.</p>
+<p>The soft cushion broke the man’s fall.</p>
+<p>The frosty air passed through the coat.</p>
+<p>They took their kids from the public school.</p>
 </div>
 <div id="textual-content" class="section level3">
 <h3 class="hasAnchor">
@@ -765,30 +765,32 @@ Seed is needed to plant the spring corn.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.14 Textual content</span>
 <span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The smell of burned rags itches my nose.</span>
-<span class="co">#&gt; Farmers came in to thresh the oat crop.</span>
-<span class="co">#&gt; The youth drove with zest, but little skill.</span>
-<span class="co">#&gt; The box was thrown beside the parked truck.</span>
-<span class="co">#&gt; Seed is needed to plant the spring corn.</span></code></pre></div>
-<p>The smell of burned rags itches my nose. Farmers came in to thresh the oat crop. The youth drove with zest, but little skill. The box was thrown beside the parked truck. Seed is needed to plant the spring corn.</p>
+<span class="co">#&gt; A bowl of rice is free with chicken stew.</span>
+<span class="co">#&gt; The box is held by a bright red snapper.</span>
+<span class="co">#&gt; The soft cushion broke the man's fall.</span>
+<span class="co">#&gt; The frosty air passed through the coat.</span>
+<span class="co">#&gt; They took their kids from the public school.</span></code></pre></div>
+<p>A bowl of rice is free with chicken stew. The box is held by a bright red snapper. The soft cushion broke the man’s fall. The frosty air passed through the coat. They took their kids from the public school.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; [1] "The smell of burned rags itches my nose."    </span>
-<span class="co">#&gt; [2] "Farmers came in to thresh the oat crop."     </span>
-<span class="co">#&gt; [3] "The youth drove with zest, but little skill."</span>
-<span class="co">#&gt; [4] "The box was thrown beside the parked truck." </span>
-<span class="co">#&gt; [5] "Seed is needed to plant the spring corn."</span></code></pre></div>
-<p>[1] “The smell of burned rags itches my nose.”<br>
-[2] “Farmers came in to thresh the oat crop.”<br>
-[3] “The youth drove with zest, but little skill.” [4] “The box was thrown beside the parked truck.” [5] “Seed is needed to plant the spring corn.”</p>
+<span class="co">#&gt; [1] "A bowl of rice is free with chicken stew."   </span>
+<span class="co">#&gt; [2] "The box is held by a bright red snapper."    </span>
+<span class="co">#&gt; [3] "The soft cushion broke the man's fall."      </span>
+<span class="co">#&gt; [4] "The frosty air passed through the coat."     </span>
+<span class="co">#&gt; [5] "They took their kids from the public school."</span></code></pre></div>
+<p>[1] “A bowl of rice is free with chicken stew.”<br>
+[2] “The box is held by a bright red snapper.”<br>
+[3] “The soft cushion broke the man’s fall.”<br>
+[4] “The frosty air passed through the coat.”<br>
+[5] “They took their kids from the public school.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the <code>glue</code> S3 class. This class works in the same way as the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The smell of burned rags itches my nose. Farmers came in to thresh the oat crop. The youth drove with zest, but little skill. The box was thrown beside the parked truck. Seed is needed to plant the spring corn.</span></code></pre></div>
-<p>The smell of burned rags itches my nose. Farmers came in to thresh the oat crop. The youth drove with zest, but little skill. The box was thrown beside the parked truck. Seed is needed to plant the spring corn.</p>
+<span class="co">#&gt; A bowl of rice is free with chicken stew. The box is held by a bright red snapper. The soft cushion broke the man's fall. The frosty air passed through the coat. They took their kids from the public school.</span></code></pre></div>
+<p>A bowl of rice is free with chicken stew. The box is held by a bright red snapper. The soft cushion broke the man’s fall. The frosty air passed through the coat. They took their kids from the public school.</p>
 </div>
 </div>
   </div>

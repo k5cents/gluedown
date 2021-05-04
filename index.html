@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
       </span>
     </div>
 
@@ -121,7 +121,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://kiernann.com/gluedown/">gluedown</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org">stringr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span></code></pre></div>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span></code></pre></div>
 <p>Use the <code>results='asis'</code> chunk option to print the formatted output to the body of a document.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="bn">```{r results='asis'}</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="bn">md_order(x = c("Legislative", "Executive", "Judicial"))</span></span>
@@ -174,8 +174,8 @@
 <a href="#pipes" class="anchor"></a>Pipes</h3>
 <p>All functions are designed to fit within the tidyverse ecosystem and work with <a href="https://magrittr.tidyverse.org/reference/pipe.html">pipes</a>.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">read_html</span><span class="op">(</span><span class="st">"https://w.wiki/A58"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_nodes.html">html_node</a></span><span class="op">(</span><span class="st">"blockquote"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_html</a></span><span class="op">(</span><span class="st">"https://w.wiki/A58"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rvest.tidyverse.org/reference/rename.html">html_node</a></span><span class="op">(</span><span class="st">"blockquote"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_text.html">html_text</a></span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span><span class="st">"\\[.*\\]"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>

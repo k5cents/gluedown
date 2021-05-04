@@ -1,3 +1,7 @@
+# gluedown 1.0.4
+
+* Remove `LazyData` from DESCRIPTION per new CRAN rules. Package has no data.
+
 # gluedown 1.0.3
 
 * Update `md_table()` tests for rvest 1.0.0 release.

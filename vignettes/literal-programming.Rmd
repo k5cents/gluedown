@@ -39,11 +39,23 @@ the markdown standard. Using the `rvest` package, we can programmatically scrape
 Gruber's blog, extract HTML paragraph tags, and convert those tags to character
 vectors.
 
-```{r markdown_desc}
+```{r markdown_desc, eval=FALSE}
 markdown_blog <- 
   read_html("https://daringfireball.net/projects/markdown/") %>% 
-  html_nodes("p") %>% 
+  html_elements("p") %>% 
   html_text()
+```
+
+```{r echo=FALSE}
+x <- tryCatch(
+  expr = read_html("https://daringfireball.net/projects/markdown/"),
+  error = function(e) NULL
+)
+if (!is.null(x)) {
+ markdown_blog <- html_text(html_elements(x, "p"))
+} else {
+  markdown_blog <- LETTERS
+}
 ```
 
 Gruber first explains _what_ exactly his markdown language is.
@@ -228,12 +240,27 @@ the results of one function into the beginning of the next. By ending this
 1. Remove Wikipedia's bracketed note
 1. Print that vector as a markdown block quote
 
-```{r blockquote, results='asis'}
+```{r blockquote, results='asis', eval=FALSE}
 read_html("https://w.wiki/A58") %>% # 1
-  html_node("blockquote") %>%       # 2
+  html_element("blockquote") %>%    # 2
   html_text(trim = TRUE) %>%        # 3
   str_remove("\\[(.*)\\]") %>%      # 4
   md_quote()                        # 5
+```
+
+```{r results='asis', echo=FALSE}
+w <- "https://en.wikipedia.org/wiki/Preamble_to_the_United_States_Constitution"
+x <- tryCatch(
+  expr = read_html(w),
+  error = function(e) NULL
+)
+if (!is.null(x)) {
+  x %>%
+    html_element("blockquote") %>%
+    html_text(trim = TRUE) %>%
+    str_remove("\\[(.*)\\]") %>%
+    md_quote() 
+}  
 ```
 
 [pipe]: https://magrittr.tidyverse.org/reference/pipe.html

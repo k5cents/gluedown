@@ -16,9 +16,14 @@
 
 0 errors | 0 warnings | 0 notes
 
+## Resubmission
+
+* Remove `LazyData` from DESCRIPTION per new CRAN rules. Package has no data.
+* Used `tryCatch()` when downloading data. Can run without internet connection.
+
 <!-- links: start -->
 [gh_act]: https://github.com/kiernann/gluedown/actions
-[rhub_win]: https://builder.r-hub.io/status/gluedown_1.0.3.tar.gz-cbb812dfe2e74a71a53cf01505c38092
-[rhub_ubu]: https://builder.r-hub.io/status/gluedown_1.0.3.tar.gz-20264fdfccb94d11ad0eb02f4f1b8dd7
-[rhub_fed]: https://builder.r-hub.io/status/gluedown_1.0.3.tar.gz-d204e734f29849b7bd044c18930b8005
+[rhub_win]: https://builder.r-hub.io/status/gluedown_1.0.4.tar.gz-d803fb486c644b2fbcb7d62ca5b1d405
+[rhub_ubu]: https://builder.r-hub.io/status/gluedown_1.0.4.tar.gz-17912d7e2d5f46098b4ebf2755096ffd
+[rhub_fed]: https://builder.r-hub.io/status/gluedown_1.0.4.tar.gz-0d4589b34c1648e58a641fcb1c1044e4
 <!-- links: end -->

@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4.9000</span>
       </span>
     </div>
 
@@ -322,20 +322,20 @@ _world_.
 <code class="sourceCode R"><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Green ice frosted the punch bowl.</span>
+<span class="co">#&gt; The red tape bound the smuggled food.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; He wrote his name boldly at the top of tile sheet.</span>
+<span class="co">#&gt; That move means the game is over.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The doorknob was made of bright clean brass.</span>
+<span class="co">#&gt; Seven seals were stamped on great sheets.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The box is held by a bright red snapper.</span>
+<span class="co">#&gt; The gold vase is both rare and costly.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Port is a strong wine with s smoky taste.</span></code></pre></div>
-<p>Green ice frosted the punch bowl.</p>
-<p>He wrote his name boldly at the top of tile sheet.</p>
-<p>The doorknob was made of bright clean brass.</p>
-<p>The box is held by a bright red snapper.</p>
-<p>Port is a strong wine with s smoky taste.</p>
+<span class="co">#&gt; Breathe deep and smell the piny air.</span></code></pre></div>
+<p>The red tape bound the smuggled food.</p>
+<p>That move means the game is over.</p>
+<p>Seven seals were stamped on great sheets.</p>
+<p>The gold vase is both rare and costly.</p>
+<p>Breathe deep and smell the piny air.</p>
 </div>
 <div id="blank-lines" class="section level3">
 <h3 class="hasAnchor">
@@ -486,25 +486,25 @@ _world_.
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; &gt; Green ice frosted the punch bowl.</span>
-<span class="co">#&gt; &gt; He wrote his name boldly at the top of tile sheet.</span>
-<span class="co">#&gt; &gt; The doorknob was made of bright clean brass.</span>
-<span class="co">#&gt; &gt; The box is held by a bright red snapper.</span>
-<span class="co">#&gt; &gt; Port is a strong wine with s smoky taste.</span></code></pre></div>
+<span class="co">#&gt; &gt; The red tape bound the smuggled food.</span>
+<span class="co">#&gt; &gt; That move means the game is over.</span>
+<span class="co">#&gt; &gt; Seven seals were stamped on great sheets.</span>
+<span class="co">#&gt; &gt; The gold vase is both rare and costly.</span>
+<span class="co">#&gt; &gt; Breathe deep and smell the piny air.</span></code></pre></div>
 <blockquote>
-<p>Green ice frosted the punch bowl.</p>
+<p>The red tape bound the smuggled food.</p>
 </blockquote>
 <blockquote>
-<p>He wrote his name boldly at the top of tile sheet.</p>
+<p>That move means the game is over.</p>
 </blockquote>
 <blockquote>
-<p>The doorknob was made of bright clean brass.</p>
+<p>Seven seals were stamped on great sheets.</p>
 </blockquote>
 <blockquote>
-<p>The box is held by a bright red snapper.</p>
+<p>The gold vase is both rare and costly.</p>
 </blockquote>
 <blockquote>
-<p>Port is a strong wine with s smoky taste.</p>
+<p>Breathe deep and smell the piny air.</p>
 </blockquote>
 </div>
 <div id="list-items" class="section level3">
@@ -530,27 +530,27 @@ _world_.
 <p>Markdown extensions like this one are optionally supported on different venues. On GitHub (in <code>README.md</code> files, issues, or comments, etc.) these tasks list are rendered as check boxes, sometimes even interactable. On other venues, like this very HTML vignette, these check boxes just render are bullet lists with weird bracket boxes on each line.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>
-<span class="co">#&gt; * [ ] Green ice frosted the punch bowl.</span>
-<span class="co">#&gt; * [ ] He wrote his name boldly at the top of tile sheet.</span>
-<span class="co">#&gt; * [x] The doorknob was made of bright clean brass.</span>
-<span class="co">#&gt; * [x] The box is held by a bright red snapper.</span>
-<span class="co">#&gt; * [ ] Port is a strong wine with s smoky taste.</span></code></pre></div>
+<span class="co">#&gt; * [ ] The red tape bound the smuggled food.</span>
+<span class="co">#&gt; * [ ] That move means the game is over.</span>
+<span class="co">#&gt; * [x] Seven seals were stamped on great sheets.</span>
+<span class="co">#&gt; * [x] The gold vase is both rare and costly.</span>
+<span class="co">#&gt; * [ ] Breathe deep and smell the piny air.</span></code></pre></div>
 <ul>
 <li>
 <input type="checkbox" disabled>
-Green ice frosted the punch bowl.</li>
+The red tape bound the smuggled food.</li>
 <li>
 <input type="checkbox" disabled>
-He wrote his name boldly at the top of tile sheet.</li>
+That move means the game is over.</li>
 <li>
 <input type="checkbox" disabled checked>
-The doorknob was made of bright clean brass.</li>
+Seven seals were stamped on great sheets.</li>
 <li>
 <input type="checkbox" disabled checked>
-The box is held by a bright red snapper.</li>
+The gold vase is both rare and costly.</li>
 <li>
 <input type="checkbox" disabled>
-Port is a strong wine with s smoky taste.</li>
+Breathe deep and smell the piny air.</li>
 </ul>
 </div>
 <div id="lists" class="section level3">
@@ -567,43 +567,43 @@ Port is a strong wine with s smoky taste.</li>
 <code class="sourceCode R"><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt; * New Mexico</span>
-<span class="co">#&gt; * Alabama</span>
-<span class="co">#&gt; * Illinois</span></code></pre></div>
+<span class="co">#&gt; * Maine</span>
+<span class="co">#&gt; * California</span>
+<span class="co">#&gt; * Colorado</span></code></pre></div>
 <ul>
-<li>New Mexico</li>
-<li>Alabama</li>
-<li>Illinois</li>
+<li>Maine</li>
+<li>California</li>
+<li>Colorado</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span>
-<span class="co">#&gt; + New Mexico</span>
-<span class="co">#&gt; + Alabama</span>
-<span class="co">#&gt; + Illinois</span></code></pre></div>
+<span class="co">#&gt; + Maine</span>
+<span class="co">#&gt; + California</span>
+<span class="co">#&gt; + Colorado</span></code></pre></div>
 <ul>
-<li>New Mexico</li>
-<li>Alabama</li>
-<li>Illinois</li>
+<li>Maine</li>
+<li>California</li>
+<li>Colorado</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt; 1. New Mexico</span>
-<span class="co">#&gt; 2. Alabama</span>
-<span class="co">#&gt; 3. Illinois</span></code></pre></div>
+<span class="co">#&gt; 1. Maine</span>
+<span class="co">#&gt; 2. California</span>
+<span class="co">#&gt; 3. Colorado</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>New Mexico</li>
-<li>Alabama</li>
-<li>Illinois</li>
+<li>Maine</li>
+<li>California</li>
+<li>Colorado</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span>
-<span class="co">#&gt; 1) New Mexico</span>
-<span class="co">#&gt; 1) Alabama</span>
-<span class="co">#&gt; 1) Illinois</span></code></pre></div>
+<span class="co">#&gt; 1) Maine</span>
+<span class="co">#&gt; 1) California</span>
+<span class="co">#&gt; 1) Colorado</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>New Mexico</li>
-<li>Alabama</li>
-<li>Illinois</li>
+<li>Maine</li>
+<li>California</li>
+<li>Colorado</li>
 </ol>
 </div>
 </div>
@@ -666,7 +666,7 @@ Port is a strong wine with s smoky taste.</li>
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_image.html">md_image</a></span><span class="op">(</span><span class="st">"https://www.r-project.org/Rlogo.png"</span>, alt <span class="op">=</span> <span class="st">"R logo"</span><span class="op">)</span>
 <span class="co">#&gt; ![R logo](https://www.r-project.org/Rlogo.png)</span></code></pre></div>
 <div class="figure">
-<img src="../../../../../../private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmpO923jM/file64563002baa.png" alt=""><p class="caption">R logo</p>
+<img src="../../../../../../private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmpPyFKmG/file8e81ed83ae9.png" alt=""><p class="caption">R logo</p>
 </div>
 </div>
 <div id="disallowed-raw-html-extension" class="section level3">
@@ -712,16 +712,16 @@ Port is a strong wine with s smoky taste.</li>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.12 Hard line breaks</span>
 <span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Green ice frosted the punch bowl.  </span>
-<span class="co">#&gt; He wrote his name boldly at the top of tile sheet.  </span>
-<span class="co">#&gt; The doorknob was made of bright clean brass.  </span>
-<span class="co">#&gt; The box is held by a bright red snapper.  </span>
-<span class="co">#&gt; Port is a strong wine with s smoky taste.</span></code></pre></div>
-<p>Green ice frosted the punch bowl.<br>
-He wrote his name boldly at the top of tile sheet.<br>
-The doorknob was made of bright clean brass.<br>
-The box is held by a bright red snapper.<br>
-Port is a strong wine with s smoky taste.</p>
+<span class="co">#&gt; The red tape bound the smuggled food.  </span>
+<span class="co">#&gt; That move means the game is over.  </span>
+<span class="co">#&gt; Seven seals were stamped on great sheets.  </span>
+<span class="co">#&gt; The gold vase is both rare and costly.  </span>
+<span class="co">#&gt; Breathe deep and smell the piny air.</span></code></pre></div>
+<p>The red tape bound the smuggled food.<br>
+That move means the game is over.<br>
+Seven seals were stamped on great sheets.<br>
+The gold vase is both rare and costly.<br>
+Breathe deep and smell the piny air.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not preceded by two or more spaces or a backslash is parsed as a softbreak. (A softbreak may be rendered in HTML either as a line ending or as a space. The result will be the same in browsers. In the examples here, a line ending will be used.)</p>
@@ -729,30 +729,30 @@ Port is a strong wine with s smoky taste.</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.13 Soft line breaks</span>
 <span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Green ice frosted the punch bowl.</span>
-<span class="co">#&gt; He wrote his name boldly at the top of tile sheet.</span>
-<span class="co">#&gt; The doorknob was made of bright clean brass.</span>
-<span class="co">#&gt; The box is held by a bright red snapper.</span>
-<span class="co">#&gt; Port is a strong wine with s smoky taste.</span></code></pre></div>
-<p>Green ice frosted the punch bowl. He wrote his name boldly at the top of tile sheet. The doorknob was made of bright clean brass. The box is held by a bright red snapper. Port is a strong wine with s smoky taste.</p>
+<span class="co">#&gt; The red tape bound the smuggled food.</span>
+<span class="co">#&gt; That move means the game is over.</span>
+<span class="co">#&gt; Seven seals were stamped on great sheets.</span>
+<span class="co">#&gt; The gold vase is both rare and costly.</span>
+<span class="co">#&gt; Breathe deep and smell the piny air.</span></code></pre></div>
+<p>The red tape bound the smuggled food. That move means the game is over. Seven seals were stamped on great sheets. The gold vase is both rare and costly. Breathe deep and smell the piny air.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Green ice frosted the punch bowl.</span>
+<span class="co">#&gt; The red tape bound the smuggled food.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; He wrote his name boldly at the top of tile sheet.</span>
+<span class="co">#&gt; That move means the game is over.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The doorknob was made of bright clean brass.</span>
+<span class="co">#&gt; Seven seals were stamped on great sheets.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The box is held by a bright red snapper.</span>
+<span class="co">#&gt; The gold vase is both rare and costly.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Port is a strong wine with s smoky taste.</span></code></pre></div>
-<p>Green ice frosted the punch bowl.</p>
-<p>He wrote his name boldly at the top of tile sheet.</p>
-<p>The doorknob was made of bright clean brass.</p>
-<p>The box is held by a bright red snapper.</p>
-<p>Port is a strong wine with s smoky taste.</p>
+<span class="co">#&gt; Breathe deep and smell the piny air.</span></code></pre></div>
+<p>The red tape bound the smuggled food.</p>
+<p>That move means the game is over.</p>
+<p>Seven seals were stamped on great sheets.</p>
+<p>The gold vase is both rare and costly.</p>
+<p>Breathe deep and smell the piny air.</p>
 </div>
 <div id="textual-content" class="section level3">
 <h3 class="hasAnchor">
@@ -764,31 +764,31 @@ Port is a strong wine with s smoky taste.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.14 Textual content</span>
 <span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Green ice frosted the punch bowl.</span>
-<span class="co">#&gt; He wrote his name boldly at the top of tile sheet.</span>
-<span class="co">#&gt; The doorknob was made of bright clean brass.</span>
-<span class="co">#&gt; The box is held by a bright red snapper.</span>
-<span class="co">#&gt; Port is a strong wine with s smoky taste.</span></code></pre></div>
-<p>Green ice frosted the punch bowl. He wrote his name boldly at the top of tile sheet. The doorknob was made of bright clean brass. The box is held by a bright red snapper. Port is a strong wine with s smoky taste.</p>
+<span class="co">#&gt; The red tape bound the smuggled food.</span>
+<span class="co">#&gt; That move means the game is over.</span>
+<span class="co">#&gt; Seven seals were stamped on great sheets.</span>
+<span class="co">#&gt; The gold vase is both rare and costly.</span>
+<span class="co">#&gt; Breathe deep and smell the piny air.</span></code></pre></div>
+<p>The red tape bound the smuggled food. That move means the game is over. Seven seals were stamped on great sheets. The gold vase is both rare and costly. Breathe deep and smell the piny air.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Green ice frosted the punch bowl."                 </span>
-<span class="co">#&gt; [2] "He wrote his name boldly at the top of tile sheet."</span>
-<span class="co">#&gt; [3] "The doorknob was made of bright clean brass."      </span>
-<span class="co">#&gt; [4] "The box is held by a bright red snapper."          </span>
-<span class="co">#&gt; [5] "Port is a strong wine with s smoky taste."</span></code></pre></div>
-<p>[1] “Green ice frosted the punch bowl.”<br>
-[2] “He wrote his name boldly at the top of tile sheet.” [3] “The doorknob was made of bright clean brass.”<br>
-[4] “The box is held by a bright red snapper.”<br>
-[5] “Port is a strong wine with s smoky taste.”</p>
+<span class="co">#&gt; [1] "The red tape bound the smuggled food."    </span>
+<span class="co">#&gt; [2] "That move means the game is over."        </span>
+<span class="co">#&gt; [3] "Seven seals were stamped on great sheets."</span>
+<span class="co">#&gt; [4] "The gold vase is both rare and costly."   </span>
+<span class="co">#&gt; [5] "Breathe deep and smell the piny air."</span></code></pre></div>
+<p>[1] “The red tape bound the smuggled food.”<br>
+[2] “That move means the game is over.”<br>
+[3] “Seven seals were stamped on great sheets.” [4] “The gold vase is both rare and costly.”<br>
+[5] “Breathe deep and smell the piny air.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the <code>glue</code> S3 class. This class works in the same way as the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; Green ice frosted the punch bowl. He wrote his name boldly at the top of tile sheet. The doorknob was made of bright clean brass. The box is held by a bright red snapper. Port is a strong wine with s smoky taste.</span></code></pre></div>
-<p>Green ice frosted the punch bowl. He wrote his name boldly at the top of tile sheet. The doorknob was made of bright clean brass. The box is held by a bright red snapper. Port is a strong wine with s smoky taste.</p>
+<span class="co">#&gt; The red tape bound the smuggled food. That move means the game is over. Seven seals were stamped on great sheets. The gold vase is both rare and costly. Breathe deep and smell the piny air.</span></code></pre></div>
+<p>The red tape bound the smuggled food. That move means the game is over. Seven seals were stamped on great sheets. The gold vase is both rare and costly. Breathe deep and smell the piny air.</p>
 </div>
 </div>
   </div>

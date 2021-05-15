@@ -322,20 +322,20 @@ _world_.
 <code class="sourceCode R"><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The red tape bound the smuggled food.</span>
+<span class="co">#&gt; The term ended in late June that year.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; That move means the game is over.</span>
+<span class="co">#&gt; The ram scared the school children off.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Seven seals were stamped on great sheets.</span>
+<span class="co">#&gt; Send the stuff in a thick paper bag.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The gold vase is both rare and costly.</span>
+<span class="co">#&gt; The houses are built of red clay bricks.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Breathe deep and smell the piny air.</span></code></pre></div>
-<p>The red tape bound the smuggled food.</p>
-<p>That move means the game is over.</p>
-<p>Seven seals were stamped on great sheets.</p>
-<p>The gold vase is both rare and costly.</p>
-<p>Breathe deep and smell the piny air.</p>
+<span class="co">#&gt; The tin box held priceless stones.</span></code></pre></div>
+<p>The term ended in late June that year.</p>
+<p>The ram scared the school children off.</p>
+<p>Send the stuff in a thick paper bag.</p>
+<p>The houses are built of red clay bricks.</p>
+<p>The tin box held priceless stones.</p>
 </div>
 <div id="blank-lines" class="section level3">
 <h3 class="hasAnchor">
@@ -486,25 +486,25 @@ _world_.
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; &gt; The red tape bound the smuggled food.</span>
-<span class="co">#&gt; &gt; That move means the game is over.</span>
-<span class="co">#&gt; &gt; Seven seals were stamped on great sheets.</span>
-<span class="co">#&gt; &gt; The gold vase is both rare and costly.</span>
-<span class="co">#&gt; &gt; Breathe deep and smell the piny air.</span></code></pre></div>
+<span class="co">#&gt; &gt; The term ended in late June that year.</span>
+<span class="co">#&gt; &gt; The ram scared the school children off.</span>
+<span class="co">#&gt; &gt; Send the stuff in a thick paper bag.</span>
+<span class="co">#&gt; &gt; The houses are built of red clay bricks.</span>
+<span class="co">#&gt; &gt; The tin box held priceless stones.</span></code></pre></div>
 <blockquote>
-<p>The red tape bound the smuggled food.</p>
+<p>The term ended in late June that year.</p>
 </blockquote>
 <blockquote>
-<p>That move means the game is over.</p>
+<p>The ram scared the school children off.</p>
 </blockquote>
 <blockquote>
-<p>Seven seals were stamped on great sheets.</p>
+<p>Send the stuff in a thick paper bag.</p>
 </blockquote>
 <blockquote>
-<p>The gold vase is both rare and costly.</p>
+<p>The houses are built of red clay bricks.</p>
 </blockquote>
 <blockquote>
-<p>Breathe deep and smell the piny air.</p>
+<p>The tin box held priceless stones.</p>
 </blockquote>
 </div>
 <div id="list-items" class="section level3">
@@ -530,27 +530,27 @@ _world_.
 <p>Markdown extensions like this one are optionally supported on different venues. On GitHub (in <code>README.md</code> files, issues, or comments, etc.) these tasks list are rendered as check boxes, sometimes even interactable. On other venues, like this very HTML vignette, these check boxes just render are bullet lists with weird bracket boxes on each line.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>
-<span class="co">#&gt; * [ ] The red tape bound the smuggled food.</span>
-<span class="co">#&gt; * [ ] That move means the game is over.</span>
-<span class="co">#&gt; * [x] Seven seals were stamped on great sheets.</span>
-<span class="co">#&gt; * [x] The gold vase is both rare and costly.</span>
-<span class="co">#&gt; * [ ] Breathe deep and smell the piny air.</span></code></pre></div>
+<span class="co">#&gt; * [ ] The term ended in late June that year.</span>
+<span class="co">#&gt; * [ ] The ram scared the school children off.</span>
+<span class="co">#&gt; * [x] Send the stuff in a thick paper bag.</span>
+<span class="co">#&gt; * [x] The houses are built of red clay bricks.</span>
+<span class="co">#&gt; * [ ] The tin box held priceless stones.</span></code></pre></div>
 <ul>
 <li>
 <input type="checkbox" disabled>
-The red tape bound the smuggled food.</li>
+The term ended in late June that year.</li>
 <li>
 <input type="checkbox" disabled>
-That move means the game is over.</li>
+The ram scared the school children off.</li>
 <li>
 <input type="checkbox" disabled checked>
-Seven seals were stamped on great sheets.</li>
+Send the stuff in a thick paper bag.</li>
 <li>
 <input type="checkbox" disabled checked>
-The gold vase is both rare and costly.</li>
+The houses are built of red clay bricks.</li>
 <li>
 <input type="checkbox" disabled>
-Breathe deep and smell the piny air.</li>
+The tin box held priceless stones.</li>
 </ul>
 </div>
 <div id="lists" class="section level3">
@@ -567,43 +567,43 @@ Breathe deep and smell the piny air.</li>
 <code class="sourceCode R"><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt; * Maine</span>
-<span class="co">#&gt; * California</span>
-<span class="co">#&gt; * Colorado</span></code></pre></div>
+<span class="co">#&gt; * Minnesota</span>
+<span class="co">#&gt; * Missouri</span>
+<span class="co">#&gt; * Oklahoma</span></code></pre></div>
 <ul>
-<li>Maine</li>
-<li>California</li>
-<li>Colorado</li>
+<li>Minnesota</li>
+<li>Missouri</li>
+<li>Oklahoma</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span>
-<span class="co">#&gt; + Maine</span>
-<span class="co">#&gt; + California</span>
-<span class="co">#&gt; + Colorado</span></code></pre></div>
+<span class="co">#&gt; + Minnesota</span>
+<span class="co">#&gt; + Missouri</span>
+<span class="co">#&gt; + Oklahoma</span></code></pre></div>
 <ul>
-<li>Maine</li>
-<li>California</li>
-<li>Colorado</li>
+<li>Minnesota</li>
+<li>Missouri</li>
+<li>Oklahoma</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt; 1. Maine</span>
-<span class="co">#&gt; 2. California</span>
-<span class="co">#&gt; 3. Colorado</span></code></pre></div>
+<span class="co">#&gt; 1. Minnesota</span>
+<span class="co">#&gt; 2. Missouri</span>
+<span class="co">#&gt; 3. Oklahoma</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Maine</li>
-<li>California</li>
-<li>Colorado</li>
+<li>Minnesota</li>
+<li>Missouri</li>
+<li>Oklahoma</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span>
-<span class="co">#&gt; 1) Maine</span>
-<span class="co">#&gt; 1) California</span>
-<span class="co">#&gt; 1) Colorado</span></code></pre></div>
+<span class="co">#&gt; 1) Minnesota</span>
+<span class="co">#&gt; 1) Missouri</span>
+<span class="co">#&gt; 1) Oklahoma</span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Maine</li>
-<li>California</li>
-<li>Colorado</li>
+<li>Minnesota</li>
+<li>Missouri</li>
+<li>Oklahoma</li>
 </ol>
 </div>
 </div>
@@ -666,7 +666,7 @@ Breathe deep and smell the piny air.</li>
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_image.html">md_image</a></span><span class="op">(</span><span class="st">"https://www.r-project.org/Rlogo.png"</span>, alt <span class="op">=</span> <span class="st">"R logo"</span><span class="op">)</span>
 <span class="co">#&gt; ![R logo](https://www.r-project.org/Rlogo.png)</span></code></pre></div>
 <div class="figure">
-<img src="../../../../../../private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmpPyFKmG/file8e81ed83ae9.png" alt=""><p class="caption">R logo</p>
+<img src="../../../../../../private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmpiyMwzG/file7226fa19259.png" alt=""><p class="caption">R logo</p>
 </div>
 </div>
 <div id="disallowed-raw-html-extension" class="section level3">
@@ -712,16 +712,16 @@ Breathe deep and smell the piny air.</li>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.12 Hard line breaks</span>
 <span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The red tape bound the smuggled food.  </span>
-<span class="co">#&gt; That move means the game is over.  </span>
-<span class="co">#&gt; Seven seals were stamped on great sheets.  </span>
-<span class="co">#&gt; The gold vase is both rare and costly.  </span>
-<span class="co">#&gt; Breathe deep and smell the piny air.</span></code></pre></div>
-<p>The red tape bound the smuggled food.<br>
-That move means the game is over.<br>
-Seven seals were stamped on great sheets.<br>
-The gold vase is both rare and costly.<br>
-Breathe deep and smell the piny air.</p>
+<span class="co">#&gt; The term ended in late June that year.  </span>
+<span class="co">#&gt; The ram scared the school children off.  </span>
+<span class="co">#&gt; Send the stuff in a thick paper bag.  </span>
+<span class="co">#&gt; The houses are built of red clay bricks.  </span>
+<span class="co">#&gt; The tin box held priceless stones.</span></code></pre></div>
+<p>The term ended in late June that year.<br>
+The ram scared the school children off.<br>
+Send the stuff in a thick paper bag.<br>
+The houses are built of red clay bricks.<br>
+The tin box held priceless stones.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not preceded by two or more spaces or a backslash is parsed as a softbreak. (A softbreak may be rendered in HTML either as a line ending or as a space. The result will be the same in browsers. In the examples here, a line ending will be used.)</p>
@@ -729,30 +729,30 @@ Breathe deep and smell the piny air.</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.13 Soft line breaks</span>
 <span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The red tape bound the smuggled food.</span>
-<span class="co">#&gt; That move means the game is over.</span>
-<span class="co">#&gt; Seven seals were stamped on great sheets.</span>
-<span class="co">#&gt; The gold vase is both rare and costly.</span>
-<span class="co">#&gt; Breathe deep and smell the piny air.</span></code></pre></div>
-<p>The red tape bound the smuggled food. That move means the game is over. Seven seals were stamped on great sheets. The gold vase is both rare and costly. Breathe deep and smell the piny air.</p>
+<span class="co">#&gt; The term ended in late June that year.</span>
+<span class="co">#&gt; The ram scared the school children off.</span>
+<span class="co">#&gt; Send the stuff in a thick paper bag.</span>
+<span class="co">#&gt; The houses are built of red clay bricks.</span>
+<span class="co">#&gt; The tin box held priceless stones.</span></code></pre></div>
+<p>The term ended in late June that year. The ram scared the school children off. Send the stuff in a thick paper bag. The houses are built of red clay bricks. The tin box held priceless stones.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The red tape bound the smuggled food.</span>
+<span class="co">#&gt; The term ended in late June that year.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; That move means the game is over.</span>
+<span class="co">#&gt; The ram scared the school children off.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Seven seals were stamped on great sheets.</span>
+<span class="co">#&gt; Send the stuff in a thick paper bag.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; The gold vase is both rare and costly.</span>
+<span class="co">#&gt; The houses are built of red clay bricks.</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Breathe deep and smell the piny air.</span></code></pre></div>
-<p>The red tape bound the smuggled food.</p>
-<p>That move means the game is over.</p>
-<p>Seven seals were stamped on great sheets.</p>
-<p>The gold vase is both rare and costly.</p>
-<p>Breathe deep and smell the piny air.</p>
+<span class="co">#&gt; The tin box held priceless stones.</span></code></pre></div>
+<p>The term ended in late June that year.</p>
+<p>The ram scared the school children off.</p>
+<p>Send the stuff in a thick paper bag.</p>
+<p>The houses are built of red clay bricks.</p>
+<p>The tin box held priceless stones.</p>
 </div>
 <div id="textual-content" class="section level3">
 <h3 class="hasAnchor">
@@ -764,31 +764,30 @@ Breathe deep and smell the piny air.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 6.14 Textual content</span>
 <span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The red tape bound the smuggled food.</span>
-<span class="co">#&gt; That move means the game is over.</span>
-<span class="co">#&gt; Seven seals were stamped on great sheets.</span>
-<span class="co">#&gt; The gold vase is both rare and costly.</span>
-<span class="co">#&gt; Breathe deep and smell the piny air.</span></code></pre></div>
-<p>The red tape bound the smuggled food. That move means the game is over. Seven seals were stamped on great sheets. The gold vase is both rare and costly. Breathe deep and smell the piny air.</p>
+<span class="co">#&gt; The term ended in late June that year.</span>
+<span class="co">#&gt; The ram scared the school children off.</span>
+<span class="co">#&gt; Send the stuff in a thick paper bag.</span>
+<span class="co">#&gt; The houses are built of red clay bricks.</span>
+<span class="co">#&gt; The tin box held priceless stones.</span></code></pre></div>
+<p>The term ended in late June that year. The ram scared the school children off. Send the stuff in a thick paper bag. The houses are built of red clay bricks. The tin box held priceless stones.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; [1] "The red tape bound the smuggled food."    </span>
-<span class="co">#&gt; [2] "That move means the game is over."        </span>
-<span class="co">#&gt; [3] "Seven seals were stamped on great sheets."</span>
-<span class="co">#&gt; [4] "The gold vase is both rare and costly."   </span>
-<span class="co">#&gt; [5] "Breathe deep and smell the piny air."</span></code></pre></div>
-<p>[1] “The red tape bound the smuggled food.”<br>
-[2] “That move means the game is over.”<br>
-[3] “Seven seals were stamped on great sheets.” [4] “The gold vase is both rare and costly.”<br>
-[5] “Breathe deep and smell the piny air.”</p>
+<span class="co">#&gt; [1] "The term ended in late June that year."  </span>
+<span class="co">#&gt; [2] "The ram scared the school children off." </span>
+<span class="co">#&gt; [3] "Send the stuff in a thick paper bag."    </span>
+<span class="co">#&gt; [4] "The houses are built of red clay bricks."</span>
+<span class="co">#&gt; [5] "The tin box held priceless stones."</span></code></pre></div>
+<p>[1] “The term ended in late June that year.”<br>
+[2] “The ram scared the school children off.” [3] “Send the stuff in a thick paper bag.”<br>
+[4] “The houses are built of red clay bricks.” [5] “The tin box held priceless stones.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the <code>glue</code> S3 class. This class works in the same way as the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The red tape bound the smuggled food. That move means the game is over. Seven seals were stamped on great sheets. The gold vase is both rare and costly. Breathe deep and smell the piny air.</span></code></pre></div>
-<p>The red tape bound the smuggled food. That move means the game is over. Seven seals were stamped on great sheets. The gold vase is both rare and costly. Breathe deep and smell the piny air.</p>
+<span class="co">#&gt; The term ended in late June that year. The ram scared the school children off. Send the stuff in a thick paper bag. The houses are built of red clay bricks. The tin box held priceless stones.</span></code></pre></div>
+<p>The term ended in late June that year. The ram scared the school children off. Send the stuff in a thick paper bag. The houses are built of red clay bricks. The tin box held priceless stones.</p>
 </div>
 </div>
   </div>

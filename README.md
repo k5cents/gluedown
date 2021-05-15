@@ -32,7 +32,7 @@ Install the release version from
 install.packages("gluedown")
 ```
 
-The development version can be installed from \[GitHub\]
+The development version can be installed from
 [GitHub](https://github.com/kiernann/gluedown):
 
 ``` r
@@ -106,8 +106,8 @@ abb <- state.abb[match(name, state.name)]
 # `r md_italic(abb)`
 ```
 
-In this case, our randomly selected state is **Kentucky**, which has the
-abbreviation *KY*.
+In this case, our randomly selected state is **Michigan**, which has the
+abbreviation *MI*.
 
 ### Pipes
 

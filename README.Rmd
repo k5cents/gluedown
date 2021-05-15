@@ -36,7 +36,7 @@ Install the release version from [CRAN][cran]:
 install.packages("gluedown")
 ```
 
-The development version can be installed from [GitHub] [GitHub][gh]:
+The development version can be installed from [GitHub][gh]:
 
 ```{r develop, eval=FALSE}
 # install.packages("remotes")

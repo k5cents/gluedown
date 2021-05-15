@@ -1,3 +1,5 @@
+# gluedown (development version)
+
 # gluedown 1.0.4
 
 * Remove `LazyData` from DESCRIPTION per new CRAN rules. Package has no data.

@@ -21,7 +21,7 @@ test_that("md_list can create all list types", {
     html_node("ul") %>%
     html_nodes("li") %>%
     html_text() %>%
-    str_remove("\\[(.*)\\]\\s") %>%
+    str_remove("(\\[.*\\])?\\s") %>%
     expect_equal(x)
   x %>%
     md_list(type = "order") %>%

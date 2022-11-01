@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,23 +40,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.4.9000</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -74,7 +70,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/kiernann/gluedown/">
+  <a href="https://github.com/kiernann/gluedown/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -95,7 +91,7 @@
       <h1 data-toc-skip>GitHub Flavored Markdown</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/kiernann/gluedown/blob/master/vignettes/github-spec.Rmd"><code>vignettes/github-spec.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/kiernann/gluedown/blob/HEAD/vignettes/github-spec.Rmd" class="external-link"><code>vignettes/github-spec.Rmd</code></a></small>
       <div class="hidden name"><code>github-spec.Rmd</code></div>
 
     </div>
@@ -103,14 +99,14 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://kiernann.com/gluedown/">gluedown</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://stringr.tidyverse.org">stringr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://kiernann.com/gluedown/" class="external-link">gluedown</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/" class="external-link">rvest</a></span><span class="op">)</span></span></code></pre></div>
 <p>In this vignette, we will explore how the functions in <code>gluedown</code> enable users to transition from R vectors to the kind of formatted markdown text used in the GitHub Flavored Markdown (GFM) specification. Functions like <code><a href="../reference/md_bullet.html">md_bullet()</a></code> and <code><a href="../reference/md_quote.html">md_quote()</a></code> may be used more often, but there are functions for practically every section of the GFM spec including, some of which have limited practical value (e.g., <code><a href="../reference/md_blank.html">md_blank()</a></code> and <code><a href="../reference/md_text.html">md_text()</a></code>).</p>
 <p>In each section of this vignette, the GFM spec is quoted first and followed by <code>gluedown</code> function usage. For each R code block containing <code>gluedown</code> usage, the raw text is shows as <code>#&gt;</code> comments followed by the rendered HTML version, which is printed using the <code>results='asis'</code> option of the <code>knitr</code> package. (To achieve this output, each block is actually repeated twice, with the code of the second result printing block hidden via <code>echo=FALSE</code>.)</p>
-<div id="blocks-and-inlines" class="section level2">
-<h2 class="hasAnchor">
-<a href="#blocks-and-inlines" class="anchor"></a>3 Blocks and Inlines</h2>
+<div class="section level2">
+<h2 id="blocks-and-inlines">3 Blocks and Inlines<a class="anchor" aria-label="anchor" href="#blocks-and-inlines"></a>
+</h2>
 <blockquote>
 <p>We can think of a document as a sequence of blocks—structural elements like paragraphs, block quotations, lists, headings, rules, and code blocks. Some blocks (like block quotes and list items) contain other blocks; others (like headings and paragraphs) contain inline content—text, links, emphasized text, images, code spans, and so on.</p>
 </blockquote>
@@ -118,9 +114,9 @@
 <p>We can divide blocks into two types: container blocks, which can contain other blocks, and leaf blocks, which cannot.</p>
 </blockquote>
 </div>
-<div id="leaf-blocks" class="section level2">
-<h2 class="hasAnchor">
-<a href="#leaf-blocks" class="anchor"></a>4 Leaf blocks</h2>
+<div class="section level2">
+<h2 id="leaf-blocks">4 Leaf blocks<a class="anchor" aria-label="anchor" href="#leaf-blocks"></a>
+</h2>
 <p>There are nine leaf block functions:</p>
 <ol style="list-style-type: decimal">
 <li><code><a href="../reference/md_rule.html">md_rule()</a></code></li>
@@ -134,156 +130,156 @@
 <li><code><a href="../reference/md_blank.html">md_blank()</a></code></li>
 <li><code><a href="../reference/md_table.html">md_table()</a></code></li>
 </ol>
-<div id="thematic-breaks" class="section level3">
-<h3 class="hasAnchor">
-<a href="#thematic-breaks" class="anchor"></a>4.1 Thematic breaks</h3>
+<div class="section level3">
+<h3 id="thematic-breaks">4.1 Thematic breaks<a class="anchor" aria-label="anchor" href="#thematic-breaks"></a>
+</h3>
 <blockquote>
-<p>A line consisting of 0-3 spaces of indentation, followed by a sequence of three or more matching <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code>, <code>_</code>, or <code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code> characters, each followed optionally by any number of spaces or tabs, forms a thematic break.</p>
+<p>A line consisting of 0-3 spaces of indentation, followed by a sequence of three or more matching <code>-</code>, <code>_</code>, or <code>*</code> characters, each followed optionally by any number of spaces or tabs, forms a thematic break.</p>
 </blockquote>
 <p>We can create thematic breaks with the <code><a href="../reference/md_rule.html">md_rule()</a></code> function, which allows users to define the type and number of valid characters to use. All these options create the same <code>&lt;hr&gt;</code> HTML tag, but look different in the underlying <code>.md</code> document.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_rule.html">md_rule</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; ***</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_rule.html">md_rule</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ***</span></span></code></pre></div>
 <hr>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_rule.html">md_rule</a></span><span class="op">(</span>char <span class="op">=</span> <span class="st">"-"</span>, n <span class="op">=</span> <span class="fl">10</span>, space <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; - - - - - - - - - -</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_rule.html">md_rule</a></span><span class="op">(</span>char <span class="op">=</span> <span class="st">"-"</span>, n <span class="op">=</span> <span class="fl">10</span>, space <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; - - - - - - - - - -</span></span></code></pre></div>
 <hr>
 </div>
-<div id="atx-headings" class="section level3">
-<h3 class="hasAnchor">
-<a href="#atx-headings" class="anchor"></a>4.2 ATX Headings</h3>
+<div class="section level3">
+<h3 id="atx-headings">4.2 ATX Headings<a class="anchor" aria-label="anchor" href="#atx-headings"></a>
+</h3>
 <blockquote>
 <p>An ATX heading consists of a string of characters, parsed as inline content, between an opening sequence of 1–6 unescaped <code>#</code> characters and an optional closing sequence of any number of unescaped <code>#</code> characters… The raw contents of the heading are stripped of leading and trailing spaces before being parsed as inline content. The heading level is equal to the number of <code>#</code> characters in the opening sequence.</p>
 </blockquote>
 <p>The heading for this section was created with <code><a href="../reference/md_heading.html">md_heading()</a></code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_heading.html">md_heading</a></span><span class="op">(</span><span class="st">"4.2 ATX Headings"</span>, level <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
-<span class="co">#&gt; ### 4.2 ATX Headings</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_heading.html">md_heading</a></span><span class="op">(</span><span class="st">"4.2 ATX Headings"</span>, level <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ### 4.2 ATX Headings</span></span></code></pre></div>
 </div>
-<div id="setext-headings" class="section level3">
-<h3 class="hasAnchor">
-<a href="#setext-headings" class="anchor"></a>4.3 Setext headings</h3>
+<div class="section level3">
+<h3 id="setext-headings">4.3 Setext headings<a class="anchor" aria-label="anchor" href="#setext-headings"></a>
+</h3>
 <blockquote>
-<p>A setext heading consists of one or more lines of text, each containing at least one non-whitespace character, with no more than 3 spaces indentation, followed by a setext heading underline… A setext heading underline is a sequence of <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> characters or a sequence of <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> characters, with no more than 3 spaces indentation and any number of trailing spaces… The heading is a level 1 heading if <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> characters are used in the setext heading underline, and a level 2 heading if <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> characters are used.</p>
+<p>A setext heading consists of one or more lines of text, each containing at least one non-whitespace character, with no more than 3 spaces indentation, followed by a setext heading underline… A setext heading underline is a sequence of <code>=</code> characters or a sequence of <code>-</code> characters, with no more than 3 spaces indentation and any number of trailing spaces… The heading is a level 1 heading if <code>=</code> characters are used in the setext heading underline, and a level 2 heading if <code>-</code> characters are used.</p>
 </blockquote>
 <p>I’m going to forgo printing these headings, just to preserve the structure of this document. The <code><a href="../reference/md_setext.html">md_setext()</a></code> function can only be used to create level 1 (<code>&lt;h1&gt;</code>) and level 2 (<code>&lt;h2&gt;</code>) headings. A level 1 Setext heading is sometimes used as the very first, initial title heading.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_setext.html">md_setext</a></span><span class="op">(</span><span class="st">"Headings"</span>, level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
-<span class="co">#&gt; Headings</span>
-<span class="co">#&gt; ========</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_setext.html">md_setext</a></span><span class="op">(</span><span class="st">"Headings"</span>, level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Headings</span></span>
+<span><span class="co">#&gt; ========</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_setext.html">md_setext</a></span><span class="op">(</span><span class="st">"4.3 Setext headings"</span>, level <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-<span class="co">#&gt; 4.3 Setext headings</span>
-<span class="co">#&gt; -------------------</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_setext.html">md_setext</a></span><span class="op">(</span><span class="st">"4.3 Setext headings"</span>, level <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 4.3 Setext headings</span></span>
+<span><span class="co">#&gt; -------------------</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_setext.html">md_setext</a></span><span class="op">(</span><span class="st">"4.3 Setext headings"</span>, width <span class="op">=</span> <span class="fl">50</span><span class="op">)</span>
-<span class="co">#&gt; 4.3 Setext headings</span>
-<span class="co">#&gt; ==================================================</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_setext.html">md_setext</a></span><span class="op">(</span><span class="st">"4.3 Setext headings"</span>, width <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 4.3 Setext headings</span></span>
+<span><span class="co">#&gt; ==================================================</span></span></code></pre></div>
 </div>
-<div id="indented-code-blocks" class="section level3">
-<h3 class="hasAnchor">
-<a href="#indented-code-blocks" class="anchor"></a>4.4 Indented code blocks</h3>
+<div class="section level3">
+<h3 id="indented-code-blocks">4.4 Indented code blocks<a class="anchor" aria-label="anchor" href="#indented-code-blocks"></a>
+</h3>
 <blockquote>
 <p>An indented code block is composed of one or more indented chunks separated by blank lines. An indented chunk is a sequence of non-blank lines, each indented four or more spaces. The contents of the code block are the literal contents of the lines, including trailing line endings, minus four spaces of indentation…</p>
 </blockquote>
 <p>This function, along with the fenced code block alternative, are useful for creating displayed code blocks (as opposed to executed chunks) containing R source code, command line content, or any other pre-formatted fixed-width content.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">rescale01</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">rng</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-  <span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="va">rng</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">rng</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">-</span> <span class="va">rng</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="co"># use deparse() to turn unevaluated expressions into character strings.</span>
-<span class="va">source</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/deparse.html">deparse</a></span><span class="op">(</span><span class="va">rescale01</span><span class="op">)</span>
-<span class="co"># this new object is a regular character vector</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">source</span><span class="op">)</span>
-<span class="co">#&gt; [1] "function (x) "                      "{"                                 </span>
-<span class="co">#&gt; [3] "    rng &lt;- range(x, na.rm = TRUE)"  "    (x - rng[1])/(rng[2] - rng[1])"</span>
-<span class="co">#&gt; [5] "}"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">rescale01</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">rng</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  <span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="va">rng</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="va">rng</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">-</span> <span class="va">rng</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># use deparse() to turn unevaluated expressions into character strings.</span></span>
+<span><span class="va">source</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/deparse.html" class="external-link">deparse</a></span><span class="op">(</span><span class="va">rescale01</span><span class="op">)</span></span>
+<span><span class="co"># this new object is a regular character vector</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">source</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "function (x) "                      "{"                                 </span></span>
+<span><span class="co">#&gt; [3] "    rng &lt;- range(x, na.rm = TRUE)"  "    (x - rng[1])/(rng[2] - rng[1])"</span></span>
+<span><span class="co">#&gt; [5] "}"</span></span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_indent.html">md_indent</a></span><span class="op">(</span><span class="va">source</span><span class="op">)</span>
-<span class="co">#&gt;     function (x) </span>
-<span class="co">#&gt;     {</span>
-<span class="co">#&gt;         rng &lt;- range(x, na.rm = TRUE)</span>
-<span class="co">#&gt;         (x - rng[1])/(rng[2] - rng[1])</span>
-<span class="co">#&gt;     }</span></code></pre></div>
-<pre><code>function (x) 
-{
-    rng &lt;- range(x, na.rm = TRUE)
-    (x - rng[1])/(rng[2] - rng[1])
-}</code></pre>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_indent.html">md_indent</a></span><span class="op">(</span><span class="va">source</span><span class="op">)</span></span>
+<span><span class="co">#&gt;     function (x) </span></span>
+<span><span class="co">#&gt;     {</span></span>
+<span><span class="co">#&gt;         rng &lt;- range(x, na.rm = TRUE)</span></span>
+<span><span class="co">#&gt;         (x - rng[1])/(rng[2] - rng[1])</span></span>
+<span><span class="co">#&gt;     }</span></span></code></pre></div>
+<pre><code><span><span class="kw">function</span> <span class="op">(</span><span class="va">x</span><span class="op">)</span> </span>
+<span><span class="op">{</span></span>
+<span>    <span class="va">rng</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>    <span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="va">rng</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">rng</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">-</span> <span class="va">rng</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre>
 </div>
-<div id="fenced-code-blocks" class="section level3">
-<h3 class="hasAnchor">
-<a href="#fenced-code-blocks" class="anchor"></a>4.5 Fenced code blocks</h3>
+<div class="section level3">
+<h3 id="fenced-code-blocks">4.5 Fenced code blocks<a class="anchor" aria-label="anchor" href="#fenced-code-blocks"></a>
+</h3>
 <blockquote>
-<p>A code fence is a sequence of at least three consecutive backtick characters … or tildes (<code><a href="https://rdrr.io/r/base/tilde.html">~</a></code>). (Tildes and backticks cannot be mixed.) A fenced code block begins with a code fence, indented no more than three spaces…</p>
+<p>A code fence is a sequence of at least three consecutive backtick characters … or tildes (<code>~</code>). (Tildes and backticks cannot be mixed.) A fenced code block begins with a code fence, indented no more than three spaces…</p>
 <p>The line with the opening code fence may optionally contain some text following the code fence; this is trimmed of leading and trailing whitespace and called the info string…</p>
 <p>The content of the code block consists of all subsequent lines, until a closing code fence of the same type as the code block began with (backticks or tildes), and with at least as many backticks or tildes as the opening code fence….</p>
 <p>The content of a code fence is treated as literal text, not parsed as inlines. The first word of the info string is typically used to specify the language of the code sample, and rendered in the class attribute of the code tag. However, this spec does not mandate any particular treatment of the info string.</p>
 </blockquote>
 <p>The man feature of <code><a href="../reference/md_fence.html">md_fence()</a></code> is the ability to specify the info string which defines the code language used to highlight syntax. Compare the following output to the one produced by <code><a href="../reference/md_indent.html">md_indent()</a></code>.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_fence.html">md_fence</a></span><span class="op">(</span><span class="va">source</span><span class="op">)</span>
-<span class="co">#&gt; ```r</span>
-<span class="co">#&gt; function (x) </span>
-<span class="co">#&gt; {</span>
-<span class="co">#&gt;     rng &lt;- range(x, na.rm = TRUE)</span>
-<span class="co">#&gt;     (x - rng[1])/(rng[2] - rng[1])</span>
-<span class="co">#&gt; }</span>
-<span class="co">#&gt; ```</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_fence.html">md_fence</a></span><span class="op">(</span><span class="va">source</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ```r</span></span>
+<span><span class="co">#&gt; function (x) </span></span>
+<span><span class="co">#&gt; {</span></span>
+<span><span class="co">#&gt;     rng &lt;- range(x, na.rm = TRUE)</span></span>
+<span><span class="co">#&gt;     (x - rng[1])/(rng[2] - rng[1])</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; ```</span></span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">function</span> <span class="op">(</span><span class="va">x</span><span class="op">)</span> 
-<span class="op">{</span>
-    <span class="va">rng</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-    <span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="va">rng</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">rng</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">-</span> <span class="va">rng</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw">function</span> <span class="op">(</span><span class="va">x</span><span class="op">)</span> </span>
+<span><span class="op">{</span></span>
+<span>    <span class="va">rng</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>    <span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="va">rng</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">rng</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">-</span> <span class="va">rng</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_fence.html">md_fence</a></span><span class="op">(</span><span class="va">source</span>, char <span class="op">=</span> <span class="st">"~"</span><span class="op">)</span>
-<span class="co">#&gt; ~~~r</span>
-<span class="co">#&gt; function (x) </span>
-<span class="co">#&gt; {</span>
-<span class="co">#&gt;     rng &lt;- range(x, na.rm = TRUE)</span>
-<span class="co">#&gt;     (x - rng[1])/(rng[2] - rng[1])</span>
-<span class="co">#&gt; }</span>
-<span class="co">#&gt; ~~~</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_fence.html">md_fence</a></span><span class="op">(</span><span class="va">source</span>, char <span class="op">=</span> <span class="st">"~"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ~~~r</span></span>
+<span><span class="co">#&gt; function (x) </span></span>
+<span><span class="co">#&gt; {</span></span>
+<span><span class="co">#&gt;     rng &lt;- range(x, na.rm = TRUE)</span></span>
+<span><span class="co">#&gt;     (x - rng[1])/(rng[2] - rng[1])</span></span>
+<span><span class="co">#&gt; }</span></span>
+<span><span class="co">#&gt; ~~~</span></span></code></pre></div>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">function</span> <span class="op">(</span><span class="va">x</span><span class="op">)</span> 
-<span class="op">{</span>
-    <span class="va">rng</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html">range</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-    <span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="va">rng</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">rng</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">-</span> <span class="va">rng</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>
-<span class="op">}</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw">function</span> <span class="op">(</span><span class="va">x</span><span class="op">)</span> </span>
+<span><span class="op">{</span></span>
+<span>    <span class="va">rng</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>    <span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="va">rng</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">rng</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">-</span> <span class="va">rng</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_fence.html">md_fence</a></span><span class="op">(</span><span class="st">"$ sudo apt install r-base-dev"</span>, info <span class="op">=</span> <span class="st">"bash"</span><span class="op">)</span>
-<span class="co">#&gt; ```bash</span>
-<span class="co">#&gt; $ sudo apt install r-base-dev</span>
-<span class="co">#&gt; ```</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_fence.html">md_fence</a></span><span class="op">(</span><span class="st">"$ sudo apt install r-base-dev"</span>, info <span class="op">=</span> <span class="st">"bash"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ```bash</span></span>
+<span><span class="co">#&gt; $ sudo apt install r-base-dev</span></span>
+<span><span class="co">#&gt; ```</span></span></code></pre></div>
 <div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a>$ <span class="fu">sudo</span> apt install r-base-dev</span></code></pre></div>
 </div>
-<div id="html-blocks" class="section level3">
-<h3 class="hasAnchor">
-<a href="#html-blocks" class="anchor"></a>4.6 HTML blocks</h3>
+<div class="section level3">
+<h3 id="html-blocks">4.6 HTML blocks<a class="anchor" aria-label="anchor" href="#html-blocks"></a>
+</h3>
 <blockquote>
 <p>An HTML block is a group of lines that is treated as raw HTML (and will not be escaped in HTML output).</p>
 </blockquote>
 <p>Markdown rendering engines (like the one used to convert this <code>.Rmd</code> document to <code>.md</code> and then to <code>.html</code>) allow users to write valid HTML code alongside regular markdown text.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">lines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
-  <span class="st">"&lt;table&gt;&lt;tr&gt;&lt;td&gt;"</span>,
-  <span class="st">"&lt;pre&gt;"</span>,
-  <span class="st">"**Hello**,"</span>,
-  <span class="st">"_world_."</span>,
-  <span class="st">"&lt;/pre&gt;"</span>,
-  <span class="st">" &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"</span>
-<span class="op">)</span>
-<span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">lines</span><span class="op">)</span>
-<span class="co">#&gt; &lt;table&gt;&lt;tr&gt;&lt;td&gt;</span>
-<span class="co">#&gt; &lt;pre&gt;</span>
-<span class="co">#&gt; **Hello**,</span>
-<span class="co">#&gt; _world_.</span>
-<span class="co">#&gt; &lt;/pre&gt;</span>
-<span class="co">#&gt;  &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">lines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"&lt;table&gt;&lt;tr&gt;&lt;td&gt;"</span>,</span>
+<span>  <span class="st">"&lt;pre&gt;"</span>,</span>
+<span>  <span class="st">"**Hello**,"</span>,</span>
+<span>  <span class="st">"_world_."</span>,</span>
+<span>  <span class="st">"&lt;/pre&gt;"</span>,</span>
+<span>  <span class="st">" &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">lines</span><span class="op">)</span></span>
+<span><span class="co">#&gt; &lt;table&gt;&lt;tr&gt;&lt;td&gt;</span></span>
+<span><span class="co">#&gt; &lt;pre&gt;</span></span>
+<span><span class="co">#&gt; **Hello**,</span></span>
+<span><span class="co">#&gt; _world_.</span></span>
+<span><span class="co">#&gt; &lt;/pre&gt;</span></span>
+<span><span class="co">#&gt;  &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span></span></code></pre></div>
 <table class="table"><tr>
 <td>
 <pre>
@@ -293,92 +289,92 @@ _world_.
 </td>
 </tr></table>
 </div>
-<div id="link-reference-definitions" class="section level3">
-<h3 class="hasAnchor">
-<a href="#link-reference-definitions" class="anchor"></a>4.7 Link reference definitions</h3>
+<div class="section level3">
+<h3 id="link-reference-definitions">4.7 Link reference definitions<a class="anchor" aria-label="anchor" href="#link-reference-definitions"></a>
+</h3>
 <blockquote>
-<p>A link reference definition consists of a link label, indented up to three spaces, followed by a colon (<code><a href="https://rdrr.io/r/base/Colon.html">:</a></code>), optional whitespace (including up to one line ending), a link destination, optional whitespace (including up to one line ending), and an optional link title, which if it is present must be separated from the link destination by whitespace. No further non-whitespace characters may occur on the line.</p>
+<p>A link reference definition consists of a link label, indented up to three spaces, followed by a colon (<code>:</code>), optional whitespace (including up to one line ending), a link destination, optional whitespace (including up to one line ending), and an optional link title, which if it is present must be separated from the link destination by whitespace. No further non-whitespace characters may occur on the line.</p>
 <p>A link reference definition does not correspond to a structural element of a document. Instead, it defines a label which can be used in reference links and reference-style images elsewhere in the document. Link reference definitions can come either before or after the links that use them.</p>
 </blockquote>
-<p>The <code><a href="../reference/md_reference.html">md_reference()</a></code> function is used to create the link reference definition <em>only</em>, which must then be paired with the same label elsewhere in the document. We can put the definitions anywhere in the document, so when I type <code>[CRAN]</code> here in this paragraph (like <a href="https://cran.r-project.org/" title="CRAN Home">CRAN</a>), that text looks for the label created below to create a hyperlink. The reference definition printed to the document actually doesn’t show up anywhere in the rendered <code>.html</code> file.</p>
+<p>The <code><a href="../reference/md_reference.html">md_reference()</a></code> function is used to create the link reference definition <em>only</em>, which must then be paired with the same label elsewhere in the document. We can put the definitions anywhere in the document, so when I type <code>[CRAN]</code> here in this paragraph (like <a href="https://cran.r-project.org/" title="CRAN Home" class="external-link">CRAN</a>), that text looks for the label created below to create a hyperlink. The reference definition printed to the document actually doesn’t show up anywhere in the rendered <code>.html</code> file.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cran"</span>, <span class="st">"tidy"</span><span class="op">)</span>
-<span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"https://cran.r-project.org/"</span>, <span class="st">"https://www.tidyverse.org/"</span><span class="op">)</span>
-<span class="va">c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CRAN Home"</span>, <span class="st">"Tidyverse Home"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cran"</span>, <span class="st">"tidy"</span><span class="op">)</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://cran.r-project.org/"</span>, <span class="st">"https://www.tidyverse.org/"</span><span class="op">)</span></span>
+<span><span class="va">c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"CRAN Home"</span>, <span class="st">"Tidyverse Home"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_reference.html">md_reference</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">a</span>, url <span class="op">=</span> <span class="va">b</span>, title <span class="op">=</span> <span class="va">c</span><span class="op">)</span>
-<span class="co">#&gt; [cran]: https://cran.r-project.org/ "CRAN Home"</span>
-<span class="co">#&gt; [tidy]: https://www.tidyverse.org/ "Tidyverse Home"</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_reference.html">md_reference</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">a</span>, url <span class="op">=</span> <span class="va">b</span>, title <span class="op">=</span> <span class="va">c</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [cran]: https://cran.r-project.org/ "CRAN Home"</span></span>
+<span><span class="co">#&gt; [tidy]: https://www.tidyverse.org/ "Tidyverse Home"</span></span></code></pre></div>
 </div>
-<div id="paragraphs" class="section level3">
-<h3 class="hasAnchor">
-<a href="#paragraphs" class="anchor"></a>4.8 Paragraphs</h3>
+<div class="section level3">
+<h3 id="paragraphs">4.8 Paragraphs<a class="anchor" aria-label="anchor" href="#paragraphs"></a>
+</h3>
 <blockquote>
 <p>A sequence of non-blank lines that cannot be interpreted as other kinds of blocks forms a paragraph. The contents of the paragraph are the result of parsing the paragraph’s raw content as inlines. The paragraph’s raw content is formed by concatenating the lines and removing initial and final whitespace.</p>
 </blockquote>
 <p>Paragraphs are one instance are where it’s easy for markdown newcomers can have difficulty writing the plain text in the proper format to produce their desired outcome. Words separated by a single newline are rendered as a single paragraph <code>&lt;p&gt;</code> tag. Using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code>, we can take a vector of character text and output <em>distinct</em> paragraphs.</p>
 <p>In section 6.12 and 6.13 you can compare the output of <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code> with the other line break functions.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html" class="external-link">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The term ended in late June that year.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; The ram scared the school children off.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Send the stuff in a thick paper bag.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; The houses are built of red clay bricks.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; The tin box held priceless stones.</span></code></pre></div>
-<p>The term ended in late June that year.</p>
-<p>The ram scared the school children off.</p>
-<p>Send the stuff in a thick paper bag.</p>
-<p>The houses are built of red clay bricks.</p>
-<p>The tin box held priceless stones.</p>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Plead with the lawyer to drop the lost cause.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Cut the cord that binds the box tightly.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; A salt pickle tastes fine with ham.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; He broke his ties with groups of former friends.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Sweet words work better than fierce.</span></span></code></pre></div>
+<p>Plead with the lawyer to drop the lost cause.</p>
+<p>Cut the cord that binds the box tightly.</p>
+<p>A salt pickle tastes fine with ham.</p>
+<p>He broke his ties with groups of former friends.</p>
+<p>Sweet words work better than fierce.</p>
 </div>
-<div id="blank-lines" class="section level3">
-<h3 class="hasAnchor">
-<a href="#blank-lines" class="anchor"></a>4.9 Blank lines</h3>
+<div class="section level3">
+<h3 id="blank-lines">4.9 Blank lines<a class="anchor" aria-label="anchor" href="#blank-lines"></a>
+</h3>
 <blockquote>
 <p>Blank lines between block-level elements are ignored, except for the role they play in determining whether a list is tight or loose.</p>
 <p>Blank lines at the beginning and end of the document are also ignored.</p>
 </blockquote>
 <p>Blank lines are, well, not super useful… but you can create them with <code><a href="../reference/md_blank.html">md_blank()</a></code>!</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_blank.html">md_blank</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_blank.html">md_blank</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="tables-extension" class="section level3">
-<h3 class="hasAnchor">
-<a href="#tables-extension" class="anchor"></a>4.10 Tables (extension)</h3>
+<div class="section level3">
+<h3 id="tables-extension">4.10 Tables (extension)<a class="anchor" aria-label="anchor" href="#tables-extension"></a>
+</h3>
 <blockquote>
 <p>GFM enables the <code>table</code> extension, where an additional leaf block type is available.</p>
 <p>A table is an arrangement of data with rows and columns, consisting of a single header row, a delimiter row separating the header from the data, and zero or more data rows.</p>
-<p>Each row consists of cells containing arbitrary text, in which inlines are parsed, separated by pipes (<code><a href="https://rdrr.io/r/base/Logic.html">|</a></code>). A leading and trailing pipe is also recommended for clarity of reading, and if there’s otherwise parsing ambiguity. Spaces between pipes and cell content are trimmed. Block-level elements cannot be inserted in a table.</p>
-<p>The delimiter row consists of cells whose only content are hyphens (<code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code>), and optionally, a leading or trailing colon (<code><a href="https://rdrr.io/r/base/Colon.html">:</a></code>), or both, to indicate left, right, or center alignment respectively.</p>
+<p>Each row consists of cells containing arbitrary text, in which inlines are parsed, separated by pipes (<code>|</code>). A leading and trailing pipe is also recommended for clarity of reading, and if there’s otherwise parsing ambiguity. Spaces between pipes and cell content are trimmed. Block-level elements cannot be inserted in a table.</p>
+<p>The delimiter row consists of cells whose only content are hyphens (<code>-</code>), and optionally, a leading or trailing colon (<code>:</code>), or both, to indicate left, right, or center alignment respectively.</p>
 </blockquote>
-<p>The <code><a href="../reference/md_table.html">md_table()</a></code> function wraps around <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable()</a></code> to return R objects (Typically data frames or matrices) as markdown tables. This is useful for presenting data created using R in a format that’s more readable than a plain-text data frame (or tibble) printout.</p>
+<p>The <code><a href="../reference/md_table.html">md_table()</a></code> function wraps around <code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable()</a></code> to return R objects (Typically data frames or matrices) as markdown tables. This is useful for presenting data created using R in a format that’s more readable than a plain-text data frame (or tibble) printout.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">state.x77</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt;            Population Income Illiteracy Life Exp Murder HS Grad Frost   Area</span>
-<span class="co">#&gt; Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708</span>
-<span class="co">#&gt; Alaska            365   6315        1.5    69.31   11.3    66.7   152 566432</span>
-<span class="co">#&gt; Arizona          2212   4530        1.8    70.55    7.8    58.1    15 113417</span>
-<span class="co">#&gt; Arkansas         2110   3378        1.9    70.66   10.1    39.9    65  51945</span>
-<span class="co">#&gt; California      21198   5114        1.1    71.71   10.3    62.6    20 156361</span>
-<span class="co">#&gt; Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">state.x77</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
+<span><span class="co">#&gt;            Population Income Illiteracy Life Exp Murder HS Grad Frost   Area</span></span>
+<span><span class="co">#&gt; Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708</span></span>
+<span><span class="co">#&gt; Alaska            365   6315        1.5    69.31   11.3    66.7   152 566432</span></span>
+<span><span class="co">#&gt; Arizona          2212   4530        1.8    70.55    7.8    58.1    15 113417</span></span>
+<span><span class="co">#&gt; Arkansas         2110   3378        1.9    70.66   10.1    39.9    65  51945</span></span>
+<span><span class="co">#&gt; California      21198   5114        1.1    71.71   10.3    62.6    20 156361</span></span>
+<span><span class="co">#&gt; Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</span></span></code></pre></div>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>knitr.kable.NA <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
-<span class="fu"><a href="../reference/md_table.html">md_table</a></span><span class="op">(</span><span class="va">states</span>, align <span class="op">=</span> <span class="st">"c"</span><span class="op">)</span>
-<span class="co">#&gt; |           | Population | Income | Illiteracy | Life Exp | Murder | HS Grad | Frost |  Area  |</span>
-<span class="co">#&gt; |:----------|:----------:|:------:|:----------:|:--------:|:------:|:-------:|:-----:|:------:|</span>
-<span class="co">#&gt; |Alabama    |    3615    |  3624  |    2.1     |  69.05   |  15.1  |  41.3   |  20   | 50708  |</span>
-<span class="co">#&gt; |Alaska     |    365     |  6315  |    1.5     |  69.31   |  11.3  |  66.7   |  152  | 566432 |</span>
-<span class="co">#&gt; |Arizona    |    2212    |  4530  |    1.8     |  70.55   |  7.8   |  58.1   |  15   | 113417 |</span>
-<span class="co">#&gt; |Arkansas   |    2110    |  3378  |    1.9     |  70.66   |  10.1  |  39.9   |  65   | 51945  |</span>
-<span class="co">#&gt; |California |   21198    |  5114  |    1.1     |  71.71   |  10.3  |  62.6   |  20   | 156361 |</span>
-<span class="co">#&gt; |Colorado   |    2541    |  4884  |    0.7     |  72.06   |  6.8   |  63.9   |  166  | 103766 |</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>knitr.kable.NA <span class="op">=</span> <span class="st">""</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/md_table.html">md_table</a></span><span class="op">(</span><span class="va">states</span>, align <span class="op">=</span> <span class="st">"c"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; |           | Population | Income | Illiteracy | Life Exp | Murder | HS Grad | Frost |  Area  |</span></span>
+<span><span class="co">#&gt; |:----------|:----------:|:------:|:----------:|:--------:|:------:|:-------:|:-----:|:------:|</span></span>
+<span><span class="co">#&gt; |Alabama    |    3615    |  3624  |    2.1     |  69.05   |  15.1  |  41.3   |  20   | 50708  |</span></span>
+<span><span class="co">#&gt; |Alaska     |    365     |  6315  |    1.5     |  69.31   |  11.3  |  66.7   |  152  | 566432 |</span></span>
+<span><span class="co">#&gt; |Arizona    |    2212    |  4530  |    1.8     |  70.55   |  7.8   |  58.1   |  15   | 113417 |</span></span>
+<span><span class="co">#&gt; |Arkansas   |    2110    |  3378  |    1.9     |  70.66   |  10.1  |  39.9   |  65   | 51945  |</span></span>
+<span><span class="co">#&gt; |California |   21198    |  5114  |    1.1     |  71.71   |  10.3  |  62.6   |  20   | 156361 |</span></span>
+<span><span class="co">#&gt; |Colorado   |    2541    |  4884  |    0.7     |  72.06   |  6.8   |  63.9   |  166  | 103766 |</span></span></code></pre></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left"></th>
@@ -462,54 +458,54 @@ _world_.
 </table>
 </div>
 </div>
-<div id="container-blocks" class="section level2">
-<h2 class="hasAnchor">
-<a href="#container-blocks" class="anchor"></a>5 Container Blocks</h2>
+<div class="section level2">
+<h2 id="container-blocks">5 Container Blocks<a class="anchor" aria-label="anchor" href="#container-blocks"></a>
+</h2>
 <blockquote>
 <p>A container block is a block that has other blocks as its contents. There are two basic kinds of container blocks: block quotes and list items. Lists are meta-containers for list items.</p>
 </blockquote>
-<div id="block-quotes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#block-quotes" class="anchor"></a>5.1 Block quotes</h3>
+<div class="section level3">
+<h3 id="block-quotes">5.1 Block quotes<a class="anchor" aria-label="anchor" href="#block-quotes"></a>
+</h3>
 <blockquote>
 <p>A block quote marker consists of 0-3 spaces of initial indent, plus (a) the character &gt; together with a following space, or (b) a single character &gt; not followed by a space.</p>
 </blockquote>
 <p>I’ve been copy-pasting block quotes from the GFM spec in this vignette, but we can also use <code><a href="../reference/md_quote.html">md_quote()</a></code> to grammatically create or manipulate strings and print them as block quotes.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_html</a></span><span class="op">(</span><span class="st">"https://w.wiki/A58"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_element.html">html_element</a></span><span class="op">(</span><span class="st">"blockquote"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_text.html">html_text</a></span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span><span class="st">"\\[(.*)\\]"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html" class="external-link">read_html</a></span><span class="op">(</span><span class="st">"https://w.wiki/A58"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_element.html" class="external-link">html_element</a></span><span class="op">(</span><span class="st">"blockquote"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_text.html" class="external-link">html_text</a></span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html" class="external-link">str_remove</a></span><span class="op">(</span><span class="st">"\\[(.*)\\]"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <blockquote>
 <p>We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.</p>
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; &gt; The term ended in late June that year.</span>
-<span class="co">#&gt; &gt; The ram scared the school children off.</span>
-<span class="co">#&gt; &gt; Send the stuff in a thick paper bag.</span>
-<span class="co">#&gt; &gt; The houses are built of red clay bricks.</span>
-<span class="co">#&gt; &gt; The tin box held priceless stones.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
+<span><span class="co">#&gt; &gt; Plead with the lawyer to drop the lost cause.</span></span>
+<span><span class="co">#&gt; &gt; Cut the cord that binds the box tightly.</span></span>
+<span><span class="co">#&gt; &gt; A salt pickle tastes fine with ham.</span></span>
+<span><span class="co">#&gt; &gt; He broke his ties with groups of former friends.</span></span>
+<span><span class="co">#&gt; &gt; Sweet words work better than fierce.</span></span></code></pre></div>
 <blockquote>
-<p>The term ended in late June that year.</p>
+<p>Plead with the lawyer to drop the lost cause.</p>
 </blockquote>
 <blockquote>
-<p>The ram scared the school children off.</p>
+<p>Cut the cord that binds the box tightly.</p>
 </blockquote>
 <blockquote>
-<p>Send the stuff in a thick paper bag.</p>
+<p>A salt pickle tastes fine with ham.</p>
 </blockquote>
 <blockquote>
-<p>The houses are built of red clay bricks.</p>
+<p>He broke his ties with groups of former friends.</p>
 </blockquote>
 <blockquote>
-<p>The tin box held priceless stones.</p>
+<p>Sweet words work better than fierce.</p>
 </blockquote>
 </div>
-<div id="list-items" class="section level3">
-<h3 class="hasAnchor">
-<a href="#list-items" class="anchor"></a>5.2 List items</h3>
+<div class="section level3">
+<h3 id="list-items">5.2 List items<a class="anchor" aria-label="anchor" href="#list-items"></a>
+</h3>
 <blockquote>
 <p>A list marker is a bullet list marker or an ordered list marker.</p>
 <p>A bullet list marker is a -, +, or * character.</p>
@@ -517,161 +513,161 @@ _world_.
 </blockquote>
 <p>List items are automatically created in list blocks (section 5.4) via <code><a href="../reference/md_order.html">md_order()</a></code> and <code><a href="../reference/md_bullet.html">md_bullet()</a></code>.</p>
 </div>
-<div id="task-list-items-extension" class="section level3">
-<h3 class="hasAnchor">
-<a href="#task-list-items-extension" class="anchor"></a>5.3 Task list items (extension)</h3>
+<div class="section level3">
+<h3 id="task-list-items-extension">5.3 Task list items (extension)<a class="anchor" aria-label="anchor" href="#task-list-items-extension"></a>
+</h3>
 <blockquote>
 <p>GFM enables the <code>tasklist</code> extension, where an additional processing step is performed on list items.</p>
 <p>A task list item is a list item where the first block in it is a paragraph which begins with a task list item marker and at least one whitespace character before any other content.</p>
-<p>A task list item marker consists of an optional number of spaces, a left bracket (<code><a href="https://rdrr.io/r/base/Extract.html">[</a></code>), either a whitespace character or the letter x in either lowercase or uppercase, and then a right bracket (<code>]</code>).</p>
+<p>A task list item marker consists of an optional number of spaces, a left bracket (<code>[</code>), either a whitespace character or the letter x in either lowercase or uppercase, and then a right bracket (<code>]</code>).</p>
 <p>When rendered, the task list item marker is replaced with a semantic checkbox element; in an HTML output, this would be an <code>&lt;input type="checkbox"&gt;</code> element.</p>
 <p>If the character between the brackets is a whitespace character, the checkbox is unchecked. Otherwise, the checkbox is checked.</p>
 </blockquote>
 <p>Markdown extensions like this one are optionally supported on different venues. On GitHub (in <code>README.md</code> files, issues, or comments, etc.) these tasks list are rendered as check boxes, sometimes even interactable. On other venues, like this very HTML vignette, these check boxes just render are bullet lists with weird bracket boxes on each line.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>
-<span class="co">#&gt; * [ ] The term ended in late June that year.</span>
-<span class="co">#&gt; * [ ] The ram scared the school children off.</span>
-<span class="co">#&gt; * [x] Send the stuff in a thick paper bag.</span>
-<span class="co">#&gt; * [x] The houses are built of red clay bricks.</span>
-<span class="co">#&gt; * [ ] The tin box held priceless stones.</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
+<span><span class="co">#&gt; * [ ] Plead with the lawyer to drop the lost cause.</span></span>
+<span><span class="co">#&gt; * [ ] Cut the cord that binds the box tightly.</span></span>
+<span><span class="co">#&gt; * [x] A salt pickle tastes fine with ham.</span></span>
+<span><span class="co">#&gt; * [x] He broke his ties with groups of former friends.</span></span>
+<span><span class="co">#&gt; * [ ] Sweet words work better than fierce.</span></span></code></pre></div>
 <ul>
 <li>
 <input type="checkbox" disabled>
-The term ended in late June that year.</li>
+Plead with the lawyer to drop the lost cause.</li>
 <li>
 <input type="checkbox" disabled>
-The ram scared the school children off.</li>
+Cut the cord that binds the box tightly.</li>
 <li>
 <input type="checkbox" disabled checked>
-Send the stuff in a thick paper bag.</li>
+A salt pickle tastes fine with ham.</li>
 <li>
 <input type="checkbox" disabled checked>
-The houses are built of red clay bricks.</li>
+He broke his ties with groups of former friends.</li>
 <li>
 <input type="checkbox" disabled>
-The tin box held priceless stones.</li>
+Sweet words work better than fierce.</li>
 </ul>
 </div>
-<div id="lists" class="section level3">
-<h3 class="hasAnchor">
-<a href="#lists" class="anchor"></a>5.4 Lists</h3>
+<div class="section level3">
+<h3 id="lists">5.4 Lists<a class="anchor" aria-label="anchor" href="#lists"></a>
+</h3>
 <blockquote>
 <p>A list is a sequence of one or more list items of the same type. The list items may be separated by any number of blank lines.</p>
-<p>Two list items are of the same type if they begin with a list marker of the same type. Two list &gt; markers are of the same type if (a) they are bullet list markers using the same character (<code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code>, <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>, or <code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code>) or (b) they are ordered list numbers with the same delimiter (either <code>.</code> or <code>)</code>).</p>
+<p>Two list items are of the same type if they begin with a list marker of the same type. Two list &gt; markers are of the same type if (a) they are bullet list markers using the same character (<code>-</code>, <code>+</code>, or <code>*</code>) or (b) they are ordered list numbers with the same delimiter (either <code>.</code> or <code>)</code>).</p>
 <p>A list is an ordered list if its constituent list items begin with ordered list markers, and a &gt; bullet list if its constituent list items begin with bullet list markers.</p>
 <p>The start number of an ordered list is determined by the list number of its initial list item. The numbers of subsequent list items are disregarded.</p>
 </blockquote>
 <p>The <code><a href="../reference/md_order.html">md_order()</a></code> and <code><a href="../reference/md_bullet.html">md_bullet()</a></code> functions let users display character vectors as list blocks. The functions let users adjust the which list item markets are used, but all the options are rendered as the same <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> tags in the rendered <code>.html</code> file.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt; * Minnesota</span>
-<span class="co">#&gt; * Missouri</span>
-<span class="co">#&gt; * Oklahoma</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
+<span><span class="co">#&gt; * Texas</span></span>
+<span><span class="co">#&gt; * Arkansas</span></span>
+<span><span class="co">#&gt; * Wisconsin</span></span></code></pre></div>
 <ul>
-<li>Minnesota</li>
-<li>Missouri</li>
-<li>Oklahoma</li>
+<li>Texas</li>
+<li>Arkansas</li>
+<li>Wisconsin</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span>
-<span class="co">#&gt; + Minnesota</span>
-<span class="co">#&gt; + Missouri</span>
-<span class="co">#&gt; + Oklahoma</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; + Texas</span></span>
+<span><span class="co">#&gt; + Arkansas</span></span>
+<span><span class="co">#&gt; + Wisconsin</span></span></code></pre></div>
 <ul>
-<li>Minnesota</li>
-<li>Missouri</li>
-<li>Oklahoma</li>
+<li>Texas</li>
+<li>Arkansas</li>
+<li>Wisconsin</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span>
-<span class="co">#&gt; 1. Minnesota</span>
-<span class="co">#&gt; 2. Missouri</span>
-<span class="co">#&gt; 3. Oklahoma</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 1. Texas</span></span>
+<span><span class="co">#&gt; 2. Arkansas</span></span>
+<span><span class="co">#&gt; 3. Wisconsin</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Minnesota</li>
-<li>Missouri</li>
-<li>Oklahoma</li>
+<li>Texas</li>
+<li>Arkansas</li>
+<li>Wisconsin</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span>
-<span class="co">#&gt; 1) Minnesota</span>
-<span class="co">#&gt; 1) Missouri</span>
-<span class="co">#&gt; 1) Oklahoma</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 1) Texas</span></span>
+<span><span class="co">#&gt; 1) Arkansas</span></span>
+<span><span class="co">#&gt; 1) Wisconsin</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Minnesota</li>
-<li>Missouri</li>
-<li>Oklahoma</li>
+<li>Texas</li>
+<li>Arkansas</li>
+<li>Wisconsin</li>
 </ol>
 </div>
 </div>
-<div id="inlines" class="section level2">
-<h2 class="hasAnchor">
-<a href="#inlines" class="anchor"></a>6 Inlines</h2>
+<div class="section level2">
+<h2 id="inlines">6 Inlines<a class="anchor" aria-label="anchor" href="#inlines"></a>
+</h2>
 <blockquote>
 <p>Inlines are parsed sequentially from the beginning of the character stream to the end (left to right, in left-to-right languages). Thus, for example, in</p>
 </blockquote>
-<div id="backslash-escapes" class="section level3">
-<h3 class="hasAnchor">
-<a href="#backslash-escapes" class="anchor"></a>6.1 Backslash escapes</h3>
+<div class="section level3">
+<h3 id="backslash-escapes">6.1 Backslash escapes<a class="anchor" aria-label="anchor" href="#backslash-escapes"></a>
+</h3>
 <blockquote>
 <p>Any ASCII punctuation character may be backslash-escaped… Escaped characters are treated as regular characters and do not have their usual Markdown meanings:</p>
 </blockquote>
 <p>If you want to display markdown syntax without rendering as the corresponding HTML tags, <code><a href="../reference/md_escape.html">md_escape()</a></code> can prepend a backslash (actually, two) before every ASCII punctuation character.</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inline</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/md_bold.html">md_bold</a></span><span class="op">(</span><span class="st">"example"</span><span class="op">)</span>
-<span class="fu"><a href="../reference/md_escape.html">md_escape</a></span><span class="op">(</span><span class="va">inline</span><span class="op">)</span>
-<span class="co">#&gt; \*\*example\*\*</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">inline</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/md_bold.html">md_bold</a></span><span class="op">(</span><span class="st">"example"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/md_escape.html">md_escape</a></span><span class="op">(</span><span class="va">inline</span><span class="op">)</span></span>
+<span><span class="co">#&gt; \*\*example\*\*</span></span></code></pre></div>
 <p>**example**</p>
 </div>
-<div id="simple-inlines" class="section level3">
-<h3 class="hasAnchor">
-<a href="#simple-inlines" class="anchor"></a>6.3 - 6.8 Simple inlines</h3>
+<div class="section level3">
+<h3 id="simple-inlines">6.3 - 6.8 Simple inlines<a class="anchor" aria-label="anchor" href="#simple-inlines"></a>
+</h3>
 <p>Here we are going to demonstrate how various simple inline block functions are used to create text <em>within</em> a container block.</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">inlines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
-  <span class="fu"><a href="../reference/md_code.html">md_code</a></span><span class="op">(</span><span class="st">"6.3 Code spans"</span><span class="op">)</span>,
-  <span class="fu"><a href="../reference/md_italic.html">md_italic</a></span><span class="op">(</span><span class="st">"6.4 Emphasis"</span><span class="op">)</span>,
-  <span class="fu"><a href="../reference/md_bold.html">md_bold</a></span><span class="op">(</span><span class="st">"6.4 Strong emphasis"</span><span class="op">)</span>,
-  <span class="fu"><a href="../reference/md_strike.html">md_strike</a></span><span class="op">(</span><span class="st">"6.5 Strikethrough (extension)"</span><span class="op">)</span>,
-  <span class="fu"><a href="../reference/md_link.html">md_link</a></span><span class="op">(</span><span class="st">"6.6 Links"</span>, <span class="st">"https://example.com/"</span><span class="op">)</span>,
-  <span class="fu"><a href="../reference/md_autolink.html">md_autolink</a></span><span class="op">(</span><span class="st">"https://example.com/"</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">inlines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/md_code.html">md_code</a></span><span class="op">(</span><span class="st">"6.3 Code spans"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/md_italic.html">md_italic</a></span><span class="op">(</span><span class="st">"6.4 Emphasis"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/md_bold.html">md_bold</a></span><span class="op">(</span><span class="st">"6.4 Strong emphasis"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/md_strike.html">md_strike</a></span><span class="op">(</span><span class="st">"6.5 Strikethrough (extension)"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/md_link.html">md_link</a></span><span class="op">(</span><span class="st">"6.6 Links"</span>, <span class="st">"https://example.com/"</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/md_autolink.html">md_autolink</a></span><span class="op">(</span><span class="st">"https://example.com/"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">inlines</span>, marker <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span>
-<span class="co">#&gt; - `6.3 Code spans`</span>
-<span class="co">#&gt; - _6.4 Emphasis_</span>
-<span class="co">#&gt; - **6.4 Strong emphasis**</span>
-<span class="co">#&gt; - ~~6.5 Strikethrough (extension)~~</span>
-<span class="co">#&gt; - [6.6 Links](https://example.com/)</span>
-<span class="co">#&gt; - &lt;https://example.com/&gt;</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">inlines</span>, marker <span class="op">=</span> <span class="st">"-"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; - `6.3 Code spans`</span></span>
+<span><span class="co">#&gt; - _6.4 Emphasis_</span></span>
+<span><span class="co">#&gt; - **6.4 Strong emphasis**</span></span>
+<span><span class="co">#&gt; - ~~6.5 Strikethrough (extension)~~</span></span>
+<span><span class="co">#&gt; - [6.6 Links](https://example.com/)</span></span>
+<span><span class="co">#&gt; - &lt;https://example.com/&gt;</span></span></code></pre></div>
 <ul>
 <li><code>6.3 Code spans</code></li>
 <li><em>6.4 Emphasis</em></li>
 <li><strong>6.4 Strong emphasis</strong></li>
 <li><del>6.5 Strikethrough (extension)</del></li>
-<li><a href="https://example.com/">6.6 Links</a></li>
-<li><a href="https://example.com/" class="uri">https://example.com/</a></li>
+<li><a href="https://example.com/" class="external-link">6.6 Links</a></li>
+<li><a href="https://example.com/" class="external-link uri">https://example.com/</a></li>
 </ul>
 </div>
-<div id="images" class="section level3">
-<h3 class="hasAnchor">
-<a href="#images" class="anchor"></a>6.7 Images</h3>
+<div class="section level3">
+<h3 id="images">6.7 Images<a class="anchor" aria-label="anchor" href="#images"></a>
+</h3>
 <blockquote>
-<p>Syntax for images is like the syntax for links, with one difference. Instead of link text, we have an image description. The rules for this are the same as for link text, except that (a) an image description starts with <code>![</code> rather than <code><a href="https://rdrr.io/r/base/Extract.html">[</a></code>, and (b) an image description may contain links. An image description has inline elements as its contents. When an image is rendered to HTML, this is standardly used as the image’s <code>alt</code> attribute.</p>
+<p>Syntax for images is like the syntax for links, with one difference. Instead of link text, we have an image description. The rules for this are the same as for link text, except that (a) an image description starts with <code>![</code> rather than <code>[</code>, and (b) an image description may contain links. An image description has inline elements as its contents. When an image is rendered to HTML, this is standardly used as the image’s <code>alt</code> attribute.</p>
 </blockquote>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_image.html">md_image</a></span><span class="op">(</span><span class="st">"https://www.r-project.org/Rlogo.png"</span>, alt <span class="op">=</span> <span class="st">"R logo"</span><span class="op">)</span>
-<span class="co">#&gt; ![R logo](https://www.r-project.org/Rlogo.png)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_image.html">md_image</a></span><span class="op">(</span><span class="st">"https://www.r-project.org/Rlogo.png"</span>, alt <span class="op">=</span> <span class="st">"R logo"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ![R logo](https://www.r-project.org/Rlogo.png)</span></span></code></pre></div>
 <div class="figure">
-<img src="../../../../../../private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmpiyMwzG/file7226fa19259.png" alt=""><p class="caption">R logo</p>
+<img src="../../../../../../private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmpc0EwML/file106e44475f2a.png" alt=""><p class="caption">R logo</p>
 </div>
 </div>
-<div id="disallowed-raw-html-extension" class="section level3">
-<h3 class="hasAnchor">
-<a href="#disallowed-raw-html-extension" class="anchor"></a>6.11 Disallowed Raw HTML (extension)</h3>
+<div class="section level3">
+<h3 id="disallowed-raw-html-extension">6.11 Disallowed Raw HTML (extension)<a class="anchor" aria-label="anchor" href="#disallowed-raw-html-extension"></a>
+</h3>
 <blockquote>
 <p>GFM enables the tagfilter extension, where the following HTML tags will be filtered when rendering HTML output:</p>
 <ul>
@@ -688,106 +684,107 @@ The tin box held priceless stones.</li>
 <p>Filtering is done by replacing the leading &lt; with the entity &lt;. These tags are chosen in particular as they change how HTML is interpreted in a way unique to them (i.e. nested HTML is interpreted differently), and this is usually undesireable in the context of other rendered Markdown content.</p>
 </blockquote>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">lines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
-  <span class="st">"&lt;blockquote&gt;"</span>,
-  <span class="st">"  &lt;xmp&gt; is disallowed.  &lt;XMP&gt; is also disallowed."</span>,
-  <span class="st">"&lt;/blockquote&gt;"</span>
-<span class="op">)</span>
-<span class="fu"><a href="../reference/md_disallow.html">md_disallow</a></span><span class="op">(</span><span class="va">lines</span><span class="op">)</span>
-<span class="co">#&gt; &lt;blockquote&gt;</span>
-<span class="co">#&gt;   &amp;lt;xmp&gt; is disallowed.  &amp;lt;XMP&gt; is also disallowed.</span>
-<span class="co">#&gt; &lt;/blockquote&gt;</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">lines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
+<span>  <span class="st">"&lt;blockquote&gt;"</span>,</span>
+<span>  <span class="st">"  &lt;xmp&gt; is disallowed.  &lt;XMP&gt; is also disallowed."</span>,</span>
+<span>  <span class="st">"&lt;/blockquote&gt;"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="../reference/md_disallow.html">md_disallow</a></span><span class="op">(</span><span class="va">lines</span><span class="op">)</span></span>
+<span><span class="co">#&gt; &lt;blockquote&gt;</span></span>
+<span><span class="co">#&gt;   &amp;lt;xmp&gt; is disallowed.  &amp;lt;XMP&gt; is also disallowed.</span></span>
+<span><span class="co">#&gt; &lt;/blockquote&gt;</span></span></code></pre></div>
 <blockquote>
 &lt;xmp&gt; is disallowed. &lt;XMP&gt; is also disallowed.
 </blockquote>
 <p>All other HTML tags are left untouched.</p>
 </div>
-<div id="line-breaks" class="section level3">
-<h3 class="hasAnchor">
-<a href="#line-breaks" class="anchor"></a>6.12 - 6.13 Line breaks</h3>
+<div class="section level3">
+<h3 id="line-breaks">6.12 - 6.13 Line breaks<a class="anchor" aria-label="anchor" href="#line-breaks"></a>
+</h3>
 <p>The difference between <em>hard</em> line breaks, <em>soft</em> line breaks, paragraphs, and regular text can be confusing. New markdown users often struggle with knowing exactly how many invisible newlines or spaces are needed to present each line in the way they want. The line break functions below make it easier.</p>
 <blockquote>
 <p>A line break (not in a code span or HTML tag) that is preceded by two or more spaces and does not occur at the end of a block is parsed as a hard line break (rendered in HTML as a <code>&lt;br /&gt;</code> tag):</p>
 </blockquote>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># 6.12 Hard line breaks</span>
-<span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The term ended in late June that year.  </span>
-<span class="co">#&gt; The ram scared the school children off.  </span>
-<span class="co">#&gt; Send the stuff in a thick paper bag.  </span>
-<span class="co">#&gt; The houses are built of red clay bricks.  </span>
-<span class="co">#&gt; The tin box held priceless stones.</span></code></pre></div>
-<p>The term ended in late June that year.<br>
-The ram scared the school children off.<br>
-Send the stuff in a thick paper bag.<br>
-The houses are built of red clay bricks.<br>
-The tin box held priceless stones.</p>
+<code class="sourceCode R"><span><span class="co"># 6.12 Hard line breaks</span></span>
+<span><span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Plead with the lawyer to drop the lost cause.  </span></span>
+<span><span class="co">#&gt; Cut the cord that binds the box tightly.  </span></span>
+<span><span class="co">#&gt; A salt pickle tastes fine with ham.  </span></span>
+<span><span class="co">#&gt; He broke his ties with groups of former friends.  </span></span>
+<span><span class="co">#&gt; Sweet words work better than fierce.</span></span></code></pre></div>
+<p>Plead with the lawyer to drop the lost cause.<br>
+Cut the cord that binds the box tightly.<br>
+A salt pickle tastes fine with ham.<br>
+He broke his ties with groups of former friends.<br>
+Sweet words work better than fierce.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not preceded by two or more spaces or a backslash is parsed as a softbreak. (A softbreak may be rendered in HTML either as a line ending or as a space. The result will be the same in browsers. In the examples here, a line ending will be used.)</p>
 </blockquote>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># 6.13 Soft line breaks</span>
-<span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The term ended in late June that year.</span>
-<span class="co">#&gt; The ram scared the school children off.</span>
-<span class="co">#&gt; Send the stuff in a thick paper bag.</span>
-<span class="co">#&gt; The houses are built of red clay bricks.</span>
-<span class="co">#&gt; The tin box held priceless stones.</span></code></pre></div>
-<p>The term ended in late June that year. The ram scared the school children off. Send the stuff in a thick paper bag. The houses are built of red clay bricks. The tin box held priceless stones.</p>
+<code class="sourceCode R"><span><span class="co"># 6.13 Soft line breaks</span></span>
+<span><span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Plead with the lawyer to drop the lost cause.</span></span>
+<span><span class="co">#&gt; Cut the cord that binds the box tightly.</span></span>
+<span><span class="co">#&gt; A salt pickle tastes fine with ham.</span></span>
+<span><span class="co">#&gt; He broke his ties with groups of former friends.</span></span>
+<span><span class="co">#&gt; Sweet words work better than fierce.</span></span></code></pre></div>
+<p>Plead with the lawyer to drop the lost cause. Cut the cord that binds the box tightly. A salt pickle tastes fine with ham. He broke his ties with groups of former friends. Sweet words work better than fierce.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The term ended in late June that year.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; The ram scared the school children off.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Send the stuff in a thick paper bag.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; The houses are built of red clay bricks.</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; The tin box held priceless stones.</span></code></pre></div>
-<p>The term ended in late June that year.</p>
-<p>The ram scared the school children off.</p>
-<p>Send the stuff in a thick paper bag.</p>
-<p>The houses are built of red clay bricks.</p>
-<p>The tin box held priceless stones.</p>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Plead with the lawyer to drop the lost cause.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Cut the cord that binds the box tightly.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; A salt pickle tastes fine with ham.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; He broke his ties with groups of former friends.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Sweet words work better than fierce.</span></span></code></pre></div>
+<p>Plead with the lawyer to drop the lost cause.</p>
+<p>Cut the cord that binds the box tightly.</p>
+<p>A salt pickle tastes fine with ham.</p>
+<p>He broke his ties with groups of former friends.</p>
+<p>Sweet words work better than fierce.</p>
 </div>
-<div id="textual-content" class="section level3">
-<h3 class="hasAnchor">
-<a href="#textual-content" class="anchor"></a>6.14 Textual content</h3>
+<div class="section level3">
+<h3 id="textual-content">6.14 Textual content<a class="anchor" aria-label="anchor" href="#textual-content"></a>
+</h3>
 <blockquote>
 <p>Any characters not given an interpretation by the above rules will be parsed as plain textual content.</p>
 </blockquote>
-<p>The <code><a href="../reference/md_text.html">md_text()</a></code> function is a catch-all wrapper around <code><a href="https://glue.tidyverse.org/reference/as_glue.html">glue::as_glue()</a></code> with simply converts any character string into a <code>glue</code> object, which when used in an <code>.Rmd.</code> document alongside the <code>results='asis'</code> allows users to simply print text to the body of the document.</p>
+<p>The <code><a href="../reference/md_text.html">md_text()</a></code> function is a catch-all wrapper around <code><a href="https://glue.tidyverse.org/reference/as_glue.html" class="external-link">glue::as_glue()</a></code> with simply converts any character string into a <code>glue</code> object, which when used in an <code>.Rmd.</code> document alongside the <code>results='asis'</code> allows users to simply print text to the body of the document.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># 6.14 Textual content</span>
-<span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The term ended in late June that year.</span>
-<span class="co">#&gt; The ram scared the school children off.</span>
-<span class="co">#&gt; Send the stuff in a thick paper bag.</span>
-<span class="co">#&gt; The houses are built of red clay bricks.</span>
-<span class="co">#&gt; The tin box held priceless stones.</span></code></pre></div>
-<p>The term ended in late June that year. The ram scared the school children off. Send the stuff in a thick paper bag. The houses are built of red clay bricks. The tin box held priceless stones.</p>
+<code class="sourceCode R"><span><span class="co"># 6.14 Textual content</span></span>
+<span><span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Plead with the lawyer to drop the lost cause.</span></span>
+<span><span class="co">#&gt; Cut the cord that binds the box tightly.</span></span>
+<span><span class="co">#&gt; A salt pickle tastes fine with ham.</span></span>
+<span><span class="co">#&gt; He broke his ties with groups of former friends.</span></span>
+<span><span class="co">#&gt; Sweet words work better than fierce.</span></span></code></pre></div>
+<p>Plead with the lawyer to drop the lost cause. Cut the cord that binds the box tightly. A salt pickle tastes fine with ham. He broke his ties with groups of former friends. Sweet words work better than fierce.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; [1] "The term ended in late June that year."  </span>
-<span class="co">#&gt; [2] "The ram scared the school children off." </span>
-<span class="co">#&gt; [3] "Send the stuff in a thick paper bag."    </span>
-<span class="co">#&gt; [4] "The houses are built of red clay bricks."</span>
-<span class="co">#&gt; [5] "The tin box held priceless stones."</span></code></pre></div>
-<p>[1] “The term ended in late June that year.”<br>
-[2] “The ram scared the school children off.” [3] “Send the stuff in a thick paper bag.”<br>
-[4] “The houses are built of red clay bricks.” [5] “The tin box held priceless stones.”</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Plead with the lawyer to drop the lost cause."   </span></span>
+<span><span class="co">#&gt; [2] "Cut the cord that binds the box tightly."        </span></span>
+<span><span class="co">#&gt; [3] "A salt pickle tastes fine with ham."             </span></span>
+<span><span class="co">#&gt; [4] "He broke his ties with groups of former friends."</span></span>
+<span><span class="co">#&gt; [5] "Sweet words work better than fierce."</span></span></code></pre></div>
+<p>[1] “Plead with the lawyer to drop the lost cause.”<br>
+[2] “Cut the cord that binds the box tightly.”<br>
+[3] “A salt pickle tastes fine with ham.”<br>
+[4] “He broke his ties with groups of former friends.” [5] “Sweet words work better than fierce.”</p>
 <hr>
-<p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the <code>glue</code> S3 class. This class works in the same way as the <code><a href="https://rdrr.io/r/base/cat.html">cat()</a></code> functions.</p>
+<p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the <code>glue</code> S3 class. This class works in the same way as the <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span>
-<span class="co">#&gt; The term ended in late June that year. The ram scared the school children off. Send the stuff in a thick paper bag. The houses are built of red clay bricks. The tin box held priceless stones.</span></code></pre></div>
-<p>The term ended in late June that year. The ram scared the school children off. Send the stuff in a thick paper bag. The houses are built of red clay bricks. The tin box held priceless stones.</p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Plead with the lawyer to drop the lost cause. Cut the cord that binds the box tightly. A salt pickle tastes fine with ham. He broke his ties with groups of former friends. Sweet words work better than fierce.</span></span></code></pre></div>
+<p>Plead with the lawyer to drop the lost cause. Cut the cord that binds the box tightly. A salt pickle tastes fine with ham. He broke his ties with groups of former friends. Sweet words work better than fierce.</p>
 </div>
 </div>
   </div>
@@ -803,11 +800,13 @@ The tin box held priceless stones.</p>
 
 
       <footer><div class="copyright">
-  <p>Developed by Kiernan Nicholls.</p>
+  <p></p>
+<p>Developed by Kiernan Nicholls.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -815,6 +814,8 @@ The tin box held priceless stones.</p>
 
   
 
+
+  
 
   </body>
 </html>

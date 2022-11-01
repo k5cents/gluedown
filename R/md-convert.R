@@ -23,7 +23,9 @@ md_convert <- function(x, frag = TRUE, disallow = TRUE) {
   if (!has_markdown()) {
     stop("Package 'markdown' needed for this function to work.")
   } else {
-    html <- markdown::markdownToHTML(text = x, fragment.only = frag)
+    html <- markdown::mark_html(text = x, options = c(
+      if (frag) "-standalone", "-smart", "-tasklist"
+    ))
     if (disallow) {
       md_disallow(html)
     } else {

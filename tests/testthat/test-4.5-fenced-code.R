@@ -80,7 +80,7 @@ test_that("md_fence uses an info string that creates a class tag (ex. 112)", {
   node <- md_convert(lines) %>%
     find_nodes("code") %>%
     html_attr("class")
-  expect_equal(node, "ruby")
+  expect_match(node, "^(language-)?ruby$")
 })
 
 test_that("md_fence info string can ignore extra (ex. 113)", {

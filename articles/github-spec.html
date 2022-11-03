@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.4.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.5</span>
       </span>
     </div>
 
@@ -318,20 +318,20 @@ _world_.
 <code class="sourceCode R"><span><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html" class="external-link">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Plead with the lawyer to drop the lost cause.</span></span>
+<span><span class="co">#&gt; The team with the best timing looks good.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Cut the cord that binds the box tightly.</span></span>
+<span><span class="co">#&gt; A tame squirrel makes a nice pet.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; A salt pickle tastes fine with ham.</span></span>
+<span><span class="co">#&gt; The bank pressed for payment of the debt.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; He broke his ties with groups of former friends.</span></span>
+<span><span class="co">#&gt; The theft of the pearl pin was kept secret.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Sweet words work better than fierce.</span></span></code></pre></div>
-<p>Plead with the lawyer to drop the lost cause.</p>
-<p>Cut the cord that binds the box tightly.</p>
-<p>A salt pickle tastes fine with ham.</p>
-<p>He broke his ties with groups of former friends.</p>
-<p>Sweet words work better than fierce.</p>
+<span><span class="co">#&gt; The bombs left most of the town in ruins.</span></span></code></pre></div>
+<p>The team with the best timing looks good.</p>
+<p>A tame squirrel makes a nice pet.</p>
+<p>The bank pressed for payment of the debt.</p>
+<p>The theft of the pearl pin was kept secret.</p>
+<p>The bombs left most of the town in ruins.</p>
 </div>
 <div class="section level3">
 <h3 id="blank-lines">4.9 Blank lines<a class="anchor" aria-label="anchor" href="#blank-lines"></a>
@@ -482,25 +482,25 @@ _world_.
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; &gt; Plead with the lawyer to drop the lost cause.</span></span>
-<span><span class="co">#&gt; &gt; Cut the cord that binds the box tightly.</span></span>
-<span><span class="co">#&gt; &gt; A salt pickle tastes fine with ham.</span></span>
-<span><span class="co">#&gt; &gt; He broke his ties with groups of former friends.</span></span>
-<span><span class="co">#&gt; &gt; Sweet words work better than fierce.</span></span></code></pre></div>
+<span><span class="co">#&gt; &gt; The team with the best timing looks good.</span></span>
+<span><span class="co">#&gt; &gt; A tame squirrel makes a nice pet.</span></span>
+<span><span class="co">#&gt; &gt; The bank pressed for payment of the debt.</span></span>
+<span><span class="co">#&gt; &gt; The theft of the pearl pin was kept secret.</span></span>
+<span><span class="co">#&gt; &gt; The bombs left most of the town in ruins.</span></span></code></pre></div>
 <blockquote>
-<p>Plead with the lawyer to drop the lost cause.</p>
+<p>The team with the best timing looks good.</p>
 </blockquote>
 <blockquote>
-<p>Cut the cord that binds the box tightly.</p>
+<p>A tame squirrel makes a nice pet.</p>
 </blockquote>
 <blockquote>
-<p>A salt pickle tastes fine with ham.</p>
+<p>The bank pressed for payment of the debt.</p>
 </blockquote>
 <blockquote>
-<p>He broke his ties with groups of former friends.</p>
+<p>The theft of the pearl pin was kept secret.</p>
 </blockquote>
 <blockquote>
-<p>Sweet words work better than fierce.</p>
+<p>The bombs left most of the town in ruins.</p>
 </blockquote>
 </div>
 <div class="section level3">
@@ -526,27 +526,27 @@ _world_.
 <p>Markdown extensions like this one are optionally supported on different venues. On GitHub (in <code>README.md</code> files, issues, or comments, etc.) these tasks list are rendered as check boxes, sometimes even interactable. On other venues, like this very HTML vignette, these check boxes just render are bullet lists with weird bracket boxes on each line.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
-<span><span class="co">#&gt; * [ ] Plead with the lawyer to drop the lost cause.</span></span>
-<span><span class="co">#&gt; * [ ] Cut the cord that binds the box tightly.</span></span>
-<span><span class="co">#&gt; * [x] A salt pickle tastes fine with ham.</span></span>
-<span><span class="co">#&gt; * [x] He broke his ties with groups of former friends.</span></span>
-<span><span class="co">#&gt; * [ ] Sweet words work better than fierce.</span></span></code></pre></div>
+<span><span class="co">#&gt; * [ ] The team with the best timing looks good.</span></span>
+<span><span class="co">#&gt; * [ ] A tame squirrel makes a nice pet.</span></span>
+<span><span class="co">#&gt; * [x] The bank pressed for payment of the debt.</span></span>
+<span><span class="co">#&gt; * [x] The theft of the pearl pin was kept secret.</span></span>
+<span><span class="co">#&gt; * [ ] The bombs left most of the town in ruins.</span></span></code></pre></div>
 <ul>
 <li>
 <input type="checkbox" disabled>
-Plead with the lawyer to drop the lost cause.</li>
+The team with the best timing looks good.</li>
 <li>
 <input type="checkbox" disabled>
-Cut the cord that binds the box tightly.</li>
+A tame squirrel makes a nice pet.</li>
 <li>
 <input type="checkbox" disabled checked>
-A salt pickle tastes fine with ham.</li>
+The bank pressed for payment of the debt.</li>
 <li>
 <input type="checkbox" disabled checked>
-He broke his ties with groups of former friends.</li>
+The theft of the pearl pin was kept secret.</li>
 <li>
 <input type="checkbox" disabled>
-Sweet words work better than fierce.</li>
+The bombs left most of the town in ruins.</li>
 </ul>
 </div>
 <div class="section level3">
@@ -563,43 +563,43 @@ Sweet words work better than fierce.</li>
 <code class="sourceCode R"><span><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
-<span><span class="co">#&gt; * Texas</span></span>
-<span><span class="co">#&gt; * Arkansas</span></span>
-<span><span class="co">#&gt; * Wisconsin</span></span></code></pre></div>
+<span><span class="co">#&gt; * New Mexico</span></span>
+<span><span class="co">#&gt; * Iowa</span></span>
+<span><span class="co">#&gt; * West Virginia</span></span></code></pre></div>
 <ul>
-<li>Texas</li>
-<li>Arkansas</li>
-<li>Wisconsin</li>
+<li>New Mexico</li>
+<li>Iowa</li>
+<li>West Virginia</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; + Texas</span></span>
-<span><span class="co">#&gt; + Arkansas</span></span>
-<span><span class="co">#&gt; + Wisconsin</span></span></code></pre></div>
+<span><span class="co">#&gt; + New Mexico</span></span>
+<span><span class="co">#&gt; + Iowa</span></span>
+<span><span class="co">#&gt; + West Virginia</span></span></code></pre></div>
 <ul>
-<li>Texas</li>
-<li>Arkansas</li>
-<li>Wisconsin</li>
+<li>New Mexico</li>
+<li>Iowa</li>
+<li>West Virginia</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1. Texas</span></span>
-<span><span class="co">#&gt; 2. Arkansas</span></span>
-<span><span class="co">#&gt; 3. Wisconsin</span></span></code></pre></div>
+<span><span class="co">#&gt; 1. New Mexico</span></span>
+<span><span class="co">#&gt; 2. Iowa</span></span>
+<span><span class="co">#&gt; 3. West Virginia</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Texas</li>
-<li>Arkansas</li>
-<li>Wisconsin</li>
+<li>New Mexico</li>
+<li>Iowa</li>
+<li>West Virginia</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1) Texas</span></span>
-<span><span class="co">#&gt; 1) Arkansas</span></span>
-<span><span class="co">#&gt; 1) Wisconsin</span></span></code></pre></div>
+<span><span class="co">#&gt; 1) New Mexico</span></span>
+<span><span class="co">#&gt; 1) Iowa</span></span>
+<span><span class="co">#&gt; 1) West Virginia</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Texas</li>
-<li>Arkansas</li>
-<li>Wisconsin</li>
+<li>New Mexico</li>
+<li>Iowa</li>
+<li>West Virginia</li>
 </ol>
 </div>
 </div>
@@ -662,7 +662,7 @@ Sweet words work better than fierce.</li>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_image.html">md_image</a></span><span class="op">(</span><span class="st">"https://www.r-project.org/Rlogo.png"</span>, alt <span class="op">=</span> <span class="st">"R logo"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ![R logo](https://www.r-project.org/Rlogo.png)</span></span></code></pre></div>
 <div class="figure">
-<img src="../../../../../../private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmpc0EwML/file106e44475f2a.png" alt=""><p class="caption">R logo</p>
+<img src="../../../../../../private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmpqHZWkp/file15d252cd79d9.png" alt=""><p class="caption">R logo</p>
 </div>
 </div>
 <div class="section level3">
@@ -708,16 +708,16 @@ Sweet words work better than fierce.</li>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.12 Hard line breaks</span></span>
 <span><span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Plead with the lawyer to drop the lost cause.  </span></span>
-<span><span class="co">#&gt; Cut the cord that binds the box tightly.  </span></span>
-<span><span class="co">#&gt; A salt pickle tastes fine with ham.  </span></span>
-<span><span class="co">#&gt; He broke his ties with groups of former friends.  </span></span>
-<span><span class="co">#&gt; Sweet words work better than fierce.</span></span></code></pre></div>
-<p>Plead with the lawyer to drop the lost cause.<br>
-Cut the cord that binds the box tightly.<br>
-A salt pickle tastes fine with ham.<br>
-He broke his ties with groups of former friends.<br>
-Sweet words work better than fierce.</p>
+<span><span class="co">#&gt; The team with the best timing looks good.  </span></span>
+<span><span class="co">#&gt; A tame squirrel makes a nice pet.  </span></span>
+<span><span class="co">#&gt; The bank pressed for payment of the debt.  </span></span>
+<span><span class="co">#&gt; The theft of the pearl pin was kept secret.  </span></span>
+<span><span class="co">#&gt; The bombs left most of the town in ruins.</span></span></code></pre></div>
+<p>The team with the best timing looks good.<br>
+A tame squirrel makes a nice pet.<br>
+The bank pressed for payment of the debt.<br>
+The theft of the pearl pin was kept secret.<br>
+The bombs left most of the town in ruins.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not preceded by two or more spaces or a backslash is parsed as a softbreak. (A softbreak may be rendered in HTML either as a line ending or as a space. The result will be the same in browsers. In the examples here, a line ending will be used.)</p>
@@ -725,30 +725,30 @@ Sweet words work better than fierce.</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.13 Soft line breaks</span></span>
 <span><span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Plead with the lawyer to drop the lost cause.</span></span>
-<span><span class="co">#&gt; Cut the cord that binds the box tightly.</span></span>
-<span><span class="co">#&gt; A salt pickle tastes fine with ham.</span></span>
-<span><span class="co">#&gt; He broke his ties with groups of former friends.</span></span>
-<span><span class="co">#&gt; Sweet words work better than fierce.</span></span></code></pre></div>
-<p>Plead with the lawyer to drop the lost cause. Cut the cord that binds the box tightly. A salt pickle tastes fine with ham. He broke his ties with groups of former friends. Sweet words work better than fierce.</p>
+<span><span class="co">#&gt; The team with the best timing looks good.</span></span>
+<span><span class="co">#&gt; A tame squirrel makes a nice pet.</span></span>
+<span><span class="co">#&gt; The bank pressed for payment of the debt.</span></span>
+<span><span class="co">#&gt; The theft of the pearl pin was kept secret.</span></span>
+<span><span class="co">#&gt; The bombs left most of the town in ruins.</span></span></code></pre></div>
+<p>The team with the best timing looks good. A tame squirrel makes a nice pet. The bank pressed for payment of the debt. The theft of the pearl pin was kept secret. The bombs left most of the town in ruins.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Plead with the lawyer to drop the lost cause.</span></span>
+<span><span class="co">#&gt; The team with the best timing looks good.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Cut the cord that binds the box tightly.</span></span>
+<span><span class="co">#&gt; A tame squirrel makes a nice pet.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; A salt pickle tastes fine with ham.</span></span>
+<span><span class="co">#&gt; The bank pressed for payment of the debt.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; He broke his ties with groups of former friends.</span></span>
+<span><span class="co">#&gt; The theft of the pearl pin was kept secret.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Sweet words work better than fierce.</span></span></code></pre></div>
-<p>Plead with the lawyer to drop the lost cause.</p>
-<p>Cut the cord that binds the box tightly.</p>
-<p>A salt pickle tastes fine with ham.</p>
-<p>He broke his ties with groups of former friends.</p>
-<p>Sweet words work better than fierce.</p>
+<span><span class="co">#&gt; The bombs left most of the town in ruins.</span></span></code></pre></div>
+<p>The team with the best timing looks good.</p>
+<p>A tame squirrel makes a nice pet.</p>
+<p>The bank pressed for payment of the debt.</p>
+<p>The theft of the pearl pin was kept secret.</p>
+<p>The bombs left most of the town in ruins.</p>
 </div>
 <div class="section level3">
 <h3 id="textual-content">6.14 Textual content<a class="anchor" aria-label="anchor" href="#textual-content"></a>
@@ -760,31 +760,31 @@ Sweet words work better than fierce.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.14 Textual content</span></span>
 <span><span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Plead with the lawyer to drop the lost cause.</span></span>
-<span><span class="co">#&gt; Cut the cord that binds the box tightly.</span></span>
-<span><span class="co">#&gt; A salt pickle tastes fine with ham.</span></span>
-<span><span class="co">#&gt; He broke his ties with groups of former friends.</span></span>
-<span><span class="co">#&gt; Sweet words work better than fierce.</span></span></code></pre></div>
-<p>Plead with the lawyer to drop the lost cause. Cut the cord that binds the box tightly. A salt pickle tastes fine with ham. He broke his ties with groups of former friends. Sweet words work better than fierce.</p>
+<span><span class="co">#&gt; The team with the best timing looks good.</span></span>
+<span><span class="co">#&gt; A tame squirrel makes a nice pet.</span></span>
+<span><span class="co">#&gt; The bank pressed for payment of the debt.</span></span>
+<span><span class="co">#&gt; The theft of the pearl pin was kept secret.</span></span>
+<span><span class="co">#&gt; The bombs left most of the town in ruins.</span></span></code></pre></div>
+<p>The team with the best timing looks good. A tame squirrel makes a nice pet. The bank pressed for payment of the debt. The theft of the pearl pin was kept secret. The bombs left most of the town in ruins.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Plead with the lawyer to drop the lost cause."   </span></span>
-<span><span class="co">#&gt; [2] "Cut the cord that binds the box tightly."        </span></span>
-<span><span class="co">#&gt; [3] "A salt pickle tastes fine with ham."             </span></span>
-<span><span class="co">#&gt; [4] "He broke his ties with groups of former friends."</span></span>
-<span><span class="co">#&gt; [5] "Sweet words work better than fierce."</span></span></code></pre></div>
-<p>[1] “Plead with the lawyer to drop the lost cause.”<br>
-[2] “Cut the cord that binds the box tightly.”<br>
-[3] “A salt pickle tastes fine with ham.”<br>
-[4] “He broke his ties with groups of former friends.” [5] “Sweet words work better than fierce.”</p>
+<span><span class="co">#&gt; [1] "The team with the best timing looks good."  </span></span>
+<span><span class="co">#&gt; [2] "A tame squirrel makes a nice pet."          </span></span>
+<span><span class="co">#&gt; [3] "The bank pressed for payment of the debt."  </span></span>
+<span><span class="co">#&gt; [4] "The theft of the pearl pin was kept secret."</span></span>
+<span><span class="co">#&gt; [5] "The bombs left most of the town in ruins."</span></span></code></pre></div>
+<p>[1] “The team with the best timing looks good.”<br>
+[2] “A tame squirrel makes a nice pet.”<br>
+[3] “The bank pressed for payment of the debt.”<br>
+[4] “The theft of the pearl pin was kept secret.” [5] “The bombs left most of the town in ruins.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the <code>glue</code> S3 class. This class works in the same way as the <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Plead with the lawyer to drop the lost cause. Cut the cord that binds the box tightly. A salt pickle tastes fine with ham. He broke his ties with groups of former friends. Sweet words work better than fierce.</span></span></code></pre></div>
-<p>Plead with the lawyer to drop the lost cause. Cut the cord that binds the box tightly. A salt pickle tastes fine with ham. He broke his ties with groups of former friends. Sweet words work better than fierce.</p>
+<span><span class="co">#&gt; The team with the best timing looks good. A tame squirrel makes a nice pet. The bank pressed for payment of the debt. The theft of the pearl pin was kept secret. The bombs left most of the town in ruins.</span></span></code></pre></div>
+<p>The team with the best timing looks good. A tame squirrel makes a nice pet. The bank pressed for payment of the debt. The theft of the pearl pin was kept secret. The bombs left most of the town in ruins.</p>
 </div>
 </div>
   </div>

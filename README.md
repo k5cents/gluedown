@@ -11,7 +11,7 @@ experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https:/
 status](https://www.r-pkg.org/badges/version/gluedown)](https://CRAN.R-project.org/package=gluedown)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/gluedown)
 [![Codecov test
-coverage](https://img.shields.io/codecov/c/github/kiernann/gluedown/master.svg)](https://codecov.io/gh/kiernann/gluedown?branch=master')
+coverage](https://img.shields.io/codecov/c/github/kiernann/gluedown/master.svg)](https://app.codecov.io/gh/kiernann/gluedown?branch=master')
 [![R build
 status](https://github.com/kiernann/gluedown/workflows/R-CMD-check/badge.svg)](https://github.com/kiernann/gluedown/actions)
 <!-- badges: end -->

@@ -18,6 +18,8 @@
 
 ## Resubmission
 
+* 2022-11-05: Update redirected URL
+
 <!-- links: start -->
 [gh_act]: https://github.com/kiernann/gluedown/actions
 [rhub_win]: https://builder.r-hub.io/status/gluedown_1.0.4.tar.gz-d803fb486c644b2fbcb7d62ca5b1d405

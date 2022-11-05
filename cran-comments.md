@@ -19,6 +19,7 @@
 ## Resubmission
 
 * 2022-11-05: Update redirected URL
+* Bump to version 1.0.6
 
 <!-- links: start -->
 [gh_act]: https://github.com/kiernann/gluedown/actions

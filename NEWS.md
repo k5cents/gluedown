@@ -1,3 +1,5 @@
+# gluedown 1.0.6
+
 # gluedown 1.0.5
 
 * Update tests for new markdown package functionality (#29).

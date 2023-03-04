@@ -37,6 +37,7 @@ test_that("md_table can create a table with no body (ex. 205)", {
 })
 
 test_that("md_table works without knitr", {
+  skip_if_not_installed("mockr")
   df <- data.frame(
     foo = "baz",
     bar = "bim",
@@ -57,6 +58,7 @@ test_that("md_table works without knitr", {
 })
 
 test_that("md_table works without knitr and no body", {
+  skip_if_not_installed("mockr")
   df <- data.frame(
     foo = logical(),
     bar = logical(),

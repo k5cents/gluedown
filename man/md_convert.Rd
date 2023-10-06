@@ -20,7 +20,7 @@ A \code{glue} vector of length 1 containing HTML tags.
 }
 \description{
 Take a character vector of valid markdown text and pass it to
-\code{\link[markdown:markdownToHTML]{markdown::markdownToHTML()}} to create a glue vector of HTML fragments.
+\code{\link[markdown:renderMarkdown]{markdown::markdownToHTML()}} to create a glue vector of HTML fragments.
 Primarily used to test that \verb{md_*()} functions create vectors that meet the
 GFM spec and can be rendered as HTML.
 }

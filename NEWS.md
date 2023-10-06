@@ -1,4 +1,4 @@
-# gluedown (development version)
+# gluedown 1.0.7
 
 # gluedown 1.0.6
 

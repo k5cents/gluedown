@@ -18,12 +18,6 @@
 
 ## Resubmission
 
-* 2022-11-05: Update redirected URL
-* Bump to version 1.0.6
+### 2023-10-06
 
-<!-- links: start -->
-[gh_act]: https://github.com/kiernann/gluedown/actions
-[rhub_win]: https://builder.r-hub.io/status/gluedown_1.0.4.tar.gz-d803fb486c644b2fbcb7d62ca5b1d405
-[rhub_ubu]: https://builder.r-hub.io/status/gluedown_1.0.4.tar.gz-17912d7e2d5f46098b4ebf2755096ffd
-[rhub_fed]: https://builder.r-hub.io/status/gluedown_1.0.4.tar.gz-0d4589b34c1648e58a641fcb1c1044e4
-<!-- links: end -->
+* Fix package documentation page.

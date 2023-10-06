@@ -1,6 +1,6 @@
 Package: gluedown
 Title: Wrap Vectors in Markdown Formatting
-Version: 1.0.6.9000
+Version: 1.0.7
 Authors@R: 
     person(given = "Kiernan",
            family = "Nicholls",
@@ -40,4 +40,4 @@ VignetteBuilder:
 Encoding: UTF-8
 Language: en-US
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3

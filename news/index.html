@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.6.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.7</span>
       </span>
     </div>
 
@@ -60,11 +60,16 @@
       <small>Source: <a href="https://github.com/kiernann/gluedown/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="section level2"><h2 class="page-header" data-toc-text="development version" id="gluedown-development-version">gluedown (development version)<a class="anchor" aria-label="anchor" href="#gluedown-development-version"></a></h2></div>
-    <div class="section level2"><h2 class="page-header" data-toc-text="1.0.6" id="gluedown-106">gluedown 1.0.6<small>2022-11-06</small><a class="anchor" aria-label="anchor" href="#gluedown-106"></a></h2></div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="1.0.7" id="gluedown-107">gluedown 1.0.7<a class="anchor" aria-label="anchor" href="#gluedown-107"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="1.0.6" id="gluedown-106">gluedown 1.0.6<small>2022-11-06</small><a class="anchor" aria-label="anchor" href="#gluedown-106"></a></h2>
+</div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.5" id="gluedown-105">gluedown 1.0.5<small>2022-11-05</small><a class="anchor" aria-label="anchor" href="#gluedown-105"></a></h2>
-<ul><li>Update tests for new markdown package functionality (<a href="https://github.com/kiernann/gluedown/issues/29" class="external-link">#29</a>).</li></ul></div>
+<ul><li>Update tests for new markdown package functionality (<a href="https://github.com/kiernann/gluedown/issues/29" class="external-link">#29</a>).</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.4" id="gluedown-104">gluedown 1.0.4<small>2021-05-10</small><a class="anchor" aria-label="anchor" href="#gluedown-104"></a></h2>
 <ul><li>Remove <code>LazyData</code> from DESCRIPTION per new CRAN rules. Package has no data.</li>
@@ -75,7 +80,8 @@
 <ul><li>Update <code><a href="../reference/md_table.html">md_table()</a></code> tests for rvest 1.0.0 release.</li>
 <li>Create <code><a href="../reference/md_label.html">md_label()</a></code> to use with <code><a href="../reference/md_reference.html">md_reference()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/25" class="external-link">#25</a>).</li>
 <li>Try using clean <code>...</code> support in <code><a href="../reference/md_link.html">md_link()</a></code> and <code><a href="../reference/md_image.html">md_image()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/26" class="external-link">#26</a>).</li>
-<li>Use <code>goodpractices::gp()</code> to fix a few issues:<ol style="list-style-type: decimal"><li>Trim all lines to under 80 character width.</li>
+<li>Use <code>goodpractices::gp()</code> to fix a few issues:
+<ol style="list-style-type: decimal"><li>Trim all lines to under 80 character width.</li>
 <li>Use <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">vapply()</a></code> over <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply()</a></code> in <code><a href="../reference/md_setext.html">md_setext()</a></code>.</li>
 </ol></li>
 <li>The <code><a href="../reference/md_link.html">md_link()</a></code> and <code><a href="../reference/md_image.html">md_image()</a></code> functions have half-baked support for using named <code>...</code> arguments instead of the traditional vector arguments. This works well with a single link but not when trying to turn two lengthy vectors into multiple markdown links (<a href="https://github.com/kiernann/gluedown/issues/26" class="external-link">#26</a>).</li>
@@ -106,10 +112,12 @@
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.4" id="gluedown-044">gluedown 0.4.4<a class="anchor" aria-label="anchor" href="#gluedown-044"></a></h2>
-<ul><li>Replace <code>emphasize_at()</code> with <code>map_md()</code>, which now uses <code>str_split(simplify = TRUE)</code> and <code><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply()</a></code> instead of <code><a href="https://purrr.tidyverse.org/reference/map_if.html" class="external-link">purrr::map_at()</a></code>.</li></ul></div>
+<ul><li>Replace <code>emphasize_at()</code> with <code>map_md()</code>, which now uses <code>str_split(simplify = TRUE)</code> and <code><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply()</a></code> instead of <code><a href="https://purrr.tidyverse.org/reference/map_if.html" class="external-link">purrr::map_at()</a></code>.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.3" id="gluedown-043">gluedown 0.4.3<a class="anchor" aria-label="anchor" href="#gluedown-043"></a></h2>
-<ul><li>Add vignette walking through all the features of GFM.</li></ul></div>
+<ul><li>Add vignette walking through all the features of GFM.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.2" id="gluedown-042">gluedown 0.4.2<a class="anchor" aria-label="anchor" href="#gluedown-042"></a></h2>
 <ul><li>Create <code><a href="../reference/md_disallow.html">md_disallow()</a></code> and add to <code><a href="../reference/md_convert.html">md_convert()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/10" class="external-link">#10</a>).</li>
@@ -118,7 +126,8 @@
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.1" id="gluedown-041">gluedown 0.4.1<a class="anchor" aria-label="anchor" href="#gluedown-041"></a></h2>
-<ul><li>Cover all errors in <code><a href="../reference/md_rule.html">md_rule()</a></code> and <code><a href="../reference/md_chunk.html">md_chunk()</a></code>, brings coverage to 100%.</li></ul></div>
+<ul><li>Cover all errors in <code><a href="../reference/md_rule.html">md_rule()</a></code> and <code><a href="../reference/md_chunk.html">md_chunk()</a></code>, brings coverage to 100%.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.0" id="gluedown-040">gluedown 0.4.0<a class="anchor" aria-label="anchor" href="#gluedown-040"></a></h2>
 <ul><li>Add back all the tests from the GFM spec (<a href="https://github.com/kiernann/gluedown/issues/13" class="external-link">#13</a>).</li>
@@ -126,10 +135,12 @@
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.3" id="gluedown-033">gluedown 0.3.3<a class="anchor" aria-label="anchor" href="#gluedown-033"></a></h2>
-<ul><li>Add and remove tests from the GFM spec (<a href="https://github.com/kiernann/gluedown/issues/13" class="external-link">#13</a>).</li></ul></div>
+<ul><li>Add and remove tests from the GFM spec (<a href="https://github.com/kiernann/gluedown/issues/13" class="external-link">#13</a>).</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.2" id="gluedown-032">gluedown 0.3.2<a class="anchor" aria-label="anchor" href="#gluedown-032"></a></h2>
-<ul><li>Use <code>...</code> in <code><a href="../reference/md_hardline.html">md_hardline()</a></code>, <code><a href="../reference/md_softline.html">md_softline()</a></code>, and <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code>.</li></ul></div>
+<ul><li>Use <code>...</code> in <code><a href="../reference/md_hardline.html">md_hardline()</a></code>, <code><a href="../reference/md_softline.html">md_softline()</a></code>, and <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code>.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.1" id="gluedown-031">gluedown 0.3.1<a class="anchor" aria-label="anchor" href="#gluedown-031"></a></h2>
 <ul><li>Rename <code>md-break.R</code> to <code>md-rule.R</code>
@@ -140,13 +151,16 @@
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.0" id="gluedown-030">gluedown 0.3.0<a class="anchor" aria-label="anchor" href="#gluedown-030"></a></h2>
-<ul><li>Create <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code> and <code><a href="../reference/md_softline.html">md_softline()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/10" class="external-link">#10</a>).</li></ul></div>
+<ul><li>Create <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code> and <code><a href="../reference/md_softline.html">md_softline()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/10" class="external-link">#10</a>).</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.2.3" id="gluedown-023">gluedown 0.2.3<a class="anchor" aria-label="anchor" href="#gluedown-023"></a></h2>
-<ul><li>Rewrite function descriptions with consistent language.</li></ul></div>
+<ul><li>Rewrite function descriptions with consistent language.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.2.2" id="gluedown-022">gluedown 0.2.2<a class="anchor" aria-label="anchor" href="#gluedown-022"></a></h2>
-<ul><li>Check if <code><a href="https://rdrr.io/r/base/any.html" class="external-link">any()</a></code> number in <code><a href="../reference/md_issue.html">md_issue()</a></code> can’t be coerced to numeric.</li></ul></div>
+<ul><li>Check if <code><a href="https://rdrr.io/r/base/any.html" class="external-link">any()</a></code> number in <code><a href="../reference/md_issue.html">md_issue()</a></code> can’t be coerced to numeric.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.2.1" id="gluedown-021">gluedown 0.2.1<a class="anchor" aria-label="anchor" href="#gluedown-021"></a></h2>
 <ul><li>Return glued <code><a href="../reference/md_convert.html">md_convert()</a></code> output with <code><a href="https://glue.tidyverse.org/reference/as_glue.html" class="external-link">glue::as_glue()</a></code>.</li>
@@ -173,7 +187,8 @@
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.1.2" id="gluedown-012">gluedown 0.1.2<a class="anchor" aria-label="anchor" href="#gluedown-012"></a></h2>
-<ul><li>Create <code><a href="../reference/md_hardline.html">md_hardline()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/10" class="external-link">#10</a>).</li></ul></div>
+<ul><li>Create <code><a href="../reference/md_hardline.html">md_hardline()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/10" class="external-link">#10</a>).</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.1.1" id="gluedown-011">gluedown 0.1.1<a class="anchor" aria-label="anchor" href="#gluedown-011"></a></h2>
 <ul><li>Create <code><a href="../reference/md_setext.html">md_setext()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/10" class="external-link">#10</a>).</li>

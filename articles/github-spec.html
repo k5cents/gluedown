@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.6.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.7</span>
       </span>
     </div>
 
@@ -85,7 +85,7 @@
 
       
 
-      </header><script src="github-spec_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>GitHub Flavored Markdown</h1>
@@ -102,16 +102,35 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://kiernann.com/gluedown/" class="external-link">gluedown</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/" class="external-link">rvest</a></span><span class="op">)</span></span></code></pre></div>
-<p>In this vignette, we will explore how the functions in <code>gluedown</code> enable users to transition from R vectors to the kind of formatted markdown text used in the GitHub Flavored Markdown (GFM) specification. Functions like <code><a href="../reference/md_bullet.html">md_bullet()</a></code> and <code><a href="../reference/md_quote.html">md_quote()</a></code> may be used more often, but there are functions for practically every section of the GFM spec including, some of which have limited practical value (e.g., <code><a href="../reference/md_blank.html">md_blank()</a></code> and <code><a href="../reference/md_text.html">md_text()</a></code>).</p>
-<p>In each section of this vignette, the GFM spec is quoted first and followed by <code>gluedown</code> function usage. For each R code block containing <code>gluedown</code> usage, the raw text is shows as <code>#&gt;</code> comments followed by the rendered HTML version, which is printed using the <code>results='asis'</code> option of the <code>knitr</code> package. (To achieve this output, each block is actually repeated twice, with the code of the second result printing block hidden via <code>echo=FALSE</code>.)</p>
+<p>In this vignette, we will explore how the functions in
+<code>gluedown</code> enable users to transition from R vectors to the
+kind of formatted markdown text used in the GitHub Flavored Markdown
+(GFM) specification. Functions like <code><a href="../reference/md_bullet.html">md_bullet()</a></code> and
+<code><a href="../reference/md_quote.html">md_quote()</a></code> may be used more often, but there are functions
+for practically every section of the GFM spec including, some of which
+have limited practical value (e.g., <code><a href="../reference/md_blank.html">md_blank()</a></code> and
+<code><a href="../reference/md_text.html">md_text()</a></code>).</p>
+<p>In each section of this vignette, the GFM spec is quoted first and
+followed by <code>gluedown</code> function usage. For each R code block
+containing <code>gluedown</code> usage, the raw text is shows as
+<code>#&gt;</code> comments followed by the rendered HTML version, which
+is printed using the <code>results='asis'</code> option of the
+<code>knitr</code> package. (To achieve this output, each block is
+actually repeated twice, with the code of the second result printing
+block hidden via <code>echo=FALSE</code>.)</p>
 <div class="section level2">
 <h2 id="blocks-and-inlines">3 Blocks and Inlines<a class="anchor" aria-label="anchor" href="#blocks-and-inlines"></a>
 </h2>
 <blockquote>
-<p>We can think of a document as a sequence of blocks—structural elements like paragraphs, block quotations, lists, headings, rules, and code blocks. Some blocks (like block quotes and list items) contain other blocks; others (like headings and paragraphs) contain inline content—text, links, emphasized text, images, code spans, and so on.</p>
+<p>We can think of a document as a sequence of blocks—structural
+elements like paragraphs, block quotations, lists, headings, rules, and
+code blocks. Some blocks (like block quotes and list items) contain
+other blocks; others (like headings and paragraphs) contain inline
+content—text, links, emphasized text, images, code spans, and so on.</p>
 </blockquote>
 <blockquote>
-<p>We can divide blocks into two types: container blocks, which can contain other blocks, and leaf blocks, which cannot.</p>
+<p>We can divide blocks into two types: container blocks, which can
+contain other blocks, and leaf blocks, which cannot.</p>
 </blockquote>
 </div>
 <div class="section level2">
@@ -134,9 +153,16 @@
 <h3 id="thematic-breaks">4.1 Thematic breaks<a class="anchor" aria-label="anchor" href="#thematic-breaks"></a>
 </h3>
 <blockquote>
-<p>A line consisting of 0-3 spaces of indentation, followed by a sequence of three or more matching <code>-</code>, <code>_</code>, or <code>*</code> characters, each followed optionally by any number of spaces or tabs, forms a thematic break.</p>
+<p>A line consisting of 0-3 spaces of indentation, followed by a
+sequence of three or more matching <code>-</code>, <code>_</code>, or
+<code>*</code> characters, each followed optionally by any number of
+spaces or tabs, forms a thematic break.</p>
 </blockquote>
-<p>We can create thematic breaks with the <code><a href="../reference/md_rule.html">md_rule()</a></code> function, which allows users to define the type and number of valid characters to use. All these options create the same <code>&lt;hr&gt;</code> HTML tag, but look different in the underlying <code>.md</code> document.</p>
+<p>We can create thematic breaks with the <code><a href="../reference/md_rule.html">md_rule()</a></code>
+function, which allows users to define the type and number of valid
+characters to use. All these options create the same
+<code>&lt;hr&gt;</code> HTML tag, but look different in the underlying
+<code>.md</code> document.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_rule.html">md_rule</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ***</span></span></code></pre></div>
@@ -150,9 +176,16 @@
 <h3 id="atx-headings">4.2 ATX Headings<a class="anchor" aria-label="anchor" href="#atx-headings"></a>
 </h3>
 <blockquote>
-<p>An ATX heading consists of a string of characters, parsed as inline content, between an opening sequence of 1–6 unescaped <code>#</code> characters and an optional closing sequence of any number of unescaped <code>#</code> characters… The raw contents of the heading are stripped of leading and trailing spaces before being parsed as inline content. The heading level is equal to the number of <code>#</code> characters in the opening sequence.</p>
+<p>An ATX heading consists of a string of characters, parsed as inline
+content, between an opening sequence of 1–6 unescaped <code>#</code>
+characters and an optional closing sequence of any number of unescaped
+<code>#</code> characters… The raw contents of the heading are stripped
+of leading and trailing spaces before being parsed as inline content.
+The heading level is equal to the number of <code>#</code> characters in
+the opening sequence.</p>
 </blockquote>
-<p>The heading for this section was created with <code><a href="../reference/md_heading.html">md_heading()</a></code>.</p>
+<p>The heading for this section was created with
+<code><a href="../reference/md_heading.html">md_heading()</a></code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_heading.html">md_heading</a></span><span class="op">(</span><span class="st">"4.2 ATX Headings"</span>, level <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ### 4.2 ATX Headings</span></span></code></pre></div>
@@ -161,9 +194,21 @@
 <h3 id="setext-headings">4.3 Setext headings<a class="anchor" aria-label="anchor" href="#setext-headings"></a>
 </h3>
 <blockquote>
-<p>A setext heading consists of one or more lines of text, each containing at least one non-whitespace character, with no more than 3 spaces indentation, followed by a setext heading underline… A setext heading underline is a sequence of <code>=</code> characters or a sequence of <code>-</code> characters, with no more than 3 spaces indentation and any number of trailing spaces… The heading is a level 1 heading if <code>=</code> characters are used in the setext heading underline, and a level 2 heading if <code>-</code> characters are used.</p>
+<p>A setext heading consists of one or more lines of text, each
+containing at least one non-whitespace character, with no more than 3
+spaces indentation, followed by a setext heading underline… A setext
+heading underline is a sequence of <code>=</code> characters or a
+sequence of <code>-</code> characters, with no more than 3 spaces
+indentation and any number of trailing spaces… The heading is a level 1
+heading if <code>=</code> characters are used in the setext heading
+underline, and a level 2 heading if <code>-</code> characters are
+used.</p>
 </blockquote>
-<p>I’m going to forgo printing these headings, just to preserve the structure of this document. The <code><a href="../reference/md_setext.html">md_setext()</a></code> function can only be used to create level 1 (<code>&lt;h1&gt;</code>) and level 2 (<code>&lt;h2&gt;</code>) headings. A level 1 Setext heading is sometimes used as the very first, initial title heading.</p>
+<p>I’m going to forgo printing these headings, just to preserve the
+structure of this document. The <code><a href="../reference/md_setext.html">md_setext()</a></code> function can
+only be used to create level 1 (<code>&lt;h1&gt;</code>) and level 2
+(<code>&lt;h2&gt;</code>) headings. A level 1 Setext heading is
+sometimes used as the very first, initial title heading.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_setext.html">md_setext</a></span><span class="op">(</span><span class="st">"Headings"</span>, level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Headings</span></span>
@@ -181,9 +226,16 @@
 <h3 id="indented-code-blocks">4.4 Indented code blocks<a class="anchor" aria-label="anchor" href="#indented-code-blocks"></a>
 </h3>
 <blockquote>
-<p>An indented code block is composed of one or more indented chunks separated by blank lines. An indented chunk is a sequence of non-blank lines, each indented four or more spaces. The contents of the code block are the literal contents of the lines, including trailing line endings, minus four spaces of indentation…</p>
+<p>An indented code block is composed of one or more indented chunks
+separated by blank lines. An indented chunk is a sequence of non-blank
+lines, each indented four or more spaces. The contents of the code block
+are the literal contents of the lines, including trailing line endings,
+minus four spaces of indentation…</p>
 </blockquote>
-<p>This function, along with the fenced code block alternative, are useful for creating displayed code blocks (as opposed to executed chunks) containing R source code, command line content, or any other pre-formatted fixed-width content.</p>
+<p>This function, along with the fenced code block alternative, are
+useful for creating displayed code blocks (as opposed to executed
+chunks) containing R source code, command line content, or any other
+pre-formatted fixed-width content.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">rescale01</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">rng</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">x</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
@@ -214,12 +266,27 @@
 <h3 id="fenced-code-blocks">4.5 Fenced code blocks<a class="anchor" aria-label="anchor" href="#fenced-code-blocks"></a>
 </h3>
 <blockquote>
-<p>A code fence is a sequence of at least three consecutive backtick characters … or tildes (<code>~</code>). (Tildes and backticks cannot be mixed.) A fenced code block begins with a code fence, indented no more than three spaces…</p>
-<p>The line with the opening code fence may optionally contain some text following the code fence; this is trimmed of leading and trailing whitespace and called the info string…</p>
-<p>The content of the code block consists of all subsequent lines, until a closing code fence of the same type as the code block began with (backticks or tildes), and with at least as many backticks or tildes as the opening code fence….</p>
-<p>The content of a code fence is treated as literal text, not parsed as inlines. The first word of the info string is typically used to specify the language of the code sample, and rendered in the class attribute of the code tag. However, this spec does not mandate any particular treatment of the info string.</p>
+<p>A code fence is a sequence of at least three consecutive backtick
+characters … or tildes (<code>~</code>). (Tildes and backticks cannot be
+mixed.) A fenced code block begins with a code fence, indented no more
+than three spaces…</p>
+<p>The line with the opening code fence may optionally contain some text
+following the code fence; this is trimmed of leading and trailing
+whitespace and called the info string…</p>
+<p>The content of the code block consists of all subsequent lines, until
+a closing code fence of the same type as the code block began with
+(backticks or tildes), and with at least as many backticks or tildes as
+the opening code fence….</p>
+<p>The content of a code fence is treated as literal text, not parsed as
+inlines. The first word of the info string is typically used to specify
+the language of the code sample, and rendered in the class attribute of
+the code tag. However, this spec does not mandate any particular
+treatment of the info string.</p>
 </blockquote>
-<p>The man feature of <code><a href="../reference/md_fence.html">md_fence()</a></code> is the ability to specify the info string which defines the code language used to highlight syntax. Compare the following output to the one produced by <code><a href="../reference/md_indent.html">md_indent()</a></code>.</p>
+<p>The man feature of <code><a href="../reference/md_fence.html">md_fence()</a></code> is the ability to specify
+the info string which defines the code language used to highlight
+syntax. Compare the following output to the one produced by
+<code><a href="../reference/md_indent.html">md_indent()</a></code>.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_fence.html">md_fence</a></span><span class="op">(</span><span class="va">source</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ```r</span></span>
@@ -255,15 +322,19 @@
 <span><span class="co">#&gt; ```bash</span></span>
 <span><span class="co">#&gt; $ sudo apt install r-base-dev</span></span>
 <span><span class="co">#&gt; ```</span></span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a>$ <span class="fu">sudo</span> apt install r-base-dev</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt install r-base-dev</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="html-blocks">4.6 HTML blocks<a class="anchor" aria-label="anchor" href="#html-blocks"></a>
 </h3>
 <blockquote>
-<p>An HTML block is a group of lines that is treated as raw HTML (and will not be escaped in HTML output).</p>
+<p>An HTML block is a group of lines that is treated as raw HTML (and
+will not be escaped in HTML output).</p>
 </blockquote>
-<p>Markdown rendering engines (like the one used to convert this <code>.Rmd</code> document to <code>.md</code> and then to <code>.html</code>) allow users to write valid HTML code alongside regular markdown text.</p>
+<p>Markdown rendering engines (like the one used to convert this
+<code>.Rmd</code> document to <code>.md</code> and then to
+<code>.html</code>) allow users to write valid HTML code alongside
+regular markdown text.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span>  <span class="st">"&lt;table&gt;&lt;tr&gt;&lt;td&gt;"</span>,</span>
@@ -293,10 +364,27 @@ _world_.
 <h3 id="link-reference-definitions">4.7 Link reference definitions<a class="anchor" aria-label="anchor" href="#link-reference-definitions"></a>
 </h3>
 <blockquote>
-<p>A link reference definition consists of a link label, indented up to three spaces, followed by a colon (<code>:</code>), optional whitespace (including up to one line ending), a link destination, optional whitespace (including up to one line ending), and an optional link title, which if it is present must be separated from the link destination by whitespace. No further non-whitespace characters may occur on the line.</p>
-<p>A link reference definition does not correspond to a structural element of a document. Instead, it defines a label which can be used in reference links and reference-style images elsewhere in the document. Link reference definitions can come either before or after the links that use them.</p>
+<p>A link reference definition consists of a link label, indented up to
+three spaces, followed by a colon (<code>:</code>), optional whitespace
+(including up to one line ending), a link destination, optional
+whitespace (including up to one line ending), and an optional link
+title, which if it is present must be separated from the link
+destination by whitespace. No further non-whitespace characters may
+occur on the line.</p>
+<p>A link reference definition does not correspond to a structural
+element of a document. Instead, it defines a label which can be used in
+reference links and reference-style images elsewhere in the document.
+Link reference definitions can come either before or after the links
+that use them.</p>
 </blockquote>
-<p>The <code><a href="../reference/md_reference.html">md_reference()</a></code> function is used to create the link reference definition <em>only</em>, which must then be paired with the same label elsewhere in the document. We can put the definitions anywhere in the document, so when I type <code>[CRAN]</code> here in this paragraph (like <a href="https://cran.r-project.org/" title="CRAN Home" class="external-link">CRAN</a>), that text looks for the label created below to create a hyperlink. The reference definition printed to the document actually doesn’t show up anywhere in the rendered <code>.html</code> file.</p>
+<p>The <code><a href="../reference/md_reference.html">md_reference()</a></code> function is used to create the link
+reference definition <em>only</em>, which must then be paired with the
+same label elsewhere in the document. We can put the definitions
+anywhere in the document, so when I type <code>[CRAN]</code> here in
+this paragraph (like <a href="https://cran.r-project.org/" title="CRAN Home" class="external-link">CRAN</a>), that text looks for the label created below
+to create a hyperlink. The reference definition printed to the document
+actually doesn’t show up anywhere in the rendered <code>.html</code>
+file.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cran"</span>, <span class="st">"tidy"</span><span class="op">)</span></span>
 <span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://cran.r-project.org/"</span>, <span class="st">"https://www.tidyverse.org/"</span><span class="op">)</span></span>
@@ -310,37 +398,50 @@ _world_.
 <h3 id="paragraphs">4.8 Paragraphs<a class="anchor" aria-label="anchor" href="#paragraphs"></a>
 </h3>
 <blockquote>
-<p>A sequence of non-blank lines that cannot be interpreted as other kinds of blocks forms a paragraph. The contents of the paragraph are the result of parsing the paragraph’s raw content as inlines. The paragraph’s raw content is formed by concatenating the lines and removing initial and final whitespace.</p>
+<p>A sequence of non-blank lines that cannot be interpreted as other
+kinds of blocks forms a paragraph. The contents of the paragraph are the
+result of parsing the paragraph’s raw content as inlines. The
+paragraph’s raw content is formed by concatenating the lines and
+removing initial and final whitespace.</p>
 </blockquote>
-<p>Paragraphs are one instance are where it’s easy for markdown newcomers can have difficulty writing the plain text in the proper format to produce their desired outcome. Words separated by a single newline are rendered as a single paragraph <code>&lt;p&gt;</code> tag. Using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code>, we can take a vector of character text and output <em>distinct</em> paragraphs.</p>
-<p>In section 6.12 and 6.13 you can compare the output of <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code> with the other line break functions.</p>
+<p>Paragraphs are one instance are where it’s easy for markdown
+newcomers can have difficulty writing the plain text in the proper
+format to produce their desired outcome. Words separated by a single
+newline are rendered as a single paragraph <code>&lt;p&gt;</code> tag.
+Using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code>, we can take a vector of character
+text and output <em>distinct</em> paragraphs.</p>
+<p>In section 6.12 and 6.13 you can compare the output of
+<code><a href="../reference/md_paragraph.html">md_paragraph()</a></code> with the other line break functions.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html" class="external-link">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Both brothers wear the same size.</span></span>
+<span><span class="co">#&gt; A small creek cut across the field.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Write a fond note to the friend you cherish.</span></span>
+<span><span class="co">#&gt; Those last words were a strong statement.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; She danced like a swan, tall and graceful.</span></span>
+<span><span class="co">#&gt; A six comes up more often than a ten.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The corner store was robbed last night.</span></span>
+<span><span class="co">#&gt; Twist the valve and release hot steam.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The team with the best timing looks good.</span></span></code></pre></div>
-<p>Both brothers wear the same size.</p>
-<p>Write a fond note to the friend you cherish.</p>
-<p>She danced like a swan, tall and graceful.</p>
-<p>The corner store was robbed last night.</p>
-<p>The team with the best timing looks good.</p>
+<span><span class="co">#&gt; The box was thrown beside the parked truck.</span></span></code></pre></div>
+<p>A small creek cut across the field.</p>
+<p>Those last words were a strong statement.</p>
+<p>A six comes up more often than a ten.</p>
+<p>Twist the valve and release hot steam.</p>
+<p>The box was thrown beside the parked truck.</p>
 </div>
 <div class="section level3">
 <h3 id="blank-lines">4.9 Blank lines<a class="anchor" aria-label="anchor" href="#blank-lines"></a>
 </h3>
 <blockquote>
-<p>Blank lines between block-level elements are ignored, except for the role they play in determining whether a list is tight or loose.</p>
-<p>Blank lines at the beginning and end of the document are also ignored.</p>
+<p>Blank lines between block-level elements are ignored, except for the
+role they play in determining whether a list is tight or loose.</p>
+<p>Blank lines at the beginning and end of the document are also
+ignored.</p>
 </blockquote>
-<p>Blank lines are, well, not super useful… but you can create them with <code><a href="../reference/md_blank.html">md_blank()</a></code>!</p>
+<p>Blank lines are, well, not super useful… but you can create them with
+<code><a href="../reference/md_blank.html">md_blank()</a></code>!</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_blank.html">md_blank</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -348,12 +449,26 @@ _world_.
 <h3 id="tables-extension">4.10 Tables (extension)<a class="anchor" aria-label="anchor" href="#tables-extension"></a>
 </h3>
 <blockquote>
-<p>GFM enables the <code>table</code> extension, where an additional leaf block type is available.</p>
-<p>A table is an arrangement of data with rows and columns, consisting of a single header row, a delimiter row separating the header from the data, and zero or more data rows.</p>
-<p>Each row consists of cells containing arbitrary text, in which inlines are parsed, separated by pipes (<code>|</code>). A leading and trailing pipe is also recommended for clarity of reading, and if there’s otherwise parsing ambiguity. Spaces between pipes and cell content are trimmed. Block-level elements cannot be inserted in a table.</p>
-<p>The delimiter row consists of cells whose only content are hyphens (<code>-</code>), and optionally, a leading or trailing colon (<code>:</code>), or both, to indicate left, right, or center alignment respectively.</p>
+<p>GFM enables the <code>table</code> extension, where an additional
+leaf block type is available.</p>
+<p>A table is an arrangement of data with rows and columns, consisting
+of a single header row, a delimiter row separating the header from the
+data, and zero or more data rows.</p>
+<p>Each row consists of cells containing arbitrary text, in which
+inlines are parsed, separated by pipes (<code>|</code>). A leading and
+trailing pipe is also recommended for clarity of reading, and if there’s
+otherwise parsing ambiguity. Spaces between pipes and cell content are
+trimmed. Block-level elements cannot be inserted in a table.</p>
+<p>The delimiter row consists of cells whose only content are hyphens
+(<code>-</code>), and optionally, a leading or trailing colon
+(<code>:</code>), or both, to indicate left, right, or center alignment
+respectively.</p>
 </blockquote>
-<p>The <code><a href="../reference/md_table.html">md_table()</a></code> function wraps around <code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable()</a></code> to return R objects (Typically data frames or matrices) as markdown tables. This is useful for presenting data created using R in a format that’s more readable than a plain-text data frame (or tibble) printout.</p>
+<p>The <code><a href="../reference/md_table.html">md_table()</a></code> function wraps around
+<code><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">knitr::kable()</a></code> to return R objects (Typically data frames
+or matrices) as markdown tables. This is useful for presenting data
+created using R in a format that’s more readable than a plain-text data
+frame (or tibble) printout.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">state.x77</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
@@ -376,6 +491,17 @@ _world_.
 <span><span class="co">#&gt; |California |   21198    |  5114  |    1.1     |  71.71   |  10.3  |  62.6   |  20   | 156361 |</span></span>
 <span><span class="co">#&gt; |Colorado   |    2541    |  4884  |    0.7     |  72.06   |  6.8   |  63.9   |  166  | 103766 |</span></span></code></pre></div>
 <table class="table">
+<colgroup>
+<col width="12%">
+<col width="14%">
+<col width="9%">
+<col width="14%">
+<col width="11%">
+<col width="9%">
+<col width="10%">
+<col width="8%">
+<col width="9%">
+</colgroup>
 <thead><tr class="header">
 <th align="left"></th>
 <th align="center">Population</th>
@@ -462,15 +588,21 @@ _world_.
 <h2 id="container-blocks">5 Container Blocks<a class="anchor" aria-label="anchor" href="#container-blocks"></a>
 </h2>
 <blockquote>
-<p>A container block is a block that has other blocks as its contents. There are two basic kinds of container blocks: block quotes and list items. Lists are meta-containers for list items.</p>
+<p>A container block is a block that has other blocks as its contents.
+There are two basic kinds of container blocks: block quotes and list
+items. Lists are meta-containers for list items.</p>
 </blockquote>
 <div class="section level3">
 <h3 id="block-quotes">5.1 Block quotes<a class="anchor" aria-label="anchor" href="#block-quotes"></a>
 </h3>
 <blockquote>
-<p>A block quote marker consists of 0-3 spaces of initial indent, plus (a) the character &gt; together with a following space, or (b) a single character &gt; not followed by a space.</p>
+<p>A block quote marker consists of 0-3 spaces of initial indent, plus
+(a) the character &gt; together with a following space, or (b) a single
+character &gt; not followed by a space.</p>
 </blockquote>
-<p>I’ve been copy-pasting block quotes from the GFM spec in this vignette, but we can also use <code><a href="../reference/md_quote.html">md_quote()</a></code> to grammatically create or manipulate strings and print them as block quotes.</p>
+<p>I’ve been copy-pasting block quotes from the GFM spec in this
+vignette, but we can also use <code><a href="../reference/md_quote.html">md_quote()</a></code> to grammatically
+create or manipulate strings and print them as block quotes.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html" class="external-link">read_html</a></span><span class="op">(</span><span class="st">"https://w.wiki/A58"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_element.html" class="external-link">html_element</a></span><span class="op">(</span><span class="st">"blockquote"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
@@ -478,29 +610,33 @@ _world_.
 <span>  <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html" class="external-link">str_remove</a></span><span class="op">(</span><span class="st">"\\[(.*)\\]"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <blockquote>
-<p>We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.</p>
+<p>We the People of the United States, in Order to form a more perfect
+Union, establish Justice, insure domestic Tranquility, provide for the
+common defence, promote the general Welfare, and secure the Blessings of
+Liberty to ourselves and our Posterity, do ordain and establish this
+Constitution for the United States of America.</p>
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; &gt; Both brothers wear the same size.</span></span>
-<span><span class="co">#&gt; &gt; Write a fond note to the friend you cherish.</span></span>
-<span><span class="co">#&gt; &gt; She danced like a swan, tall and graceful.</span></span>
-<span><span class="co">#&gt; &gt; The corner store was robbed last night.</span></span>
-<span><span class="co">#&gt; &gt; The team with the best timing looks good.</span></span></code></pre></div>
+<span><span class="co">#&gt; &gt; A small creek cut across the field.</span></span>
+<span><span class="co">#&gt; &gt; Those last words were a strong statement.</span></span>
+<span><span class="co">#&gt; &gt; A six comes up more often than a ten.</span></span>
+<span><span class="co">#&gt; &gt; Twist the valve and release hot steam.</span></span>
+<span><span class="co">#&gt; &gt; The box was thrown beside the parked truck.</span></span></code></pre></div>
 <blockquote>
-<p>Both brothers wear the same size.</p>
+<p>A small creek cut across the field.</p>
 </blockquote>
 <blockquote>
-<p>Write a fond note to the friend you cherish.</p>
+<p>Those last words were a strong statement.</p>
 </blockquote>
 <blockquote>
-<p>She danced like a swan, tall and graceful.</p>
+<p>A six comes up more often than a ten.</p>
 </blockquote>
 <blockquote>
-<p>The corner store was robbed last night.</p>
+<p>Twist the valve and release hot steam.</p>
 </blockquote>
 <blockquote>
-<p>The team with the best timing looks good.</p>
+<p>The box was thrown beside the parked truck.</p>
 </blockquote>
 </div>
 <div class="section level3">
@@ -509,97 +645,129 @@ _world_.
 <blockquote>
 <p>A list marker is a bullet list marker or an ordered list marker.</p>
 <p>A bullet list marker is a -, +, or * character.</p>
-<p>An ordered list marker is a sequence of 1–9 arabic digits (<code>0-9</code>), followed by either a <code>.</code> character or a <code>)</code> character. (The reason for the length limit is that with 10 digits we start seeing integer overflows in some browsers.)</p>
+<p>An ordered list marker is a sequence of 1–9 arabic digits
+(<code>0-9</code>), followed by either a <code>.</code> character or a
+<code>)</code> character. (The reason for the length limit is that with
+10 digits we start seeing integer overflows in some browsers.)</p>
 </blockquote>
-<p>List items are automatically created in list blocks (section 5.4) via <code><a href="../reference/md_order.html">md_order()</a></code> and <code><a href="../reference/md_bullet.html">md_bullet()</a></code>.</p>
+<p>List items are automatically created in list blocks (section 5.4) via
+<code><a href="../reference/md_order.html">md_order()</a></code> and <code><a href="../reference/md_bullet.html">md_bullet()</a></code>.</p>
 </div>
 <div class="section level3">
 <h3 id="task-list-items-extension">5.3 Task list items (extension)<a class="anchor" aria-label="anchor" href="#task-list-items-extension"></a>
 </h3>
 <blockquote>
-<p>GFM enables the <code>tasklist</code> extension, where an additional processing step is performed on list items.</p>
-<p>A task list item is a list item where the first block in it is a paragraph which begins with a task list item marker and at least one whitespace character before any other content.</p>
-<p>A task list item marker consists of an optional number of spaces, a left bracket (<code>[</code>), either a whitespace character or the letter x in either lowercase or uppercase, and then a right bracket (<code>]</code>).</p>
-<p>When rendered, the task list item marker is replaced with a semantic checkbox element; in an HTML output, this would be an <code>&lt;input type="checkbox"&gt;</code> element.</p>
-<p>If the character between the brackets is a whitespace character, the checkbox is unchecked. Otherwise, the checkbox is checked.</p>
+<p>GFM enables the <code>tasklist</code> extension, where an additional
+processing step is performed on list items.</p>
+<p>A task list item is a list item where the first block in it is a
+paragraph which begins with a task list item marker and at least one
+whitespace character before any other content.</p>
+<p>A task list item marker consists of an optional number of spaces, a
+left bracket (<code>[</code>), either a whitespace character or the
+letter x in either lowercase or uppercase, and then a right bracket
+(<code>]</code>).</p>
+<p>When rendered, the task list item marker is replaced with a semantic
+checkbox element; in an HTML output, this would be an
+<code>&lt;input type="checkbox"&gt;</code> element.</p>
+<p>If the character between the brackets is a whitespace character, the
+checkbox is unchecked. Otherwise, the checkbox is checked.</p>
 </blockquote>
-<p>Markdown extensions like this one are optionally supported on different venues. On GitHub (in <code>README.md</code> files, issues, or comments, etc.) these tasks list are rendered as check boxes, sometimes even interactable. On other venues, like this very HTML vignette, these check boxes just render are bullet lists with weird bracket boxes on each line.</p>
+<p>Markdown extensions like this one are optionally supported on
+different venues. On GitHub (in <code>README.md</code> files, issues, or
+comments, etc.) these tasks list are rendered as check boxes, sometimes
+even interactable. On other venues, like this very HTML vignette, these
+check boxes just render are bullet lists with weird bracket boxes on
+each line.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
-<span><span class="co">#&gt; * [ ] Both brothers wear the same size.</span></span>
-<span><span class="co">#&gt; * [ ] Write a fond note to the friend you cherish.</span></span>
-<span><span class="co">#&gt; * [x] She danced like a swan, tall and graceful.</span></span>
-<span><span class="co">#&gt; * [x] The corner store was robbed last night.</span></span>
-<span><span class="co">#&gt; * [ ] The team with the best timing looks good.</span></span></code></pre></div>
-<ul>
+<span><span class="co">#&gt; * [ ] A small creek cut across the field.</span></span>
+<span><span class="co">#&gt; * [ ] Those last words were a strong statement.</span></span>
+<span><span class="co">#&gt; * [x] A six comes up more often than a ten.</span></span>
+<span><span class="co">#&gt; * [x] Twist the valve and release hot steam.</span></span>
+<span><span class="co">#&gt; * [ ] The box was thrown beside the parked truck.</span></span></code></pre></div>
+<ul class="task-list">
 <li>
-<input type="checkbox" disabled>
-Both brothers wear the same size.</li>
+<input type="checkbox" disabled>A small creek cut across the
+field.</li>
 <li>
-<input type="checkbox" disabled>
-Write a fond note to the friend you cherish.</li>
+<input type="checkbox" disabled>Those last words were a strong
+statement.</li>
 <li>
-<input type="checkbox" disabled checked>
-She danced like a swan, tall and graceful.</li>
+<input type="checkbox" disabled checked>A six comes up more
+often than a ten.</li>
 <li>
-<input type="checkbox" disabled checked>
-The corner store was robbed last night.</li>
+<input type="checkbox" disabled checked>Twist the valve and
+release hot steam.</li>
 <li>
-<input type="checkbox" disabled>
-The team with the best timing looks good.</li>
+<input type="checkbox" disabled>The box was thrown beside the
+parked truck.</li>
 </ul>
 </div>
 <div class="section level3">
 <h3 id="lists">5.4 Lists<a class="anchor" aria-label="anchor" href="#lists"></a>
 </h3>
 <blockquote>
-<p>A list is a sequence of one or more list items of the same type. The list items may be separated by any number of blank lines.</p>
-<p>Two list items are of the same type if they begin with a list marker of the same type. Two list &gt; markers are of the same type if (a) they are bullet list markers using the same character (<code>-</code>, <code>+</code>, or <code>*</code>) or (b) they are ordered list numbers with the same delimiter (either <code>.</code> or <code>)</code>).</p>
-<p>A list is an ordered list if its constituent list items begin with ordered list markers, and a &gt; bullet list if its constituent list items begin with bullet list markers.</p>
-<p>The start number of an ordered list is determined by the list number of its initial list item. The numbers of subsequent list items are disregarded.</p>
+<p>A list is a sequence of one or more list items of the same type. The
+list items may be separated by any number of blank lines.</p>
+<p>Two list items are of the same type if they begin with a list marker
+of the same type. Two list &gt; markers are of the same type if (a) they
+are bullet list markers using the same character (<code>-</code>,
+<code>+</code>, or <code>*</code>) or (b) they are ordered list numbers
+with the same delimiter (either <code>.</code> or <code>)</code>).</p>
+<p>A list is an ordered list if its constituent list items begin with
+ordered list markers, and a &gt; bullet list if its constituent list
+items begin with bullet list markers.</p>
+<p>The start number of an ordered list is determined by the list number
+of its initial list item. The numbers of subsequent list items are
+disregarded.</p>
 </blockquote>
-<p>The <code><a href="../reference/md_order.html">md_order()</a></code> and <code><a href="../reference/md_bullet.html">md_bullet()</a></code> functions let users display character vectors as list blocks. The functions let users adjust the which list item markets are used, but all the options are rendered as the same <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> tags in the rendered <code>.html</code> file.</p>
+<p>The <code><a href="../reference/md_order.html">md_order()</a></code> and <code><a href="../reference/md_bullet.html">md_bullet()</a></code> functions
+let users display character vectors as list blocks. The functions let
+users adjust the which list item markets are used, but all the options
+are rendered as the same <code>&lt;ul&gt;</code> or
+<code>&lt;ol&gt;</code> tags in the rendered <code>.html</code>
+file.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
-<span><span class="co">#&gt; * Utah</span></span>
-<span><span class="co">#&gt; * Arkansas</span></span>
-<span><span class="co">#&gt; * Pennsylvania</span></span></code></pre></div>
+<span><span class="co">#&gt; * Colorado</span></span>
+<span><span class="co">#&gt; * Pennsylvania</span></span>
+<span><span class="co">#&gt; * Florida</span></span></code></pre></div>
 <ul>
-<li>Utah</li>
-<li>Arkansas</li>
+<li>Colorado</li>
 <li>Pennsylvania</li>
+<li>Florida</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; + Utah</span></span>
-<span><span class="co">#&gt; + Arkansas</span></span>
-<span><span class="co">#&gt; + Pennsylvania</span></span></code></pre></div>
+<span><span class="co">#&gt; + Colorado</span></span>
+<span><span class="co">#&gt; + Pennsylvania</span></span>
+<span><span class="co">#&gt; + Florida</span></span></code></pre></div>
 <ul>
-<li>Utah</li>
-<li>Arkansas</li>
+<li>Colorado</li>
 <li>Pennsylvania</li>
+<li>Florida</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1. Utah</span></span>
-<span><span class="co">#&gt; 2. Arkansas</span></span>
-<span><span class="co">#&gt; 3. Pennsylvania</span></span></code></pre></div>
+<span><span class="co">#&gt; 1. Colorado</span></span>
+<span><span class="co">#&gt; 2. Pennsylvania</span></span>
+<span><span class="co">#&gt; 3. Florida</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Utah</li>
-<li>Arkansas</li>
+<li>Colorado</li>
 <li>Pennsylvania</li>
+<li>Florida</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1) Utah</span></span>
-<span><span class="co">#&gt; 1) Arkansas</span></span>
-<span><span class="co">#&gt; 1) Pennsylvania</span></span></code></pre></div>
+<span><span class="co">#&gt; 1) Colorado</span></span>
+<span><span class="co">#&gt; 1) Pennsylvania</span></span>
+<span><span class="co">#&gt; 1) Florida</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Utah</li>
-<li>Arkansas</li>
+<li>Colorado</li>
 <li>Pennsylvania</li>
+<li>Florida</li>
 </ol>
 </div>
 </div>
@@ -607,15 +775,21 @@ The team with the best timing looks good.</li>
 <h2 id="inlines">6 Inlines<a class="anchor" aria-label="anchor" href="#inlines"></a>
 </h2>
 <blockquote>
-<p>Inlines are parsed sequentially from the beginning of the character stream to the end (left to right, in left-to-right languages). Thus, for example, in</p>
+<p>Inlines are parsed sequentially from the beginning of the character
+stream to the end (left to right, in left-to-right languages). Thus, for
+example, in</p>
 </blockquote>
 <div class="section level3">
 <h3 id="backslash-escapes">6.1 Backslash escapes<a class="anchor" aria-label="anchor" href="#backslash-escapes"></a>
 </h3>
 <blockquote>
-<p>Any ASCII punctuation character may be backslash-escaped… Escaped characters are treated as regular characters and do not have their usual Markdown meanings:</p>
+<p>Any ASCII punctuation character may be backslash-escaped… Escaped
+characters are treated as regular characters and do not have their usual
+Markdown meanings:</p>
 </blockquote>
-<p>If you want to display markdown syntax without rendering as the corresponding HTML tags, <code><a href="../reference/md_escape.html">md_escape()</a></code> can prepend a backslash (actually, two) before every ASCII punctuation character.</p>
+<p>If you want to display markdown syntax without rendering as the
+corresponding HTML tags, <code><a href="../reference/md_escape.html">md_escape()</a></code> can prepend a
+backslash (actually, two) before every ASCII punctuation character.</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">inline</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/md_bold.html">md_bold</a></span><span class="op">(</span><span class="st">"example"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/md_escape.html">md_escape</a></span><span class="op">(</span><span class="va">inline</span><span class="op">)</span></span>
@@ -625,7 +799,8 @@ The team with the best timing looks good.</li>
 <div class="section level3">
 <h3 id="simple-inlines">6.3 - 6.8 Simple inlines<a class="anchor" aria-label="anchor" href="#simple-inlines"></a>
 </h3>
-<p>Here we are going to demonstrate how various simple inline block functions are used to create text <em>within</em> a container block.</p>
+<p>Here we are going to demonstrate how various simple inline block
+functions are used to create text <em>within</em> a container block.</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">inlines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
 <span>  <span class="fu"><a href="../reference/md_code.html">md_code</a></span><span class="op">(</span><span class="st">"6.3 Code spans"</span><span class="op">)</span>,</span>
@@ -656,20 +831,27 @@ The team with the best timing looks good.</li>
 <h3 id="images">6.7 Images<a class="anchor" aria-label="anchor" href="#images"></a>
 </h3>
 <blockquote>
-<p>Syntax for images is like the syntax for links, with one difference. Instead of link text, we have an image description. The rules for this are the same as for link text, except that (a) an image description starts with <code>![</code> rather than <code>[</code>, and (b) an image description may contain links. An image description has inline elements as its contents. When an image is rendered to HTML, this is standardly used as the image’s <code>alt</code> attribute.</p>
+<p>Syntax for images is like the syntax for links, with one difference.
+Instead of link text, we have an image description. The rules for this
+are the same as for link text, except that (a) an image description
+starts with <code>![</code> rather than <code>[</code>, and (b) an image
+description may contain links. An image description has inline elements
+as its contents. When an image is rendered to HTML, this is standardly
+used as the image’s <code>alt</code> attribute.</p>
 </blockquote>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_image.html">md_image</a></span><span class="op">(</span><span class="st">"https://www.r-project.org/Rlogo.png"</span>, alt <span class="op">=</span> <span class="st">"R logo"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ![R logo](https://www.r-project.org/Rlogo.png)</span></span></code></pre></div>
 <div class="figure">
-<img src="../../../../../../private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmp6xDB8Y/filefc15ca4c84e.png" alt=""><p class="caption">R logo</p>
+<img src="../../../../../../tmp/RtmpnCade2/file1ad916889a78.png" alt=""><p class="caption">R logo</p>
 </div>
 </div>
 <div class="section level3">
 <h3 id="disallowed-raw-html-extension">6.11 Disallowed Raw HTML (extension)<a class="anchor" aria-label="anchor" href="#disallowed-raw-html-extension"></a>
 </h3>
 <blockquote>
-<p>GFM enables the tagfilter extension, where the following HTML tags will be filtered when rendering HTML output:</p>
+<p>GFM enables the tagfilter extension, where the following HTML tags
+will be filtered when rendering HTML output:</p>
 <ul>
 <li><code>&lt;title&gt;</code></li>
 <li><code>&lt;textarea&gt;</code></li>
@@ -681,7 +863,11 @@ The team with the best timing looks good.</li>
 <li><code>&lt;script&gt;</code></li>
 <li><code>&lt;plaintext&gt;</code></li>
 </ul>
-<p>Filtering is done by replacing the leading &lt; with the entity &lt;. These tags are chosen in particular as they change how HTML is interpreted in a way unique to them (i.e. nested HTML is interpreted differently), and this is usually undesireable in the context of other rendered Markdown content.</p>
+<p>Filtering is done by replacing the leading &lt; with the entity &lt;.
+These tags are chosen in particular as they change how HTML is
+interpreted in a way unique to them (i.e. nested HTML is interpreted
+differently), and this is usually undesireable in the context of other
+rendered Markdown content.</p>
 </blockquote>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lines</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span>
@@ -701,90 +887,116 @@ The team with the best timing looks good.</li>
 <div class="section level3">
 <h3 id="line-breaks">6.12 - 6.13 Line breaks<a class="anchor" aria-label="anchor" href="#line-breaks"></a>
 </h3>
-<p>The difference between <em>hard</em> line breaks, <em>soft</em> line breaks, paragraphs, and regular text can be confusing. New markdown users often struggle with knowing exactly how many invisible newlines or spaces are needed to present each line in the way they want. The line break functions below make it easier.</p>
+<p>The difference between <em>hard</em> line breaks, <em>soft</em> line
+breaks, paragraphs, and regular text can be confusing. New markdown
+users often struggle with knowing exactly how many invisible newlines or
+spaces are needed to present each line in the way they want. The line
+break functions below make it easier.</p>
 <blockquote>
-<p>A line break (not in a code span or HTML tag) that is preceded by two or more spaces and does not occur at the end of a block is parsed as a hard line break (rendered in HTML as a <code>&lt;br /&gt;</code> tag):</p>
+<p>A line break (not in a code span or HTML tag) that is preceded by two
+or more spaces and does not occur at the end of a block is parsed as a
+hard line break (rendered in HTML as a <code>&lt;br /&gt;</code>
+tag):</p>
 </blockquote>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.12 Hard line breaks</span></span>
 <span><span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Both brothers wear the same size.  </span></span>
-<span><span class="co">#&gt; Write a fond note to the friend you cherish.  </span></span>
-<span><span class="co">#&gt; She danced like a swan, tall and graceful.  </span></span>
-<span><span class="co">#&gt; The corner store was robbed last night.  </span></span>
-<span><span class="co">#&gt; The team with the best timing looks good.</span></span></code></pre></div>
-<p>Both brothers wear the same size.<br>
-Write a fond note to the friend you cherish.<br>
-She danced like a swan, tall and graceful.<br>
-The corner store was robbed last night.<br>
-The team with the best timing looks good.</p>
+<span><span class="co">#&gt; A small creek cut across the field.  </span></span>
+<span><span class="co">#&gt; Those last words were a strong statement.  </span></span>
+<span><span class="co">#&gt; A six comes up more often than a ten.  </span></span>
+<span><span class="co">#&gt; Twist the valve and release hot steam.  </span></span>
+<span><span class="co">#&gt; The box was thrown beside the parked truck.</span></span></code></pre></div>
+<p>A small creek cut across the field.<br>
+Those last words were a strong statement.<br>
+A six comes up more often than a ten.<br>
+Twist the valve and release hot steam.<br>
+The box was thrown beside the parked truck.</p>
 <hr>
 <blockquote>
-<p>A regular line break (not in a code span or HTML tag) that is not preceded by two or more spaces or a backslash is parsed as a softbreak. (A softbreak may be rendered in HTML either as a line ending or as a space. The result will be the same in browsers. In the examples here, a line ending will be used.)</p>
+<p>A regular line break (not in a code span or HTML tag) that is not
+preceded by two or more spaces or a backslash is parsed as a softbreak.
+(A softbreak may be rendered in HTML either as a line ending or as a
+space. The result will be the same in browsers. In the examples here, a
+line ending will be used.)</p>
 </blockquote>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.13 Soft line breaks</span></span>
 <span><span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Both brothers wear the same size.</span></span>
-<span><span class="co">#&gt; Write a fond note to the friend you cherish.</span></span>
-<span><span class="co">#&gt; She danced like a swan, tall and graceful.</span></span>
-<span><span class="co">#&gt; The corner store was robbed last night.</span></span>
-<span><span class="co">#&gt; The team with the best timing looks good.</span></span></code></pre></div>
-<p>Both brothers wear the same size. Write a fond note to the friend you cherish. She danced like a swan, tall and graceful. The corner store was robbed last night. The team with the best timing looks good.</p>
+<span><span class="co">#&gt; A small creek cut across the field.</span></span>
+<span><span class="co">#&gt; Those last words were a strong statement.</span></span>
+<span><span class="co">#&gt; A six comes up more often than a ten.</span></span>
+<span><span class="co">#&gt; Twist the valve and release hot steam.</span></span>
+<span><span class="co">#&gt; The box was thrown beside the parked truck.</span></span></code></pre></div>
+<p>A small creek cut across the field. Those last words were a strong
+statement. A six comes up more often than a ten. Twist the valve and
+release hot steam. The box was thrown beside the parked truck.</p>
 <hr>
-<p>You can see how both hard line and soft line breaks are different from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
+<p>You can see how both hard line and soft line breaks are different
+from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Both brothers wear the same size.</span></span>
+<span><span class="co">#&gt; A small creek cut across the field.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Write a fond note to the friend you cherish.</span></span>
+<span><span class="co">#&gt; Those last words were a strong statement.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; She danced like a swan, tall and graceful.</span></span>
+<span><span class="co">#&gt; A six comes up more often than a ten.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The corner store was robbed last night.</span></span>
+<span><span class="co">#&gt; Twist the valve and release hot steam.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The team with the best timing looks good.</span></span></code></pre></div>
-<p>Both brothers wear the same size.</p>
-<p>Write a fond note to the friend you cherish.</p>
-<p>She danced like a swan, tall and graceful.</p>
-<p>The corner store was robbed last night.</p>
-<p>The team with the best timing looks good.</p>
+<span><span class="co">#&gt; The box was thrown beside the parked truck.</span></span></code></pre></div>
+<p>A small creek cut across the field.</p>
+<p>Those last words were a strong statement.</p>
+<p>A six comes up more often than a ten.</p>
+<p>Twist the valve and release hot steam.</p>
+<p>The box was thrown beside the parked truck.</p>
 </div>
 <div class="section level3">
 <h3 id="textual-content">6.14 Textual content<a class="anchor" aria-label="anchor" href="#textual-content"></a>
 </h3>
 <blockquote>
-<p>Any characters not given an interpretation by the above rules will be parsed as plain textual content.</p>
+<p>Any characters not given an interpretation by the above rules will be
+parsed as plain textual content.</p>
 </blockquote>
-<p>The <code><a href="../reference/md_text.html">md_text()</a></code> function is a catch-all wrapper around <code><a href="https://glue.tidyverse.org/reference/as_glue.html" class="external-link">glue::as_glue()</a></code> with simply converts any character string into a <code>glue</code> object, which when used in an <code>.Rmd.</code> document alongside the <code>results='asis'</code> allows users to simply print text to the body of the document.</p>
+<p>The <code><a href="../reference/md_text.html">md_text()</a></code> function is a catch-all wrapper around
+<code><a href="https://glue.tidyverse.org/reference/as_glue.html" class="external-link">glue::as_glue()</a></code> with simply converts any character string
+into a <code>glue</code> object, which when used in an
+<code>.Rmd.</code> document alongside the <code>results='asis'</code>
+allows users to simply print text to the body of the document.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.14 Textual content</span></span>
 <span><span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Both brothers wear the same size.</span></span>
-<span><span class="co">#&gt; Write a fond note to the friend you cherish.</span></span>
-<span><span class="co">#&gt; She danced like a swan, tall and graceful.</span></span>
-<span><span class="co">#&gt; The corner store was robbed last night.</span></span>
-<span><span class="co">#&gt; The team with the best timing looks good.</span></span></code></pre></div>
-<p>Both brothers wear the same size. Write a fond note to the friend you cherish. She danced like a swan, tall and graceful. The corner store was robbed last night. The team with the best timing looks good.</p>
+<span><span class="co">#&gt; A small creek cut across the field.</span></span>
+<span><span class="co">#&gt; Those last words were a strong statement.</span></span>
+<span><span class="co">#&gt; A six comes up more often than a ten.</span></span>
+<span><span class="co">#&gt; Twist the valve and release hot steam.</span></span>
+<span><span class="co">#&gt; The box was thrown beside the parked truck.</span></span></code></pre></div>
+<p>A small creek cut across the field. Those last words were a strong
+statement. A six comes up more often than a ten. Twist the valve and
+release hot steam. The box was thrown beside the parked truck.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Both brothers wear the same size."           </span></span>
-<span><span class="co">#&gt; [2] "Write a fond note to the friend you cherish."</span></span>
-<span><span class="co">#&gt; [3] "She danced like a swan, tall and graceful."  </span></span>
-<span><span class="co">#&gt; [4] "The corner store was robbed last night."     </span></span>
-<span><span class="co">#&gt; [5] "The team with the best timing looks good."</span></span></code></pre></div>
-<p>[1] “Both brothers wear the same size.”<br>
-[2] “Write a fond note to the friend you cherish.” [3] “She danced like a swan, tall and graceful.”<br>
-[4] “The corner store was robbed last night.”<br>
-[5] “The team with the best timing looks good.”</p>
+<span><span class="co">#&gt; [1] "A small creek cut across the field."        </span></span>
+<span><span class="co">#&gt; [2] "Those last words were a strong statement."  </span></span>
+<span><span class="co">#&gt; [3] "A six comes up more often than a ten."      </span></span>
+<span><span class="co">#&gt; [4] "Twist the valve and release hot steam."     </span></span>
+<span><span class="co">#&gt; [5] "The box was thrown beside the parked truck."</span></span></code></pre></div>
+<p>[1] “A small creek cut across the field.”<br>
+[2] “Those last words were a strong statement.”<br>
+[3] “A six comes up more often than a ten.”<br>
+[4] “Twist the valve and release hot steam.”<br>
+[5] “The box was thrown beside the parked truck.”</p>
 <hr>
-<p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the <code>glue</code> S3 class. This class works in the same way as the <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code> functions.</p>
+<p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the
+<code>glue</code> S3 class. This class works in the same way as the
+<code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Both brothers wear the same size. Write a fond note to the friend you cherish. She danced like a swan, tall and graceful. The corner store was robbed last night. The team with the best timing looks good.</span></span></code></pre></div>
-<p>Both brothers wear the same size. Write a fond note to the friend you cherish. She danced like a swan, tall and graceful. The corner store was robbed last night. The team with the best timing looks good.</p>
+<span><span class="co">#&gt; A small creek cut across the field. Those last words were a strong statement. A six comes up more often than a ten. Twist the valve and release hot steam. The box was thrown beside the parked truck.</span></span></code></pre></div>
+<p>A small creek cut across the field. Those last words were a strong
+statement. A six comes up more often than a ten. Twist the valve and
+release hot steam. The box was thrown beside the parked truck.</p>
 </div>
 </div>
   </div>

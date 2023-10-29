@@ -323,4 +323,4 @@ upon recalculation, to be incorrect." These errors can be mitigated by using
 inline printing of results like we did above. With the `gluedown` package,
 programmers can **emphasize** those results without worry.
 
-[pmc]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3174372/
+[pmc]: https://web.archive.org/web/20220723000032/https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3174372/

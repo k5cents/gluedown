@@ -88,11 +88,11 @@ formatting.
 md_bullet(inlines)
 ```
 
--   **Alabama**
--   `Alaska`
--   [Arizona](https://az.gov)
--   *Arkansas*
--   ~~California~~
+- **Alabama**
+- `Alaska`
+- [Arizona](https://az.gov)
+- *Arkansas*
+- ~~California~~
 
 ### Inline
 
@@ -106,8 +106,8 @@ abb <- state.abb[match(name, state.name)]
 # `r md_italic(abb)`
 ```
 
-In this case, our randomly selected state is **Michigan**, which has the
-abbreviation *MI*.
+In this case, our randomly selected state is **Maine**, which has the
+abbreviation *ME*.
 
 ### Pipes
 
@@ -140,14 +140,15 @@ legislation <- c("Houses passes", "Senate concurs", "President signs")
 md_task(legislation, check = 1:2)
 ```
 
--   [x] Houses passes
--   [x] Senate concurs
--   [ ] President signs
+- [x] Houses passes
+- [x] Senate concurs
+- [ ] President signs
 
 ## Contribute
 
 Please note that the `gluedown` project is released with a [Contributor
-Code of Conduct](https://kiernann.com/gluedown/CODE_OF_CONDUCT.html). By
+Code of
+Conduct](https://kiernann.github.io/gluedown/CODE_OF_CONDUCT.html). By
 contributing to this project, you agree to abide by its terms.
 
 <!-- links: start -->

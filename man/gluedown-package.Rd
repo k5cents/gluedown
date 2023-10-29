@@ -31,7 +31,7 @@ convert \verb{md_*()} outputs to HTML fragments.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://kiernann.com/gluedown/}
+  \item \url{https://kiernann.github.io/gluedown/}
   \item \url{https://github.com/kiernann/gluedown/}
   \item Report bugs at \url{https://github.com/kiernann/gluedown/issues}
 }

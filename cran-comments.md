@@ -18,6 +18,10 @@
 
 ## Resubmission
 
+### 2023-10-28
+
+* Fix old and redirected URLs.
+
 ### 2023-10-06
 
 * Fix package documentation page.

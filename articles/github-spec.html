@@ -99,7 +99,7 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://kiernann.com/gluedown/" class="external-link">gluedown</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://kiernann.github.io/gluedown/" class="external-link">gluedown</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/" class="external-link">rvest</a></span><span class="op">)</span></span></code></pre></div>
 <p>In this vignette, we will explore how the functions in
@@ -416,20 +416,20 @@ text and output <em>distinct</em> paragraphs.</p>
 <code class="sourceCode R"><span><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html" class="external-link">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; A small creek cut across the field.</span></span>
+<span><span class="co">#&gt; The horn of the car woke the sleeping cop.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Those last words were a strong statement.</span></span>
+<span><span class="co">#&gt; He wrote his name boldly at the top of the sheet.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; A six comes up more often than a ten.</span></span>
+<span><span class="co">#&gt; A siege will crack the strong defense.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Twist the valve and release hot steam.</span></span>
+<span><span class="co">#&gt; March the soldiers past the next hill.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The box was thrown beside the parked truck.</span></span></code></pre></div>
-<p>A small creek cut across the field.</p>
-<p>Those last words were a strong statement.</p>
-<p>A six comes up more often than a ten.</p>
-<p>Twist the valve and release hot steam.</p>
-<p>The box was thrown beside the parked truck.</p>
+<span><span class="co">#&gt; Cap the jar with a tight brass cover.</span></span></code></pre></div>
+<p>The horn of the car woke the sleeping cop.</p>
+<p>He wrote his name boldly at the top of the sheet.</p>
+<p>A siege will crack the strong defense.</p>
+<p>March the soldiers past the next hill.</p>
+<p>Cap the jar with a tight brass cover.</p>
 </div>
 <div class="section level3">
 <h3 id="blank-lines">4.9 Blank lines<a class="anchor" aria-label="anchor" href="#blank-lines"></a>
@@ -618,25 +618,25 @@ Constitution for the United States of America.</p>
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; &gt; A small creek cut across the field.</span></span>
-<span><span class="co">#&gt; &gt; Those last words were a strong statement.</span></span>
-<span><span class="co">#&gt; &gt; A six comes up more often than a ten.</span></span>
-<span><span class="co">#&gt; &gt; Twist the valve and release hot steam.</span></span>
-<span><span class="co">#&gt; &gt; The box was thrown beside the parked truck.</span></span></code></pre></div>
+<span><span class="co">#&gt; &gt; The horn of the car woke the sleeping cop.</span></span>
+<span><span class="co">#&gt; &gt; He wrote his name boldly at the top of the sheet.</span></span>
+<span><span class="co">#&gt; &gt; A siege will crack the strong defense.</span></span>
+<span><span class="co">#&gt; &gt; March the soldiers past the next hill.</span></span>
+<span><span class="co">#&gt; &gt; Cap the jar with a tight brass cover.</span></span></code></pre></div>
 <blockquote>
-<p>A small creek cut across the field.</p>
+<p>The horn of the car woke the sleeping cop.</p>
 </blockquote>
 <blockquote>
-<p>Those last words were a strong statement.</p>
+<p>He wrote his name boldly at the top of the sheet.</p>
 </blockquote>
 <blockquote>
-<p>A six comes up more often than a ten.</p>
+<p>A siege will crack the strong defense.</p>
 </blockquote>
 <blockquote>
-<p>Twist the valve and release hot steam.</p>
+<p>March the soldiers past the next hill.</p>
 </blockquote>
 <blockquote>
-<p>The box was thrown beside the parked truck.</p>
+<p>Cap the jar with a tight brass cover.</p>
 </blockquote>
 </div>
 <div class="section level3">
@@ -680,27 +680,27 @@ check boxes just render are bullet lists with weird bracket boxes on
 each line.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
-<span><span class="co">#&gt; * [ ] A small creek cut across the field.</span></span>
-<span><span class="co">#&gt; * [ ] Those last words were a strong statement.</span></span>
-<span><span class="co">#&gt; * [x] A six comes up more often than a ten.</span></span>
-<span><span class="co">#&gt; * [x] Twist the valve and release hot steam.</span></span>
-<span><span class="co">#&gt; * [ ] The box was thrown beside the parked truck.</span></span></code></pre></div>
+<span><span class="co">#&gt; * [ ] The horn of the car woke the sleeping cop.</span></span>
+<span><span class="co">#&gt; * [ ] He wrote his name boldly at the top of the sheet.</span></span>
+<span><span class="co">#&gt; * [x] A siege will crack the strong defense.</span></span>
+<span><span class="co">#&gt; * [x] March the soldiers past the next hill.</span></span>
+<span><span class="co">#&gt; * [ ] Cap the jar with a tight brass cover.</span></span></code></pre></div>
 <ul class="task-list">
 <li>
-<input type="checkbox" disabled>A small creek cut across the
-field.</li>
+<input type="checkbox" disabled>The horn of the car woke the
+sleeping cop.</li>
 <li>
-<input type="checkbox" disabled>Those last words were a strong
-statement.</li>
+<input type="checkbox" disabled>He wrote his name boldly at the
+top of the sheet.</li>
 <li>
-<input type="checkbox" disabled checked>A six comes up more
-often than a ten.</li>
+<input type="checkbox" disabled checked>A siege will crack
+the strong defense.</li>
 <li>
-<input type="checkbox" disabled checked>Twist the valve and
-release hot steam.</li>
+<input type="checkbox" disabled checked>March the soldiers
+past the next hill.</li>
 <li>
-<input type="checkbox" disabled>The box was thrown beside the
-parked truck.</li>
+<input type="checkbox" disabled>Cap the jar with a tight brass
+cover.</li>
 </ul>
 </div>
 <div class="section level3">
@@ -731,43 +731,43 @@ file.</p>
 <code class="sourceCode R"><span><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
-<span><span class="co">#&gt; * Colorado</span></span>
-<span><span class="co">#&gt; * Pennsylvania</span></span>
-<span><span class="co">#&gt; * Florida</span></span></code></pre></div>
+<span><span class="co">#&gt; * West Virginia</span></span>
+<span><span class="co">#&gt; * Delaware</span></span>
+<span><span class="co">#&gt; * New Jersey</span></span></code></pre></div>
 <ul>
-<li>Colorado</li>
-<li>Pennsylvania</li>
-<li>Florida</li>
+<li>West Virginia</li>
+<li>Delaware</li>
+<li>New Jersey</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; + Colorado</span></span>
-<span><span class="co">#&gt; + Pennsylvania</span></span>
-<span><span class="co">#&gt; + Florida</span></span></code></pre></div>
+<span><span class="co">#&gt; + West Virginia</span></span>
+<span><span class="co">#&gt; + Delaware</span></span>
+<span><span class="co">#&gt; + New Jersey</span></span></code></pre></div>
 <ul>
-<li>Colorado</li>
-<li>Pennsylvania</li>
-<li>Florida</li>
+<li>West Virginia</li>
+<li>Delaware</li>
+<li>New Jersey</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1. Colorado</span></span>
-<span><span class="co">#&gt; 2. Pennsylvania</span></span>
-<span><span class="co">#&gt; 3. Florida</span></span></code></pre></div>
+<span><span class="co">#&gt; 1. West Virginia</span></span>
+<span><span class="co">#&gt; 2. Delaware</span></span>
+<span><span class="co">#&gt; 3. New Jersey</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Colorado</li>
-<li>Pennsylvania</li>
-<li>Florida</li>
+<li>West Virginia</li>
+<li>Delaware</li>
+<li>New Jersey</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1) Colorado</span></span>
-<span><span class="co">#&gt; 1) Pennsylvania</span></span>
-<span><span class="co">#&gt; 1) Florida</span></span></code></pre></div>
+<span><span class="co">#&gt; 1) West Virginia</span></span>
+<span><span class="co">#&gt; 1) Delaware</span></span>
+<span><span class="co">#&gt; 1) New Jersey</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Colorado</li>
-<li>Pennsylvania</li>
-<li>Florida</li>
+<li>West Virginia</li>
+<li>Delaware</li>
+<li>New Jersey</li>
 </ol>
 </div>
 </div>
@@ -843,7 +843,7 @@ used as the image’s <code>alt</code> attribute.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_image.html">md_image</a></span><span class="op">(</span><span class="st">"https://www.r-project.org/Rlogo.png"</span>, alt <span class="op">=</span> <span class="st">"R logo"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ![R logo](https://www.r-project.org/Rlogo.png)</span></span></code></pre></div>
 <div class="figure">
-<img src="../../../../../../tmp/RtmpnCade2/file1ad916889a78.png" alt=""><p class="caption">R logo</p>
+<img src="../../../../../../tmp/Rtmpa14arc/file1b2775b00a22.png" alt=""><p class="caption">R logo</p>
 </div>
 </div>
 <div class="section level3">
@@ -901,16 +901,16 @@ tag):</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.12 Hard line breaks</span></span>
 <span><span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; A small creek cut across the field.  </span></span>
-<span><span class="co">#&gt; Those last words were a strong statement.  </span></span>
-<span><span class="co">#&gt; A six comes up more often than a ten.  </span></span>
-<span><span class="co">#&gt; Twist the valve and release hot steam.  </span></span>
-<span><span class="co">#&gt; The box was thrown beside the parked truck.</span></span></code></pre></div>
-<p>A small creek cut across the field.<br>
-Those last words were a strong statement.<br>
-A six comes up more often than a ten.<br>
-Twist the valve and release hot steam.<br>
-The box was thrown beside the parked truck.</p>
+<span><span class="co">#&gt; The horn of the car woke the sleeping cop.  </span></span>
+<span><span class="co">#&gt; He wrote his name boldly at the top of the sheet.  </span></span>
+<span><span class="co">#&gt; A siege will crack the strong defense.  </span></span>
+<span><span class="co">#&gt; March the soldiers past the next hill.  </span></span>
+<span><span class="co">#&gt; Cap the jar with a tight brass cover.</span></span></code></pre></div>
+<p>The horn of the car woke the sleeping cop.<br>
+He wrote his name boldly at the top of the sheet.<br>
+A siege will crack the strong defense.<br>
+March the soldiers past the next hill.<br>
+Cap the jar with a tight brass cover.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not
@@ -922,33 +922,34 @@ line ending will be used.)</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.13 Soft line breaks</span></span>
 <span><span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; A small creek cut across the field.</span></span>
-<span><span class="co">#&gt; Those last words were a strong statement.</span></span>
-<span><span class="co">#&gt; A six comes up more often than a ten.</span></span>
-<span><span class="co">#&gt; Twist the valve and release hot steam.</span></span>
-<span><span class="co">#&gt; The box was thrown beside the parked truck.</span></span></code></pre></div>
-<p>A small creek cut across the field. Those last words were a strong
-statement. A six comes up more often than a ten. Twist the valve and
-release hot steam. The box was thrown beside the parked truck.</p>
+<span><span class="co">#&gt; The horn of the car woke the sleeping cop.</span></span>
+<span><span class="co">#&gt; He wrote his name boldly at the top of the sheet.</span></span>
+<span><span class="co">#&gt; A siege will crack the strong defense.</span></span>
+<span><span class="co">#&gt; March the soldiers past the next hill.</span></span>
+<span><span class="co">#&gt; Cap the jar with a tight brass cover.</span></span></code></pre></div>
+<p>The horn of the car woke the sleeping cop. He wrote his name boldly
+at the top of the sheet. A siege will crack the strong defense. March
+the soldiers past the next hill. Cap the jar with a tight brass
+cover.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different
 from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; A small creek cut across the field.</span></span>
+<span><span class="co">#&gt; The horn of the car woke the sleeping cop.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Those last words were a strong statement.</span></span>
+<span><span class="co">#&gt; He wrote his name boldly at the top of the sheet.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; A six comes up more often than a ten.</span></span>
+<span><span class="co">#&gt; A siege will crack the strong defense.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Twist the valve and release hot steam.</span></span>
+<span><span class="co">#&gt; March the soldiers past the next hill.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The box was thrown beside the parked truck.</span></span></code></pre></div>
-<p>A small creek cut across the field.</p>
-<p>Those last words were a strong statement.</p>
-<p>A six comes up more often than a ten.</p>
-<p>Twist the valve and release hot steam.</p>
-<p>The box was thrown beside the parked truck.</p>
+<span><span class="co">#&gt; Cap the jar with a tight brass cover.</span></span></code></pre></div>
+<p>The horn of the car woke the sleeping cop.</p>
+<p>He wrote his name boldly at the top of the sheet.</p>
+<p>A siege will crack the strong defense.</p>
+<p>March the soldiers past the next hill.</p>
+<p>Cap the jar with a tight brass cover.</p>
 </div>
 <div class="section level3">
 <h3 id="textual-content">6.14 Textual content<a class="anchor" aria-label="anchor" href="#textual-content"></a>
@@ -965,38 +966,40 @@ allows users to simply print text to the body of the document.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.14 Textual content</span></span>
 <span><span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; A small creek cut across the field.</span></span>
-<span><span class="co">#&gt; Those last words were a strong statement.</span></span>
-<span><span class="co">#&gt; A six comes up more often than a ten.</span></span>
-<span><span class="co">#&gt; Twist the valve and release hot steam.</span></span>
-<span><span class="co">#&gt; The box was thrown beside the parked truck.</span></span></code></pre></div>
-<p>A small creek cut across the field. Those last words were a strong
-statement. A six comes up more often than a ten. Twist the valve and
-release hot steam. The box was thrown beside the parked truck.</p>
+<span><span class="co">#&gt; The horn of the car woke the sleeping cop.</span></span>
+<span><span class="co">#&gt; He wrote his name boldly at the top of the sheet.</span></span>
+<span><span class="co">#&gt; A siege will crack the strong defense.</span></span>
+<span><span class="co">#&gt; March the soldiers past the next hill.</span></span>
+<span><span class="co">#&gt; Cap the jar with a tight brass cover.</span></span></code></pre></div>
+<p>The horn of the car woke the sleeping cop. He wrote his name boldly
+at the top of the sheet. A siege will crack the strong defense. March
+the soldiers past the next hill. Cap the jar with a tight brass
+cover.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "A small creek cut across the field."        </span></span>
-<span><span class="co">#&gt; [2] "Those last words were a strong statement."  </span></span>
-<span><span class="co">#&gt; [3] "A six comes up more often than a ten."      </span></span>
-<span><span class="co">#&gt; [4] "Twist the valve and release hot steam."     </span></span>
-<span><span class="co">#&gt; [5] "The box was thrown beside the parked truck."</span></span></code></pre></div>
-<p>[1] “A small creek cut across the field.”<br>
-[2] “Those last words were a strong statement.”<br>
-[3] “A six comes up more often than a ten.”<br>
-[4] “Twist the valve and release hot steam.”<br>
-[5] “The box was thrown beside the parked truck.”</p>
+<span><span class="co">#&gt; [1] "The horn of the car woke the sleeping cop."       </span></span>
+<span><span class="co">#&gt; [2] "He wrote his name boldly at the top of the sheet."</span></span>
+<span><span class="co">#&gt; [3] "A siege will crack the strong defense."           </span></span>
+<span><span class="co">#&gt; [4] "March the soldiers past the next hill."           </span></span>
+<span><span class="co">#&gt; [5] "Cap the jar with a tight brass cover."</span></span></code></pre></div>
+<p>[1] “The horn of the car woke the sleeping cop.”<br>
+[2] “He wrote his name boldly at the top of the sheet.” [3] “A siege
+will crack the strong defense.”<br>
+[4] “March the soldiers past the next hill.”<br>
+[5] “Cap the jar with a tight brass cover.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the
 <code>glue</code> S3 class. This class works in the same way as the
 <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; A small creek cut across the field. Those last words were a strong statement. A six comes up more often than a ten. Twist the valve and release hot steam. The box was thrown beside the parked truck.</span></span></code></pre></div>
-<p>A small creek cut across the field. Those last words were a strong
-statement. A six comes up more often than a ten. Twist the valve and
-release hot steam. The box was thrown beside the parked truck.</p>
+<span><span class="co">#&gt; The horn of the car woke the sleeping cop. He wrote his name boldly at the top of the sheet. A siege will crack the strong defense. March the soldiers past the next hill. Cap the jar with a tight brass cover.</span></span></code></pre></div>
+<p>The horn of the car woke the sleeping cop. He wrote his name boldly
+at the top of the sheet. A siege will crack the strong defense. March
+the soldiers past the next hill. Cap the jar with a tight brass
+cover.</p>
 </div>
 </div>
   </div>

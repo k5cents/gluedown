@@ -416,20 +416,20 @@ text and output <em>distinct</em> paragraphs.</p>
 <code class="sourceCode R"><span><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html" class="external-link">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The box was thrown beside the parked truck.</span></span>
+<span><span class="co">#&gt; A gold vase is both rare and costly.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The bombs left most of the town in ruins.</span></span>
+<span><span class="co">#&gt; It takes a good trap to capture a bear.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Bottles hold four kinds of rum.</span></span>
+<span><span class="co">#&gt; Dig deep in the earth for pirate's gold.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Tea in thin china has a sweet taste.</span></span>
+<span><span class="co">#&gt; Fly by night and you waste little time.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Open your book to the first page.</span></span></code></pre></div>
-<p>The box was thrown beside the parked truck.</p>
-<p>The bombs left most of the town in ruins.</p>
-<p>Bottles hold four kinds of rum.</p>
-<p>Tea in thin china has a sweet taste.</p>
-<p>Open your book to the first page.</p>
+<span><span class="co">#&gt; The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
+<p>A gold vase is both rare and costly.</p>
+<p>It takes a good trap to capture a bear.</p>
+<p>Dig deep in the earth for pirate’s gold.</p>
+<p>Fly by night and you waste little time.</p>
+<p>The kite dipped and swayed, but stayed aloft.</p>
 </div>
 <div class="section level3">
 <h3 id="blank-lines">4.9 Blank lines<a class="anchor" aria-label="anchor" href="#blank-lines"></a>
@@ -618,25 +618,25 @@ Constitution for the United States of America.</p>
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; &gt; The box was thrown beside the parked truck.</span></span>
-<span><span class="co">#&gt; &gt; The bombs left most of the town in ruins.</span></span>
-<span><span class="co">#&gt; &gt; Bottles hold four kinds of rum.</span></span>
-<span><span class="co">#&gt; &gt; Tea in thin china has a sweet taste.</span></span>
-<span><span class="co">#&gt; &gt; Open your book to the first page.</span></span></code></pre></div>
+<span><span class="co">#&gt; &gt; A gold vase is both rare and costly.</span></span>
+<span><span class="co">#&gt; &gt; It takes a good trap to capture a bear.</span></span>
+<span><span class="co">#&gt; &gt; Dig deep in the earth for pirate's gold.</span></span>
+<span><span class="co">#&gt; &gt; Fly by night and you waste little time.</span></span>
+<span><span class="co">#&gt; &gt; The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
 <blockquote>
-<p>The box was thrown beside the parked truck.</p>
+<p>A gold vase is both rare and costly.</p>
 </blockquote>
 <blockquote>
-<p>The bombs left most of the town in ruins.</p>
+<p>It takes a good trap to capture a bear.</p>
 </blockquote>
 <blockquote>
-<p>Bottles hold four kinds of rum.</p>
+<p>Dig deep in the earth for pirate’s gold.</p>
 </blockquote>
 <blockquote>
-<p>Tea in thin china has a sweet taste.</p>
+<p>Fly by night and you waste little time.</p>
 </blockquote>
 <blockquote>
-<p>Open your book to the first page.</p>
+<p>The kite dipped and swayed, but stayed aloft.</p>
 </blockquote>
 </div>
 <div class="section level3">
@@ -680,27 +680,27 @@ check boxes just render are bullet lists with weird bracket boxes on
 each line.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
-<span><span class="co">#&gt; * [ ] The box was thrown beside the parked truck.</span></span>
-<span><span class="co">#&gt; * [ ] The bombs left most of the town in ruins.</span></span>
-<span><span class="co">#&gt; * [x] Bottles hold four kinds of rum.</span></span>
-<span><span class="co">#&gt; * [x] Tea in thin china has a sweet taste.</span></span>
-<span><span class="co">#&gt; * [ ] Open your book to the first page.</span></span></code></pre></div>
+<span><span class="co">#&gt; * [ ] A gold vase is both rare and costly.</span></span>
+<span><span class="co">#&gt; * [ ] It takes a good trap to capture a bear.</span></span>
+<span><span class="co">#&gt; * [x] Dig deep in the earth for pirate's gold.</span></span>
+<span><span class="co">#&gt; * [x] Fly by night and you waste little time.</span></span>
+<span><span class="co">#&gt; * [ ] The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
 <ul class="task-list">
 <li>
-<input type="checkbox" disabled>The box was thrown beside the
-parked truck.</li>
+<input type="checkbox" disabled>A gold vase is both rare and
+costly.</li>
 <li>
-<input type="checkbox" disabled>The bombs left most of the town
-in ruins.</li>
+<input type="checkbox" disabled>It takes a good trap to capture
+a bear.</li>
 <li>
-<input type="checkbox" disabled checked>Bottles hold four
-kinds of rum.</li>
+<input type="checkbox" disabled checked>Dig deep in the
+earth for pirate’s gold.</li>
 <li>
-<input type="checkbox" disabled checked>Tea in thin china
-has a sweet taste.</li>
+<input type="checkbox" disabled checked>Fly by night and you
+waste little time.</li>
 <li>
-<input type="checkbox" disabled>Open your book to the first
-page.</li>
+<input type="checkbox" disabled>The kite dipped and swayed, but
+stayed aloft.</li>
 </ul>
 </div>
 <div class="section level3">
@@ -731,43 +731,43 @@ file.</p>
 <code class="sourceCode R"><span><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
-<span><span class="co">#&gt; * Nebraska</span></span>
-<span><span class="co">#&gt; * Texas</span></span>
-<span><span class="co">#&gt; * Oklahoma</span></span></code></pre></div>
+<span><span class="co">#&gt; * Idaho</span></span>
+<span><span class="co">#&gt; * South Dakota</span></span>
+<span><span class="co">#&gt; * Massachusetts</span></span></code></pre></div>
 <ul>
-<li>Nebraska</li>
-<li>Texas</li>
-<li>Oklahoma</li>
+<li>Idaho</li>
+<li>South Dakota</li>
+<li>Massachusetts</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; + Nebraska</span></span>
-<span><span class="co">#&gt; + Texas</span></span>
-<span><span class="co">#&gt; + Oklahoma</span></span></code></pre></div>
+<span><span class="co">#&gt; + Idaho</span></span>
+<span><span class="co">#&gt; + South Dakota</span></span>
+<span><span class="co">#&gt; + Massachusetts</span></span></code></pre></div>
 <ul>
-<li>Nebraska</li>
-<li>Texas</li>
-<li>Oklahoma</li>
+<li>Idaho</li>
+<li>South Dakota</li>
+<li>Massachusetts</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1. Nebraska</span></span>
-<span><span class="co">#&gt; 2. Texas</span></span>
-<span><span class="co">#&gt; 3. Oklahoma</span></span></code></pre></div>
+<span><span class="co">#&gt; 1. Idaho</span></span>
+<span><span class="co">#&gt; 2. South Dakota</span></span>
+<span><span class="co">#&gt; 3. Massachusetts</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Nebraska</li>
-<li>Texas</li>
-<li>Oklahoma</li>
+<li>Idaho</li>
+<li>South Dakota</li>
+<li>Massachusetts</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1) Nebraska</span></span>
-<span><span class="co">#&gt; 1) Texas</span></span>
-<span><span class="co">#&gt; 1) Oklahoma</span></span></code></pre></div>
+<span><span class="co">#&gt; 1) Idaho</span></span>
+<span><span class="co">#&gt; 1) South Dakota</span></span>
+<span><span class="co">#&gt; 1) Massachusetts</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Nebraska</li>
-<li>Texas</li>
-<li>Oklahoma</li>
+<li>Idaho</li>
+<li>South Dakota</li>
+<li>Massachusetts</li>
 </ol>
 </div>
 </div>
@@ -843,7 +843,7 @@ used as the image’s <code>alt</code> attribute.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_image.html">md_image</a></span><span class="op">(</span><span class="st">"https://www.r-project.org/Rlogo.png"</span>, alt <span class="op">=</span> <span class="st">"R logo"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ![R logo](https://www.r-project.org/Rlogo.png)</span></span></code></pre></div>
 <div class="figure">
-<img src="../../../../../../tmp/Rtmp3GeyYe/file1a51305306ce.png" alt=""><p class="caption">R logo</p>
+<img src="../../../../../../tmp/Rtmp1HlFTV/file19f71c378f28.png" alt=""><p class="caption">R logo</p>
 </div>
 </div>
 <div class="section level3">
@@ -901,16 +901,16 @@ tag):</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.12 Hard line breaks</span></span>
 <span><span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The box was thrown beside the parked truck.  </span></span>
-<span><span class="co">#&gt; The bombs left most of the town in ruins.  </span></span>
-<span><span class="co">#&gt; Bottles hold four kinds of rum.  </span></span>
-<span><span class="co">#&gt; Tea in thin china has a sweet taste.  </span></span>
-<span><span class="co">#&gt; Open your book to the first page.</span></span></code></pre></div>
-<p>The box was thrown beside the parked truck.<br>
-The bombs left most of the town in ruins.<br>
-Bottles hold four kinds of rum.<br>
-Tea in thin china has a sweet taste.<br>
-Open your book to the first page.</p>
+<span><span class="co">#&gt; A gold vase is both rare and costly.  </span></span>
+<span><span class="co">#&gt; It takes a good trap to capture a bear.  </span></span>
+<span><span class="co">#&gt; Dig deep in the earth for pirate's gold.  </span></span>
+<span><span class="co">#&gt; Fly by night and you waste little time.  </span></span>
+<span><span class="co">#&gt; The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
+<p>A gold vase is both rare and costly.<br>
+It takes a good trap to capture a bear.<br>
+Dig deep in the earth for pirate’s gold.<br>
+Fly by night and you waste little time.<br>
+The kite dipped and swayed, but stayed aloft.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not
@@ -922,33 +922,33 @@ line ending will be used.)</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.13 Soft line breaks</span></span>
 <span><span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The box was thrown beside the parked truck.</span></span>
-<span><span class="co">#&gt; The bombs left most of the town in ruins.</span></span>
-<span><span class="co">#&gt; Bottles hold four kinds of rum.</span></span>
-<span><span class="co">#&gt; Tea in thin china has a sweet taste.</span></span>
-<span><span class="co">#&gt; Open your book to the first page.</span></span></code></pre></div>
-<p>The box was thrown beside the parked truck. The bombs left most of
-the town in ruins. Bottles hold four kinds of rum. Tea in thin china has
-a sweet taste. Open your book to the first page.</p>
+<span><span class="co">#&gt; A gold vase is both rare and costly.</span></span>
+<span><span class="co">#&gt; It takes a good trap to capture a bear.</span></span>
+<span><span class="co">#&gt; Dig deep in the earth for pirate's gold.</span></span>
+<span><span class="co">#&gt; Fly by night and you waste little time.</span></span>
+<span><span class="co">#&gt; The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
+<p>A gold vase is both rare and costly. It takes a good trap to capture
+a bear. Dig deep in the earth for pirate’s gold. Fly by night and you
+waste little time. The kite dipped and swayed, but stayed aloft.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different
 from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The box was thrown beside the parked truck.</span></span>
+<span><span class="co">#&gt; A gold vase is both rare and costly.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The bombs left most of the town in ruins.</span></span>
+<span><span class="co">#&gt; It takes a good trap to capture a bear.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Bottles hold four kinds of rum.</span></span>
+<span><span class="co">#&gt; Dig deep in the earth for pirate's gold.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Tea in thin china has a sweet taste.</span></span>
+<span><span class="co">#&gt; Fly by night and you waste little time.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Open your book to the first page.</span></span></code></pre></div>
-<p>The box was thrown beside the parked truck.</p>
-<p>The bombs left most of the town in ruins.</p>
-<p>Bottles hold four kinds of rum.</p>
-<p>Tea in thin china has a sweet taste.</p>
-<p>Open your book to the first page.</p>
+<span><span class="co">#&gt; The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
+<p>A gold vase is both rare and costly.</p>
+<p>It takes a good trap to capture a bear.</p>
+<p>Dig deep in the earth for pirate’s gold.</p>
+<p>Fly by night and you waste little time.</p>
+<p>The kite dipped and swayed, but stayed aloft.</p>
 </div>
 <div class="section level3">
 <h3 id="textual-content">6.14 Textual content<a class="anchor" aria-label="anchor" href="#textual-content"></a>
@@ -965,38 +965,38 @@ allows users to simply print text to the body of the document.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.14 Textual content</span></span>
 <span><span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The box was thrown beside the parked truck.</span></span>
-<span><span class="co">#&gt; The bombs left most of the town in ruins.</span></span>
-<span><span class="co">#&gt; Bottles hold four kinds of rum.</span></span>
-<span><span class="co">#&gt; Tea in thin china has a sweet taste.</span></span>
-<span><span class="co">#&gt; Open your book to the first page.</span></span></code></pre></div>
-<p>The box was thrown beside the parked truck. The bombs left most of
-the town in ruins. Bottles hold four kinds of rum. Tea in thin china has
-a sweet taste. Open your book to the first page.</p>
+<span><span class="co">#&gt; A gold vase is both rare and costly.</span></span>
+<span><span class="co">#&gt; It takes a good trap to capture a bear.</span></span>
+<span><span class="co">#&gt; Dig deep in the earth for pirate's gold.</span></span>
+<span><span class="co">#&gt; Fly by night and you waste little time.</span></span>
+<span><span class="co">#&gt; The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
+<p>A gold vase is both rare and costly. It takes a good trap to capture
+a bear. Dig deep in the earth for pirate’s gold. Fly by night and you
+waste little time. The kite dipped and swayed, but stayed aloft.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "The box was thrown beside the parked truck."</span></span>
-<span><span class="co">#&gt; [2] "The bombs left most of the town in ruins."  </span></span>
-<span><span class="co">#&gt; [3] "Bottles hold four kinds of rum."            </span></span>
-<span><span class="co">#&gt; [4] "Tea in thin china has a sweet taste."       </span></span>
-<span><span class="co">#&gt; [5] "Open your book to the first page."</span></span></code></pre></div>
-<p>[1] “The box was thrown beside the parked truck.” [2] “The bombs left
-most of the town in ruins.”<br>
-[3] “Bottles hold four kinds of rum.”<br>
-[4] “Tea in thin china has a sweet taste.”<br>
-[5] “Open your book to the first page.”</p>
+<span><span class="co">#&gt; [1] "A gold vase is both rare and costly."         </span></span>
+<span><span class="co">#&gt; [2] "It takes a good trap to capture a bear."      </span></span>
+<span><span class="co">#&gt; [3] "Dig deep in the earth for pirate's gold."     </span></span>
+<span><span class="co">#&gt; [4] "Fly by night and you waste little time."      </span></span>
+<span><span class="co">#&gt; [5] "The kite dipped and swayed, but stayed aloft."</span></span></code></pre></div>
+<p>[1] “A gold vase is both rare and costly.”<br>
+[2] “It takes a good trap to capture a bear.”<br>
+[3] “Dig deep in the earth for pirate’s gold.”<br>
+[4] “Fly by night and you waste little time.”<br>
+[5] “The kite dipped and swayed, but stayed aloft.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the
 <code>glue</code> S3 class. This class works in the same way as the
 <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The box was thrown beside the parked truck. The bombs left most of the town in ruins. Bottles hold four kinds of rum. Tea in thin china has a sweet taste. Open your book to the first page.</span></span></code></pre></div>
-<p>The box was thrown beside the parked truck. The bombs left most of
-the town in ruins. Bottles hold four kinds of rum. Tea in thin china has
-a sweet taste. Open your book to the first page.</p>
+<span><span class="co">#&gt; A gold vase is both rare and costly. It takes a good trap to capture a bear. Dig deep in the earth for pirate's gold. Fly by night and you waste little time. The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
+<p>A gold vase is both rare and costly. It takes a good trap to capture
+a bear. Dig deep in the earth for pirate’s gold. Fly by night and you
+waste little time. The kite dipped and swayed, but stayed aloft.</p>
 </div>
 </div>
   </div>

@@ -1,6 +1,7 @@
-# gluedown 1.0.7
+# gluedown 1.0.8
 
-# gluedown 1.0.6
+* Merge pull request #31 from yihui/patch-1
+    * Updated `md_convert()` for changes in the markdown package.
 
 # gluedown 1.0.5
 

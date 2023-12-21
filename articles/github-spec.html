@@ -416,20 +416,20 @@ text and output <em>distinct</em> paragraphs.</p>
 <code class="sourceCode R"><span><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html" class="external-link">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The horn of the car woke the sleeping cop.</span></span>
+<span><span class="co">#&gt; Open the crate but don't break the glass.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; He wrote his name boldly at the top of the sheet.</span></span>
+<span><span class="co">#&gt; Float the soap on top of the bath water.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; A siege will crack the strong defense.</span></span>
+<span><span class="co">#&gt; Screen the porch with woven straw mats.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; March the soldiers past the next hill.</span></span>
+<span><span class="co">#&gt; Cut the cord that binds the box tightly.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Cap the jar with a tight brass cover.</span></span></code></pre></div>
-<p>The horn of the car woke the sleeping cop.</p>
-<p>He wrote his name boldly at the top of the sheet.</p>
-<p>A siege will crack the strong defense.</p>
-<p>March the soldiers past the next hill.</p>
-<p>Cap the jar with a tight brass cover.</p>
+<span><span class="co">#&gt; Those last words were a strong statement.</span></span></code></pre></div>
+<p>Open the crate but don’t break the glass.</p>
+<p>Float the soap on top of the bath water.</p>
+<p>Screen the porch with woven straw mats.</p>
+<p>Cut the cord that binds the box tightly.</p>
+<p>Those last words were a strong statement.</p>
 </div>
 <div class="section level3">
 <h3 id="blank-lines">4.9 Blank lines<a class="anchor" aria-label="anchor" href="#blank-lines"></a>
@@ -618,25 +618,25 @@ Constitution for the United States of America.</p>
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; &gt; The horn of the car woke the sleeping cop.</span></span>
-<span><span class="co">#&gt; &gt; He wrote his name boldly at the top of the sheet.</span></span>
-<span><span class="co">#&gt; &gt; A siege will crack the strong defense.</span></span>
-<span><span class="co">#&gt; &gt; March the soldiers past the next hill.</span></span>
-<span><span class="co">#&gt; &gt; Cap the jar with a tight brass cover.</span></span></code></pre></div>
+<span><span class="co">#&gt; &gt; Open the crate but don't break the glass.</span></span>
+<span><span class="co">#&gt; &gt; Float the soap on top of the bath water.</span></span>
+<span><span class="co">#&gt; &gt; Screen the porch with woven straw mats.</span></span>
+<span><span class="co">#&gt; &gt; Cut the cord that binds the box tightly.</span></span>
+<span><span class="co">#&gt; &gt; Those last words were a strong statement.</span></span></code></pre></div>
 <blockquote>
-<p>The horn of the car woke the sleeping cop.</p>
+<p>Open the crate but don’t break the glass.</p>
 </blockquote>
 <blockquote>
-<p>He wrote his name boldly at the top of the sheet.</p>
+<p>Float the soap on top of the bath water.</p>
 </blockquote>
 <blockquote>
-<p>A siege will crack the strong defense.</p>
+<p>Screen the porch with woven straw mats.</p>
 </blockquote>
 <blockquote>
-<p>March the soldiers past the next hill.</p>
+<p>Cut the cord that binds the box tightly.</p>
 </blockquote>
 <blockquote>
-<p>Cap the jar with a tight brass cover.</p>
+<p>Those last words were a strong statement.</p>
 </blockquote>
 </div>
 <div class="section level3">
@@ -680,27 +680,27 @@ check boxes just render are bullet lists with weird bracket boxes on
 each line.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
-<span><span class="co">#&gt; * [ ] The horn of the car woke the sleeping cop.</span></span>
-<span><span class="co">#&gt; * [ ] He wrote his name boldly at the top of the sheet.</span></span>
-<span><span class="co">#&gt; * [x] A siege will crack the strong defense.</span></span>
-<span><span class="co">#&gt; * [x] March the soldiers past the next hill.</span></span>
-<span><span class="co">#&gt; * [ ] Cap the jar with a tight brass cover.</span></span></code></pre></div>
+<span><span class="co">#&gt; * [ ] Open the crate but don't break the glass.</span></span>
+<span><span class="co">#&gt; * [ ] Float the soap on top of the bath water.</span></span>
+<span><span class="co">#&gt; * [x] Screen the porch with woven straw mats.</span></span>
+<span><span class="co">#&gt; * [x] Cut the cord that binds the box tightly.</span></span>
+<span><span class="co">#&gt; * [ ] Those last words were a strong statement.</span></span></code></pre></div>
 <ul class="task-list">
 <li>
-<input type="checkbox" disabled>The horn of the car woke the
-sleeping cop.</li>
+<input type="checkbox" disabled>Open the crate but don’t break
+the glass.</li>
 <li>
-<input type="checkbox" disabled>He wrote his name boldly at the
-top of the sheet.</li>
+<input type="checkbox" disabled>Float the soap on top of the
+bath water.</li>
 <li>
-<input type="checkbox" disabled checked>A siege will crack
-the strong defense.</li>
+<input type="checkbox" disabled checked>Screen the porch
+with woven straw mats.</li>
 <li>
-<input type="checkbox" disabled checked>March the soldiers
-past the next hill.</li>
+<input type="checkbox" disabled checked>Cut the cord that
+binds the box tightly.</li>
 <li>
-<input type="checkbox" disabled>Cap the jar with a tight brass
-cover.</li>
+<input type="checkbox" disabled>Those last words were a strong
+statement.</li>
 </ul>
 </div>
 <div class="section level3">
@@ -731,43 +731,43 @@ file.</p>
 <code class="sourceCode R"><span><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
-<span><span class="co">#&gt; * West Virginia</span></span>
-<span><span class="co">#&gt; * Delaware</span></span>
-<span><span class="co">#&gt; * New Jersey</span></span></code></pre></div>
+<span><span class="co">#&gt; * Kansas</span></span>
+<span><span class="co">#&gt; * Connecticut</span></span>
+<span><span class="co">#&gt; * Vermont</span></span></code></pre></div>
 <ul>
-<li>West Virginia</li>
-<li>Delaware</li>
-<li>New Jersey</li>
+<li>Kansas</li>
+<li>Connecticut</li>
+<li>Vermont</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; + West Virginia</span></span>
-<span><span class="co">#&gt; + Delaware</span></span>
-<span><span class="co">#&gt; + New Jersey</span></span></code></pre></div>
+<span><span class="co">#&gt; + Kansas</span></span>
+<span><span class="co">#&gt; + Connecticut</span></span>
+<span><span class="co">#&gt; + Vermont</span></span></code></pre></div>
 <ul>
-<li>West Virginia</li>
-<li>Delaware</li>
-<li>New Jersey</li>
+<li>Kansas</li>
+<li>Connecticut</li>
+<li>Vermont</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1. West Virginia</span></span>
-<span><span class="co">#&gt; 2. Delaware</span></span>
-<span><span class="co">#&gt; 3. New Jersey</span></span></code></pre></div>
+<span><span class="co">#&gt; 1. Kansas</span></span>
+<span><span class="co">#&gt; 2. Connecticut</span></span>
+<span><span class="co">#&gt; 3. Vermont</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>West Virginia</li>
-<li>Delaware</li>
-<li>New Jersey</li>
+<li>Kansas</li>
+<li>Connecticut</li>
+<li>Vermont</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1) West Virginia</span></span>
-<span><span class="co">#&gt; 1) Delaware</span></span>
-<span><span class="co">#&gt; 1) New Jersey</span></span></code></pre></div>
+<span><span class="co">#&gt; 1) Kansas</span></span>
+<span><span class="co">#&gt; 1) Connecticut</span></span>
+<span><span class="co">#&gt; 1) Vermont</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>West Virginia</li>
-<li>Delaware</li>
-<li>New Jersey</li>
+<li>Kansas</li>
+<li>Connecticut</li>
+<li>Vermont</li>
 </ol>
 </div>
 </div>
@@ -843,7 +843,7 @@ used as the image’s <code>alt</code> attribute.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_image.html">md_image</a></span><span class="op">(</span><span class="st">"https://www.r-project.org/Rlogo.png"</span>, alt <span class="op">=</span> <span class="st">"R logo"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ![R logo](https://www.r-project.org/Rlogo.png)</span></span></code></pre></div>
 <div class="figure">
-<img src="../../../../../../tmp/Rtmpa14arc/file1b2775b00a22.png" alt=""><p class="caption">R logo</p>
+<img src="../../../../../../tmp/Rtmp2cKcuu/file1afa7bab9448.png" alt=""><p class="caption">R logo</p>
 </div>
 </div>
 <div class="section level3">
@@ -901,16 +901,16 @@ tag):</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.12 Hard line breaks</span></span>
 <span><span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The horn of the car woke the sleeping cop.  </span></span>
-<span><span class="co">#&gt; He wrote his name boldly at the top of the sheet.  </span></span>
-<span><span class="co">#&gt; A siege will crack the strong defense.  </span></span>
-<span><span class="co">#&gt; March the soldiers past the next hill.  </span></span>
-<span><span class="co">#&gt; Cap the jar with a tight brass cover.</span></span></code></pre></div>
-<p>The horn of the car woke the sleeping cop.<br>
-He wrote his name boldly at the top of the sheet.<br>
-A siege will crack the strong defense.<br>
-March the soldiers past the next hill.<br>
-Cap the jar with a tight brass cover.</p>
+<span><span class="co">#&gt; Open the crate but don't break the glass.  </span></span>
+<span><span class="co">#&gt; Float the soap on top of the bath water.  </span></span>
+<span><span class="co">#&gt; Screen the porch with woven straw mats.  </span></span>
+<span><span class="co">#&gt; Cut the cord that binds the box tightly.  </span></span>
+<span><span class="co">#&gt; Those last words were a strong statement.</span></span></code></pre></div>
+<p>Open the crate but don’t break the glass.<br>
+Float the soap on top of the bath water.<br>
+Screen the porch with woven straw mats.<br>
+Cut the cord that binds the box tightly.<br>
+Those last words were a strong statement.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not
@@ -922,34 +922,34 @@ line ending will be used.)</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.13 Soft line breaks</span></span>
 <span><span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The horn of the car woke the sleeping cop.</span></span>
-<span><span class="co">#&gt; He wrote his name boldly at the top of the sheet.</span></span>
-<span><span class="co">#&gt; A siege will crack the strong defense.</span></span>
-<span><span class="co">#&gt; March the soldiers past the next hill.</span></span>
-<span><span class="co">#&gt; Cap the jar with a tight brass cover.</span></span></code></pre></div>
-<p>The horn of the car woke the sleeping cop. He wrote his name boldly
-at the top of the sheet. A siege will crack the strong defense. March
-the soldiers past the next hill. Cap the jar with a tight brass
-cover.</p>
+<span><span class="co">#&gt; Open the crate but don't break the glass.</span></span>
+<span><span class="co">#&gt; Float the soap on top of the bath water.</span></span>
+<span><span class="co">#&gt; Screen the porch with woven straw mats.</span></span>
+<span><span class="co">#&gt; Cut the cord that binds the box tightly.</span></span>
+<span><span class="co">#&gt; Those last words were a strong statement.</span></span></code></pre></div>
+<p>Open the crate but don’t break the glass. Float the soap on top of
+the bath water. Screen the porch with woven straw mats. Cut the cord
+that binds the box tightly. Those last words were a strong
+statement.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different
 from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The horn of the car woke the sleeping cop.</span></span>
+<span><span class="co">#&gt; Open the crate but don't break the glass.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; He wrote his name boldly at the top of the sheet.</span></span>
+<span><span class="co">#&gt; Float the soap on top of the bath water.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; A siege will crack the strong defense.</span></span>
+<span><span class="co">#&gt; Screen the porch with woven straw mats.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; March the soldiers past the next hill.</span></span>
+<span><span class="co">#&gt; Cut the cord that binds the box tightly.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Cap the jar with a tight brass cover.</span></span></code></pre></div>
-<p>The horn of the car woke the sleeping cop.</p>
-<p>He wrote his name boldly at the top of the sheet.</p>
-<p>A siege will crack the strong defense.</p>
-<p>March the soldiers past the next hill.</p>
-<p>Cap the jar with a tight brass cover.</p>
+<span><span class="co">#&gt; Those last words were a strong statement.</span></span></code></pre></div>
+<p>Open the crate but don’t break the glass.</p>
+<p>Float the soap on top of the bath water.</p>
+<p>Screen the porch with woven straw mats.</p>
+<p>Cut the cord that binds the box tightly.</p>
+<p>Those last words were a strong statement.</p>
 </div>
 <div class="section level3">
 <h3 id="textual-content">6.14 Textual content<a class="anchor" aria-label="anchor" href="#textual-content"></a>
@@ -966,40 +966,40 @@ allows users to simply print text to the body of the document.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.14 Textual content</span></span>
 <span><span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The horn of the car woke the sleeping cop.</span></span>
-<span><span class="co">#&gt; He wrote his name boldly at the top of the sheet.</span></span>
-<span><span class="co">#&gt; A siege will crack the strong defense.</span></span>
-<span><span class="co">#&gt; March the soldiers past the next hill.</span></span>
-<span><span class="co">#&gt; Cap the jar with a tight brass cover.</span></span></code></pre></div>
-<p>The horn of the car woke the sleeping cop. He wrote his name boldly
-at the top of the sheet. A siege will crack the strong defense. March
-the soldiers past the next hill. Cap the jar with a tight brass
-cover.</p>
+<span><span class="co">#&gt; Open the crate but don't break the glass.</span></span>
+<span><span class="co">#&gt; Float the soap on top of the bath water.</span></span>
+<span><span class="co">#&gt; Screen the porch with woven straw mats.</span></span>
+<span><span class="co">#&gt; Cut the cord that binds the box tightly.</span></span>
+<span><span class="co">#&gt; Those last words were a strong statement.</span></span></code></pre></div>
+<p>Open the crate but don’t break the glass. Float the soap on top of
+the bath water. Screen the porch with woven straw mats. Cut the cord
+that binds the box tightly. Those last words were a strong
+statement.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "The horn of the car woke the sleeping cop."       </span></span>
-<span><span class="co">#&gt; [2] "He wrote his name boldly at the top of the sheet."</span></span>
-<span><span class="co">#&gt; [3] "A siege will crack the strong defense."           </span></span>
-<span><span class="co">#&gt; [4] "March the soldiers past the next hill."           </span></span>
-<span><span class="co">#&gt; [5] "Cap the jar with a tight brass cover."</span></span></code></pre></div>
-<p>[1] “The horn of the car woke the sleeping cop.”<br>
-[2] “He wrote his name boldly at the top of the sheet.” [3] “A siege
-will crack the strong defense.”<br>
-[4] “March the soldiers past the next hill.”<br>
-[5] “Cap the jar with a tight brass cover.”</p>
+<span><span class="co">#&gt; [1] "Open the crate but don't break the glass."</span></span>
+<span><span class="co">#&gt; [2] "Float the soap on top of the bath water." </span></span>
+<span><span class="co">#&gt; [3] "Screen the porch with woven straw mats."  </span></span>
+<span><span class="co">#&gt; [4] "Cut the cord that binds the box tightly." </span></span>
+<span><span class="co">#&gt; [5] "Those last words were a strong statement."</span></span></code></pre></div>
+<p>[1] “Open the crate but don’t break the glass.” [2] “Float the soap
+on top of the bath water.” [3] “Screen the porch with woven straw
+mats.”<br>
+[4] “Cut the cord that binds the box tightly.” [5] “Those last words
+were a strong statement.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the
 <code>glue</code> S3 class. This class works in the same way as the
 <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The horn of the car woke the sleeping cop. He wrote his name boldly at the top of the sheet. A siege will crack the strong defense. March the soldiers past the next hill. Cap the jar with a tight brass cover.</span></span></code></pre></div>
-<p>The horn of the car woke the sleeping cop. He wrote his name boldly
-at the top of the sheet. A siege will crack the strong defense. March
-the soldiers past the next hill. Cap the jar with a tight brass
-cover.</p>
+<span><span class="co">#&gt; Open the crate but don't break the glass. Float the soap on top of the bath water. Screen the porch with woven straw mats. Cut the cord that binds the box tightly. Those last words were a strong statement.</span></span></code></pre></div>
+<p>Open the crate but don’t break the glass. Float the soap on top of
+the bath water. Screen the porch with woven straw mats. Cut the cord
+that binds the box tightly. Those last words were a strong
+statement.</p>
 </div>
 </div>
   </div>

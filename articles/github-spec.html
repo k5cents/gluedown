@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.8.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.9</span>
       </span>
     </div>
 
@@ -70,7 +70,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/kiernann/gluedown/" class="external-link">
+  <a href="https://github.com/k5cents/gluedown/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -91,7 +91,7 @@
       <h1 data-toc-skip>GitHub Flavored Markdown</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/kiernann/gluedown/blob/HEAD/vignettes/github-spec.Rmd" class="external-link"><code>vignettes/github-spec.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/k5cents/gluedown/blob/HEAD/vignettes/github-spec.Rmd" class="external-link"><code>vignettes/github-spec.Rmd</code></a></small>
       <div class="hidden name"><code>github-spec.Rmd</code></div>
 
     </div>
@@ -99,7 +99,7 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://kiernann.github.io/gluedown/" class="external-link">gluedown</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://k5cents.github.io/gluedown/" class="external-link">gluedown</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/" class="external-link">rvest</a></span><span class="op">)</span></span></code></pre></div>
 <p>In this vignette, we will explore how the functions in
@@ -322,7 +322,7 @@ syntax. Compare the following output to the one produced by
 <span><span class="co">#&gt; ```bash</span></span>
 <span><span class="co">#&gt; $ sudo apt install r-base-dev</span></span>
 <span><span class="co">#&gt; ```</span></span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> sudo apt install r-base-dev</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="ex">$</span> sudo apt install r-base-dev</span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="html-blocks">4.6 HTML blocks<a class="anchor" aria-label="anchor" href="#html-blocks"></a>
@@ -416,20 +416,20 @@ text and output <em>distinct</em> paragraphs.</p>
 <code class="sourceCode R"><span><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html" class="external-link">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; A gold vase is both rare and costly.</span></span>
+<span><span class="co">#&gt; The little tales they tell are false.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; It takes a good trap to capture a bear.</span></span>
+<span><span class="co">#&gt; Pile the coal high in the shed corner.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Dig deep in the earth for pirate's gold.</span></span>
+<span><span class="co">#&gt; A cold dip restores health and zest.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Fly by night and you waste little time.</span></span>
+<span><span class="co">#&gt; Glass will clink when struck by metal.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
-<p>A gold vase is both rare and costly.</p>
-<p>It takes a good trap to capture a bear.</p>
-<p>Dig deep in the earth for pirate’s gold.</p>
-<p>Fly by night and you waste little time.</p>
-<p>The kite dipped and swayed, but stayed aloft.</p>
+<span><span class="co">#&gt; Ship maps are different from those for planes.</span></span></code></pre></div>
+<p>The little tales they tell are false.</p>
+<p>Pile the coal high in the shed corner.</p>
+<p>A cold dip restores health and zest.</p>
+<p>Glass will clink when struck by metal.</p>
+<p>Ship maps are different from those for planes.</p>
 </div>
 <div class="section level3">
 <h3 id="blank-lines">4.9 Blank lines<a class="anchor" aria-label="anchor" href="#blank-lines"></a>
@@ -618,25 +618,25 @@ Constitution for the United States of America.</p>
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; &gt; A gold vase is both rare and costly.</span></span>
-<span><span class="co">#&gt; &gt; It takes a good trap to capture a bear.</span></span>
-<span><span class="co">#&gt; &gt; Dig deep in the earth for pirate's gold.</span></span>
-<span><span class="co">#&gt; &gt; Fly by night and you waste little time.</span></span>
-<span><span class="co">#&gt; &gt; The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
+<span><span class="co">#&gt; &gt; The little tales they tell are false.</span></span>
+<span><span class="co">#&gt; &gt; Pile the coal high in the shed corner.</span></span>
+<span><span class="co">#&gt; &gt; A cold dip restores health and zest.</span></span>
+<span><span class="co">#&gt; &gt; Glass will clink when struck by metal.</span></span>
+<span><span class="co">#&gt; &gt; Ship maps are different from those for planes.</span></span></code></pre></div>
 <blockquote>
-<p>A gold vase is both rare and costly.</p>
+<p>The little tales they tell are false.</p>
 </blockquote>
 <blockquote>
-<p>It takes a good trap to capture a bear.</p>
+<p>Pile the coal high in the shed corner.</p>
 </blockquote>
 <blockquote>
-<p>Dig deep in the earth for pirate’s gold.</p>
+<p>A cold dip restores health and zest.</p>
 </blockquote>
 <blockquote>
-<p>Fly by night and you waste little time.</p>
+<p>Glass will clink when struck by metal.</p>
 </blockquote>
 <blockquote>
-<p>The kite dipped and swayed, but stayed aloft.</p>
+<p>Ship maps are different from those for planes.</p>
 </blockquote>
 </div>
 <div class="section level3">
@@ -680,27 +680,22 @@ check boxes just render are bullet lists with weird bracket boxes on
 each line.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
-<span><span class="co">#&gt; * [ ] A gold vase is both rare and costly.</span></span>
-<span><span class="co">#&gt; * [ ] It takes a good trap to capture a bear.</span></span>
-<span><span class="co">#&gt; * [x] Dig deep in the earth for pirate's gold.</span></span>
-<span><span class="co">#&gt; * [x] Fly by night and you waste little time.</span></span>
-<span><span class="co">#&gt; * [ ] The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
+<span><span class="co">#&gt; * [ ] The little tales they tell are false.</span></span>
+<span><span class="co">#&gt; * [ ] Pile the coal high in the shed corner.</span></span>
+<span><span class="co">#&gt; * [x] A cold dip restores health and zest.</span></span>
+<span><span class="co">#&gt; * [x] Glass will clink when struck by metal.</span></span>
+<span><span class="co">#&gt; * [ ] Ship maps are different from those for planes.</span></span></code></pre></div>
 <ul class="task-list">
-<li>
-<input type="checkbox" disabled>A gold vase is both rare and
-costly.</li>
-<li>
-<input type="checkbox" disabled>It takes a good trap to capture
-a bear.</li>
-<li>
-<input type="checkbox" disabled checked>Dig deep in the
-earth for pirate’s gold.</li>
-<li>
-<input type="checkbox" disabled checked>Fly by night and you
-waste little time.</li>
-<li>
-<input type="checkbox" disabled>The kite dipped and swayed, but
-stayed aloft.</li>
+<li><label><input type="checkbox">The little tales they tell are
+false.</label></li>
+<li><label><input type="checkbox">Pile the coal high in the shed
+corner.</label></li>
+<li><label><input type="checkbox" checked>A cold dip restores
+health and zest.</label></li>
+<li><label><input type="checkbox" checked>Glass will clink when
+struck by metal.</label></li>
+<li><label><input type="checkbox">Ship maps are different from those
+for planes.</label></li>
 </ul>
 </div>
 <div class="section level3">
@@ -731,43 +726,43 @@ file.</p>
 <code class="sourceCode R"><span><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
-<span><span class="co">#&gt; * Idaho</span></span>
-<span><span class="co">#&gt; * South Dakota</span></span>
-<span><span class="co">#&gt; * Massachusetts</span></span></code></pre></div>
+<span><span class="co">#&gt; * Louisiana</span></span>
+<span><span class="co">#&gt; * Washington</span></span>
+<span><span class="co">#&gt; * Nevada</span></span></code></pre></div>
 <ul>
-<li>Idaho</li>
-<li>South Dakota</li>
-<li>Massachusetts</li>
+<li>Louisiana</li>
+<li>Washington</li>
+<li>Nevada</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; + Idaho</span></span>
-<span><span class="co">#&gt; + South Dakota</span></span>
-<span><span class="co">#&gt; + Massachusetts</span></span></code></pre></div>
+<span><span class="co">#&gt; + Louisiana</span></span>
+<span><span class="co">#&gt; + Washington</span></span>
+<span><span class="co">#&gt; + Nevada</span></span></code></pre></div>
 <ul>
-<li>Idaho</li>
-<li>South Dakota</li>
-<li>Massachusetts</li>
+<li>Louisiana</li>
+<li>Washington</li>
+<li>Nevada</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1. Idaho</span></span>
-<span><span class="co">#&gt; 2. South Dakota</span></span>
-<span><span class="co">#&gt; 3. Massachusetts</span></span></code></pre></div>
+<span><span class="co">#&gt; 1. Louisiana</span></span>
+<span><span class="co">#&gt; 2. Washington</span></span>
+<span><span class="co">#&gt; 3. Nevada</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Idaho</li>
-<li>South Dakota</li>
-<li>Massachusetts</li>
+<li>Louisiana</li>
+<li>Washington</li>
+<li>Nevada</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1) Idaho</span></span>
-<span><span class="co">#&gt; 1) South Dakota</span></span>
-<span><span class="co">#&gt; 1) Massachusetts</span></span></code></pre></div>
+<span><span class="co">#&gt; 1) Louisiana</span></span>
+<span><span class="co">#&gt; 1) Washington</span></span>
+<span><span class="co">#&gt; 1) Nevada</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Idaho</li>
-<li>South Dakota</li>
-<li>Massachusetts</li>
+<li>Louisiana</li>
+<li>Washington</li>
+<li>Nevada</li>
 </ol>
 </div>
 </div>
@@ -842,8 +837,8 @@ used as the image’s <code>alt</code> attribute.</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_image.html">md_image</a></span><span class="op">(</span><span class="st">"https://www.r-project.org/Rlogo.png"</span>, alt <span class="op">=</span> <span class="st">"R logo"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ![R logo](https://www.r-project.org/Rlogo.png)</span></span></code></pre></div>
-<div class="figure">
-<img src="../../../../../../tmp/Rtmp1HlFTV/file19f71c378f28.png" alt=""><p class="caption">R logo</p>
+<div class="float">
+<img src="../../../../../../tmp/RtmpnnHQLg/file1b003203c153.png" alt="R logo"><div class="figcaption">R logo</div>
 </div>
 </div>
 <div class="section level3">
@@ -901,16 +896,16 @@ tag):</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.12 Hard line breaks</span></span>
 <span><span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; A gold vase is both rare and costly.  </span></span>
-<span><span class="co">#&gt; It takes a good trap to capture a bear.  </span></span>
-<span><span class="co">#&gt; Dig deep in the earth for pirate's gold.  </span></span>
-<span><span class="co">#&gt; Fly by night and you waste little time.  </span></span>
-<span><span class="co">#&gt; The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
-<p>A gold vase is both rare and costly.<br>
-It takes a good trap to capture a bear.<br>
-Dig deep in the earth for pirate’s gold.<br>
-Fly by night and you waste little time.<br>
-The kite dipped and swayed, but stayed aloft.</p>
+<span><span class="co">#&gt; The little tales they tell are false.  </span></span>
+<span><span class="co">#&gt; Pile the coal high in the shed corner.  </span></span>
+<span><span class="co">#&gt; A cold dip restores health and zest.  </span></span>
+<span><span class="co">#&gt; Glass will clink when struck by metal.  </span></span>
+<span><span class="co">#&gt; Ship maps are different from those for planes.</span></span></code></pre></div>
+<p>The little tales they tell are false.<br>
+Pile the coal high in the shed corner.<br>
+A cold dip restores health and zest.<br>
+Glass will clink when struck by metal.<br>
+Ship maps are different from those for planes.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not
@@ -922,33 +917,33 @@ line ending will be used.)</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.13 Soft line breaks</span></span>
 <span><span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; A gold vase is both rare and costly.</span></span>
-<span><span class="co">#&gt; It takes a good trap to capture a bear.</span></span>
-<span><span class="co">#&gt; Dig deep in the earth for pirate's gold.</span></span>
-<span><span class="co">#&gt; Fly by night and you waste little time.</span></span>
-<span><span class="co">#&gt; The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
-<p>A gold vase is both rare and costly. It takes a good trap to capture
-a bear. Dig deep in the earth for pirate’s gold. Fly by night and you
-waste little time. The kite dipped and swayed, but stayed aloft.</p>
+<span><span class="co">#&gt; The little tales they tell are false.</span></span>
+<span><span class="co">#&gt; Pile the coal high in the shed corner.</span></span>
+<span><span class="co">#&gt; A cold dip restores health and zest.</span></span>
+<span><span class="co">#&gt; Glass will clink when struck by metal.</span></span>
+<span><span class="co">#&gt; Ship maps are different from those for planes.</span></span></code></pre></div>
+<p>The little tales they tell are false. Pile the coal high in the shed
+corner. A cold dip restores health and zest. Glass will clink when
+struck by metal. Ship maps are different from those for planes.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different
 from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; A gold vase is both rare and costly.</span></span>
+<span><span class="co">#&gt; The little tales they tell are false.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; It takes a good trap to capture a bear.</span></span>
+<span><span class="co">#&gt; Pile the coal high in the shed corner.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Dig deep in the earth for pirate's gold.</span></span>
+<span><span class="co">#&gt; A cold dip restores health and zest.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Fly by night and you waste little time.</span></span>
+<span><span class="co">#&gt; Glass will clink when struck by metal.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
-<p>A gold vase is both rare and costly.</p>
-<p>It takes a good trap to capture a bear.</p>
-<p>Dig deep in the earth for pirate’s gold.</p>
-<p>Fly by night and you waste little time.</p>
-<p>The kite dipped and swayed, but stayed aloft.</p>
+<span><span class="co">#&gt; Ship maps are different from those for planes.</span></span></code></pre></div>
+<p>The little tales they tell are false.</p>
+<p>Pile the coal high in the shed corner.</p>
+<p>A cold dip restores health and zest.</p>
+<p>Glass will clink when struck by metal.</p>
+<p>Ship maps are different from those for planes.</p>
 </div>
 <div class="section level3">
 <h3 id="textual-content">6.14 Textual content<a class="anchor" aria-label="anchor" href="#textual-content"></a>
@@ -965,38 +960,38 @@ allows users to simply print text to the body of the document.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.14 Textual content</span></span>
 <span><span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; A gold vase is both rare and costly.</span></span>
-<span><span class="co">#&gt; It takes a good trap to capture a bear.</span></span>
-<span><span class="co">#&gt; Dig deep in the earth for pirate's gold.</span></span>
-<span><span class="co">#&gt; Fly by night and you waste little time.</span></span>
-<span><span class="co">#&gt; The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
-<p>A gold vase is both rare and costly. It takes a good trap to capture
-a bear. Dig deep in the earth for pirate’s gold. Fly by night and you
-waste little time. The kite dipped and swayed, but stayed aloft.</p>
+<span><span class="co">#&gt; The little tales they tell are false.</span></span>
+<span><span class="co">#&gt; Pile the coal high in the shed corner.</span></span>
+<span><span class="co">#&gt; A cold dip restores health and zest.</span></span>
+<span><span class="co">#&gt; Glass will clink when struck by metal.</span></span>
+<span><span class="co">#&gt; Ship maps are different from those for planes.</span></span></code></pre></div>
+<p>The little tales they tell are false. Pile the coal high in the shed
+corner. A cold dip restores health and zest. Glass will clink when
+struck by metal. Ship maps are different from those for planes.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "A gold vase is both rare and costly."         </span></span>
-<span><span class="co">#&gt; [2] "It takes a good trap to capture a bear."      </span></span>
-<span><span class="co">#&gt; [3] "Dig deep in the earth for pirate's gold."     </span></span>
-<span><span class="co">#&gt; [4] "Fly by night and you waste little time."      </span></span>
-<span><span class="co">#&gt; [5] "The kite dipped and swayed, but stayed aloft."</span></span></code></pre></div>
-<p>[1] “A gold vase is both rare and costly.”<br>
-[2] “It takes a good trap to capture a bear.”<br>
-[3] “Dig deep in the earth for pirate’s gold.”<br>
-[4] “Fly by night and you waste little time.”<br>
-[5] “The kite dipped and swayed, but stayed aloft.”</p>
+<span><span class="co">#&gt; [1] "The little tales they tell are false."         </span></span>
+<span><span class="co">#&gt; [2] "Pile the coal high in the shed corner."        </span></span>
+<span><span class="co">#&gt; [3] "A cold dip restores health and zest."          </span></span>
+<span><span class="co">#&gt; [4] "Glass will clink when struck by metal."        </span></span>
+<span><span class="co">#&gt; [5] "Ship maps are different from those for planes."</span></span></code></pre></div>
+<p>[1] “The little tales they tell are false.”<br>
+[2] “Pile the coal high in the shed corner.”<br>
+[3] “A cold dip restores health and zest.”<br>
+[4] “Glass will clink when struck by metal.”<br>
+[5] “Ship maps are different from those for planes.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the
 <code>glue</code> S3 class. This class works in the same way as the
 <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; A gold vase is both rare and costly. It takes a good trap to capture a bear. Dig deep in the earth for pirate's gold. Fly by night and you waste little time. The kite dipped and swayed, but stayed aloft.</span></span></code></pre></div>
-<p>A gold vase is both rare and costly. It takes a good trap to capture
-a bear. Dig deep in the earth for pirate’s gold. Fly by night and you
-waste little time. The kite dipped and swayed, but stayed aloft.</p>
+<span><span class="co">#&gt; The little tales they tell are false. Pile the coal high in the shed corner. A cold dip restores health and zest. Glass will clink when struck by metal. Ship maps are different from those for planes.</span></span></code></pre></div>
+<p>The little tales they tell are false. Pile the coal high in the shed
+corner. A cold dip restores health and zest. Glass will clink when
+struck by metal. Ship maps are different from those for planes.</p>
 </div>
 </div>
   </div>

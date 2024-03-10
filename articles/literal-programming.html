@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.8.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.9</span>
       </span>
     </div>
 
@@ -70,7 +70,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/kiernann/gluedown/" class="external-link">
+  <a href="https://github.com/k5cents/gluedown/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -91,7 +91,7 @@
       <h1 data-toc-skip>Markdown Literal Programming</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/kiernann/gluedown/blob/HEAD/vignettes/literal-programming.Rmd" class="external-link"><code>vignettes/literal-programming.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/k5cents/gluedown/blob/HEAD/vignettes/literal-programming.Rmd" class="external-link"><code>vignettes/literal-programming.Rmd</code></a></small>
       <div class="hidden name"><code>literal-programming.Rmd</code></div>
 
     </div>
@@ -99,10 +99,10 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://kiernann.github.io/gluedown/" class="external-link">gluedown</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://k5cents.github.io/gluedown/" class="external-link">gluedown</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/" class="external-link">rvest</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidyverse/glue" class="external-link">glue</a></span><span class="op">)</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/" class="external-link">glue</a></span><span class="op">)</span></span></code></pre></div>
 <p>In literate programming, the typical paradigm of source code is
 reversed; instead of a wall of code with the occasional comment, the
 user writes <em>human</em> readable text (like this paragraph) with
@@ -380,12 +380,11 @@ how GFM us implemented in this package’s other vignette.</p>
 <code class="sourceCode R"><span><span class="va">legislation</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Houses passes"</span>, <span class="st">"Senate concurs"</span>, <span class="st">"President signs"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">legislation</span>, check <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <ul class="task-list">
-<li>
-<input type="checkbox" disabled checked>Houses passes</li>
-<li>
-<input type="checkbox" disabled checked>Senate concurs</li>
-<li>
-<input type="checkbox" disabled>President signs</li>
+<li><label><input type="checkbox" checked>Houses
+passes</label></li>
+<li><label><input type="checkbox" checked>Senate
+concurs</label></li>
+<li><label><input type="checkbox">President signs</label></li>
 </ul>
 <p>Markdown tables are another extremely useful extension. The
 <code><a href="../reference/md_table.html">md_table()</a></code> functions wraps around the much more powerful
@@ -511,7 +510,7 @@ results][inline]. First, use R to calculate a result.</p>
 <span><span class="co"># `r md_code(var)`</span></span></code></pre></div>
 <p>Then, you can easily print that result in the middle of regular text
 with markdown formatting. In this case, our randomly selected state is…
-<strong>Rhode Island</strong> and the <code>Area</code> variable was
+<strong>Oregon</strong> and the <code>HS Grad</code> variable was
 randomly selected from the <code>state.x77</code> dataframe. Calculating
 results and using those calculations in the body of a text document
 increases reproducibility.</p>

@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gluedown</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.8.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.9</span>
       </span>
     </div>
 
@@ -42,7 +42,7 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/kiernann/gluedown/" class="external-link">
+  <a href="https://github.com/k5cents/gluedown/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -57,21 +57,22 @@
   <div class="col-md-9 contents">
     <div class="page-header">
       <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href="https://github.com/kiernann/gluedown/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
+      <small>Source: <a href="https://github.com/k5cents/gluedown/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
     <div class="section level2">
-<h2 class="page-header" data-toc-text="development version" id="gluedown-development-version">gluedown (development version)<a class="anchor" aria-label="anchor" href="#gluedown-development-version"></a></h2>
-</div>
+<h2 class="page-header" data-toc-text="1.0.9" id="gluedown-109">gluedown 1.0.9<a class="anchor" aria-label="anchor" href="#gluedown-109"></a></h2>
+<ul><li>Update maintainer email, website URL, and GitHub URL.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.8" id="gluedown-108">gluedown 1.0.8<small>2023-12-21</small><a class="anchor" aria-label="anchor" href="#gluedown-108"></a></h2>
-<ul><li>Merge pull request <a href="https://github.com/kiernann/gluedown/issues/31" class="external-link">#31</a> from yihui/patch-1
+<ul><li>Merge pull request <a href="https://github.com/k5cents/gluedown/issues/31" class="external-link">#31</a> from yihui/patch-1
 <ul><li>Updated <code><a href="../reference/md_convert.html">md_convert()</a></code> for changes in the markdown package.</li>
 </ul></li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.5" id="gluedown-105">gluedown 1.0.5<small>2022-11-05</small><a class="anchor" aria-label="anchor" href="#gluedown-105"></a></h2>
-<ul><li>Update tests for new markdown package functionality (<a href="https://github.com/kiernann/gluedown/issues/29" class="external-link">#29</a>).</li>
+<ul><li>Update tests for new markdown package functionality (<a href="https://github.com/k5cents/gluedown/issues/29" class="external-link">#29</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.4" id="gluedown-104">gluedown 1.0.4<small>2021-05-10</small><a class="anchor" aria-label="anchor" href="#gluedown-104"></a></h2>
@@ -81,24 +82,24 @@
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.3" id="gluedown-103">gluedown 1.0.3<small>2021-02-06</small><a class="anchor" aria-label="anchor" href="#gluedown-103"></a></h2>
 <ul><li>Update <code><a href="../reference/md_table.html">md_table()</a></code> tests for rvest 1.0.0 release.</li>
-<li>Create <code><a href="../reference/md_label.html">md_label()</a></code> to use with <code><a href="../reference/md_reference.html">md_reference()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/25" class="external-link">#25</a>).</li>
-<li>Try using clean <code>...</code> support in <code><a href="../reference/md_link.html">md_link()</a></code> and <code><a href="../reference/md_image.html">md_image()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/26" class="external-link">#26</a>).</li>
+<li>Create <code><a href="../reference/md_label.html">md_label()</a></code> to use with <code><a href="../reference/md_reference.html">md_reference()</a></code> (<a href="https://github.com/k5cents/gluedown/issues/25" class="external-link">#25</a>).</li>
+<li>Try using clean <code>...</code> support in <code><a href="../reference/md_link.html">md_link()</a></code> and <code><a href="../reference/md_image.html">md_image()</a></code> (<a href="https://github.com/k5cents/gluedown/issues/26" class="external-link">#26</a>).</li>
 <li>Use <code>goodpractices::gp()</code> to fix a few issues:
 <ol style="list-style-type: decimal"><li>Trim all lines to under 80 character width.</li>
 <li>Use <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">vapply()</a></code> over <code><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply()</a></code> in <code><a href="../reference/md_setext.html">md_setext()</a></code>.</li>
 </ol></li>
-<li>The <code><a href="../reference/md_link.html">md_link()</a></code> and <code><a href="../reference/md_image.html">md_image()</a></code> functions have half-baked support for using named <code>...</code> arguments instead of the traditional vector arguments. This works well with a single link but not when trying to turn two lengthy vectors into multiple markdown links (<a href="https://github.com/kiernann/gluedown/issues/26" class="external-link">#26</a>).</li>
+<li>The <code><a href="../reference/md_link.html">md_link()</a></code> and <code><a href="../reference/md_image.html">md_image()</a></code> functions have half-baked support for using named <code>...</code> arguments instead of the traditional vector arguments. This works well with a single link but not when trying to turn two lengthy vectors into multiple markdown links (<a href="https://github.com/k5cents/gluedown/issues/26" class="external-link">#26</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.2" id="gluedown-102">gluedown 1.0.2<small>2020-01-14</small><a class="anchor" aria-label="anchor" href="#gluedown-102"></a></h2>
-<ul><li>Suggest <code>markdown</code> dependency and warn for <code><a href="../reference/md_convert.html">md_convert()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/22" class="external-link">#22</a>).</li>
-<li>Suggest <code>knitr</code> dependency and write fallback for <code><a href="../reference/md_table.html">md_table()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/20" class="external-link">#20</a>).</li>
-<li>Enable named vector support for <code><a href="../reference/md_link.html">md_link()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/26" class="external-link">#26</a>).</li>
+<ul><li>Suggest <code>markdown</code> dependency and warn for <code><a href="../reference/md_convert.html">md_convert()</a></code> (<a href="https://github.com/k5cents/gluedown/issues/22" class="external-link">#22</a>).</li>
+<li>Suggest <code>knitr</code> dependency and write fallback for <code><a href="../reference/md_table.html">md_table()</a></code> (<a href="https://github.com/k5cents/gluedown/issues/20" class="external-link">#20</a>).</li>
+<li>Enable named vector support for <code><a href="../reference/md_link.html">md_link()</a></code> (<a href="https://github.com/k5cents/gluedown/issues/26" class="external-link">#26</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.1" id="gluedown-101">gluedown 1.0.1<small>2019-12-09</small><a class="anchor" aria-label="anchor" href="#gluedown-101"></a></h2>
-<ul><li>Remove <code>md_define()</code> to avoid pandoc issue (<a href="https://github.com/kiernann/gluedown/issues/16" class="external-link">#16</a>, <a href="https://github.com/kiernann/gluedown/issues/17" class="external-link">#17</a>).</li>
-<li>Remove all <code>stringr</code> functions in place of <code>base</code> alternatives (<a href="https://github.com/kiernann/gluedown/issues/15" class="external-link">#15</a>).</li>
+<ul><li>Remove <code>md_define()</code> to avoid pandoc issue (<a href="https://github.com/k5cents/gluedown/issues/16" class="external-link">#16</a>, <a href="https://github.com/k5cents/gluedown/issues/17" class="external-link">#17</a>).</li>
+<li>Remove all <code>stringr</code> functions in place of <code>base</code> alternatives (<a href="https://github.com/k5cents/gluedown/issues/15" class="external-link">#15</a>).</li>
 <li>Remove <code>map_md()</code> function.</li>
 <li>Remove <code>dplyr</code> suggestion dependency.</li>
 <li>Remove <code>httr</code> tests in <code><a href="../reference/md_issue.html">md_issue()</a></code>.</li>
@@ -123,9 +124,9 @@
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.2" id="gluedown-042">gluedown 0.4.2<a class="anchor" aria-label="anchor" href="#gluedown-042"></a></h2>
-<ul><li>Create <code><a href="../reference/md_disallow.html">md_disallow()</a></code> and add to <code><a href="../reference/md_convert.html">md_convert()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/10" class="external-link">#10</a>).</li>
-<li>Create <code><a href="../reference/md_text.html">md_text()</a></code> wrapper for <code><a href="https://glue.tidyverse.org/reference/as_glue.html" class="external-link">glue::as_glue()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/10" class="external-link">#10</a>).</li>
-<li>Create <code><a href="../reference/md_blank.html">md_blank()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/10" class="external-link">#10</a>).</li>
+<ul><li>Create <code><a href="../reference/md_disallow.html">md_disallow()</a></code> and add to <code><a href="../reference/md_convert.html">md_convert()</a></code> (<a href="https://github.com/k5cents/gluedown/issues/10" class="external-link">#10</a>).</li>
+<li>Create <code><a href="../reference/md_text.html">md_text()</a></code> wrapper for <code><a href="https://glue.tidyverse.org/reference/as_glue.html" class="external-link">glue::as_glue()</a></code> (<a href="https://github.com/k5cents/gluedown/issues/10" class="external-link">#10</a>).</li>
+<li>Create <code><a href="../reference/md_blank.html">md_blank()</a></code> (<a href="https://github.com/k5cents/gluedown/issues/10" class="external-link">#10</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.1" id="gluedown-041">gluedown 0.4.1<a class="anchor" aria-label="anchor" href="#gluedown-041"></a></h2>
@@ -133,12 +134,12 @@
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.4.0" id="gluedown-040">gluedown 0.4.0<a class="anchor" aria-label="anchor" href="#gluedown-040"></a></h2>
-<ul><li>Add back all the tests from the GFM spec (<a href="https://github.com/kiernann/gluedown/issues/13" class="external-link">#13</a>).</li>
-<li>Create <code><a href="../reference/md_autolink.html">md_autolink()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/10" class="external-link">#10</a>).</li>
+<ul><li>Add back all the tests from the GFM spec (<a href="https://github.com/k5cents/gluedown/issues/13" class="external-link">#13</a>).</li>
+<li>Create <code><a href="../reference/md_autolink.html">md_autolink()</a></code> (<a href="https://github.com/k5cents/gluedown/issues/10" class="external-link">#10</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.3" id="gluedown-033">gluedown 0.3.3<a class="anchor" aria-label="anchor" href="#gluedown-033"></a></h2>
-<ul><li>Add and remove tests from the GFM spec (<a href="https://github.com/kiernann/gluedown/issues/13" class="external-link">#13</a>).</li>
+<ul><li>Add and remove tests from the GFM spec (<a href="https://github.com/k5cents/gluedown/issues/13" class="external-link">#13</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.2" id="gluedown-032">gluedown 0.3.2<a class="anchor" aria-label="anchor" href="#gluedown-032"></a></h2>
@@ -154,7 +155,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.3.0" id="gluedown-030">gluedown 0.3.0<a class="anchor" aria-label="anchor" href="#gluedown-030"></a></h2>
-<ul><li>Create <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code> and <code><a href="../reference/md_softline.html">md_softline()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/10" class="external-link">#10</a>).</li>
+<ul><li>Create <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code> and <code><a href="../reference/md_softline.html">md_softline()</a></code> (<a href="https://github.com/k5cents/gluedown/issues/10" class="external-link">#10</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.2.3" id="gluedown-023">gluedown 0.2.3<a class="anchor" aria-label="anchor" href="#gluedown-023"></a></h2>
@@ -190,18 +191,18 @@
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.1.2" id="gluedown-012">gluedown 0.1.2<a class="anchor" aria-label="anchor" href="#gluedown-012"></a></h2>
-<ul><li>Create <code><a href="../reference/md_hardline.html">md_hardline()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/10" class="external-link">#10</a>).</li>
+<ul><li>Create <code><a href="../reference/md_hardline.html">md_hardline()</a></code> (<a href="https://github.com/k5cents/gluedown/issues/10" class="external-link">#10</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.1.1" id="gluedown-011">gluedown 0.1.1<a class="anchor" aria-label="anchor" href="#gluedown-011"></a></h2>
-<ul><li>Create <code><a href="../reference/md_setext.html">md_setext()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/10" class="external-link">#10</a>).</li>
-<li>Add family documentation (<a href="https://github.com/kiernann/gluedown/issues/11" class="external-link">#11</a>).</li>
+<ul><li>Create <code><a href="../reference/md_setext.html">md_setext()</a></code> (<a href="https://github.com/k5cents/gluedown/issues/10" class="external-link">#10</a>).</li>
+<li>Add family documentation (<a href="https://github.com/k5cents/gluedown/issues/11" class="external-link">#11</a>).</li>
 </ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.1.0" id="gluedown-010">gluedown 0.1.0<a class="anchor" aria-label="anchor" href="#gluedown-010"></a></h2>
 <ul><li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
-<li>Use <code><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue::glue()</a></code> everywhere over <code><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste()</a></code> w/ <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code> (<a href="https://github.com/kiernann/gluedown/issues/8" class="external-link">#8</a>).</li>
-<li>Fully test every function argument (<em>coverage: 97%</em>) (<a href="https://github.com/kiernann/gluedown/issues/9" class="external-link">#9</a>).</li>
+<li>Use <code><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue::glue()</a></code> everywhere over <code><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste()</a></code> w/ <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code> (<a href="https://github.com/k5cents/gluedown/issues/8" class="external-link">#8</a>).</li>
+<li>Fully test every function argument (<em>coverage: 97%</em>) (<a href="https://github.com/k5cents/gluedown/issues/9" class="external-link">#9</a>).</li>
 </ul></div>
   </div>
 

@@ -1,4 +1,6 @@
-# gluedown (development version)
+# gluedown 1.0.9
+
+* Update maintainer email, website URL, and GitHub URL.
 
 # gluedown 1.0.8
 

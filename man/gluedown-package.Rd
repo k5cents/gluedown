@@ -31,14 +31,14 @@ convert \verb{md_*()} outputs to HTML fragments.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://kiernann.github.io/gluedown/}
-  \item \url{https://github.com/kiernann/gluedown/}
-  \item Report bugs at \url{https://github.com/kiernann/gluedown/issues}
+  \item \url{https://k5cents.github.io/gluedown/}
+  \item \url{https://github.com/k5cents/gluedown/}
+  \item Report bugs at \url{https://github.com/k5cents/gluedown/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Kiernan Nicholls \email{kiernann@protonmail.com}
+\strong{Maintainer}: Kiernan Nicholls \email{k5cents@gmail.com} (\href{https://orcid.org/0000-0002-9229-7897}{ORCID}) [copyright holder]
 
 }
 \keyword{internal}

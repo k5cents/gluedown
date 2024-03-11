@@ -416,20 +416,20 @@ text and output <em>distinct</em> paragraphs.</p>
 <code class="sourceCode R"><span><span class="va">sentences</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu">stringr</span><span class="fu">::</span><span class="va"><a href="https://stringr.tidyverse.org/reference/stringr-data.html" class="external-link">sentences</a></span>, size <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The little tales they tell are false.</span></span>
+<span><span class="co">#&gt; We need grain to keep our mules healthy.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Pile the coal high in the shed corner.</span></span>
+<span><span class="co">#&gt; To have is better than to wait and hope.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; A cold dip restores health and zest.</span></span>
+<span><span class="co">#&gt; The cloud moved in a stately way and was gone.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Glass will clink when struck by metal.</span></span>
+<span><span class="co">#&gt; Move the vat over the hot fire.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Ship maps are different from those for planes.</span></span></code></pre></div>
-<p>The little tales they tell are false.</p>
-<p>Pile the coal high in the shed corner.</p>
-<p>A cold dip restores health and zest.</p>
-<p>Glass will clink when struck by metal.</p>
-<p>Ship maps are different from those for planes.</p>
+<span><span class="co">#&gt; It was done before the boy could see it.</span></span></code></pre></div>
+<p>We need grain to keep our mules healthy.</p>
+<p>To have is better than to wait and hope.</p>
+<p>The cloud moved in a stately way and was gone.</p>
+<p>Move the vat over the hot fire.</p>
+<p>It was done before the boy could see it.</p>
 </div>
 <div class="section level3">
 <h3 id="blank-lines">4.9 Blank lines<a class="anchor" aria-label="anchor" href="#blank-lines"></a>
@@ -618,25 +618,25 @@ Constitution for the United States of America.</p>
 </blockquote>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_quote.html">md_quote</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; &gt; The little tales they tell are false.</span></span>
-<span><span class="co">#&gt; &gt; Pile the coal high in the shed corner.</span></span>
-<span><span class="co">#&gt; &gt; A cold dip restores health and zest.</span></span>
-<span><span class="co">#&gt; &gt; Glass will clink when struck by metal.</span></span>
-<span><span class="co">#&gt; &gt; Ship maps are different from those for planes.</span></span></code></pre></div>
+<span><span class="co">#&gt; &gt; We need grain to keep our mules healthy.</span></span>
+<span><span class="co">#&gt; &gt; To have is better than to wait and hope.</span></span>
+<span><span class="co">#&gt; &gt; The cloud moved in a stately way and was gone.</span></span>
+<span><span class="co">#&gt; &gt; Move the vat over the hot fire.</span></span>
+<span><span class="co">#&gt; &gt; It was done before the boy could see it.</span></span></code></pre></div>
 <blockquote>
-<p>The little tales they tell are false.</p>
+<p>We need grain to keep our mules healthy.</p>
 </blockquote>
 <blockquote>
-<p>Pile the coal high in the shed corner.</p>
+<p>To have is better than to wait and hope.</p>
 </blockquote>
 <blockquote>
-<p>A cold dip restores health and zest.</p>
+<p>The cloud moved in a stately way and was gone.</p>
 </blockquote>
 <blockquote>
-<p>Glass will clink when struck by metal.</p>
+<p>Move the vat over the hot fire.</p>
 </blockquote>
 <blockquote>
-<p>Ship maps are different from those for planes.</p>
+<p>It was done before the boy could see it.</p>
 </blockquote>
 </div>
 <div class="section level3">
@@ -680,22 +680,22 @@ check boxes just render are bullet lists with weird bracket boxes on
 each line.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_task.html">md_task</a></span><span class="op">(</span><span class="va">sentences</span>, check <span class="op">=</span> <span class="fl">3</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span>
-<span><span class="co">#&gt; * [ ] The little tales they tell are false.</span></span>
-<span><span class="co">#&gt; * [ ] Pile the coal high in the shed corner.</span></span>
-<span><span class="co">#&gt; * [x] A cold dip restores health and zest.</span></span>
-<span><span class="co">#&gt; * [x] Glass will clink when struck by metal.</span></span>
-<span><span class="co">#&gt; * [ ] Ship maps are different from those for planes.</span></span></code></pre></div>
+<span><span class="co">#&gt; * [ ] We need grain to keep our mules healthy.</span></span>
+<span><span class="co">#&gt; * [ ] To have is better than to wait and hope.</span></span>
+<span><span class="co">#&gt; * [x] The cloud moved in a stately way and was gone.</span></span>
+<span><span class="co">#&gt; * [x] Move the vat over the hot fire.</span></span>
+<span><span class="co">#&gt; * [ ] It was done before the boy could see it.</span></span></code></pre></div>
 <ul class="task-list">
-<li><label><input type="checkbox">The little tales they tell are
-false.</label></li>
-<li><label><input type="checkbox">Pile the coal high in the shed
-corner.</label></li>
-<li><label><input type="checkbox" checked>A cold dip restores
-health and zest.</label></li>
-<li><label><input type="checkbox" checked>Glass will clink when
-struck by metal.</label></li>
-<li><label><input type="checkbox">Ship maps are different from those
-for planes.</label></li>
+<li><label><input type="checkbox">We need grain to keep our mules
+healthy.</label></li>
+<li><label><input type="checkbox">To have is better than to wait and
+hope.</label></li>
+<li><label><input type="checkbox" checked>The cloud moved in a
+stately way and was gone.</label></li>
+<li><label><input type="checkbox" checked>Move the vat over the hot
+fire.</label></li>
+<li><label><input type="checkbox">It was done before the boy could see
+it.</label></li>
 </ul>
 </div>
 <div class="section level3">
@@ -726,43 +726,43 @@ file.</p>
 <code class="sourceCode R"><span><span class="va">states</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">state.name</span>, size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
-<span><span class="co">#&gt; * Louisiana</span></span>
-<span><span class="co">#&gt; * Washington</span></span>
-<span><span class="co">#&gt; * Nevada</span></span></code></pre></div>
+<span><span class="co">#&gt; * Idaho</span></span>
+<span><span class="co">#&gt; * Nebraska</span></span>
+<span><span class="co">#&gt; * Connecticut</span></span></code></pre></div>
 <ul>
-<li>Louisiana</li>
-<li>Washington</li>
-<li>Nevada</li>
+<li>Idaho</li>
+<li>Nebraska</li>
+<li>Connecticut</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_bullet.html">md_bullet</a></span><span class="op">(</span><span class="va">states</span>, marker <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; + Louisiana</span></span>
-<span><span class="co">#&gt; + Washington</span></span>
-<span><span class="co">#&gt; + Nevada</span></span></code></pre></div>
+<span><span class="co">#&gt; + Idaho</span></span>
+<span><span class="co">#&gt; + Nebraska</span></span>
+<span><span class="co">#&gt; + Connecticut</span></span></code></pre></div>
 <ul>
-<li>Louisiana</li>
-<li>Washington</li>
-<li>Nevada</li>
+<li>Idaho</li>
+<li>Nebraska</li>
+<li>Connecticut</li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1. Louisiana</span></span>
-<span><span class="co">#&gt; 2. Washington</span></span>
-<span><span class="co">#&gt; 3. Nevada</span></span></code></pre></div>
+<span><span class="co">#&gt; 1. Idaho</span></span>
+<span><span class="co">#&gt; 2. Nebraska</span></span>
+<span><span class="co">#&gt; 3. Connecticut</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Louisiana</li>
-<li>Washington</li>
-<li>Nevada</li>
+<li>Idaho</li>
+<li>Nebraska</li>
+<li>Connecticut</li>
 </ol>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_order.html">md_order</a></span><span class="op">(</span><span class="va">states</span>, seq <span class="op">=</span> <span class="cn">FALSE</span>, marker <span class="op">=</span> <span class="st">")"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 1) Louisiana</span></span>
-<span><span class="co">#&gt; 1) Washington</span></span>
-<span><span class="co">#&gt; 1) Nevada</span></span></code></pre></div>
+<span><span class="co">#&gt; 1) Idaho</span></span>
+<span><span class="co">#&gt; 1) Nebraska</span></span>
+<span><span class="co">#&gt; 1) Connecticut</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
-<li>Louisiana</li>
-<li>Washington</li>
-<li>Nevada</li>
+<li>Idaho</li>
+<li>Nebraska</li>
+<li>Connecticut</li>
 </ol>
 </div>
 </div>
@@ -838,7 +838,7 @@ used as the image’s <code>alt</code> attribute.</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_image.html">md_image</a></span><span class="op">(</span><span class="st">"https://www.r-project.org/Rlogo.png"</span>, alt <span class="op">=</span> <span class="st">"R logo"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; ![R logo](https://www.r-project.org/Rlogo.png)</span></span></code></pre></div>
 <div class="float">
-<img src="../../../../../../tmp/RtmpnnHQLg/file1b003203c153.png" alt="R logo"><div class="figcaption">R logo</div>
+<img src="../../../../../../tmp/RtmpoiZ4Tf/file19ed3eca2f6c.png" alt="R logo"><div class="figcaption">R logo</div>
 </div>
 </div>
 <div class="section level3">
@@ -896,16 +896,16 @@ tag):</p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.12 Hard line breaks</span></span>
 <span><span class="fu"><a href="../reference/md_hardline.html">md_hardline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The little tales they tell are false.  </span></span>
-<span><span class="co">#&gt; Pile the coal high in the shed corner.  </span></span>
-<span><span class="co">#&gt; A cold dip restores health and zest.  </span></span>
-<span><span class="co">#&gt; Glass will clink when struck by metal.  </span></span>
-<span><span class="co">#&gt; Ship maps are different from those for planes.</span></span></code></pre></div>
-<p>The little tales they tell are false.<br>
-Pile the coal high in the shed corner.<br>
-A cold dip restores health and zest.<br>
-Glass will clink when struck by metal.<br>
-Ship maps are different from those for planes.</p>
+<span><span class="co">#&gt; We need grain to keep our mules healthy.  </span></span>
+<span><span class="co">#&gt; To have is better than to wait and hope.  </span></span>
+<span><span class="co">#&gt; The cloud moved in a stately way and was gone.  </span></span>
+<span><span class="co">#&gt; Move the vat over the hot fire.  </span></span>
+<span><span class="co">#&gt; It was done before the boy could see it.</span></span></code></pre></div>
+<p>We need grain to keep our mules healthy.<br>
+To have is better than to wait and hope.<br>
+The cloud moved in a stately way and was gone.<br>
+Move the vat over the hot fire.<br>
+It was done before the boy could see it.</p>
 <hr>
 <blockquote>
 <p>A regular line break (not in a code span or HTML tag) that is not
@@ -917,33 +917,33 @@ line ending will be used.)</p>
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.13 Soft line breaks</span></span>
 <span><span class="fu"><a href="../reference/md_softline.html">md_softline</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The little tales they tell are false.</span></span>
-<span><span class="co">#&gt; Pile the coal high in the shed corner.</span></span>
-<span><span class="co">#&gt; A cold dip restores health and zest.</span></span>
-<span><span class="co">#&gt; Glass will clink when struck by metal.</span></span>
-<span><span class="co">#&gt; Ship maps are different from those for planes.</span></span></code></pre></div>
-<p>The little tales they tell are false. Pile the coal high in the shed
-corner. A cold dip restores health and zest. Glass will clink when
-struck by metal. Ship maps are different from those for planes.</p>
+<span><span class="co">#&gt; We need grain to keep our mules healthy.</span></span>
+<span><span class="co">#&gt; To have is better than to wait and hope.</span></span>
+<span><span class="co">#&gt; The cloud moved in a stately way and was gone.</span></span>
+<span><span class="co">#&gt; Move the vat over the hot fire.</span></span>
+<span><span class="co">#&gt; It was done before the boy could see it.</span></span></code></pre></div>
+<p>We need grain to keep our mules healthy. To have is better than to
+wait and hope. The cloud moved in a stately way and was gone. Move the
+vat over the hot fire. It was done before the boy could see it.</p>
 <hr>
 <p>You can see how both hard line and soft line breaks are different
 from the paragraphs as created using <code><a href="../reference/md_paragraph.html">md_paragraph()</a></code></p>
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/md_paragraph.html">md_paragraph</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The little tales they tell are false.</span></span>
+<span><span class="co">#&gt; We need grain to keep our mules healthy.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Pile the coal high in the shed corner.</span></span>
+<span><span class="co">#&gt; To have is better than to wait and hope.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; A cold dip restores health and zest.</span></span>
+<span><span class="co">#&gt; The cloud moved in a stately way and was gone.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Glass will clink when struck by metal.</span></span>
+<span><span class="co">#&gt; Move the vat over the hot fire.</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Ship maps are different from those for planes.</span></span></code></pre></div>
-<p>The little tales they tell are false.</p>
-<p>Pile the coal high in the shed corner.</p>
-<p>A cold dip restores health and zest.</p>
-<p>Glass will clink when struck by metal.</p>
-<p>Ship maps are different from those for planes.</p>
+<span><span class="co">#&gt; It was done before the boy could see it.</span></span></code></pre></div>
+<p>We need grain to keep our mules healthy.</p>
+<p>To have is better than to wait and hope.</p>
+<p>The cloud moved in a stately way and was gone.</p>
+<p>Move the vat over the hot fire.</p>
+<p>It was done before the boy could see it.</p>
 </div>
 <div class="section level3">
 <h3 id="textual-content">6.14 Textual content<a class="anchor" aria-label="anchor" href="#textual-content"></a>
@@ -960,38 +960,38 @@ allows users to simply print text to the body of the document.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># 6.14 Textual content</span></span>
 <span><span class="fu"><a href="../reference/md_text.html">md_text</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The little tales they tell are false.</span></span>
-<span><span class="co">#&gt; Pile the coal high in the shed corner.</span></span>
-<span><span class="co">#&gt; A cold dip restores health and zest.</span></span>
-<span><span class="co">#&gt; Glass will clink when struck by metal.</span></span>
-<span><span class="co">#&gt; Ship maps are different from those for planes.</span></span></code></pre></div>
-<p>The little tales they tell are false. Pile the coal high in the shed
-corner. A cold dip restores health and zest. Glass will clink when
-struck by metal. Ship maps are different from those for planes.</p>
+<span><span class="co">#&gt; We need grain to keep our mules healthy.</span></span>
+<span><span class="co">#&gt; To have is better than to wait and hope.</span></span>
+<span><span class="co">#&gt; The cloud moved in a stately way and was gone.</span></span>
+<span><span class="co">#&gt; Move the vat over the hot fire.</span></span>
+<span><span class="co">#&gt; It was done before the boy could see it.</span></span></code></pre></div>
+<p>We need grain to keep our mules healthy. To have is better than to
+wait and hope. The cloud moved in a stately way and was gone. Move the
+vat over the hot fire. It was done before the boy could see it.</p>
 <hr>
 <p>Compare this to the regular handling of character strings.</p>
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "The little tales they tell are false."         </span></span>
-<span><span class="co">#&gt; [2] "Pile the coal high in the shed corner."        </span></span>
-<span><span class="co">#&gt; [3] "A cold dip restores health and zest."          </span></span>
-<span><span class="co">#&gt; [4] "Glass will clink when struck by metal."        </span></span>
-<span><span class="co">#&gt; [5] "Ship maps are different from those for planes."</span></span></code></pre></div>
-<p>[1] “The little tales they tell are false.”<br>
-[2] “Pile the coal high in the shed corner.”<br>
-[3] “A cold dip restores health and zest.”<br>
-[4] “Glass will clink when struck by metal.”<br>
-[5] “Ship maps are different from those for planes.”</p>
+<span><span class="co">#&gt; [1] "We need grain to keep our mules healthy."      </span></span>
+<span><span class="co">#&gt; [2] "To have is better than to wait and hope."      </span></span>
+<span><span class="co">#&gt; [3] "The cloud moved in a stately way and was gone."</span></span>
+<span><span class="co">#&gt; [4] "Move the vat over the hot fire."               </span></span>
+<span><span class="co">#&gt; [5] "It was done before the boy could see it."</span></span></code></pre></div>
+<p>[1] “We need grain to keep our mules healthy.”<br>
+[2] “To have is better than to wait and hope.”<br>
+[3] “The cloud moved in a stately way and was gone.” [4] “Move the vat
+over the hot fire.”<br>
+[5] “It was done before the boy could see it.”</p>
 <hr>
 <p>The <code><a href="../reference/md_text.html">md_text()</a></code> function creates strings with the
 <code>glue</code> S3 class. This class works in the same way as the
 <code><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat()</a></code> functions.</p>
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">sentences</span><span class="op">)</span></span>
-<span><span class="co">#&gt; The little tales they tell are false. Pile the coal high in the shed corner. A cold dip restores health and zest. Glass will clink when struck by metal. Ship maps are different from those for planes.</span></span></code></pre></div>
-<p>The little tales they tell are false. Pile the coal high in the shed
-corner. A cold dip restores health and zest. Glass will clink when
-struck by metal. Ship maps are different from those for planes.</p>
+<span><span class="co">#&gt; We need grain to keep our mules healthy. To have is better than to wait and hope. The cloud moved in a stately way and was gone. Move the vat over the hot fire. It was done before the boy could see it.</span></span></code></pre></div>
+<p>We need grain to keep our mules healthy. To have is better than to
+wait and hope. The cloud moved in a stately way and was gone. Move the
+vat over the hot fire. It was done before the boy could see it.</p>
 </div>
 </div>
   </div>

@@ -11,7 +11,7 @@ experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https:/
 status](https://www.r-pkg.org/badges/version/gluedown)](https://CRAN.R-project.org/package=gluedown)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/gluedown)
 [![Codecov test
-coverage](https://img.shields.io/codecov/c/github/k5cents/gluedown/master.svg)](https://app.codecov.io/gh/k5cents/gluedown?branch=master')
+coverage](https://codecov.io/gh/k5cents/gluedown/graph/badge.svg?token=Ln4HFpOH2P)](https://app.codecov.io/gh/k5cents/gluedown?branch=master)
 [![R build
 status](https://github.com/k5cents/gluedown/workflows/R-CMD-check/badge.svg)](https://github.com/k5cents/gluedown/actions)
 <!-- badges: end -->
@@ -106,8 +106,8 @@ abb <- state.abb[match(name, state.name)]
 # `r md_italic(abb)`
 ```
 
-In this case, our randomly selected state is **Texas**, which has the
-abbreviation *TX*.
+In this case, our randomly selected state is **New Hampshire**, which
+has the abbreviation *NH*.
 
 ### Pipes
 

@@ -23,7 +23,7 @@ Within conversations on GitHub, references to issues and pull requests are
 \href{https://git.io/Jvtb9}{automatically converted to shortened links}.
 }
 \examples{
-md_issue("kiernann/gluedown", 1:5)
+md_issue("k5cents/gluedown", 1:5)
 }
 \seealso{
 Other inline functions: 

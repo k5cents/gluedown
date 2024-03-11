@@ -11,9 +11,9 @@ experimental](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https:/
 status](https://www.r-pkg.org/badges/version/gluedown)](https://CRAN.R-project.org/package=gluedown)
 ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/gluedown)
 [![Codecov test
-coverage](https://img.shields.io/codecov/c/github/kiernann/gluedown/master.svg)](https://app.codecov.io/gh/kiernann/gluedown?branch=master')
+coverage](https://img.shields.io/codecov/c/github/k5cents/gluedown/master.svg)](https://app.codecov.io/gh/k5cents/gluedown?branch=master')
 [![R build
-status](https://github.com/kiernann/gluedown/workflows/R-CMD-check/badge.svg)](https://github.com/kiernann/gluedown/actions)
+status](https://github.com/k5cents/gluedown/workflows/R-CMD-check/badge.svg)](https://github.com/k5cents/gluedown/actions)
 <!-- badges: end -->
 
 The goal of `gluedown` is to ease the transition from R’s powerful
@@ -33,11 +33,11 @@ install.packages("gluedown")
 ```
 
 The development version can be installed from
-[GitHub](https://github.com/kiernann/gluedown):
+[GitHub](https://github.com/k5cents/gluedown):
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("kiernann/gluedown")
+remotes::install_github("k5cents/gluedown")
 ```
 
 ## Usage
@@ -106,8 +106,8 @@ abb <- state.abb[match(name, state.name)]
 # `r md_italic(abb)`
 ```
 
-In this case, our randomly selected state is **Maine**, which has the
-abbreviation *ME*.
+In this case, our randomly selected state is **Texas**, which has the
+abbreviation *TX*.
 
 ### Pipes
 
@@ -148,7 +148,7 @@ md_task(legislation, check = 1:2)
 
 Please note that the `gluedown` project is released with a [Contributor
 Code of
-Conduct](https://kiernann.github.io/gluedown/CODE_OF_CONDUCT.html). By
+Conduct](https://k5cents.github.io/gluedown/CODE_OF_CONDUCT.html). By
 contributing to this project, you agree to abide by its terms.
 
 <!-- links: start -->

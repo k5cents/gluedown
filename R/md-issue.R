@@ -12,7 +12,7 @@
 #' @family inline functions
 #' @family markdown extensions
 #' @examples
-#' md_issue("kiernann/gluedown", 1:5)
+#' md_issue("k5cents/gluedown", 1:5)
 #' @export
 md_issue <- function(repo, num) {
   if (suppressWarnings(any(is.na(as.numeric(num))))) {

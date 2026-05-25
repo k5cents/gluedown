@@ -91,10 +91,10 @@ md_setext <- function(x, level = 1, width = TRUE) {
   } else {
     char <- c("=", "-")[level]
   }
-  n <- if ((all(is.logical(width)) & isTRUE(width)) | min(width) < 1) {
+  n <- if (isTRUE(width)) {
     vapply(strsplit(x, "\n"), function(y) max(nchar(y)), FUN.VALUE = integer(1))
   } else {
-    width
+    as.integer(width)
   }
   glue::glue("{x}\n{strrep(char, n)}")
 }

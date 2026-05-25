@@ -18,7 +18,7 @@ md_issue <- function(repo, num) {
   if (suppressWarnings(any(is.na(as.numeric(num))))) {
     stop("The num must be coercible to numeric.")
   }
-  if (!grepl("/", repo)) {
+  if (any(!grepl("/", repo))) {
     warning("use the \"user/repo\" format")
   }
   glue::glue("{repo}#{num}")

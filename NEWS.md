@@ -1,3 +1,15 @@
+# gluedown 1.1.0
+
+* Fix `md_code()` vectorization bug: double-backtick escaping was applied to
+  all elements whenever *any* element contained a backtick. Now each element
+  is escaped independently (#38).
+* Fix `md_setext()` when `width = FALSE`: previously behaved identically to
+  `width = TRUE` due to `min(FALSE) < 1` evaluating to `TRUE` (#37).
+* Fix `md_issue()` emitting one warning per element instead of once when
+  elements are missing the `"user/repo"` format (#36).
+* Remove `mockr` from suggested dependencies; mocking now uses
+  `testthat::local_mocked_bindings()` (#34).
+
 # gluedown 1.0.9
 
 * Update maintainer email, website URL, and GitHub URL.

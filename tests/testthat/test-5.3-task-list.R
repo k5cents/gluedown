@@ -12,7 +12,7 @@ test_that("md_task creates an <ul> list with checks (ex. 279)", {
     md_convert() %>%
     read_html() %>%
     html_node("ul") %>%
-    html_nodes("li") %>%
+    html_elements("li") %>%
     html_text()
   list %>%
     str_remove("\\[.*\\]\\s") %>%
@@ -29,7 +29,7 @@ test_that("md_task creates an <ul> list without checks", {
     md_convert() %>%
     read_html() %>%
     html_node("ul") %>%
-    html_nodes("li") %>%
+    html_elements("li") %>%
     html_text() %>%
     str_remove("\\[.*\\]\\s") %>%
     expect_equal(text)

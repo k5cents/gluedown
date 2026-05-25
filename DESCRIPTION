@@ -21,8 +21,6 @@ Imports:
     magrittr (>= 2.0.1)
 Suggests: 
     covr (>= 3.3.2),
-    dplyr (>= 0.8.3),
-    httr (>= 1.4.1),
     knitr (>= 1.25),
     markdown (>= 1.1),
     mockr (>= 0.1),

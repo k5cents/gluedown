@@ -12,7 +12,7 @@ test_that("md_bullet creates an <ul> tag with vector text (ex. 281)", {
     md_convert() %>%
     read_html() %>%
     html_node("ul") %>%
-    html_nodes("li") %>%
+    html_elements("li") %>%
     html_text() %>%
     expect_equal(text)
 })
@@ -25,7 +25,7 @@ test_that("md_order creates an <ol> tag with vector text (ex. 282)", {
     md_convert() %>%
     read_html() %>%
     html_node("ol") %>%
-    html_nodes("li") %>%
+    html_elements("li") %>%
     html_text() %>%
     expect_equal(text)
 })
@@ -37,7 +37,7 @@ test_that("md_order works without sequence", {
     md_convert() %>%
     read_html() %>%
     html_node("ol") %>%
-    html_nodes("li") %>%
+    html_elements("li") %>%
     html_text() %>%
     expect_equal(text)
 })
@@ -49,7 +49,7 @@ test_that("md_order can pad when markers differ in length", {
     md_convert() %>%
     read_html() %>%
     html_node("ol") %>%
-    html_nodes("li") %>%
+    html_elements("li") %>%
     html_text() %>%
     expect_equal(text)
 })

@@ -113,17 +113,20 @@ md_indent <- function(x, n = 4) {
 #' @export
 md_fence <- function(x, char = c("`", "~"), info = "r") {
   char <- match.arg(char)
-  if (!is.null(info)) {
-    if (char == "`" & grepl("`", info)) {
+  info <- if (is.null(info)) {
+    ""
+  } else {
+    trimws(info)
+  }
+  if (nzchar(info)) {
+    if (char == "`" && grepl("`", info)) {
       stop("The info string cannot contain any backtick characters.")
+    }
+    if (char == "~" && grepl("~", info)) {
+      stop("The info string cannot contain any tilde characters.")
     }
   }
   string <- glue_collapse(x, sep = "\n")
   fence <- strrep(char, 3)
-  info <- if (is.null(info)) {
-    ""
-  } else {
-    info
-  }
   glue::glue("{fence}{info}\n{string}\n{fence}")
 }

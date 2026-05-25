@@ -50,3 +50,10 @@ test_that("md_setext errors if an empty heading is used (ex. 67)", {
   # https://github.github.com/gfm/#example-67
   expect_error(md_setext(""))
 })
+
+test_that("md_setext underline width is based on trimmed content (spec 0.29)", {
+  # CommonMark 0.29: leading/trailing whitespace stripped from setext content
+  trimmed <- md_setext("  hello  ")
+  lines <- strsplit(as.character(trimmed), "\n")[[1]]
+  expect_equal(nchar(lines[[2]]), 5L)  # "hello" is 5 chars, not 9
+})

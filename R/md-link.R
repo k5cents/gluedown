@@ -30,21 +30,27 @@
 #'   pairs are provided, `.name` will be considered `TRUE`.
 #' @param .name logical; if `TRUE`, the pairs in `...` will be used instead of
 #'   any values supplied to `x` and `url`.
+#' @param wrap logical; if `TRUE`, the URL is wrapped in angle brackets
+#'   (`<url>`), which is required when the destination contains spaces.
 #' @return A `glue` vector of collapsed display text and associated URLs.
 #' @family inline functions
 #' @examples
 #' md_link(1:5, glue::glue("https://{state.abb[1:5]}.gov"), state.name[1:5])
 #' md_link(CRAN = "https://cran.r-project.org/")
+#' md_link("My File", "path/to/my file.pdf", wrap = TRUE)
 #' @importFrom glue glue
 #' @export
-md_link <- function(text, url, title = NULL, ..., .name = FALSE) {
+md_link <- function(text, url, title = NULL, ..., .name = FALSE, wrap = FALSE) {
   x <- unlist(list(...))
   if (!is.null(x) | .name) {
     glue::glue("[{names(x)}]({unlist(x)})")
-  } else if (!is.null(title)) {
-    glue::glue("[{text}]({url} \"{title}\")")
   } else {
-    glue::glue("[{text}]({url})")
+    dest <- if (wrap) glue::glue("<{url}>") else url
+    if (!is.null(title)) {
+      glue::glue("[{text}]({dest} \"{title}\")")
+    } else {
+      glue::glue("[{text}]({dest})")
+    }
   }
 }
 
@@ -71,7 +77,8 @@ md_link <- function(text, url, title = NULL, ..., .name = FALSE) {
 #'   pairs are provided, `.name` will be considered `TRUE`.
 #' @param .name logical; if `TRUE`, the pairs in `...` will be used instead of
 #'   any values supplied to `x` and `url`.
-#' @return A `glue` vector of collapsed display text and associated URLs.
+#' @param wrap logical; if `TRUE`, the URL is wrapped in angle brackets
+#'   (`<url>`), which is required when the destination contains spaces.
 #' @return A `glue` vector of collapsed alternative text and associated URLs.
 #' @family inline functions
 #' @examples
@@ -81,7 +88,7 @@ md_link <- function(text, url, title = NULL, ..., .name = FALSE) {
 #' md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker", "Logo")
 #' @importFrom glue glue
 #' @export
-md_image <- function(url, alt = "", title = NULL, ..., .name = FALSE) {
+md_image <- function(url, alt = "", title = NULL, ..., .name = FALSE, wrap = FALSE) {
   x <- unlist(list(...))
   if (!is.null(x) | .name) {
     if (is.null(names(x))) {
@@ -89,10 +96,13 @@ md_image <- function(url, alt = "", title = NULL, ..., .name = FALSE) {
     } else {
       glue::glue("![{names(x)}]({unlist(x)})")
     }
-  } else if (!is.null(title)) {
-    glue::glue("![{alt}]({url} \"{title}\")")
   } else {
-    glue::glue("![{alt}]({url})")
+    dest <- if (wrap) glue::glue("<{url}>") else url
+    if (!is.null(title)) {
+      glue::glue("![{alt}]({dest} \"{title}\")")
+    } else {
+      glue::glue("![{alt}]({dest})")
+    }
   }
 }
 
@@ -105,8 +115,14 @@ md_image <- function(url, alt = "", title = NULL, ..., .name = FALSE) {
 #' A link label begins with a left bracket and ends with the first right bracket
 #' that is not backslash-escaped. Between these brackets there must be at least
 #' one non-whitespace character.
+#'
+#' When `label` is omitted, a _collapsed reference link_ (`[text][]`) is
+#' produced. The link label is then implicitly the same as the link text
+#' (matched case-insensitively), so a matching [md_reference()] definition
+#' must use the same text as its label.
 #' @param text The text in the document to be hyperlinked.
-#' @param label A link label that is referenced elsewhere in the document.
+#' @param label A link label that is referenced elsewhere in the document. If
+#'   `NULL` (the default), a collapsed reference link `[text][]` is produced.
 #' @param ... A sequence of `label = "text"` named vector pairs. If any such
 #'   pairs are provided, `.name` will be considered `TRUE`.
 #' @param .name logical; if `TRUE`, the pairs in `...` will be used instead of
@@ -117,11 +133,14 @@ md_image <- function(url, alt = "", title = NULL, ..., .name = FALSE) {
 #' @examples
 #' md_label(CRAN = "The CRAN website")
 #' md_label(text = c("one", "two"), label = 1:2)
+#' md_label("CRAN")
 #' @export
-md_label <- function(text, label, ..., .name = FALSE) {
+md_label <- function(text, label = NULL, ..., .name = FALSE) {
   x <- unlist(list(...))
   if (!is.null(x) | .name) {
     glue::glue("[{unlist(x)}][{names(x)}]")
+  } else if (is.null(label)) {
+    glue::glue("[{text}][]")
   } else {
     glue::glue("[{text}][{label}]")
   }

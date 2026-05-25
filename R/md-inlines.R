@@ -25,6 +25,7 @@
 #' @importFrom glue glue
 #' @export
 md_code <- function(x) {
+  x <- gsub("\n", " ", x)
   has_tick <- grepl("`", x)
   result <- character(length(x))
   result[has_tick]  <- glue::glue("`` {x[has_tick]} ``")

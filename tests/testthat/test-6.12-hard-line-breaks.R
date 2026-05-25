@@ -9,3 +9,19 @@ test_that("md_hardline creates a <br /> tag (ex. 655)", {
     html_element("br") %>%
     expect_full()
 })
+
+test_that("md_hardline backslash method creates a <br /> tag", {
+  # CommonMark: backslash before line ending is an alternative hard break
+  x <- c("foo", "baz")
+  x %>%
+    md_hardline(method = "backslash") %>%
+    md_convert() %>%
+    read_html() %>%
+    html_element("br") %>%
+    expect_full()
+})
+
+test_that("md_hardline backslash method produces correct syntax", {
+  result <- as.character(md_hardline("foo", method = "backslash"))
+  expect_match(result, "foo\\\\$")
+})

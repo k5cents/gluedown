@@ -7,10 +7,10 @@ Authors@R:
 Description: Ease the transition between R vectors and markdown text. With
     'gluedown' and 'rmarkdown', users can create traditional vectors in R,
     glue those strings together with the markdown syntax, and print those
-    formatted vectors directly to the document. This package primarily
-    uses GitHub Flavored Markdown (GFM), an offshoot of the unambiguous
-    CommonMark specification by John MacFarlane (2019)
-    <https://spec.commonmark.org/>.
+    formatted vectors directly to the document. This package targets the
+    CommonMark specification (0.31.2, 2024) <https://spec.commonmark.org/0.31.2/>
+    and GitHub Flavored Markdown (GFM 0.29, 2019) extensions
+    <https://github.github.com/gfm/>.
 License: GPL-3
 URL: https://k5cents.github.io/gluedown/, https://github.com/k5cents/gluedown/
 BugReports: https://github.com/k5cents/gluedown/issues

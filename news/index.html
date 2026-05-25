@@ -37,6 +37,19 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.1.0" id="gluedown-110">gluedown 1.1.0<a class="anchor" aria-label="anchor" href="#gluedown-110"></a></h2>
+<ul><li>Fix <code><a href="../reference/md_code.html">md_code()</a></code> vectorization bug: double-backtick escaping was applied to all elements whenever <em>any</em> element contained a backtick. Now each element is escaped independently (<a href="https://github.com/k5cents/gluedown/issues/38" class="external-link">#38</a>).</li>
+<li>Fix <code><a href="../reference/md_setext.html">md_setext()</a></code> when <code>width = FALSE</code>: previously behaved identically to <code>width = TRUE</code> due to <code>min(FALSE) &lt; 1</code> evaluating to <code>TRUE</code> (<a href="https://github.com/k5cents/gluedown/issues/37" class="external-link">#37</a>).</li>
+<li>Fix <code><a href="../reference/md_issue.html">md_issue()</a></code> emitting one warning per element instead of once when elements are missing the <code>"user/repo"</code> format (<a href="https://github.com/k5cents/gluedown/issues/36" class="external-link">#36</a>).</li>
+<li>Remove <code>mockr</code> from suggested dependencies; mocking now uses <code><a href="https://testthat.r-lib.org/reference/local_mocked_bindings.html" class="external-link">testthat::local_mocked_bindings()</a></code> (<a href="https://github.com/k5cents/gluedown/issues/34" class="external-link">#34</a>).</li>
+<li>Fix <code><a href="../reference/md_code.html">md_code()</a></code> to normalize newlines to spaces within code spans, per the CommonMark spec.</li>
+<li>Fix <code><a href="../reference/md_fence.html">md_fence()</a></code> to trim leading/trailing whitespace from the info string, per the CommonMark 0.29 spec. Tilde fences now also error when the info string contains a tilde character (backtick fences already enforced this).</li>
+<li>Fix <code><a href="../reference/md_setext.html">md_setext()</a></code> auto-width to measure trimmed content, so leading/trailing whitespace in heading text does not inflate the underline length.</li>
+<li>Add <code>method</code> argument to <code><a href="../reference/md_hardline.html">md_hardline()</a></code>: <code>"backslash"</code> produces a backslash hard line break (<code>foo\</code>) as an alternative to the default two-trailing-spaces form.</li>
+<li>Add collapsed reference link support to <code><a href="../reference/md_label.html">md_label()</a></code>: omitting <code>label</code> now produces <code>[text][]</code>, which resolves against a matching <code><a href="../reference/md_reference.html">md_reference()</a></code>.</li>
+<li>Add <code>wrap</code> argument to <code><a href="../reference/md_link.html">md_link()</a></code> and <code><a href="../reference/md_image.html">md_image()</a></code>: <code>wrap = TRUE</code> wraps the destination in angle brackets (<code>&lt;url&gt;</code>), required when the URL contains spaces.</li>
+</ul></div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.9" id="gluedown-109">gluedown 1.0.9<a class="anchor" aria-label="anchor" href="#gluedown-109"></a></h2><p class="text-muted">CRAN release: 2024-03-11</p>
 <ul><li>Update maintainer email, website URL, and GitHub URL.</li>
 </ul></div>

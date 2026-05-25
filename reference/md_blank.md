@@ -41,6 +41,6 @@ md_blank
 #> {
 #>     glue::glue("\n")
 #> }
-#> <bytecode: 0x555cf43e1c40>
+#> <bytecode: 0x55c765d5c7f0>
 #> <environment: namespace:gluedown>
 ```

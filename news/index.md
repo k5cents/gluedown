@@ -1,5 +1,55 @@
 # Changelog
 
+## gluedown 1.1.0
+
+- Fix
+  [`md_code()`](https://k5cents.github.io/gluedown/reference/md_code.md)
+  vectorization bug: double-backtick escaping was applied to all
+  elements whenever *any* element contained a backtick. Now each element
+  is escaped independently
+  ([\#38](https://github.com/k5cents/gluedown/issues/38)).
+- Fix
+  [`md_setext()`](https://k5cents.github.io/gluedown/reference/md_setext.md)
+  when `width = FALSE`: previously behaved identically to `width = TRUE`
+  due to `min(FALSE) < 1` evaluating to `TRUE`
+  ([\#37](https://github.com/k5cents/gluedown/issues/37)).
+- Fix
+  [`md_issue()`](https://k5cents.github.io/gluedown/reference/md_issue.md)
+  emitting one warning per element instead of once when elements are
+  missing the `"user/repo"` format
+  ([\#36](https://github.com/k5cents/gluedown/issues/36)).
+- Remove `mockr` from suggested dependencies; mocking now uses
+  [`testthat::local_mocked_bindings()`](https://testthat.r-lib.org/reference/local_mocked_bindings.html)
+  ([\#34](https://github.com/k5cents/gluedown/issues/34)).
+- Fix
+  [`md_code()`](https://k5cents.github.io/gluedown/reference/md_code.md)
+  to normalize newlines to spaces within code spans, per the CommonMark
+  spec.
+- Fix
+  [`md_fence()`](https://k5cents.github.io/gluedown/reference/md_fence.md)
+  to trim leading/trailing whitespace from the info string, per the
+  CommonMark 0.29 spec. Tilde fences now also error when the info string
+  contains a tilde character (backtick fences already enforced this).
+- Fix
+  [`md_setext()`](https://k5cents.github.io/gluedown/reference/md_setext.md)
+  auto-width to measure trimmed content, so leading/trailing whitespace
+  in heading text does not inflate the underline length.
+- Add `method` argument to
+  [`md_hardline()`](https://k5cents.github.io/gluedown/reference/md_hardline.md):
+  `"backslash"` produces a backslash hard line break (`foo\`) as an
+  alternative to the default two-trailing-spaces form.
+- Add collapsed reference link support to
+  [`md_label()`](https://k5cents.github.io/gluedown/reference/md_label.md):
+  omitting `label` now produces `[text][]`, which resolves against a
+  matching
+  [`md_reference()`](https://k5cents.github.io/gluedown/reference/md_reference.md).
+- Add `wrap` argument to
+  [`md_link()`](https://k5cents.github.io/gluedown/reference/md_link.md)
+  and
+  [`md_image()`](https://k5cents.github.io/gluedown/reference/md_image.md):
+  `wrap = TRUE` wraps the destination in angle brackets (`<url>`),
+  required when the URL contains spaces.
+
 ## gluedown 1.0.9
 
 CRAN release: 2024-03-11

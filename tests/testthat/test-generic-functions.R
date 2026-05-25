@@ -63,12 +63,8 @@ test_that("md_chunk errors in the same was as underlying function", {
 })
 
 test_that("md_convert fails without markdown", {
-  skip_if_not_installed("mockr")
-  mockr::with_mock(
-    .env = as.environment("package:gluedown"),
-    `has_markdown` = function() FALSE,
-    expect_error(md_convert("**bold**"))
-  )
+  local_mocked_bindings(has_markdown = function() FALSE)
+  expect_error(md_convert("**bold**"))
 })
 
 test_that("md_convert works without dissalowing HTML", {

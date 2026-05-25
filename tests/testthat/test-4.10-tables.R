@@ -32,17 +32,13 @@ test_that("md_table can create a table with no body (ex. 205)", {
 })
 
 test_that("md_table works without knitr", {
-  skip_if_not_installed("mockr")
+  local_mocked_bindings(has_knitr = function() FALSE)
   df <- data.frame(
     foo = "baz",
     bar = "bim",
     stringsAsFactors = FALSE
   )
-  md <- mockr::with_mock(
-    .env = as.environment("package:gluedown"),
-    `has_knitr` = function() FALSE,
-    md_table(df)
-  )
+  md <- md_table(df)
   node <- md %>%
     md_convert() %>%
     read_html() %>%
@@ -53,17 +49,13 @@ test_that("md_table works without knitr", {
 })
 
 test_that("md_table works without knitr and no body", {
-  skip_if_not_installed("mockr")
+  local_mocked_bindings(has_knitr = function() FALSE)
   df <- data.frame(
     foo = logical(),
     bar = logical(),
     stringsAsFactors = FALSE
   )
-  md <- mockr::with_mock(
-    .env = as.environment("package:gluedown"),
-    `has_knitr` = function() FALSE,
-    md_table(df)
-  )
+  md <- md_table(df)
   node <- md %>%
     md_convert() %>%
     read_html() %>%

@@ -29,7 +29,6 @@ test_that("md_inline creates lines without other formatting (ex. 80)", {
 })
 
 test_that("md_indent doesn't interupt a paragraph (ex. 83)", {
-  skip("could not find function 'condition'")
   # https://github.github.com/gfm/#example-83
   node <- c("Foo", md_indent("bar")) %>%
     md_softline() %>%

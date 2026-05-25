@@ -42,21 +42,21 @@ md_table(mtcars)
 md_table(data.frame(x = LETTERS[1:3], y = 1:3), align = c("cc"))
 }
 \seealso{
-Other leaf block functions: 
-\code{\link{md_blank}()},
-\code{\link{md_chunk}()},
-\code{\link{md_fence}()},
-\code{\link{md_heading}()},
-\code{\link{md_indent}()},
-\code{\link{md_label}()},
-\code{\link{md_paragraph}()},
-\code{\link{md_reference}()},
-\code{\link{md_rule}()},
-\code{\link{md_setext}()}
+Other leaf block functions:
+\code{\link[=md_blank]{md_blank()}},
+\code{\link[=md_chunk]{md_chunk()}},
+\code{\link[=md_fence]{md_fence()}},
+\code{\link[=md_heading]{md_heading()}},
+\code{\link[=md_indent]{md_indent()}},
+\code{\link[=md_label]{md_label()}},
+\code{\link[=md_paragraph]{md_paragraph()}},
+\code{\link[=md_reference]{md_reference()}},
+\code{\link[=md_rule]{md_rule()}},
+\code{\link[=md_setext]{md_setext()}}
 
-Other markdown extensions: 
-\code{\link{md_issue}()},
-\code{\link{md_strike}()}
+Other markdown extensions:
+\code{\link[=md_issue]{md_issue()}},
+\code{\link[=md_strike]{md_strike()}}
 }
 \concept{leaf block functions}
 \concept{markdown extensions}

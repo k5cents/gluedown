@@ -4,14 +4,18 @@
 \alias{md_hardline}
 \title{Markdown hard line breaks}
 \usage{
-md_hardline(...)
+md_hardline(..., method = c("spaces", "backslash"))
 }
 \arguments{
 \item{...}{Any number of character vectors.}
+
+\item{method}{The syntax used to create the hard line break: \code{"spaces"}
+appends two trailing spaces before the newline (default); \code{"backslash"}
+appends a backslash before the newline.}
 }
 \value{
-A \code{glue} vector with elements of \code{...} separated by two trailing
-spaces and a single newline.
+A \code{glue} vector with elements of \code{...} separated by a hard line
+break and a single newline.
 }
 \description{
 Take a character vector and return a collapsed glue vector with each original
@@ -21,27 +25,29 @@ element separated by two spaces and a newline. This inline is rendered with a
 \details{
 A line break (not in a code span or HTML tag) that is preceded by two or more
 spaces and does not occur at the end of a block is parsed as a hard line
-break (rendered in HTML as a \verb{<br />} tag)
+break (rendered in HTML as a \verb{<br />} tag). CommonMark also supports a
+backslash before a line ending as an alternative hard line break syntax.
 }
 \examples{
 # compare the following
 md_bold(c("One", "Two"))
 md_hardline(md_bold(c("One", "Two")), md_italic("Three"))
+md_hardline("foo", "bar", method = "backslash")
 }
 \seealso{
-Other inline functions: 
-\code{\link{md_autolink}()},
-\code{\link{md_bold}()},
-\code{\link{md_code}()},
-\code{\link{md_convert}()},
-\code{\link{md_disallow}()},
-\code{\link{md_escape}()},
-\code{\link{md_image}()},
-\code{\link{md_issue}()},
-\code{\link{md_italic}()},
-\code{\link{md_link}()},
-\code{\link{md_softline}()},
-\code{\link{md_strike}()},
-\code{\link{md_text}()}
+Other inline functions:
+\code{\link[=md_autolink]{md_autolink()}},
+\code{\link[=md_bold]{md_bold()}},
+\code{\link[=md_code]{md_code()}},
+\code{\link[=md_convert]{md_convert()}},
+\code{\link[=md_disallow]{md_disallow()}},
+\code{\link[=md_escape]{md_escape()}},
+\code{\link[=md_image]{md_image()}},
+\code{\link[=md_issue]{md_issue()}},
+\code{\link[=md_italic]{md_italic()}},
+\code{\link[=md_link]{md_link()}},
+\code{\link[=md_softline]{md_softline()}},
+\code{\link[=md_strike]{md_strike()}},
+\code{\link[=md_text]{md_text()}}
 }
 \concept{inline functions}

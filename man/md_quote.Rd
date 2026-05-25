@@ -46,10 +46,10 @@ md_quote("Give me liberty, or give me death!")
 md_quote(stringr::sentences[1:3])
 }
 \seealso{
-Other container block functions: 
-\code{\link{md_bullet}()},
-\code{\link{md_list}()},
-\code{\link{md_order}()},
-\code{\link{md_task}()}
+Other container block functions:
+\code{\link[=md_bullet]{md_bullet()}},
+\code{\link[=md_list]{md_list()}},
+\code{\link[=md_order]{md_order()}},
+\code{\link[=md_task]{md_task()}}
 }
 \concept{container block functions}

@@ -51,10 +51,10 @@ checking, unchecking) in the final rendered document.
 md_task(c("Wake up", "Eat Breakfast", "Brush Teeth"), check = c(1, 3))
 }
 \seealso{
-Other container block functions: 
-\code{\link{md_bullet}()},
-\code{\link{md_list}()},
-\code{\link{md_order}()},
-\code{\link{md_quote}()}
+Other container block functions:
+\code{\link[=md_bullet]{md_bullet()}},
+\code{\link[=md_list]{md_list()}},
+\code{\link[=md_order]{md_order()}},
+\code{\link[=md_quote]{md_quote()}}
 }
 \concept{container block functions}

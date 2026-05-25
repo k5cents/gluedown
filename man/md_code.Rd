@@ -35,19 +35,19 @@ md_code("ex_var")
 md_code(state.name[1:3])
 }
 \seealso{
-Other inline functions: 
-\code{\link{md_autolink}()},
-\code{\link{md_bold}()},
-\code{\link{md_convert}()},
-\code{\link{md_disallow}()},
-\code{\link{md_escape}()},
-\code{\link{md_hardline}()},
-\code{\link{md_image}()},
-\code{\link{md_issue}()},
-\code{\link{md_italic}()},
-\code{\link{md_link}()},
-\code{\link{md_softline}()},
-\code{\link{md_strike}()},
-\code{\link{md_text}()}
+Other inline functions:
+\code{\link[=md_autolink]{md_autolink()}},
+\code{\link[=md_bold]{md_bold()}},
+\code{\link[=md_convert]{md_convert()}},
+\code{\link[=md_disallow]{md_disallow()}},
+\code{\link[=md_escape]{md_escape()}},
+\code{\link[=md_hardline]{md_hardline()}},
+\code{\link[=md_image]{md_image()}},
+\code{\link[=md_issue]{md_issue()}},
+\code{\link[=md_italic]{md_italic()}},
+\code{\link[=md_link]{md_link()}},
+\code{\link[=md_softline]{md_softline()}},
+\code{\link[=md_strike]{md_strike()}},
+\code{\link[=md_text]{md_text()}}
 }
 \concept{inline functions}

@@ -24,19 +24,19 @@ parsed as plain textual content.
 md_text("foo")
 }
 \seealso{
-Other inline functions: 
-\code{\link{md_autolink}()},
-\code{\link{md_bold}()},
-\code{\link{md_code}()},
-\code{\link{md_convert}()},
-\code{\link{md_disallow}()},
-\code{\link{md_escape}()},
-\code{\link{md_hardline}()},
-\code{\link{md_image}()},
-\code{\link{md_issue}()},
-\code{\link{md_italic}()},
-\code{\link{md_link}()},
-\code{\link{md_softline}()},
-\code{\link{md_strike}()}
+Other inline functions:
+\code{\link[=md_autolink]{md_autolink()}},
+\code{\link[=md_bold]{md_bold()}},
+\code{\link[=md_code]{md_code()}},
+\code{\link[=md_convert]{md_convert()}},
+\code{\link[=md_disallow]{md_disallow()}},
+\code{\link[=md_escape]{md_escape()}},
+\code{\link[=md_hardline]{md_hardline()}},
+\code{\link[=md_image]{md_image()}},
+\code{\link[=md_issue]{md_issue()}},
+\code{\link[=md_italic]{md_italic()}},
+\code{\link[=md_link]{md_link()}},
+\code{\link[=md_softline]{md_softline()}},
+\code{\link[=md_strike]{md_strike()}}
 }
 \concept{inline functions}

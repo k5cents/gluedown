@@ -4,7 +4,7 @@
 \alias{md_image}
 \title{Markdown image links}
 \usage{
-md_image(url, alt = "", title = NULL, ..., .name = FALSE)
+md_image(url, alt = "", title = NULL, ..., .name = FALSE, wrap = FALSE)
 }
 \arguments{
 \item{url}{A character vector of link destination (URL) strings.}
@@ -19,10 +19,11 @@ pairs are provided, \code{.name} will be considered \code{TRUE}.}
 
 \item{.name}{logical; if \code{TRUE}, the pairs in \code{...} will be used instead of
 any values supplied to \code{x} and \code{url}.}
+
+\item{wrap}{logical; if \code{TRUE}, the URL is wrapped in angle brackets
+(\verb{<url>}), which is required when the destination contains spaces.}
 }
 \value{
-A \code{glue} vector of collapsed display text and associated URLs.
-
 A \code{glue} vector of collapsed alternative text and associated URLs.
 }
 \description{
@@ -46,19 +47,19 @@ md_image(EFF = "http://hexb.in/hexagons/eff.png")
 md_image("http://hexb.in/hexagons/eff.png", "EFF Hex Sticker", "Logo")
 }
 \seealso{
-Other inline functions: 
-\code{\link{md_autolink}()},
-\code{\link{md_bold}()},
-\code{\link{md_code}()},
-\code{\link{md_convert}()},
-\code{\link{md_disallow}()},
-\code{\link{md_escape}()},
-\code{\link{md_hardline}()},
-\code{\link{md_issue}()},
-\code{\link{md_italic}()},
-\code{\link{md_link}()},
-\code{\link{md_softline}()},
-\code{\link{md_strike}()},
-\code{\link{md_text}()}
+Other inline functions:
+\code{\link[=md_autolink]{md_autolink()}},
+\code{\link[=md_bold]{md_bold()}},
+\code{\link[=md_code]{md_code()}},
+\code{\link[=md_convert]{md_convert()}},
+\code{\link[=md_disallow]{md_disallow()}},
+\code{\link[=md_escape]{md_escape()}},
+\code{\link[=md_hardline]{md_hardline()}},
+\code{\link[=md_issue]{md_issue()}},
+\code{\link[=md_italic]{md_italic()}},
+\code{\link[=md_link]{md_link()}},
+\code{\link[=md_softline]{md_softline()}},
+\code{\link[=md_strike]{md_strike()}},
+\code{\link[=md_text]{md_text()}}
 }
 \concept{inline functions}

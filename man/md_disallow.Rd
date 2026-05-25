@@ -34,27 +34,29 @@ filtered when rendering HTML output:
 Filtering is done by replacing the leading \code{<} with the entity \verb{&lt;}. These
 tags are chosen in particular as they change how HTML is interpreted in a way
 unique to them (i.e. nested HTML is interpreted differently), and this is
-usually undesireable (sic) in the context of other rendered Markdown content.
+usually undesirable in the context of other rendered Markdown content.
 
-All other HTML tags are left untouched.
+All other HTML tags are left untouched. Note that CommonMark 0.31.2 added
+\verb{<search>} to the list of recognised block-level HTML elements, but it is
+not part of the GFM tagfilter list and is therefore not filtered here.
 }
 \examples{
 md_disallow("<title>GitHub Flavored Markdown Spec</title>")
 }
 \seealso{
-Other inline functions: 
-\code{\link{md_autolink}()},
-\code{\link{md_bold}()},
-\code{\link{md_code}()},
-\code{\link{md_convert}()},
-\code{\link{md_escape}()},
-\code{\link{md_hardline}()},
-\code{\link{md_image}()},
-\code{\link{md_issue}()},
-\code{\link{md_italic}()},
-\code{\link{md_link}()},
-\code{\link{md_softline}()},
-\code{\link{md_strike}()},
-\code{\link{md_text}()}
+Other inline functions:
+\code{\link[=md_autolink]{md_autolink()}},
+\code{\link[=md_bold]{md_bold()}},
+\code{\link[=md_code]{md_code()}},
+\code{\link[=md_convert]{md_convert()}},
+\code{\link[=md_escape]{md_escape()}},
+\code{\link[=md_hardline]{md_hardline()}},
+\code{\link[=md_image]{md_image()}},
+\code{\link[=md_issue]{md_issue()}},
+\code{\link[=md_italic]{md_italic()}},
+\code{\link[=md_link]{md_link()}},
+\code{\link[=md_softline]{md_softline()}},
+\code{\link[=md_strike]{md_strike()}},
+\code{\link[=md_text]{md_text()}}
 }
 \concept{inline functions}

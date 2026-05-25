@@ -4,7 +4,7 @@
 \alias{md_link}
 \title{Markdown inline link (6.6)}
 \usage{
-md_link(text, url, title = NULL, ..., .name = FALSE)
+md_link(text, url, title = NULL, ..., .name = FALSE, wrap = FALSE)
 }
 \arguments{
 \item{text}{A character vector of text with another vector of URLs passed to
@@ -19,6 +19,9 @@ pairs are provided, \code{.name} will be considered \code{TRUE}.}
 
 \item{.name}{logical; if \code{TRUE}, the pairs in \code{...} will be used instead of
 any values supplied to \code{x} and \code{url}.}
+
+\item{wrap}{logical; if \code{TRUE}, the URL is wrapped in angle brackets
+(\verb{<url>}), which is required when the destination contains spaces.}
 }
 \value{
 A \code{glue} vector of collapsed display text and associated URLs.
@@ -50,21 +53,22 @@ delimiters, with backslash-escapes in effect as described above.
 \examples{
 md_link(1:5, glue::glue("https://{state.abb[1:5]}.gov"), state.name[1:5])
 md_link(CRAN = "https://cran.r-project.org/")
+md_link("My File", "path/to/my file.pdf", wrap = TRUE)
 }
 \seealso{
-Other inline functions: 
-\code{\link{md_autolink}()},
-\code{\link{md_bold}()},
-\code{\link{md_code}()},
-\code{\link{md_convert}()},
-\code{\link{md_disallow}()},
-\code{\link{md_escape}()},
-\code{\link{md_hardline}()},
-\code{\link{md_image}()},
-\code{\link{md_issue}()},
-\code{\link{md_italic}()},
-\code{\link{md_softline}()},
-\code{\link{md_strike}()},
-\code{\link{md_text}()}
+Other inline functions:
+\code{\link[=md_autolink]{md_autolink()}},
+\code{\link[=md_bold]{md_bold()}},
+\code{\link[=md_code]{md_code()}},
+\code{\link[=md_convert]{md_convert()}},
+\code{\link[=md_disallow]{md_disallow()}},
+\code{\link[=md_escape]{md_escape()}},
+\code{\link[=md_hardline]{md_hardline()}},
+\code{\link[=md_image]{md_image()}},
+\code{\link[=md_issue]{md_issue()}},
+\code{\link[=md_italic]{md_italic()}},
+\code{\link[=md_softline]{md_softline()}},
+\code{\link[=md_strike]{md_strike()}},
+\code{\link[=md_text]{md_text()}}
 }
 \concept{inline functions}

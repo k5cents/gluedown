@@ -24,7 +24,7 @@ results \code{'asis'}.
 \section{Other wrappers}{
 
 The \code{\link[=md_table]{md_table()}} and \code{\link[=md_convert]{md_convert()}} functions wrap around \code{\link[knitr:kable]{knitr::kable()}}
-and \code{\link[markdown:renderMarkdown]{markdown::markdownToHTML()}} respectively. The later allows users to
+and \code{\link[markdown:markdownToHTML]{markdown::markdownToHTML()}} respectively. The later allows users to
 convert \verb{md_*()} outputs to HTML fragments.
 }
 
@@ -39,6 +39,11 @@ Useful links:
 }
 \author{
 \strong{Maintainer}: Kiernan Nicholls \email{k5cents@gmail.com} (\href{https://orcid.org/0000-0002-9229-7897}{ORCID}) [copyright holder]
+
+Authors:
+\itemize{
+  \item Kiernan Nicholls \email{k5cents@gmail.com} (\href{https://orcid.org/0000-0002-9229-7897}{ORCID}) [copyright holder]
+}
 
 }
 \keyword{internal}

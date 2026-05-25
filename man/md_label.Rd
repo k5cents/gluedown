@@ -4,12 +4,13 @@
 \alias{md_label}
 \title{Markdown link label}
 \usage{
-md_label(text, label, ..., .name = FALSE)
+md_label(text, label = NULL, ..., .name = FALSE)
 }
 \arguments{
 \item{text}{The text in the document to be hyperlinked.}
 
-\item{label}{A link label that is referenced elsewhere in the document.}
+\item{label}{A link label that is referenced elsewhere in the document. If
+\code{NULL} (the default), a collapsed reference link \verb{[text][]} is produced.}
 
 \item{...}{A sequence of \code{label = "text"} named vector pairs. If any such
 pairs are provided, \code{.name} will be considered \code{TRUE}.}
@@ -29,22 +30,28 @@ from \code{\link[=md_reference]{md_reference()}}.
 A link label begins with a left bracket and ends with the first right bracket
 that is not backslash-escaped. Between these brackets there must be at least
 one non-whitespace character.
+
+When \code{label} is omitted, a \emph{collapsed reference link} (\verb{[text][]}) is
+produced. The link label is then implicitly the same as the link text
+(matched case-insensitively), so a matching \code{\link[=md_reference]{md_reference()}} definition
+must use the same text as its label.
 }
 \examples{
 md_label(CRAN = "The CRAN website")
 md_label(text = c("one", "two"), label = 1:2)
+md_label("CRAN")
 }
 \seealso{
-Other leaf block functions: 
-\code{\link{md_blank}()},
-\code{\link{md_chunk}()},
-\code{\link{md_fence}()},
-\code{\link{md_heading}()},
-\code{\link{md_indent}()},
-\code{\link{md_paragraph}()},
-\code{\link{md_reference}()},
-\code{\link{md_rule}()},
-\code{\link{md_setext}()},
-\code{\link{md_table}()}
+Other leaf block functions:
+\code{\link[=md_blank]{md_blank()}},
+\code{\link[=md_chunk]{md_chunk()}},
+\code{\link[=md_fence]{md_fence()}},
+\code{\link[=md_heading]{md_heading()}},
+\code{\link[=md_indent]{md_indent()}},
+\code{\link[=md_paragraph]{md_paragraph()}},
+\code{\link[=md_reference]{md_reference()}},
+\code{\link[=md_rule]{md_rule()}},
+\code{\link[=md_setext]{md_setext()}},
+\code{\link[=md_table]{md_table()}}
 }
 \concept{leaf block functions}

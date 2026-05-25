@@ -50,10 +50,10 @@ md_order(sample(state.name, 5), marker = ")")
 md_order(sample(state.name, 5), seq = FALSE)
 }
 \seealso{
-Other container block functions: 
-\code{\link{md_bullet}()},
-\code{\link{md_list}()},
-\code{\link{md_quote}()},
-\code{\link{md_task}()}
+Other container block functions:
+\code{\link[=md_bullet]{md_bullet()}},
+\code{\link[=md_list]{md_list()}},
+\code{\link[=md_quote]{md_quote()}},
+\code{\link[=md_task]{md_task()}}
 }
 \concept{container block functions}

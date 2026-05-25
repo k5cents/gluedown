@@ -11,7 +11,7 @@ test_that("md_list can create all list types", {
     md_convert() %>%
     read_html() %>%
     html_node("ul") %>%
-    html_nodes("li") %>%
+    html_elements("li") %>%
     html_text() %>%
     expect_equal(x)
   x %>%
@@ -19,7 +19,7 @@ test_that("md_list can create all list types", {
     md_convert() %>%
     read_html() %>%
     html_node("ul") %>%
-    html_nodes("li") %>%
+    html_elements("li") %>%
     html_text() %>%
     str_remove("\\[(.*)\\]\\s") %>%
     expect_equal(x)
@@ -28,7 +28,7 @@ test_that("md_list can create all list types", {
     md_convert() %>%
     read_html() %>%
     html_node("ol") %>%
-    html_nodes("li") %>%
+    html_elements("li") %>%
     html_text() %>%
     expect_equal(x)
 })
@@ -41,7 +41,7 @@ test_that("md_chunk can create all list types", {
     md_convert() %>%
     read_html() %>%
     html_node("pre") %>%
-    html_nodes("code") %>%
+    html_elements("code") %>%
     html_text(trim = TRUE) %>%
     expect_equal(y)
   x %>%
@@ -49,7 +49,7 @@ test_that("md_chunk can create all list types", {
     md_convert() %>%
     read_html() %>%
     html_node("pre") %>%
-    html_nodes("code") %>%
+    html_elements("code") %>%
     html_text(trim = TRUE) %>%
     expect_equal(y)
   x %>%
@@ -57,7 +57,7 @@ test_that("md_chunk can create all list types", {
     md_convert() %>%
     read_html() %>%
     html_node("pre") %>%
-    html_nodes("code") %>%
+    html_elements("code") %>%
     html_text(trim = TRUE) %>%
     expect_equal(y)
 })

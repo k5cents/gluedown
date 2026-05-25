@@ -27,7 +27,7 @@ has_markdown <- function() {
 }
 
 find_nodes <- function(md, node) {
-  rvest::html_nodes(xml2::read_html(md_convert(md)), node)
+  rvest::html_elements(xml2::read_html(md_convert(md)), node)
 }
 
 expect_empty <- function(object) {

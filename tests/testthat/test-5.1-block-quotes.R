@@ -25,7 +25,7 @@ test_that("md_quote can create an empty block quote (ex. 217)", {
   node <- md_quote("") %>%
     md_convert() %>%
     read_html() %>%
-    html_nodes("blockquote") %>%
+    html_elements("blockquote") %>%
     html_text(trim = TRUE)
   expect_nchar(node, 0)
 })
@@ -50,7 +50,7 @@ test_that("md_quotes with blank lines create paragraphs (ex. 222)", {
     md_convert() %>%
     read_html() %>%
     html_node("blockquote") %>%
-    html_nodes("p") %>%
+    html_elements("p") %>%
     html_text(trim = TRUE)
   expect_equal(node, text[which(text != "")])
 })
@@ -61,6 +61,6 @@ test_that("md_quote can create nested block qutoes (ex. 228)", {
   nodes <- lines %>%
     md_convert() %>%
     read_html() %>%
-    html_nodes("blockquote")
+    html_elements("blockquote")
   expect_length(nodes, 3)
 })

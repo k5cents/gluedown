@@ -104,6 +104,20 @@ test_that("md_fence tilde info string can contain backticks (ex. 116)", {
   expect_full(node)
 })
 
+test_that("md_fence trims whitespace from info string (spec 0.29)", {
+  # CommonMark 0.29: info strings trimmed of all whitespace, not just spaces
+  trimmed <- md_fence("x", info = "  r  ")
+  expect_match(trimmed, "^```r\n")
+  tab_trimmed <- md_fence("x", info = "\tr\t")
+  expect_match(tab_trimmed, "^```r\n")
+})
+
+test_that("md_fence tilde info string cannot contain tildes (spec 0.29)", {
+  # CommonMark 0.29: clarified tilde/backtick info string rules
+  expect_error(md_fence("foo", char = "~", info = "aa ~~~"))
+  expect_error(md_fence("foo", char = "~", info = "r~r"))
+})
+
 test_that("md_chunk can call each chunk type", {
   x <- deparse(md_bold)
   node <- md_chunk(x, "tick") %>% md_convert() %>% find_nodes("code")

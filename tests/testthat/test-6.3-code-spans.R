@@ -18,3 +18,9 @@ test_that("md_code double backticks if code contains backtick (ex. 339)", {
     html_text() %>%
     expect_equal("foo ` bar")
 })
+
+test_that("md_code normalizes newlines to spaces (spec 0.29)", {
+  # CommonMark: line endings in code spans are converted to spaces
+  expect_equal(as.character(md_code("foo\nbar")), "`foo bar`")
+  expect_equal(as.character(md_code("foo\nbar\nbaz")), "`foo bar baz`")
+})

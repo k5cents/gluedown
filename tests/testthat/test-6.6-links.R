@@ -84,6 +84,38 @@ test_that("md_link can create a valid <href> without title (ex. 494)", {
     expect_missing()
 })
 
+test_that("md_link wrap=TRUE produces angle-bracket destination (spec 0.30)", {
+  # CommonMark: spaces in link destinations require angle-bracket wrapping
+  result <- as.character(md_link("My File", "path/to/my file.pdf", wrap = TRUE))
+  expect_equal(result, "[My File](<path/to/my file.pdf>)")
+  result_titled <- as.character(
+    md_link("My File", "path/to/my file.pdf", title = "Doc", wrap = TRUE)
+  )
+  expect_equal(result_titled, "[My File](<path/to/my file.pdf> \"Doc\")")
+})
+
+test_that("md_label collapsed form produces [text][] (spec 0.31)", {
+  # CommonMark 0.31: collapsed reference link [text][] form
+  expect_equal(as.character(md_label("CRAN")), "[CRAN][]")
+  expect_equal(
+    as.character(md_label(c("foo", "bar"))),
+    c("[foo][]", "[bar][]")
+  )
+})
+
+test_that("md_label collapsed form resolves via md_reference (spec 0.31)", {
+  # [CRAN][] + [CRAN]: url → working link
+  node <- md_paragraph(
+    md_label("CRAN"),
+    md_reference("CRAN", "/url")
+  ) %>%
+    md_convert() %>%
+    read_html() %>%
+    html_element("a")
+  html_text(node, trim = TRUE) %>% expect_equal("CRAN")
+  html_attr(node, "href") %>% expect_equal("/url")
+})
+
 test_that("md_reference can create an <href> tag (ex. 535)", {
   # https://github.github.com/gfm/#example-535
   lines <- md_reference("bar" = "/url \"title\"")

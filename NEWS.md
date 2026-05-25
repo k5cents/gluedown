@@ -9,6 +9,21 @@
   elements are missing the `"user/repo"` format (#36).
 * Remove `mockr` from suggested dependencies; mocking now uses
   `testthat::local_mocked_bindings()` (#34).
+* Fix `md_code()` to normalize newlines to spaces within code spans, per the
+  CommonMark spec.
+* Fix `md_fence()` to trim leading/trailing whitespace from the info string,
+  per the CommonMark 0.29 spec. Tilde fences now also error when the info
+  string contains a tilde character (backtick fences already enforced this).
+* Fix `md_setext()` auto-width to measure trimmed content, so leading/trailing
+  whitespace in heading text does not inflate the underline length.
+* Add `method` argument to `md_hardline()`: `"backslash"` produces a
+  backslash hard line break (`foo\`) as an alternative to the default
+  two-trailing-spaces form.
+* Add collapsed reference link support to `md_label()`: omitting `label` now
+  produces `[text][]`, which resolves against a matching `md_reference()`.
+* Add `wrap` argument to `md_link()` and `md_image()`: `wrap = TRUE` wraps
+  the destination in angle brackets (`<url>`), required when the URL contains
+  spaces.
 
 # gluedown 1.0.9
 

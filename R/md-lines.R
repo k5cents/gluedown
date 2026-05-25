@@ -32,20 +32,30 @@ md_softline <- function(...) {
 #' @details
 #' A line break (not in a code span or HTML tag) that is preceded by two or more
 #' spaces and does not occur at the end of a block is parsed as a hard line
-#' break (rendered in HTML as a `<br />` tag)
+#' break (rendered in HTML as a `<br />` tag). CommonMark also supports a
+#' backslash before a line ending as an alternative hard line break syntax.
 #' @param ... Any number of character vectors.
-#' @return A `glue` vector with elements of `...` separated by two trailing
-#'   spaces and a single newline.
+#' @param method The syntax used to create the hard line break: `"spaces"`
+#'   appends two trailing spaces before the newline (default); `"backslash"`
+#'   appends a backslash before the newline.
+#' @return A `glue` vector with elements of `...` separated by a hard line
+#'   break and a single newline.
 #' @family inline functions
 #' @examples
 #' # compare the following
 #' md_bold(c("One", "Two"))
 #' md_hardline(md_bold(c("One", "Two")), md_italic("Three"))
+#' md_hardline("foo", "bar", method = "backslash")
 #' @importFrom glue glue_collapse
 #' @export
-md_hardline <- function(...) {
+md_hardline <- function(..., method = c("spaces", "backslash")) {
+  method <- match.arg(method)
   dots <- unlist(list(...))
-  glue::glue("{dots}  \n")
+  if (method == "backslash") {
+    glue::glue("{dots}\\")
+  } else {
+    glue::glue("{dots}  \n")
+  }
 }
 
 #' Markdown paragraphs breaks

@@ -92,7 +92,7 @@ md_setext <- function(x, level = 1, width = TRUE) {
     char <- c("=", "-")[level]
   }
   n <- if (isTRUE(width)) {
-    vapply(strsplit(x, "\n"), function(y) max(nchar(y)), FUN.VALUE = integer(1))
+    vapply(strsplit(x, "\n"), function(y) max(nchar(trimws(y))), FUN.VALUE = integer(1))
   } else {
     as.integer(width)
   }

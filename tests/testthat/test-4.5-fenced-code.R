@@ -1,15 +1,10 @@
-library(testthat)
-library(gluedown)
-library(stringr)
-library(glue)
-library(rvest)
 
 test_that("md_fence creates a simple backtick code block (ex. 89)", {
   # https://github.github.com/gfm/#example-89
   lines <- md_fence(c("<", " >"), info = NULL)
   node <- md_convert(lines) %>%
     find_nodes("pre") %>%
-    html_node("code")
+    html_element("code")
   expect_full(node)
 })
 
@@ -18,7 +13,7 @@ test_that("md_fence creates a simple tilde code block (ex. 90)", {
   lines <- md_fence(c("<", " >"), char = "`", info = NULL)
   node <- md_convert(lines) %>%
     find_nodes("pre") %>%
-    html_node("code")
+    html_element("code")
   expect_full(node)
 })
 

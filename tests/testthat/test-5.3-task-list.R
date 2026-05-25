@@ -1,8 +1,3 @@
-library(testthat)
-library(gluedown)
-library(stringr)
-library(rvest)
-library(glue)
 
 test_that("md_task creates an <ul> list with checks (ex. 279)", {
   # https://github.github.com/gfm/#example-279
@@ -11,7 +6,7 @@ test_that("md_task creates an <ul> list with checks (ex. 279)", {
   list <- lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("ul") %>%
+    html_element("ul") %>%
     html_elements("li") %>%
     html_text()
   list %>%
@@ -28,7 +23,7 @@ test_that("md_task creates an <ul> list without checks", {
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("ul") %>%
+    html_element("ul") %>%
     html_elements("li") %>%
     html_text() %>%
     str_remove("\\[.*\\]\\s") %>%

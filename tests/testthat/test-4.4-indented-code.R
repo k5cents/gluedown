@@ -1,15 +1,10 @@
-library(testthat)
-library(gluedown)
-library(stringr)
-library(glue)
-library(rvest)
 
 test_that("md_indent creates a simple code block (ex. 77)", {
   # https://github.github.com/gfm/#example-77
   lines <- md_indent(c("a simple", "  indented code block"))
   node <- md_convert(lines) %>%
     find_nodes("pre") %>%
-    html_node("code") %>%
+    html_element("code") %>%
     html_text() %>%
     str_trim() %>%
     str_squish()
@@ -33,18 +28,17 @@ test_that("md_inline creates lines without other formatting (ex. 80)", {
   expect_empty(node)
 })
 
-expect_that("md_indent doesn't interupt a paragraph (ex. 83)", {
-  skip("could not find function 'condition'")
+test_that("md_indent doesn't interupt a paragraph (ex. 83)", {
   # https://github.github.com/gfm/#example-83
   node <- c("Foo", md_indent("bar")) %>%
     md_softline() %>%
     md_convert() %>%
     read_html() %>%
-    html_node("code")
+    html_element("code")
   expect_true(is.na(node))
 })
 
-expect_that("md_indent ends after non-blank line (ex. 84)", {
+test_that("md_indent ends after non-blank line (ex. 84)", {
   # https://github.github.com/gfm/#example-84
   node <- c(md_indent("Foo"), "bar") %>%
     md_softline() %>%

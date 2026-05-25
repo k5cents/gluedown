@@ -1,8 +1,3 @@
-library(testthat)
-library(gluedown)
-library(stringr)
-library(rvest)
-library(glue)
 
 test_that("md_escape prepends ASCII punctuation with a backslash (ex. 308)", {
   # https://github.github.com/gfm/#example-308
@@ -19,6 +14,6 @@ test_that("md_escape prevents italic emphasis (ex. 311)", {
     md_escape() %>%
     md_convert() %>%
     read_html() %>%
-    html_node("em")
+    html_element("em")
   expect_true(is.na(node))
 })

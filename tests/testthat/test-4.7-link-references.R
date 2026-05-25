@@ -1,8 +1,3 @@
-library(testthat)
-library(gluedown)
-library(stringr)
-library(glue)
-library(rvest)
 
 test_that("md_reference creates a simple <href> tag (ex. 161)", {
   # https://github.github.com/gfm/#example-161

@@ -1,8 +1,3 @@
-library(testthat)
-library(gluedown)
-library(stringr)
-library(rvest)
-library(glue)
 
 test_that("md_link can create a valid <href> tag (ex. 493)", {
   # https://github.github.com/gfm/#example-493
@@ -10,19 +5,19 @@ test_that("md_link can create a valid <href> tag (ex. 493)", {
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("a") %>%
+    html_element("a") %>%
     html_text(trim = TRUE) %>%
     expect_equal("link")
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("a") %>%
+    html_element("a") %>%
     html_attr("href") %>%
     expect_equal("/url")
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("a") %>%
+    html_element("a") %>%
     html_attr("title") %>%
     expect_equal("title")
 })
@@ -33,19 +28,19 @@ test_that("md_link can create <href> tags with a named vector", {
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("a") %>%
+    html_element("a") %>%
     html_text(trim = TRUE) %>%
     expect_equal("link")
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("a") %>%
+    html_element("a") %>%
     html_attr("href") %>%
     expect_equal("/url")
   # lines %>%
   #   md_convert() %>%
   #   read_html() %>%
-  #   html_node("a") %>%
+  #   html_element("a") %>%
   #   html_attr("title") %>%
   #   expect_equal("title")
 })
@@ -55,13 +50,13 @@ test_that("md_link can create <href> tags with a named vector", {
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("a") %>%
+    html_element("a") %>%
     html_text(trim = TRUE) %>%
     expect_equal("link")
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("a") %>%
+    html_element("a") %>%
     html_attr("href") %>%
     expect_equal("/url")
 })
@@ -72,19 +67,19 @@ test_that("md_link can create a valid <href> without title (ex. 494)", {
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("a") %>%
+    html_element("a") %>%
     html_text(trim = TRUE) %>%
     expect_equal("link")
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("a") %>%
+    html_element("a") %>%
     html_attr("href") %>%
     expect_equal("/url")
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("a") %>%
+    html_element("a") %>%
     html_attr("title") %>%
     expect_missing()
 })
@@ -95,22 +90,22 @@ test_that("md_reference can create an <href> tag (ex. 535)", {
   md_paragraph("[foo][bar]", lines) %>%
     md_convert() %>%
     read_html() %>%
-    html_node("p") %>%
-    html_node("a") %>%
+    html_element("p") %>%
+    html_element("a") %>%
     html_text(trim = TRUE) %>%
     expect_equal("foo")
   md_paragraph("[foo][bar]", lines) %>%
     md_convert() %>%
     read_html() %>%
-    html_node("p") %>%
-    html_node("a") %>%
+    html_element("p") %>%
+    html_element("a") %>%
     html_attr("href") %>%
     expect_equal("/url")
   md_paragraph("[foo][bar]", lines) %>%
     md_convert() %>%
     read_html() %>%
-    html_node("p") %>%
-    html_node("a") %>%
+    html_element("p") %>%
+    html_element("a") %>%
     html_attr("title") %>%
     expect_equal("title")
 })
@@ -123,8 +118,8 @@ test_that("md_label and md_reference can create an <href> tag (ex. 535)", {
   ) %>%
     md_convert() %>%
     read_html() %>%
-    html_node("p") %>%
-    html_node("a") %>%
+    html_element("p") %>%
+    html_element("a") %>%
     html_text(trim = TRUE) %>%
     expect_equal("foo")
   md_paragraph(
@@ -133,8 +128,8 @@ test_that("md_label and md_reference can create an <href> tag (ex. 535)", {
   ) %>%
     md_convert() %>%
     read_html() %>%
-    html_node("p") %>%
-    html_node("a") %>%
+    html_element("p") %>%
+    html_element("a") %>%
     html_attr("href") %>%
     expect_equal("/url")
 })
@@ -147,8 +142,8 @@ test_that("md_label and md_reference can create an <href> tag (ex. 535)", {
   ) %>%
     md_convert() %>%
     read_html() %>%
-    html_node("p") %>%
-    html_node("a") %>%
+    html_element("p") %>%
+    html_element("a") %>%
     html_text(trim = TRUE) %>%
     expect_equal("foo")
   md_paragraph(
@@ -157,8 +152,8 @@ test_that("md_label and md_reference can create an <href> tag (ex. 535)", {
   ) %>%
     md_convert() %>%
     read_html() %>%
-    html_node("p") %>%
-    html_node("a") %>%
+    html_element("p") %>%
+    html_element("a") %>%
     html_attr("href") %>%
     expect_equal("/url")
 })

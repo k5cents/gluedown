@@ -1,7 +1,3 @@
-library(testthat)
-library(gluedown)
-library(glue)
-library(rvest)
 
 test_that("md_rule creates <hr> tags (ex. 13)", {
   # https://github.github.com/gfm/#example-13
@@ -77,7 +73,7 @@ test_that("md_rule can creat a <h2> withing a hypeh bullet list (ex. 31)", {
   lines <- c("Foo", md_rule(space = TRUE)) %>% md_bullet("-")
   node <- md_convert(lines) %>%
     find_nodes("li") %>%
-    html_node("hr")
+    html_element("hr")
   expect_false(is.na(node[2]))
 })
 

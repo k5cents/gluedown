@@ -1,8 +1,3 @@
-library(testthat)
-library(gluedown)
-library(stringr)
-library(rvest)
-library(glue)
 
 test_that("md_bullet creates an <ul> tag with vector text (ex. 281)", {
   # https://github.github.com/gfm/#example-281
@@ -11,7 +6,7 @@ test_that("md_bullet creates an <ul> tag with vector text (ex. 281)", {
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("ul") %>%
+    html_element("ul") %>%
     html_elements("li") %>%
     html_text() %>%
     expect_equal(text)
@@ -24,7 +19,7 @@ test_that("md_order creates an <ol> tag with vector text (ex. 282)", {
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("ol") %>%
+    html_element("ol") %>%
     html_elements("li") %>%
     html_text() %>%
     expect_equal(text)
@@ -36,7 +31,7 @@ test_that("md_order works without sequence", {
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("ol") %>%
+    html_element("ol") %>%
     html_elements("li") %>%
     html_text() %>%
     expect_equal(text)
@@ -48,7 +43,7 @@ test_that("md_order can pad when markers differ in length", {
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("ol") %>%
+    html_element("ol") %>%
     html_elements("li") %>%
     html_text() %>%
     expect_equal(text)

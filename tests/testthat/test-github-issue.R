@@ -1,10 +1,3 @@
-library(testthat)
-library(gluedown)
-library(stringr)
-library(rvest)
-library(knitr)
-library(glue)
-
 test_that("md_issue creates GitHub auto-link URL", {
   issue <- md_issue("k5cents/gluedown", 1)
   convert <- str_c("https://github.com/", str_replace(issue, "#", "/issues/"))

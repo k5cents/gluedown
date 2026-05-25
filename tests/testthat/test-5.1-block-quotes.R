@@ -1,8 +1,3 @@
-library(testthat)
-library(gluedown)
-library(stringr)
-library(rvest)
-library(glue)
 
 test_that("md_quote creates a <blockquote> tag with other blocks (ex. 206)", {
   # https://github.github.com/gfm/#example-206
@@ -10,12 +5,12 @@ test_that("md_quote creates a <blockquote> tag with other blocks (ex. 206)", {
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("blockquote") %>%
+    html_element("blockquote") %>%
     expect_full()
   lines %>%
     md_convert() %>%
     read_html() %>%
-    html_node("h1") %>%
+    html_element("h1") %>%
     html_text() %>%
     expect_equal("Foo")
 })
@@ -37,7 +32,7 @@ test_that("md_quotes with soft lines create a single quote (ex. 221)", {
     md_quote() %>%
     md_convert() %>%
     read_html() %>%
-    html_node("blockquote") %>%
+    html_element("blockquote") %>%
     html_text(trim = TRUE) %>%
     expect_equal(expected = str_c(text, collapse = "\n"))
 })
@@ -49,7 +44,7 @@ test_that("md_quotes with blank lines create paragraphs (ex. 222)", {
     md_quote() %>%
     md_convert() %>%
     read_html() %>%
-    html_node("blockquote") %>%
+    html_element("blockquote") %>%
     html_elements("p") %>%
     html_text(trim = TRUE)
   expect_equal(node, text[which(text != "")])

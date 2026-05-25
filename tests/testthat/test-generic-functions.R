@@ -1,8 +1,3 @@
-library(testthat)
-library(gluedown)
-library(stringr)
-library(rvest)
-library(glue)
 
 test_that("md_list can create all list types", {
   x <- c("foo", "bar", "baz")
@@ -10,7 +5,7 @@ test_that("md_list can create all list types", {
     md_list(type = "bullet") %>%
     md_convert() %>%
     read_html() %>%
-    html_node("ul") %>%
+    html_element("ul") %>%
     html_elements("li") %>%
     html_text() %>%
     expect_equal(x)
@@ -18,7 +13,7 @@ test_that("md_list can create all list types", {
     md_list(type = "task") %>%
     md_convert() %>%
     read_html() %>%
-    html_node("ul") %>%
+    html_element("ul") %>%
     html_elements("li") %>%
     html_text() %>%
     str_remove("\\[(.*)\\]\\s") %>%
@@ -27,7 +22,7 @@ test_that("md_list can create all list types", {
     md_list(type = "order") %>%
     md_convert() %>%
     read_html() %>%
-    html_node("ol") %>%
+    html_element("ol") %>%
     html_elements("li") %>%
     html_text() %>%
     expect_equal(x)
@@ -40,7 +35,7 @@ test_that("md_chunk can create all list types", {
     md_chunk(type = "indent") %>%
     md_convert() %>%
     read_html() %>%
-    html_node("pre") %>%
+    html_element("pre") %>%
     html_elements("code") %>%
     html_text(trim = TRUE) %>%
     expect_equal(y)
@@ -48,7 +43,7 @@ test_that("md_chunk can create all list types", {
     md_chunk(type = "tick") %>%
     md_convert() %>%
     read_html() %>%
-    html_node("pre") %>%
+    html_element("pre") %>%
     html_elements("code") %>%
     html_text(trim = TRUE) %>%
     expect_equal(y)
@@ -56,7 +51,7 @@ test_that("md_chunk can create all list types", {
     md_chunk(type = "tilde") %>%
     md_convert() %>%
     read_html() %>%
-    html_node("pre") %>%
+    html_element("pre") %>%
     html_elements("code") %>%
     html_text(trim = TRUE) %>%
     expect_equal(y)
@@ -80,7 +75,7 @@ test_that("md_convert works without dissalowing HTML", {
   html <- md_convert("<title>Title</title>", disallow = FALSE)
   html %>%
     read_html() %>%
-    html_node("title") %>%
+    html_element("title") %>%
     html_text() %>%
     expect_equal("Title")
 })

@@ -1,7 +1,3 @@
-library(testthat)
-library(gluedown)
-library(glue)
-library(rvest)
 
 test_that("md_heading creates tags <h2> through <h6> (ex. 32)", {
   # https://github.github.com/gfm/#example-32

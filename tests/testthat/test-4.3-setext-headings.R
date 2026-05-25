@@ -1,7 +1,3 @@
-library(testthat)
-library(gluedown)
-library(glue)
-library(rvest)
 
 test_that("md_setext errors at levels greater than 2", {
   expect_error(md_setext("Foo", 3))

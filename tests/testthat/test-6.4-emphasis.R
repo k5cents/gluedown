@@ -1,7 +1,3 @@
-library(testthat)
-library(gluedown)
-library(rvest)
-library(glue)
 
 test_that("md_italic creates a <em> tag (ex. 360)", {
   # https://github.github.com/gfm/#example-360
@@ -9,7 +5,7 @@ test_that("md_italic creates a <em> tag (ex. 360)", {
   md_italic(text) %>%
     md_convert() %>%
     read_html() %>%
-    html_node("em") %>%
+    html_element("em") %>%
     html_text() %>%
     expect_equal(text)
 })
@@ -20,7 +16,7 @@ test_that("md_bold creates a <strong> tag (ex. 387)", {
   md_bold(text) %>%
     md_convert() %>%
     read_html() %>%
-    html_node("strong") %>%
+    html_element("strong") %>%
     html_text() %>%
     expect_equal(text)
 })

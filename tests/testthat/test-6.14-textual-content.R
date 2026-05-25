@@ -1,7 +1,3 @@
-library(testthat)
-library(gluedown)
-library(rvest)
-library(glue)
 
 test_that("md_text creates a vector of glue class", {
    expect_s3_class(md_text("foo"), "glue")
@@ -13,7 +9,7 @@ test_that("md_text creates plain textual content (ex. 671)", {
   md_text(text) %>%
     md_convert() %>%
     read_html() %>%
-    html_node("p") %>%
+    html_element("p") %>%
     html_text() %>%
     expect_equal(text)
 })

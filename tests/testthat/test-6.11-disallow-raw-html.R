@@ -1,7 +1,3 @@
-library(testthat)
-library(gluedown)
-library(rvest)
-library(glue)
 
 test_that("md_disallow removes certain tags (ex. 653)", {
   # https://github.github.com/gfm/#example-653

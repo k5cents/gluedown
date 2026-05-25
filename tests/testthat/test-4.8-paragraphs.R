@@ -1,8 +1,3 @@
-library(testthat)
-library(gluedown)
-library(stringr)
-library(glue)
-library(rvest)
 
 test_that("md_paragraph creates two simple paragraphs (ex. 189)", {
   # https://github.github.com/gfm/#example-189

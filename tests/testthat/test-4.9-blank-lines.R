@@ -1,8 +1,3 @@
-library(testthat)
-library(gluedown)
-library(stringr)
-library(rvest)
-library(glue)
 
 test_that("md_blank creates lines that are ignored (ex. 197)", {
   # https://github.github.com/gfm/#example-197
@@ -18,12 +13,12 @@ test_that("md_blank creates lines that are ignored (ex. 197)", {
   )
   md_convert(lines) %>%
     read_html() %>%
-    html_node("p") %>%
+    html_element("p") %>%
     html_text() %>%
     expect_equal("aaa")
   md_convert(lines) %>%
     read_html() %>%
-    html_node("h1") %>%
+    html_element("h1") %>%
     html_text() %>%
     expect_equal("aaa")
 })

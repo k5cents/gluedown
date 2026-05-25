@@ -46,7 +46,7 @@ from <code><a href="md_reference.html">md_reference()</a></code>.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">md_label</span><span class="op">(</span><span class="va">text</span>, <span class="va">label</span>, <span class="va">...</span>, .name <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">md_label</span><span class="op">(</span><span class="va">text</span>, label <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span>, .name <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -58,7 +58,8 @@ from <code><a href="md_reference.html">md_reference()</a></code>.</p>
 
 
 <dt id="arg-label">label<a class="anchor" aria-label="anchor" href="#arg-label"></a></dt>
-<dd><p>A link label that is referenced elsewhere in the document.</p></dd>
+<dd><p>A link label that is referenced elsewhere in the document. If
+<code>NULL</code> (the default), a collapsed reference link <code>[text][]</code> is produced.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -81,6 +82,10 @@ with elements the concatenated arguments.</p>
     <p>A link label begins with a left bracket and ends with the first right bracket
 that is not backslash-escaped. Between these brackets there must be at least
 one non-whitespace character.</p>
+<p>When <code>label</code> is omitted, a <em>collapsed reference link</em> (<code>[text][]</code>) is
+produced. The link label is then implicitly the same as the link text
+(matched case-insensitively), so a matching <code><a href="md_reference.html">md_reference()</a></code> definition
+must use the same text as its label.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -104,6 +109,8 @@ one non-whitespace character.</p>
 <span class="r-in"><span><span class="fu">md_label</span><span class="op">(</span>text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"one"</span>, <span class="st">"two"</span><span class="op">)</span>, label <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [one][1]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [two][2]</span>
+<span class="r-in"><span><span class="fu">md_label</span><span class="op">(</span><span class="st">"CRAN"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [CRAN][]</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

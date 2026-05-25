@@ -7,7 +7,7 @@ reference from
 ## Usage
 
 ``` r
-md_label(text, label, ..., .name = FALSE)
+md_label(text, label = NULL, ..., .name = FALSE)
 ```
 
 ## Arguments
@@ -18,7 +18,8 @@ md_label(text, label, ..., .name = FALSE)
 
 - label:
 
-  A link label that is referenced elsewhere in the document.
+  A link label that is referenced elsewhere in the document. If `NULL`
+  (the default), a collapsed reference link `[text][]` is produced.
 
 - ...:
 
@@ -40,6 +41,12 @@ with elements the concatenated arguments.
 A link label begins with a left bracket and ends with the first right
 bracket that is not backslash-escaped. Between these brackets there must
 be at least one non-whitespace character.
+
+When `label` is omitted, a *collapsed reference link* (`[text][]`) is
+produced. The link label is then implicitly the same as the link text
+(matched case-insensitively), so a matching
+[`md_reference()`](https://k5cents.github.io/gluedown/reference/md_reference.md)
+definition must use the same text as its label.
 
 ## See also
 
@@ -63,4 +70,6 @@ md_label(CRAN = "The CRAN website")
 md_label(text = c("one", "two"), label = 1:2)
 #> [one][1]
 #> [two][2]
+md_label("CRAN")
+#> [CRAN][]
 ```

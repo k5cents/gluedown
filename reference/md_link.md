@@ -7,7 +7,7 @@ This inline is rendered as the `<href>` HTML tag.
 ## Usage
 
 ``` r
-md_link(text, url, title = NULL, ..., .name = FALSE)
+md_link(text, url, title = NULL, ..., .name = FALSE, wrap = FALSE)
 ```
 
 ## Arguments
@@ -34,6 +34,11 @@ md_link(text, url, title = NULL, ..., .name = FALSE)
 
   logical; if `TRUE`, the pairs in `...` will be used instead of any
   values supplied to `x` and `url`.
+
+- wrap:
+
+  logical; if `TRUE`, the URL is wrapped in angle brackets (`<url>`),
+  which is required when the destination contains spaces.
 
 ## Value
 
@@ -88,4 +93,6 @@ md_link(1:5, glue::glue("https://{state.abb[1:5]}.gov"), state.name[1:5])
 #> [5](https://CA.gov "California")
 md_link(CRAN = "https://cran.r-project.org/")
 #> [CRAN](https://cran.r-project.org/)
+md_link("My File", "path/to/my file.pdf", wrap = TRUE)
+#> [My File](<path/to/my file.pdf>)
 ```

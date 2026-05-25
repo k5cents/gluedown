@@ -76,8 +76,10 @@ filtered when rendering HTML output:</p><ul><li><p><code>&lt;title&gt;</code></p
 </ul><p>Filtering is done by replacing the leading <code>&lt;</code> with the entity <code>&amp;lt;</code>. These
 tags are chosen in particular as they change how HTML is interpreted in a way
 unique to them (i.e. nested HTML is interpreted differently), and this is
-usually undesireable (sic) in the context of other rendered Markdown content.</p>
-<p>All other HTML tags are left untouched.</p>
+usually undesirable in the context of other rendered Markdown content.</p>
+<p>All other HTML tags are left untouched. Note that CommonMark 0.31.2 added
+<code>&lt;search&gt;</code> to the list of recognised block-level HTML elements, but it is
+not part of the GFM tagfilter list and is therefore not filtered here.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

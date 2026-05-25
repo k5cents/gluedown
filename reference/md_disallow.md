@@ -46,10 +46,13 @@ be filtered when rendering HTML output:
 Filtering is done by replacing the leading `<` with the entity `&lt;`.
 These tags are chosen in particular as they change how HTML is
 interpreted in a way unique to them (i.e. nested HTML is interpreted
-differently), and this is usually undesireable (sic) in the context of
-other rendered Markdown content.
+differently), and this is usually undesirable in the context of other
+rendered Markdown content.
 
-All other HTML tags are left untouched.
+All other HTML tags are left untouched. Note that CommonMark 0.31.2
+added `<search>` to the list of recognised block-level HTML elements,
+but it is not part of the GFM tagfilter list and is therefore not
+filtered here.
 
 ## See also
 

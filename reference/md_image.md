@@ -9,7 +9,7 @@ the expected arguments of `md_image()` are reversed from
 ## Usage
 
 ``` r
-md_image(url, alt = "", title = NULL, ..., .name = FALSE)
+md_image(url, alt = "", title = NULL, ..., .name = FALSE, wrap = FALSE)
 ```
 
 ## Arguments
@@ -37,9 +37,12 @@ md_image(url, alt = "", title = NULL, ..., .name = FALSE)
   logical; if `TRUE`, the pairs in `...` will be used instead of any
   values supplied to `x` and `url`.
 
-## Value
+- wrap:
 
-A `glue` vector of collapsed display text and associated URLs.
+  logical; if `TRUE`, the URL is wrapped in angle brackets (`<url>`),
+  which is required when the destination contains spaces.
+
+## Value
 
 A `glue` vector of collapsed alternative text and associated URLs.
 

@@ -41,3 +41,8 @@ Useful links:
 
 **Maintainer**: Kiernan Nicholls <k5cents@gmail.com>
 ([ORCID](https://orcid.org/0000-0002-9229-7897)) \[copyright holder\]
+
+Authors:
+
+- Kiernan Nicholls <k5cents@gmail.com>
+  ([ORCID](https://orcid.org/0000-0002-9229-7897)) \[copyright holder\]

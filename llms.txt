@@ -1,0 +1,223 @@
+# gluedown
+
+The goal of `gluedown` is to ease the transition from R’s powerful
+vectors to formatted markdown text. The package uses
+[`glue()`](https://github.com/tidyverse/glue) to wrap character vectors
+in markdown syntax. With the [`knitr`](https://github.com/yihui/knitr)
+package, users can print the formatted vectors directly to the body of a
+markdown document.
+
+## Installation
+
+Install the release version from
+[CRAN](https://cran.r-project.org/package=gluedown):
+
+``` r
+
+install.packages("gluedown")
+```
+
+The development version can be installed from
+[GitHub](https://github.com/k5cents/gluedown):
+
+``` r
+
+# install.packages("remotes")
+remotes::install_github("k5cents/gluedown")
+```
+
+## Usage
+
+``` r
+
+library(gluedown)
+library(stringr)
+library(rvest)
+```
+
+Use the `results='asis'` chunk option to print the formatted output to
+the body of a document.
+
+```` markdown
+```{r results='asis'}
+md_order(x = c("Legislative", "Executive", "Judicial"))
+```
+````
+
+1.  Legislative
+2.  Executive
+3.  Judicial
+
+### Lists
+
+Printing vectors as markdown lists was the initial inspiration for the
+package. Here, we use five different functions to create five elements
+of a new vector.
+
+``` r
+
+inlines <- c(
+  md_bold("Alabama"),
+  md_code("Alaska"),
+  md_link("Arizona" = "https://az.gov"),
+  md_italic("Arkansas"),
+  md_strike("California")
+)
+print(inlines)
+#> [1] "**Alabama**"               "`Alaska`"                 
+#> [3] "[Arizona](https://az.gov)" "_Arkansas_"               
+#> [5] "~~California~~"
+```
+
+Then we can print that new vector as a list, including the inline
+formatting.
+
+``` r
+
+md_bullet(inlines)
+```
+
+- **Alabama**
+- `Alaska`
+- [Arizona](https://az.gov)
+- *Arkansas*
+- ~~California~~
+
+### Inline
+
+You can also use `gluedown` to format R [inline code
+results](https://rmarkdown.rstudio.com/lesson-4.html).
+
+``` r
+
+name <- sample(state.name, size = 1)
+abb <- state.abb[match(name, state.name)]
+# `r md_bold(name)`
+# `r md_italic(abb)`
+```
+
+In this case, our randomly selected state is **New Hampshire**, which
+has the abbreviation *NH*.
+
+### Pipes
+
+All functions are designed to fit within the tidyverse ecosystem and
+work with [pipes](https://magrittr.tidyverse.org/reference/pipe.html).
+
+``` r
+
+read_html("https://w.wiki/A58") %>% 
+  html_node("blockquote") %>% 
+  html_text(trim = TRUE) %>% 
+  str_remove("\\[.*\\]") %>% 
+  md_quote()
+```
+
+> We the People of the United States, in Order to form a more perfect
+> Union, establish Justice, insure domestic Tranquility, provide for the
+> common defence, promote the general Welfare, and secure the Blessings
+> of Liberty to ourselves and our Posterity, do ordain and establish
+> this Constitution for the United States of America.
+
+### Extensions
+
+The package primarily uses [GitHub Flavored
+Markdown](https://github.github.com/gfm/), with support for useful
+extensions like [task
+lists](https://help.github.com/en/articles/about-task-lists).
+
+``` r
+
+legislation <- c("Houses passes", "Senate concurs", "President signs")
+md_task(legislation, check = 1:2)
+```
+
+Houses passes
+
+Senate concurs
+
+President signs
+
+## Contribute
+
+Please note that the `gluedown` project is released with a [Contributor
+Code of
+Conduct](https://k5cents.github.io/gluedown/CODE_OF_CONDUCT.html). By
+contributing to this project, you agree to abide by its terms.
+
+# Package index
+
+## All functions
+
+- [`has_knitr()`](https://k5cents.github.io/gluedown/reference/has_knitr.md)
+  [`has_markdown()`](https://k5cents.github.io/gluedown/reference/has_knitr.md)
+  : Check if the user has the 'knitr' package installed
+- [`md_autolink()`](https://k5cents.github.io/gluedown/reference/md_autolink.md)
+  : Markdown autolink
+- [`md_blank()`](https://k5cents.github.io/gluedown/reference/md_blank.md)
+  : Markdown blank line
+- [`md_bold()`](https://k5cents.github.io/gluedown/reference/md_bold.md)
+  : Markdown bold emphasis
+- [`md_bullet()`](https://k5cents.github.io/gluedown/reference/md_bullet.md)
+  : Markdown bullet list
+- [`md_chunk()`](https://k5cents.github.io/gluedown/reference/md_chunk.md)
+  : Markdown code block
+- [`md_code()`](https://k5cents.github.io/gluedown/reference/md_code.md)
+  : Markdown code span
+- [`md_convert()`](https://k5cents.github.io/gluedown/reference/md_convert.md)
+  : Convert markdown to HTML
+- [`md_disallow()`](https://k5cents.github.io/gluedown/reference/md_disallow.md)
+  : Disallow certain raw HTML
+- [`md_escape()`](https://k5cents.github.io/gluedown/reference/md_escape.md)
+  : Backslash escape all punctuation
+- [`md_fence()`](https://k5cents.github.io/gluedown/reference/md_fence.md)
+  : Markdown fenced code block
+- [`md_hardline()`](https://k5cents.github.io/gluedown/reference/md_hardline.md)
+  : Markdown hard line breaks
+- [`md_heading()`](https://k5cents.github.io/gluedown/reference/md_heading.md)
+  : Markdown ATX headings
+- [`md_image()`](https://k5cents.github.io/gluedown/reference/md_image.md)
+  : Markdown image links
+- [`md_indent()`](https://k5cents.github.io/gluedown/reference/md_indent.md)
+  : Markdown indented code block
+- [`md_issue()`](https://k5cents.github.io/gluedown/reference/md_issue.md)
+  : Markdown GitHub issue
+- [`md_italic()`](https://k5cents.github.io/gluedown/reference/md_italic.md)
+  : Markdown italic emphasis
+- [`md_label()`](https://k5cents.github.io/gluedown/reference/md_label.md)
+  : Markdown link label
+- [`md_link()`](https://k5cents.github.io/gluedown/reference/md_link.md)
+  : Markdown inline link (6.6)
+- [`md_list()`](https://k5cents.github.io/gluedown/reference/md_list.md)
+  : Markdown generic list
+- [`md_order()`](https://k5cents.github.io/gluedown/reference/md_order.md)
+  : Markdown ordered list
+- [`md_paragraph()`](https://k5cents.github.io/gluedown/reference/md_paragraph.md)
+  : Markdown paragraphs breaks
+- [`md_quote()`](https://k5cents.github.io/gluedown/reference/md_quote.md)
+  : Markdown block quotes
+- [`md_reference()`](https://k5cents.github.io/gluedown/reference/md_reference.md)
+  : Markdown link reference
+- [`md_rule()`](https://k5cents.github.io/gluedown/reference/md_rule.md)
+  : Markdown horizontal rule (4.1)
+- [`md_setext()`](https://k5cents.github.io/gluedown/reference/md_setext.md)
+  : Markdown Setext headings (4.3)
+- [`md_softline()`](https://k5cents.github.io/gluedown/reference/md_softline.md)
+  : Markdown soft line breaks
+- [`md_strike()`](https://k5cents.github.io/gluedown/reference/md_strike.md)
+  : Markdown strikethrough (extension)
+- [`md_table()`](https://k5cents.github.io/gluedown/reference/md_table.md)
+  : Markdown tables (4.10 extension)
+- [`md_task()`](https://k5cents.github.io/gluedown/reference/md_task.md)
+  : Markdown task list (extension)
+- [`md_text()`](https://k5cents.github.io/gluedown/reference/md_text.md)
+  : Markdown textual content
+
+# Articles
+
+### All vignettes
+
+- [GitHub Flavored
+  Markdown](https://k5cents.github.io/gluedown/articles/github-spec.md):
+- [Markdown Literal
+  Programming](https://k5cents.github.io/gluedown/articles/literal-programming.md):
